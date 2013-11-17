@@ -110,6 +110,10 @@ form .error span {
     max-width: 305px;
     text-align: left;
 }
+#loginpg #frmSignup .control-label{
+    padding-top: 0px;
+    
+}
 
 
 /* ------------       MISC Utilities    ------------------- */
