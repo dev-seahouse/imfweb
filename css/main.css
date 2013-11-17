@@ -110,6 +110,50 @@ form .error span {
     max-width: 305px;
     text-align: left;
 }
+
+/*#loginpg .login-format {
+  background-color: #edeff1;
+  padding: 24px 23px 20px;
+  position: relative;
+  border-radius: 6px;
+}*/
+/*#loginpg .login-format:before {
+  content: '';
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  border-color: transparent #edeff1 transparent transparent;
+  height: 0;
+  position: absolute;
+  left: -12px;
+  top: 35px;
+  width: 0;
+  -webkit-transform: rotate(360deg);
+}*/
+#loginpg .login-format .control-group {
+  margin-bottom: 6px;
+  position: relative;
+}
+#loginpg .login-format .login-field {
+  border-color: transparent;
+  font-size: 17px;
+  text-indent: 3px;
+}
+#loginpg .login-format .login-field:focus {
+  border-color: #1abc9c;
+}
+#loginpg .login-format .login-field:focus + .login-field-icon {
+  color: #1abc9c;
+}
+#loginpg .login-format .login-field-icon {
+  color: #bfc9ca;
+  font-size: 16px;
+  position: absolute;
+  right: 13px;
+  top: 45px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
 #loginpg #frmSignup .control-label{
     padding-top: 0px;
     

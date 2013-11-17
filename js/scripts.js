@@ -6,7 +6,7 @@ jQuery(document).ready(function() {
         var password = $(this).find('.password').val();
         if(username == '') {
             $(this).find('.error').fadeOut('fast', function(){
-                $(this).css('top', '37px');
+                $(this).css('top', '41px');
             });
             $(this).find('.error').fadeIn('fast', function(){
                 $(this).parent().find('.username').focus();
