@@ -1,49 +1,294 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--   <link  rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <head>
+        <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
+        <meta charset="UTF-8">
+        <title>
+            Document
+        </title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"><!--   <link  rel="stylesheet" href="css/bootstrap-theme.min.css">
     -->
-    <link rel="stylesheet" href="css/flat-ui.css">
-    <link rel="stylesheet" type="text/css" href="css/supersized.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="css/flat-ui.css">
+        <link rel="stylesheet" type="text/css" href="css/supersized.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css"><!--[if lt IE 9]>
     <script type="text/javascript" src="js/html5shive.js"></script>
     <![endif]-->
-</head>
-
-<body>
-    <div class="container" id="loginpg">
-        <h1>I'M Flexible</h1>
-        <form action="" method="post" role="form">
-            <div class="form-group">
-                <label for="username" class="">Username</label>
-                <input type="text" name="username" class="username form-control" placeholder="Username">
+    </head>
+    <body>
+        <div class="container" id="loginpg">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="header clearfix">
+                        <img src="img/logo.png" alt="IMF logo" title="IMF logo" class="img-circle">
+                        <h1>
+                            I'M Flexible
+                        </h1>
+                    </div>
+                    <form action="" method="post" role="form" id="form">
+                        <div class="form-group">
+                            <label for="username" class="">Username</label> <input type="text" name="username" class="username form-control" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Password</label> <input type="password" name="password" class="password form-control" placeholder="Password">
+                        </div><button type="submit" class="btn btn-primary btn-lg">Sign me in</button>
+                        <div class="error">
+                            <span>+</span>
+                        </div>
+                        <hr>
+                    </form>
+                    <div>
+                        <form action="" role="form" method="post">
+                            <button type="submit" class="btn btn-info btn-long">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="header">
+                        <h1>
+                            Sign Up
+                        </h1>
+                    </div>
+                    <form action="" method="post" name="" id="frmSignup">
+                        <fieldset>
+                            <legend>Personal information</legend>
+                            <ul class="formList">
+                                <li>
+                                    <label for="name" class="text">Name</label> <input type="text" name="name" id="name" tabindex="10">
+                                </li>
+                                <li>
+                                    <label for="email" class="text">Email</label> <input type="email" name="email" id="email" tabindex="20">
+                                </li>
+                                <li>
+                                    <label for="address" class="text">Address</label> <input type="text" name="address" id="address" tabindex="30">
+                                </li>
+                                <li>
+                                    <label for="city" class="text">City</label> <input type="text" name="city" id="city" tabindex="40">
+                                </li>
+                                <li>
+                                    <label for="state" class="text">State</label> <select name="state" id="state" tabindex="50">
+                                        <option value="" selected="selected">
+                                            - select
+                                        </option>
+                                        <option value="AL">
+                                            Alabama
+                                        </option>
+                                        <option value="AK">
+                                            Alaska
+                                        </option>
+                                        <option value="AZ">
+                                            Arizona
+                                        </option>
+                                        <option value="AR">
+                                            Arkansas
+                                        </option>
+                                        <option value="CA">
+                                            California
+                                        </option>
+                                        <option value="CO">
+                                            Colorado
+                                        </option>
+                                        <option value="CT">
+                                            Connecticut
+                                        </option>
+                                        <option value="DE">
+                                            Delaware
+                                        </option>
+                                        <option value="DC">
+                                            District Of Columbia
+                                        </option>
+                                        <option value="FL">
+                                            Florida
+                                        </option>
+                                        <option value="GA">
+                                            Georgia
+                                        </option>
+                                        <option value="HI">
+                                            Hawaii
+                                        </option>
+                                        <option value="ID">
+                                            Idaho
+                                        </option>
+                                        <option value="IL">
+                                            Illinois
+                                        </option>
+                                        <option value="IN">
+                                            Indiana
+                                        </option>
+                                        <option value="IA">
+                                            Iowa
+                                        </option>
+                                        <option value="KS">
+                                            Kansas
+                                        </option>
+                                        <option value="KY">
+                                            Kentucky
+                                        </option>
+                                        <option value="LA">
+                                            Louisiana
+                                        </option>
+                                        <option value="ME">
+                                            Maine
+                                        </option>
+                                        <option value="MD">
+                                            Maryland
+                                        </option>
+                                        <option value="MA">
+                                            Massachusetts
+                                        </option>
+                                        <option value="MI">
+                                            Michigan
+                                        </option>
+                                        <option value="MN">
+                                            Minnesota
+                                        </option>
+                                        <option value="MS">
+                                            Mississippi
+                                        </option>
+                                        <option value="MO">
+                                            Missouri
+                                        </option>
+                                        <option value="MT">
+                                            Montana
+                                        </option>
+                                        <option value="NE">
+                                            Nebraska
+                                        </option>
+                                        <option value="NV">
+                                            Nevada
+                                        </option>
+                                        <option value="NH">
+                                            New Hampshire
+                                        </option>
+                                        <option value="NJ">
+                                            New Jersey
+                                        </option>
+                                        <option value="NM">
+                                            New Mexico
+                                        </option>
+                                        <option value="NY">
+                                            New York
+                                        </option>
+                                        <option value="NC">
+                                            North Carolina
+                                        </option>
+                                        <option value="ND">
+                                            North Dakota
+                                        </option>
+                                        <option value="OH">
+                                            Ohio
+                                        </option>
+                                        <option value="OK">
+                                            Oklahoma
+                                        </option>
+                                        <option value="OR">
+                                            Oregon
+                                        </option>
+                                        <option value="PA">
+                                            Pennsylvania
+                                        </option>
+                                        <option value="RI">
+                                            Rhode Island
+                                        </option>
+                                        <option value="SC">
+                                            South Carolina
+                                        </option>
+                                        <option value="SD">
+                                            South Dakota
+                                        </option>
+                                        <option value="TN">
+                                            Tennessee
+                                        </option>
+                                        <option value="TX">
+                                            Texas
+                                        </option>
+                                        <option value="UT">
+                                            Utah
+                                        </option>
+                                        <option value="VT">
+                                            Vermont
+                                        </option>
+                                        <option value="VA">
+                                            Virginia
+                                        </option>
+                                        <option value="WA">
+                                            Washington
+                                        </option>
+                                        <option value="WV">
+                                            West Virginia
+                                        </option>
+                                        <option value="WI">
+                                            Wisconsin
+                                        </option>
+                                        <option value="WY">
+                                            Wyoming
+                                        </option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <fieldset class="study">
+                            <legend>Areas of study</legend>
+                            <ul>
+                                <li>
+                                    <label for="program" class="text">Program(s) of Interest</label> <select name="program" multiple id="program" tabindex="60">
+                                        <option value="animation">
+                                            Animation
+                                        </option>
+                                        <option value="fashion">
+                                            Fashion + Textile Design
+                                        </option>
+                                        <option value="film">
+                                            Filmmaking
+                                        </option>
+                                        <option value="fine">
+                                            Fine Art + Visual Culture
+                                        </option>
+                                        <option value="graphic">
+                                            Graphic Design
+                                        </option>
+                                        <option value="interior">
+                                            Interior Design
+                                        </option>
+                                        <option value="photo">
+                                            Photography
+                                        </option>
+                                        <option value="product">
+                                            Product Design
+                                        </option>
+                                    </select>
+                                </li>
+                                <li class="group">If you would like information regarding our financial aid programs, please check the one(s) that apply to you:
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="in" id="in" tabindex="70"> <label for="in">New York Resident</label><br>
+                                    <input type="checkbox" name="fsa" id="fsa" tabindex="80"> <label for="fsa">Federal Student Aid</label><br>
+                                    <input type="checkbox" name="scholarship" id="scholarship" tabindex="90"> <label for="scholarship">Scholarship Programs</label><br>
+                                    <input type="checkbox" name="loans" id="loans" tabindex="100"> <label for="loans">Student Loan Programs</label>
+                                </li>
+                                <li class="group">Would you like to schedule a campus tour?
+                                </li>
+                                <li>
+                                    <label><input type="radio" name="tour" value="yes" id="tour_0" tabindex="110">yes</label><br>
+                                    <label><input type="radio" name="tour" value="no" id="tour_1" tabindex="120">not at this time</label>
+                                </li>
+                                <li>
+                                    <label for="comments" class="text">Additional comments</label> 
+                                    <textarea name="comments" id="comments" tabindex="130">
+</textarea>
+                                </li>
+                                <li>
+                                    <input type="submit" name="submit" id="submit" value="Request Info" tabindex="140">
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                 <label for="username" >Password</label>
-                <input type="password" name="password" class="password form-control" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg ">Sign me in</button>
-            <div class="error">
-                <span>+</span>
-            </div>
-        </form>
-        
-        <div id="signupform">
-        <form action="" role="form" method="post">
-            <hr class="clearfix">
-            <button type="submit" class="btn btn-info btn-long">Sign Up</button>
-        </form>
-        </div>
-    </div>
-    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script src="js/supersized.3.2.7.min.js"></script>
-    <script src="js/supersized-init.js"></script>
-    <script src="js/scripts.js"></script>
-
-</body>
+        </div><script type="text/javascript" src="js/jquery-2.0.3.min.js">
+</script> <script type="text/javascript" src="js/bootstrap.min.js">
+</script> <script src="js/supersized.3.2.7.min.js">
+</script> <script src="js/supersized-init.js">
+</script> <script src="js/scripts.js">
+</script>
+    </body>
 </html>
