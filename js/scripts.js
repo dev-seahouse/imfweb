@@ -1,12 +1,12 @@
 
 jQuery(document).ready(function() {
 
-    $('.page-container form').submit(function(){
+    $('.container form').submit(function(){
         var username = $(this).find('.username').val();
         var password = $(this).find('.password').val();
         if(username == '') {
             $(this).find('.error').fadeOut('fast', function(){
-                $(this).css('top', '27px');
+                $(this).css('top', '37px');
             });
             $(this).find('.error').fadeIn('fast', function(){
                 $(this).parent().find('.username').focus();
@@ -15,7 +15,7 @@ jQuery(document).ready(function() {
         }
         if(password == '') {
             $(this).find('.error').fadeOut('fast', function(){
-                $(this).css('top', '96px');
+                $(this).css('top', '143px');
             });
             $(this).find('.error').fadeIn('fast', function(){
                 $(this).parent().find('.password').focus();
@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
         }
     });
 
-    $('.page-container form .username, .page-container form .password').keyup(function(){
+    $('.container form .username, .container form .password').keyup(function(){
         $(this).parent().find('.error').fadeOut('fast');
     });
 

@@ -1,40 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-<!--   <link  rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
-	<link rel="stylesheet" href="css/flat-ui.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--   <link  rel="stylesheet" href="css/bootstrap-theme.min.css">
+    -->
+    <link rel="stylesheet" href="css/flat-ui.css">
     <link rel="stylesheet" type="text/css" href="css/supersized.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-     <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script type="text/javascript" src="js/html5shive.js"></script>
-     <![endif]-->
+    <![endif]-->
 </head>
 
 <body>
-        <div class="page-container">
-            <h1>Login</h1>
-            <form action="" method="post">
-                <input type="text" name="username" class="username" placeholder="Username">
-                <input type="password" name="password" class="password" placeholder="Password">
-                <button type="submit">Sign me in</button>
-                <div class="error"><span>+</span></div>
-            </form>
-            <div class="connect">
-                <p>Or connect with:</p>
-                <p>
-                    <a class="facebook" href=""></a>
-                    <a class="twitter" href=""></a>
-                </p>
+    <div class="container" id="loginpg">
+        <h1>I'M Flexible</h1>
+        <form action="" method="post" role="form">
+            <div class="form-group">
+                <label for="username" class="">Username</label>
+                <input type="text" name="username" class="username form-control" placeholder="Username">
             </div>
+            <div class="form-group">
+                 <label for="username" >Password</label>
+                <input type="password" name="password" class="password form-control" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg ">Sign me in</button>
+            <div class="error">
+                <span>+</span>
+            </div>
+        </form>
+        
+        <div id="signupform">
+        <form action="" role="form" method="post">
+            <hr class="clearfix">
+            <button type="submit" class="btn btn-info btn-long">Sign Up</button>
+        </form>
         </div>
-	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    </div>
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script src="js/supersized.3.2.7.min.js"></script>
+    <script src="js/supersized.3.2.7.min.js"></script>
     <script src="js/supersized-init.js"></script>
     <script src="js/scripts.js"></script>
-	
+
 </body>
 </html>
