@@ -86,11 +86,6 @@ form .error span {
 #loginpg{
     margin-top: 7%;
 }
-#loginpg form {
-    position: relative;
-    max-width: 305px;
-    text-align: left;
-}
 
 #loginpg h1{
     color:#3498DB;
@@ -109,6 +104,13 @@ form .error span {
     margin-top:45px;
     letter-spacing: 5px;
 }
+
+#loginpg #frmLogin {
+    position: relative;
+    max-width: 305px;
+    text-align: left;
+}
+
 
 /* ------------       MISC Utilities    ------------------- */
 /* Horizonal line divider */
