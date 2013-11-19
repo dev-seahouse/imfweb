@@ -85,6 +85,7 @@ form .error span {
 /* ------------- login page --------------------*/
 #loginpg{
     margin-top: 6%;
+    margin-bottom:5%;
 }
 
 #loginpg h1{
