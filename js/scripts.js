@@ -1,4 +1,6 @@
 
+
+/* -------------- Login Page function-------------*/
 jQuery(document).ready(function() {
 
     $('.container form').submit(function(){
@@ -27,5 +29,13 @@ jQuery(document).ready(function() {
     $('.container form .username, .container form .password').keyup(function(){
         $(this).parent().find('.error').fadeOut('fast');
     });
+    
+    $('#signUpField').hide();
+
 
 });
+
+
+
+
+
