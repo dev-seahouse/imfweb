@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
             return false;
         }
         else {
-            window.location.href="test.html";
+            window.location.href="dashboard.html";
             return false;
         }
     });

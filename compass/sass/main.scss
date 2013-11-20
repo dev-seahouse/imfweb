@@ -9,9 +9,14 @@ button {
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
 }
+// Temporary fix until header icon placed.
+header .navbar .toggle-nav {
+    margin-left:0
+}
 
-/*------ Page Specific styles ------*/
+/* ------  Page Specific styles ------ */
 
+/* ------  index.html  ---------------*/
 #loginpg {
     margin-top: 6%;
     margin-bottom: 5%;
@@ -107,3 +112,7 @@ button {
         padding-top: 0px;
     }
 }
+
+/* =============== End of index.html ============= */ 
+
+/* =============== Dashboard.html ================ */
