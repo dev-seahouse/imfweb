@@ -1,0 +1,192 @@
+@media (max-width: 767px) {
+  /* line 81, ../sass/theme/_utilities.scss */
+  .text-center-xs {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  /* line 87, ../sass/theme/_utilities.scss */
+  .img-responsive-sm {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  /* line 95, ../sass/theme/_utilities.scss */
+  .no-mg-t-xs {
+    margin-top: 0 !important;
+  }
+}
+
+/* line 101, ../sass/theme/_utilities.scss */
+.no-mg-t {
+  margin-top: 0 !important;
+}
+
+/* line 105, ../sass/theme/_utilities.scss */
+.no-mg-b {
+  margin-bottom: 0 !important;
+}
+
+/* line 179, ../sass/theme/_utilities.scss */
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 183, ../sass/theme/_utilities.scss */
+.btn-long {
+  width: 300px;
+}
+
+/* ---------------- Fancy HR ---------------- */
+/* line 189, ../sass/theme/_utilities.scss */
+hr .fancy-line {
+  border: 0;
+  height: 1px;
+}
+/* line 192, ../sass/theme/_utilities.scss */
+hr .fancy-line:before {
+  top: -0.5em;
+  height: 1em;
+}
+/* line 196, ../sass/theme/_utilities.scss */
+hr .fancy-line:after {
+  content: '';
+  height: 0.5em;
+  top: 1px;
+}
+/* line 201, ../sass/theme/_utilities.scss */
+hr .fancy-line:before, hr .fancy-line:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+}
+/* line 206, ../sass/theme/_utilities.scss */
+hr .fancy-line, hr .fancy-line:before {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+/* line 212, ../sass/theme/_utilities.scss */
+body, hr.fancy-line:after {
+  background: #f4f4f4;
+}
+
+/* ------------- End of Fancy HR ------------ */
+/* ---- Global enhancements  ---- */
+/* line 6, ../sass/main.scss */
+button {
+  -o-transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  -ms-transition: all .2s;
+}
+
+/*------ Page Specific styles ------*/
+/* line 15, ../sass/main.scss */
+#loginpg {
+  margin-top: 6%;
+  margin-bottom: 5%;
+  color: #fff;
+  /* Elemenets */
+  /* IDs */
+}
+/* line 20, ../sass/main.scss */
+#loginpg h1 {
+  color: #3498db;
+  margin-top: 45px;
+  letter-spacing: 5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  font-weight: 700;
+}
+/* line 30, ../sass/main.scss */
+#loginpg button {
+  height: 44px;
+  margin-top: 0px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+/* line 43, ../sass/main.scss */
+#loginpg form .error {
+  display: none;
+  position: absolute;
+  top: 27px;
+  right: -55px;
+  width: 40px;
+  height: 40px;
+  background: #2d2d2d;
+  /* browsers that don't support rgba */
+  background: rgba(45, 45, 45, 0.25);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+/* line 58, ../sass/main.scss */
+#loginpg form .error span {
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -o-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+/* line 72, ../sass/main.scss */
+#loginpg #frmLogin {
+  position: relative;
+  max-width: 305px;
+  text-align: left;
+}
+/* line 77, ../sass/main.scss */
+#loginpg .img-circle {
+  float: left;
+  overflow: hidden;
+}
+/* line 81, ../sass/main.scss */
+#loginpg .control-group {
+  margin-bottom: 6px;
+  position: relative;
+}
+/* line 85, ../sass/main.scss */
+#loginpg .login-field {
+  border-color: transparent;
+  font-size: 17px;
+  text-indent: 3px;
+}
+/* line 89, ../sass/main.scss */
+#loginpg .login-field:focus {
+  border-color: #1abc9c;
+}
+/* line 91, ../sass/main.scss */
+#loginpg .login-field:focus + .login-field-icon {
+  color: #1abc9c;
+}
+/* line 96, ../sass/main.scss */
+#loginpg .login-field-icon {
+  color: #bfc9ca;
+  font-size: 16px;
+  position: absolute;
+  right: 13px;
+  top: 45px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+/* line 105, ../sass/main.scss */
+#loginpg #frmSignup .control-label {
+  font-size: .9em;
+  padding-top: 0px;
+}

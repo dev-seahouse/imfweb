@@ -3,7 +3,7 @@
 /* -------------- Login Page function-------------*/
 jQuery(document).ready(function() {
 
-    $('.container form').submit(function(){
+    $('#loginpg.container form').submit(function(){
         var username = $(this).find('.username').val();
         var password = $(this).find('.password').val();
         if(username == '') {

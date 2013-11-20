@@ -2,173 +2,108 @@
 @import "theme/variables";
 @import "theme/utilities";
 
-#loginpg {
-    margin-top: 6%;
-    margin-bottom: 5%;
-    h1 {
-        color: $peterriver;
-        margin-top: 45px;
-        letter-spacing: 5px;
-    }
-    .img-circle {
-        float: left;
-        overflow: hidden;
-    }
-    button {
-        margin-top: 0px;
-    }
-    #frmLogin {
-        position: relative;
-        max-width: 305px;
-        text-align: left;
-    }
-}
-
-#loginpg #frmLogin {
-    position: relative;
-    max-width: 305px;
-    text-align: left;
-}
-
-/*#loginpg .login-format {
-  background-color: #edeff1;
-  padding: 24px 23px 20px;
-  position: relative;
-  border-radius: 6px;
-}*/
-/*#loginpg .login-format:before {
-  content: '';
-  border-style: solid;
-  border-width: 12px 12px 12px 0;
-  border-color: transparent #edeff1 transparent transparent;
-  height: 0;
-  position: absolute;
-  left: -12px;
-  top: 35px;
-  width: 0;
-  -webkit-transform: rotate(360deg);
-}*/
-#loginpg .login-format .control-group {
-    margin-bottom: 6px;
-    position: relative;
-}
-
-#loginpg .login-format .login-field {
-    border-color: transparent;
-    font-size: 17px;
-    text-indent: 3px;
-}
-
-#loginpg .login-format .login-field:focus {
-    border-color: #1abc9c;
-}
-
-#loginpg .login-format .login-field:focus + .login-field-icon {
-    color: #1abc9c;
-}
-
-#loginpg .login-format .login-field-icon {
-    color: #bfc9ca;
-    font-size: 16px;
-    position: absolute;
-    right: 13px;
-    top: 45px;
-    -webkit-transition: 0.25s;
-    transition: 0.25s;
-}
-
-#loginpg #frmSignup .control-label {
-    font-size: .9em;
-    padding-top: 0px;
-}
-
-#loginpg button {
-    height: 44px;
-    margin-top: 25px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
-    border: 1px solid #ff730e;
-    -moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+/* ---- Global enhancements  ---- */
+button {
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
 }
 
-#loginpg .btn-long {
-    width: 300px;
-}
+/*------ Page Specific styles ------*/
 
-#loginpg h1 {
-    font-size: 30px;
-    font-weight: 700;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-}
-
-#loginpg form .error {
-    display: none;
-    position: absolute;
-    top: 27px;
-    right: -55px;
-    width: 40px;
-    height: 40px;
-    background: #2d2d2d;
-    /* browsers that don't support rgba */
-    background: rgba(45, 45, 45, 0.25);
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-#loginpg form .error span {
-    display: inline-block;
-    margin-left: 2px;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 40px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -o-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-}
-
-/* ------------       MISC Utilities    ------------------- */
-/* Horizonal line divider */
-hr.fancy-line {
-    border: 0;
-    height: 1px;
-}
-
-hr.fancy-line:before {
-    top: -0.5em;
-    height: 1em;
-}
-
-hr.fancy-line:after {
-    content: '';
-    height: 0.5em;
-    top: 1px;
-}
-
-hr.fancy-line:before, hr.fancy-line:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-}
-
-hr.fancy-line, hr.fancy-line:before {
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 75%);
-}
-
-body, hr.fancy-line:after {
-    background: #f4f4f4;
+#loginpg {
+    margin-top: 6%;
+    margin-bottom: 5%;
+    color: #fff;
+    /* Elemenets */
+    h1 {
+        color: $peterriver;
+        margin-top: 45px;
+        letter-spacing: 5px;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        font: {
+            size: 30px;
+            weight: 700;
+        };
+    }
+    button {
+        height: 44px;
+        margin-top: 0px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        -moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    form {
+        .error {
+            display: none;
+            position: absolute;
+            top: 27px;
+            right: -55px;
+            width: 40px;
+            height: 40px;
+            background: #2d2d2d;
+            /* browsers that don't support rgba */
+            background: rgba(45, 45, 45, 0.25);
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .error span {
+            display: inline-block;
+            margin-left: 2px;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 40px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            -o-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+        }
+    }
+    /* IDs */
+    #frmLogin {
+        position: relative;
+        max-width: 305px;
+        text-align: left;
+    }
+    .img-circle {
+        float: left;
+        overflow: hidden;
+    }
+    .control-group {
+        margin-bottom: 6px;
+        position: relative;
+    }
+    .login-field {
+        border-color: transparent;
+        font-size: 17px;
+        text-indent: 3px;
+        &:focus {
+            border-color: #1abc9c;
+            + .login-field-icon {
+                color: #1abc9c;
+            }
+        }
+    }
+    .login-field-icon {
+        color: #bfc9ca;
+        font-size: 16px;
+        position: absolute;
+        right: 13px;
+        top: 45px;
+        -webkit-transition: 0.25s;
+        transition: 0.25s;
+    }
+    #frmSignup .control-label {
+        font-size: .9em;
+        padding-top: 0px;
+    }
 }
