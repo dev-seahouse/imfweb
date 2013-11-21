@@ -1,0 +1,118 @@
+@import "compass";
+@import "theme/variables";
+@import "theme/utilities";
+
+/* ---- Global enhancements  ---- */
+button {
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+// Temporary fix until header icon placed.
+header .navbar .toggle-nav {
+    margin-left:0
+}
+
+/* ------  Page Specific styles ------ */
+
+/* ------  index.html  ---------------*/
+#loginpg {
+    margin-top: 6%;
+    margin-bottom: 5%;
+    color: #fff;
+    /* Elemenets */
+    h1 {
+        color: $peterriver;
+        margin-top: 45px;
+        letter-spacing: 5px;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        font: {
+            size: 30px;
+            weight: 700;
+        };
+    }
+    button {
+        height: 44px;
+        margin-top: 0px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        -moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    form {
+        .error {
+            display: none;
+            position: absolute;
+            top: 27px;
+            right: -55px;
+            width: 40px;
+            height: 40px;
+            background: #2d2d2d;
+            /* browsers that don't support rgba */
+            background: rgba(45, 45, 45, 0.25);
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .error span {
+            display: inline-block;
+            margin-left: 2px;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 40px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            -o-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+        }
+    }
+    /* IDs */
+    #frmLogin {
+        position: relative;
+        max-width: 305px;
+        text-align: left;
+    }
+    .img-circle {
+        float: left;
+        overflow: hidden;
+    }
+    .control-group {
+        margin-bottom: 6px;
+        position: relative;
+    }
+    .login-field {
+        border-color: transparent;
+        font-size: 17px;
+        text-indent: 3px;
+        &:focus {
+            border-color: #1abc9c;
+            + .login-field-icon {
+                color: #1abc9c;
+            }
+        }
+    }
+    .login-field-icon {
+        color: #bfc9ca;
+        font-size: 16px;
+        position: absolute;
+        right: 13px;
+        top: 45px;
+        -webkit-transition: 0.25s;
+        transition: 0.25s;
+    }
+    #frmSignup .control-label {
+        font-size: .9em;
+        padding-top: 0px;
+    }
+}
+
+/* =============== End of index.html ============= */ 
+
+/* =============== Dashboard.html ================ */
