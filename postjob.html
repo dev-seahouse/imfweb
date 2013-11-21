@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
   <title>IMF Management Application - Dashboard</title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <meta content='text/html;charset=utf-8' http-equiv='content-type'>
@@ -407,11 +408,11 @@
           <div class='box'>
             <div class='box-content box-padding'>
               <div class='fuelux'>
-<!--  ===========        Wizard header starts here ========== -->
+                <!--  ===========        Wizard header starts here ========== -->
                 <div class='wizard'>
                   <ul class='steps'>
                     <li class='active' data-target='#step1'>
-                      <span class='step'>1. Enter Job Title</span>
+                      <span class='step'>1</span>
                     </li>
                     <li data-target='#step2'>
                       <span class='step'>2</span>
@@ -434,20 +435,133 @@
                     </button>
                   </div>
                 </div>
-<!-- ============      Wizards header ends here =============================-->
+                <!-- ============      Wizards header ends here =============================-->
                 <div class='step-content'>
                   <hr class='hr-normal'>
                   <form class="form" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
                     <input name="authenticity_token" type="hidden" />
-<!-- ==========       Step one - Enter job title starts here =============== -->
+                    <!-- ==========       Step one - Enter job title starts here =============== -->
                     <div class='step-pane active' id='step1'>
-                      <div class='form-group'>
-                        <label class='control-label' for='inputText'>Text field</label>
-                        <div class='controls'>
-                          <input class='form-control' id='inputText' placeholder='Text field' type='text'></div>
+                      <div class='row'>
+                        <div class='col-sm-12'>
+                          <div class='box bordered-box blue-border'>
+                            <div class='box-content box-double-padding'>
+                              <fieldset>
+                                <div class='col-sm-4'>
+                                  <div class='box'>
+                                    <div class='lead'>
+                                      <i class='icon-file text-contrast'></i>
+                                      Job Definitions
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class='col-sm-7 col-sm-offset-1'>
+                                  <div class='form-group'>
+                                    <label>Job Title</label>
+                                    <input class='form-control' id="inputJobTitle" class="inputJobTitle" type='text' placeholder='eg.Hotel Room Cleaner'></div>
+                                  <div class='form-group'>
+                                    <label>Select Catetory</label>
+                                    <select class='select2 form-control'>
+                                      <option value='Administration'>Administration</option>
+                                      <option value='Bartender'>Bartender</option>
+                                      <option value='Bellhop'>Bellhop</option> 
+                                      <option value='NM'>Cashier</option>     
+                                      <option value='Customer Relation'>Customer Relation</option>
+                                      <option value='Concierges'>Concierges</option>
+                                      <option value="Consultant">Consultant</option>
+                                      <option value='Driver'>Driver</option>
+                                      <option value='Event Assistant'>Event Assistant</option>
+                                      <option value='Event Planner'>Event Planner</option>                                    
+                                      <option value='Front Desk'>Front Desk</option>
+                                      <option value='Gaming'>Game</option>
+                                      <option value='Housekeeping'>Housekeeping</option>
+                                      <option value='Hostee'>Hostee</option>
+                                      <option value='Health Care'>Health Care</option>
+                                      <option value='Room Service'>Room Service</option>
+                                      <option value='Store'>Store</option>
+                                      <option value='Kitchen Staff'>Kitchen Staff</option>
+                                      <option value='Management'>Management</option>
+                                      <option value="Marketing">Marketing</option>
+                                      <option value="Medical">Medical</option>
+                                      <option value='Purchase'>Purchase</option>
+                                      <option value='Sales'>Sales</option>
+                                      <option value="Sports">Sports</option>
+                                      <option value="Reservation">Reservation</option>
+                                      <option value='Velet'>Security</option>
+                                      <option value='Technician'>Technician</option>       
+                                      <option value='Velet'>Velet</option>
+                                    </select>
+                                    <p class='help-block'>
+                                      <small class='text-muted'>
+                                        Please choose a job category best describes the position required
+                                      </small>
+                                    </p>
+                                  </div>
+                                  <div class='form-group'>
+                                    <label>Job Scope</label>
+                                    <input class='form-control' id='inputJobScope' name="inputJobScope" maxlength="300" placeholder='eg.Clean VIP guest rooms.' type='text'></div>
+                                  <div class='form-group'>
+                                    <label>Additional Description<span class="small text-muted">(Optional)</span></label>
+                                    <input class='form-control' id='city' placeholder='eg.Clean VIP guest rooms.' type='text'>
+                                  </div>
+                                </div>
+                              </fieldset>
+                              <hr class='hr-normal'>
+                              <fieldset>
+                                <div class='col-sm-4'>
+                                  <div class='box'>
+                                    <div class='lead'>
+                                      <i class='icon-ambulance contrast'></i>
+                                      Dapibus suscipit arcu
+                                    </div>
+                                    <small class='text-muted'>
+                                      Proin eu nibh ut urna tristique rhoncus. Sed euismod, quam sed dignissim imperdiet, nulla leo vehicula mi, a sagittis lacus augue nec sapien.
+                                    </small>
+                                  </div>
+                                </div>
+                                <div class='col-sm-7 col-sm-offset-1'>
+                                  <div class='form-group'>
+                                    <label>Disabled input</label>
+                                    <input class='form-control' disabled id='full-name1' type='text'></div>
+                                  <div class='form-group'>
+                                    <label class='checkbox-inline'>
+                                      <input id='inlineCheckbox1' type='checkbox' value='option1'>Inline 1</label>
+                                    <label class='checkbox-inline'>
+                                      <input id='inlineCheckbox2' type='checkbox' value='option2'>Inline 2</label>
+                                    <label class='checkbox-inline'>
+                                      <input id='inlineCheckbox3' type='checkbox' value='option3'>Inline 3</label>
+                                  </div>
+                                  <div class='form-group'>
+                                    <label>Money</label>
+                                    <div class='row'>
+                                      <div class='col-sm-6 col-md-6 col-lg-4'>
+                                        <div class='input-group'>
+                                          <span class='input-group-addon'>$</span>
+                                          <input class='form-control input-lg text-right' id='appendedPrependedInput' type='text'>
+                                          <span class='input-group-addon'>.00</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                              <div class='form-actions'>
+                                <div class='row'>
+                                  <div class='col-sm-7 col-sm-offset-5'>
+                                    <div class='btn btn-primary btn-lg'>
+                                      <i class='icon-save'></i>
+                                      Save
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-<!-- ===========      Step two - Location and dates starts here ============= -->
+                    <!-- ===========      Step two - Location and dates starts here ============= -->
                     <div class='step-pane' id='step2'>
                       <div class='form-group'>
                         <label class='control-label' for='inputPassword'>Password field</label>
@@ -484,7 +598,7 @@
         </div>
       </div>
     </div>
-      <!-- ==============    Wizard ends here =========== --> 
+    <!-- ==============    Wizard ends here =========== -->
     <footer id='footer'>
       <div class='footer-wrapper'>
         <div class='row'>
@@ -520,7 +634,8 @@
 <!-- / demo file [not required!] -->
 <script src="assets/javascripts/demo.js" type="text/javascript"></script>
 <!-- / START - page related files and scripts [optional] -->
-    <script src="assets/javascripts/plugins/fuelux/wizard.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/fuelux/wizard.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/select2/select2.js" type="text/javascript"></script>
 <!-- / END - page related files and scripts [optional] -->
 </body>
 </html>
