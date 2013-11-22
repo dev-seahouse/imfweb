@@ -411,7 +411,7 @@
               <div class='box-content box-padding'>
                 <div class='fuelux'>
                   <!--  ===========        Wizard header starts here ========== -->
-                  <div class='wizard'>
+                  <div class='wizard' id="MyWizard">
                     <ul class='steps'>
                       <li class='active' data-target='#step1'>
                         <span class='step'>Step 1</span>
@@ -501,7 +501,8 @@
                                     </div>
                                     <div class='form-group'>
                                       <label>Job Scope</label>
-                                      <input class='form-control' id='inputJobScope' name="inputJobScope" maxlength="300" placeholder='eg.Clean VIP guest rooms.' type='text'></div>
+                                      <input class='form-control' id='inputJobScope' name="inputJobScope" maxlength="300" placeholder='eg.Clean VIP guest rooms.' type='text'>
+                                    </div>
                                     <div class='form-group'>
                                       <label>
                                         Additional Description
@@ -530,19 +531,8 @@
                                       </label>
                                       <textarea class='char-counter autosize form-control' rows='2' maxlength='300' data-char-allowed='300' data-char-warning='250'style='margin-bottom: 0;'></textarea>
                                     </div>
-                                  </div>
+                                  </div>                              
                                 </fieldset>
-                                <div class='form-actions'>
-                                  <div class='row'>
-                                    <div class='col-sm-7 col-sm-offset-5'>
-                                      <div class='btn btn-primary btn-lg'>
-                                        <i class='icon-save'></i>
-                                        Save
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
                               </div>
                             </div>
                           </div>
@@ -578,8 +568,17 @@
                       </div>
                     </form>
                   </div>
-
                   <!-- ======= End of step content ======= --> 
+                        <div class='form-actions'style="margin-top:0;">
+                          <div class='row'>
+                            <div class='col-sm-7 col-sm-offset-5'>
+                              <div class='btn btn-primary btn-lg pull-right' style="margin-right:13px;" id="btnWizardNext">
+                                <i class='icon-arrow-right'></i>
+                                Next
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                 </div>
               </div>
             </div>
@@ -628,5 +627,14 @@
 <script src="assets/javascripts/plugins/fuelux/wizard.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/select2/select2.js" type="text/javascript"></script>
 <!-- / END - page related files and scripts [optional] -->
+<script>
+      $('#btnWizardPrev').on('click', function() {
+      $('#MyWizard').wizard('previous');
+    });
+    $('#btnWizardNext').on('click', function() {
+      $('#MyWizard').wizard('next','foo');
+    });
+
+</script>
 </body>
 </html>
