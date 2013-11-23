@@ -462,12 +462,12 @@
                                 <div class='col-sm-7 col-sm-offset-1'>
                                     <div class='form-group'>
                                         <label>Job Title</label>
-                                        <input class='form-control' id="inputJobTitle"
-                                               name="inputJobTitle" type='text'
+                                        <input class='form-control' id="txtJobTitle"
+                                               name="txtJobTitle" type='text'
                                                placeholder='eg.Hotel Room Cleaner'></div>
                                     <div class='form-group'>
                                         <label>Select Category</label>
-                                        <select class='select2 form-control'>
+                                        <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
                                             <option value='Administration'>Administration</option>
                                             <option value='Bartender'>Bartender</option>
                                             <option value='Bellhop'>Bellhop</option>
@@ -509,7 +509,7 @@
                                     <div class='form-group'>
                                         <label>Job Scope</label>
                                         <input class='form-control' id='inputJobScope'
-                                               name="inputJobScope" maxlength="300"
+                                               name="txtJobScope" maxlength="300"
                                                placeholder='eg.Clean VIP guest rooms.' type='text'>
                                     </div>
                                     <div class='form-group'>
@@ -545,7 +545,7 @@
                                         <textarea class='char-counter autosize form-control'
                                                   rows='2' maxlength='300' data-char-allowed='300'
                                                   data-char-warning='250'
-                                                  style='margin-bottom: 0;'></textarea>
+                                                  style='margin-bottom: 0;' id="txtJobRequirement" name="txtJobRequirement"></textarea>
                                     </div>
                                 </div>
                             </fieldset>
@@ -554,10 +554,21 @@
                                 <div class="col-sm-4">
                                     <div class="box">
                                         <div class="lead">
-                                            <i class="icon-filter contrast"></i>&nbspNumber of Jobs
+                                            <i class="icon-question contrast"></i>&nbspNumber required
                                         </div>
+                                        <small class='text-muted'>How many people are needed?
+                                        </small>
                                     </div>
                                 </div>
+                                <div class='col-sm-7 col-sm-offset-1'>
+                                    <div class='form-group'>
+                                        <label>
+                                            Numbers needed
+                                        </label>
+                                        <input class="form-control" type="number" min="1" id="txtNumRequired" name="txtNumRequired">
+                                    </div>
+                                </div>
+
                             </fieldset>
                         </div>
                     </div>
@@ -577,7 +588,26 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="box bordered-box no-mg-b">
-                        <div class="box-content box-double-padding">
+                        <div class="box-content box-double-padding-sm">
+                            <fieldset>
+                                <div class="col-sm-4">
+                                    <div class="box">
+                                        <div class='lead'>
+                                            <i class='icon-location-arrow text-contrast'></i> Job Location
+                                        </div>
+                                        <small class='text-muted'>Where should job seekers report?
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class='col-sm-7 col-sm-offset-1'>
+                                    <div class='form-group'>
+                                        <label>
+                                            Numbers needed
+                                        </label>
+                                        <input class="form-control" type="text" placeholder="" id="txtAddress" name="txtAddress">
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
                     <!-- ======= Next Button field   ======= -->
@@ -598,6 +628,11 @@
                 <div class="col-sm-12">
                     <div class="box bordered-box no-mg-b">
                         <div class="box-content box-double-padding">
+                            <fieldset>
+                                <div class="col-sm-4">
+
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
                     <!-- ======= Next Button field   ======= -->
@@ -617,6 +652,11 @@
                 <div class="col-sm-12">
                     <div class="box bordered-box no-mg-b">
                         <div class="box-content box-double-padding">
+                            <fieldset>
+                                <div class="col-sm-4">
+
+                                </div>
+                            </fieldset>
                         </div>
                         <!-- ======= Submit Button field   ======= -->
                         <div class='form-actions form-actions-padding text-right no-mg-t'>
