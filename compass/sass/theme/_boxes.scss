@@ -152,13 +152,18 @@
     }
 
     &.box-double-padding {
-      padding: 40px;
+       padding: 40px;
 
-      .box-toolbox {
-        padding: 20px;
+       .box-toolbox {
+         padding: 20px;
 
-        &.box-toolbox-top { margin: -40px -40px 40px -40px; }
-        &.box-toolbox-bottom { margin: 40px -40px -40px -40px; }
+         &.box-toolbox-top { margin: -40px -40px 40px -40px; }
+         &.box-toolbox-bottom { margin: 40px -40px -40px -40px; }
+       }
+     }
+    &.box-double-padding-sm{
+      @include sm-plus{
+        padding: 40px;
       }
     }
   }

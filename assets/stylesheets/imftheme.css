@@ -10138,7 +10138,13 @@ body.without-footer #footer {
 .box .box-content.box-double-padding .box-toolbox.box-toolbox-bottom {
   margin: 40px -40px -40px -40px;
 }
-/* line 166, ../../compass/sass/theme/_boxes.scss */
+@media (min-width: 768px) {
+  /* line 164, ../../compass/sass/theme/_boxes.scss */
+  .box .box-content.box-double-padding-sm {
+    padding: 40px;
+  }
+}
+/* line 171, ../../compass/sass/theme/_boxes.scss */
 .box.box-transparent {
   background: none;
   padding: 0;
@@ -10147,7 +10153,7 @@ body.without-footer #footer {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-/* line 172, ../../compass/sass/theme/_boxes.scss */
+/* line 177, ../../compass/sass/theme/_boxes.scss */
 .box.box-transparent .box-content {
   background: transparent;
   border: none;
@@ -10156,13 +10162,13 @@ body.without-footer #footer {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-/* line 180, ../../compass/sass/theme/_boxes.scss */
+/* line 185, ../../compass/sass/theme/_boxes.scss */
 .box.box-bordered {
   border-style: solid;
   border-width: 2px;
   border-color: #dddddd;
 }
-/* line 185, ../../compass/sass/theme/_boxes.scss */
+/* line 190, ../../compass/sass/theme/_boxes.scss */
 .box.box-bordered .box-content {
   border-left: none;
   border-right: none;
