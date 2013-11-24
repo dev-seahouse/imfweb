@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-
+    <link rel="stylesheet" type="text/css" href="jquery-addresspicker-master/demos/demo.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -595,7 +595,7 @@
                                         <div class='lead'>
                                             <i class='icon-location-arrow text-contrast'></i> Job Location
                                         </div>
-                                        <small class='text-muted'>Where should job seekers report?
+                                        <small class='text-muted'>Where should job seekers report to?
                                         </small>
                                     </div>
                                 </div>
@@ -604,7 +604,25 @@
                                         <label>
                                             Type your Address here
                                         </label>
-                                        <input class="form-control" type="text" placeholder="" id="txtAddress" name="txtAddress">
+                                        <input class="form-control" type="text" placeholder="Zip code/Street Address" id="txtAddress" name="txtAddress">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="box box-bordered">
+                                            <div class="box box-content">
+                                                <div id="map"></div>
+                                                <div id="legend">You can drag and drop the marker to the correct location</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label>
+                                            Instruction
+                                        </label>
+                                        <span class="small text-muted">&nbsp(Optional)</span>
+                                        <textarea class='char-counter autosize form-control'
+                                                  rows='2' maxlength='150' data-char-allowed='150'
+                                                  data-char-warning='100'
+                                                  style='margin-bottom: 0;' id="txtInstruction" name="txtInstruction" placeholder="eg.Report at front gate"></textarea>
                                     </div>
                                 </div>
                             </fieldset>
@@ -735,13 +753,15 @@
         $('#MyWizard').wizard('previous');
     });
     $('.btnWizardNext').on('click', function () {
+        setTimeout(function(){ resetMap()}, 100);
         $('#MyWizard').wizard('next', 'foo');
+
     });
 </script>
 <script>
     $(function() {
         var addresspickerMap = $( "#txtAddress" ).addresspicker({
-            regionBias: "SG",
+            regionBias: "null",
             componentsFilter: 'country:SG',
             updateCallback: showCallback,
             elements: {
@@ -772,6 +792,13 @@
         }
 
     });
+
+    $(".btn-next").click(function(){setTimeout(function(){ resetMap()}, 100)});
+
+    function resetMap(){
+        google.maps.event.trigger(map, 'resize');
+    }
+
 </script>
 </body>
 </html>
