@@ -428,11 +428,11 @@
         </li>
     </ul>
     <div class='actions'>
-        <button class='btn btn-xs btn-prev'>
+        <button class='btn btn-xs btn-prev resetMap'>
             <i class='icon-arrow-left'></i>
             Prev
         </button>
-        <button class='btn btn-xs btn-success btn-next' data-last='Finish'>
+        <button class='btn btn-xs btn-success btn-next resetMap' data-last='Finish'>
             Next
             <i class='icon-arrow-right'></i>
         </button>
@@ -619,7 +619,7 @@
                                             Instruction
                                         </label>
                                         <span class="small text-muted">&nbsp(Optional)</span>
-                                        <textarea class='char-counter autosize form-control'
+                                        <textarea class='char-max-length autosize form-control'
                                                   rows='2' maxlength='150' data-char-allowed='150'
                                                   data-char-warning='100'
                                                   style='margin-bottom: 0;' id="txtInstruction" name="txtInstruction" placeholder="eg.Report at front gate"></textarea>
@@ -793,7 +793,7 @@
 
     });
 
-    $(".btn-next").click(function(){setTimeout(function(){ resetMap()}, 100)});
+    $(".resetMap").click(function(){setTimeout(function(){ resetMap()}, 100)});
 
     function resetMap(){
         google.maps.event.trigger(map, 'resize');
