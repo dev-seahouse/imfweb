@@ -41,7 +41,7 @@
             type: false
 
         },
-        autocomplete: 'bootsrap' // could be autocomplete: "bootstrap" to use bootstrap typeahead autocomplete instead of jQueryUI
+        autocomplete: 'bootstrap' // could be autocomplete: "bootstrap" to use bootstrap typeahead autocomplete instead of jQueryUI
     },
 
     marker: function() {
