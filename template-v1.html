@@ -376,12 +376,38 @@
     <section id='content'>
         <div class='container'>
             <div class='row' id='content-wrapper'>
+                <!-- Main Column -->
                 <div class='col-xs-12'>
+                    <!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
+                    <div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
+                        <div class="col-sm-12"><!--col-sm-12 This is for main header -->
+                            <div class='page-header'>
+                                <h1 class='pull-left'>
+                                    <i class='icon-table'></i>
+                                    <span>View Posted Job</span>
+                                </h1>
 
+                                <div class='pull-right'>
+                                    <ul class='breadcrumb'>
+                                        <li>
+                                            <a href='viewjob.html'>
+                                                <i class='icon-suitcase'>
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Header -->
+                        </div>
+                        <!-- Wrapper col-sm-12 for header div -->
+                    </div>
+                    <!-- End col-xs-12 > row -->
                 </div>
-                <!--container.row.col-xs-12-->
+                <!--End Main Column-->
+                <!-- End container.row.col-xs-12-->
             </div>
-            <!-- container.row -->
+            <!-- End container.row -->
             <footer id='footer'>
                 <div class='footer-wrapper'>
                     <div class='row'>
