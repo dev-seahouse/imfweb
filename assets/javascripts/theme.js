@@ -96,6 +96,7 @@
         if (jQuery().tabdrop) {
             $('.nav-responsive.nav-pills, .nav-responsive.nav-tabs').tabdrop();
         }
+
         setDataTable($(".data-table"));
         setDataTable($(".data-table-column-filter"));
         if (jQuery().wysihtml5) {
@@ -302,7 +303,7 @@
                 if ($(elem).hasClass("dt-sort-desc1")) {
                     dt = $(elem).dataTable({
                         "aaSorting": [
-                            [ 1, "desc" ]
+                            [ 0, "desc" ]
                         ],
                         sDom: sdom,
                         sPaginationType: "bootstrap",
