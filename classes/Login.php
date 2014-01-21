@@ -23,26 +23,26 @@ class login
 	/**
 	 * constructor
 	 */
-	public function_construct()
+	public function __construct()
 	{
 		session_start();
 
 		if (isset($_GET["logout"])){
 			$this->doLogout();
 		}
-		elseif(isset($_POST["login"])){
+		elseif(isset($_POST["btnSignin"])){
 			$this->dologinWithPostData();
 		}
 
 	}
 
 	private function dologinWithPostData(){
-		if (empty($_POST['user_name'])){
+		if (empty($_POST['username'])){
 			$this->erros[]="User field was empty.";
 		}
-        elseif(empty($_POST["user_password"])){
+        elseif(empty($_POST["password"])){
 			$this->errors[]="Password field was empty";
-		}elseif(!empty($_POST["user_name"])&& !empty($_POST['user_password'])){
+		}elseif(!empty($_POST["username"])&& !empty($_POST['password'])){
 			$this->db_connection=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
 			//change character set and verify, output error message into errors[];
@@ -54,12 +54,14 @@ class login
 			//check for connection error
 			if (!$this->db_connection->connect_errno){
 				//SQL injection prevention
-				$user_name=$this->db_connection->real_escape_string($_POST['user_name']);
+				$user_name=$this->db_connection->real_escape_string($_POST['username']);
+
+				//sql statement
                 $sql = "SELECT user_name,user_password_hash
                         FROM users
                         WHERE user_name =?";
                 // Prepare select user statement
-                if (!($stmt=$db_connection->prepare($sql))){
+                if (!($stmt=$this->db_connection->prepare($sql))){
                     $this->errors[]="Prepare login stmt failed:(".$db_connection.")".$db_connection->error;
                 }
                 //bind and execute
@@ -71,33 +73,46 @@ class login
                     $this->errors[]="Execute failed:(".$stmt->errno.")".$stmt->error;
                 }
                 // retrieve result set from stmt
-
                 $result_of_login_check=$stmt->get_result();
 
                 //if user exists (if number of returned ==1 )
                 if ($result_of_login_check->num_rows==1){
                 	$result_row=$result_of_login_check->fetch_object();
-                	// check whether the provided password fits the hash of that user's password
-                	$_SESSION['user_name']=$result_row->user_name;
-                	$_SESSION['user_login_status']=1;
 
+                	if (password_verify($_POST['password'],$result_row->user_password_hash)){
+                		$_SESSION['user_name']=$result_row->user_name;
+                		$_SESSION["user_login_status"]=1;
+                	}else{
+                		$this->errors[]="Wrong password. Try again";
+                	}
+                }else{
+                	$this->errors[]="Database connection problem.";
                 }
-                else{
-                	$this->erros[]="Wrong password.Try Again";
-
-                }
-                else{
-                	$this->erros[]="This user does not exist.";
-                }
-
-
+       
+			}else{
+				$this->errors[]="This user does not exit.";
 			}
-			else{
-				$this->errors[]="Database connection problem."
-			}
+			
 
 		}
 
 	}
+
+	public function isUserLoggedIn(){
+		if (isset($_SESSION["user_login_status"]) AND $_SESSION["user_login_status"]==1){
+			return true;
+		}
+		return false;
+	}
+
+    public function doLogout()
+    {
+        // delete the session of the user
+        $_SESSION = array();
+        session_destroy();
+        // return a little feeedback message
+        $this->messages[] = "You have been logged out.";
+
+    }
 
 }
