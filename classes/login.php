@@ -40,7 +40,7 @@ class login
 		if (empty($_POST['user_name'])){
 			$this->erros[]="User field was empty.";
 		}
-		elseif(empty($POST["user_password"])){
+        elseif(empty($_POST["user_password"])){
 			$this->errors[]="Password field was empty";
 		}elseif(!empty($_POST["user_name"])&& !empty($_POST['user_password'])){
 			$this->db_connection=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
@@ -53,18 +53,31 @@ class login
 
 			//check for connection error
 			if (!$this->db_connection->connect_errno){
+				//SQL injection prevention
+				$user_name=$this->db_connection->real_escape_string($_POST['user_name']);
+                $sql = "SELECT user_name,user_password_hash
+                        FROM users
+                        WHERE user_name =?";
+                // Prepare select user statement
+                if (!($stmt=$db_connection->prepare($sql))){
+                    $this->errors[]="Prepare login stmt failed:(".$db_connection.")".$db_connection->error;
+                }
+                //bind and execute
+                if (!$stmt->bind->bind_param("s",$user_name)){
+                    $this->errors[]="Binding parameter failed:(".$stmt->errno.")".$stmt->error;
+                }
+
+                if (!$stmt->execute()){
+                    $this->errors[]="Execute failed:(".$stmt->errno.")".$stmt->error;
+                }
+
+                $result=
+
 
 			}
 
 		}
 
 	}
-
-
-
-
-
-
-
 
 }
