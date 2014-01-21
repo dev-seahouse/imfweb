@@ -19,10 +19,6 @@
     <![endif]-->
     </head>
     <body>
-        <?php
-            require_once("libraries/password_compatibility_library_php");
-            require_once("config/db.php");
-        ?>
         <!-- ==================== Login Page =========================== -->
         <div class="container" id="loginpg">
             <div class="row">
@@ -33,7 +29,7 @@
                             I'M Flexible
                         </h1>
                     </div>
-                    <form action="" method="post" role="form" id="frmLogin" name="frmLogin">
+                    <form action="controllers/processlogin.php" method="post" role="form" id="frmLogin" name="frmLogin">
                         <div class="form-group">
                             <label for="username" class="">Username</label> <input type="text" name="username" id="username" class="username form-control login-field" placeholder="Username">
                         </div>
