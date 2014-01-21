@@ -63,7 +63,7 @@ class login
                     $this->errors[]="Prepare login stmt failed:(".$db_connection.")".$db_connection->error;
                 }
                 //bind and execute
-                if (!$stmt->bind->bind_param("s",$user_name)){
+                if (!$stmt->bind_param("s",$user_name)){
                     $this->errors[]="Binding parameter failed:(".$stmt->errno.")".$stmt->error;
                 }
 
