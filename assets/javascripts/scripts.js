@@ -25,15 +25,14 @@ jQuery(document).ready(function() {
             return false;
         }
         else {
-            window.location.href="dashboard.html";
-            return false;
+            return true;
         }
     });
 
     $('.container form .username, .container form .password').keyup(function(){
         $(this).parent().find('.error').fadeOut('fast');
     });
-    
+
     $('#signUpField').hide();
 
 

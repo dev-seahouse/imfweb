@@ -70,10 +70,30 @@ class login
                 if (!$stmt->execute()){
                     $this->errors[]="Execute failed:(".$stmt->errno.")".$stmt->error;
                 }
+                // retrieve result set from stmt
 
-                $result=
+                $result_of_login_check=$stmt->get_result();
+
+                //if user exists (if number of returned ==1 )
+                if ($result_of_login_check->num_rows==1){
+                	$result_row=$result_of_login_check->fetch_object();
+                	// check whether the provided password fits the hash of that user's password
+                	$_SESSION['user_name']=$result_row->user_name;
+                	$_SESSION['user_login_status']=1;
+
+                }
+                else{
+                	$this->erros[]="Wrong password.Try Again";
+
+                }
+                else{
+                	$this->erros[]="This user does not exist.";
+                }
 
 
+			}
+			else{
+				$this->errors[]="Database connection problem."
 			}
 
 		}
