@@ -11,12 +11,12 @@
     if ($login->isUserLoggedIn()==true){
         redirect_to("../user_profile.html"); 	
     }elseif ($login->errors) {
-        redirect_to("../index.html");
+        //redirect_to("../index.html");
         foreach ($login->errors as $error) {
             echo $error;
         }
     }else{
-        redirect_to("../index.html");
+        //redirect_to("../index.html");
     }
 
  ?>

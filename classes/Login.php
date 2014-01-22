@@ -62,7 +62,7 @@ class login
                         WHERE user_name =?";
                 // Prepare select user statement
                 if (!($stmt=$this->db_connection->prepare($sql))){
-                    $this->errors[]="Prepare login stmt failed:(".$db_connection.")".$db_connection->error;
+                    $this->errors[]="Prepare login stmt failed:".$this->db_connection->error;
                 }
                 //bind and execute
                 if (!$stmt->bind_param("s",$user_name)){
