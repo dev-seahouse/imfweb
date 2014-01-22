@@ -1,0 +1,11 @@
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `regUser`(IN user_name varchar(50),IN password varchar(50),IN email varchar(50))
+BEGIN
+
+insert into user_t (RoleID,Username,Password,Email,Firstname, Lastname, Gender, NRIC, DateOfBirth, MobileNo,IMFpin) 
+values (3,user_name,password,email,'-','-','-','-',curdate(),'000000',0000);
+
+
+
+END ;;
+DELIMITER ;
