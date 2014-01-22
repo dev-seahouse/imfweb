@@ -19,7 +19,13 @@
     <![endif]-->
     </head>
     <body>
+
         <!-- ==================== Login Page =========================== -->
+        <div class="row" id="status_banner">
+            <div class="alert alert-success" style="text-align:center;">
+                Registration Success!
+            </div>
+        </div>
         <div class="container" id="loginpg">
             <div class="row">
                 <div class="col-md-5">
@@ -41,8 +47,8 @@
                         </div>
                         <hr>
                     </form>
-                    <div>
-                        <form action="" role="form" method="post"></form><button id="btnShowSignUp" type="submit" class="btn btn-info col-md-8">Sign Up</button>
+                    <div class="clearfix">
+                        <form action="" role="form" method="post"></form><button id="btnShowSignUp" type="submit" class="btn btn-info col-xs-5 col-sm-5 col-md-8">Sign Up</button>
                     </div>
                 </div><!-- ===================== Sign Up Form =========================== -->
                 <div class="col-md-7" id="signUpField">
@@ -51,7 +57,7 @@
                             New to us? Sign up now!
                         </h1>
                     </div>
-                    <form action="" class="form-horizontal" method="post" name="frmSignup" id="frmSignup" role="form">
+                    <form action="controllers/processregister.php" class="form-horizontal" method="post" name="frmSignup" id="frmSignup" role="form">
                         <fieldset>
                             <legend>Basic information</legend>
                             <div class="form-group">
@@ -99,8 +105,16 @@
                                     <input type="text" class="form-control input-sm" id="inputZipcode" name="inputZipcode" placeholder="Enter Company Zip code" tabindex="60">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="inputPhone" class="col-md-2 control-label">Phone</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control input-sm" id="inputPhone" name="inputPhone" placeholder="Enter Phone Number" tabindex="70">
+                                    <hr>
+                                    <button type="submit" class="col-md-8 btn btn-primary pull-right" tabindex="90" name="register">Submit</button>
+                                </div>
+                            </div>                            
                         </fieldset>
-                        <fieldset>
+<!--                         <fieldset>
                             <legend>Contact Information</legend>
                             <div class="form-group">
                                 <label for="inputContactPerson" class="col-md-2 control-label">Name</label>
@@ -116,7 +130,7 @@
                                     <button type="submit" class="col-md-8 btn btn-primary pull-right" tabindex="90">Submit</button>
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset> -->
                     </form>
                 </div>
             </div>
@@ -135,6 +149,17 @@ $("#btnShowSignUp").click(function(){
             $('#btnShowSignUp').prop('disabled', true);
         });
         });
+
+        </script>
+                <script type="text/javascript">
+            var status=GetQueryStringParams('status');
+
+            if (status=="RegistrationSucess"){
+                $("#status_banner").show();
+            }
+            else{
+                $("#status_banner").hide();
+            }
         </script>
     </body>
 </html>

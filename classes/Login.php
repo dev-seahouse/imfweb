@@ -57,9 +57,9 @@ class login
 				$user_name=$this->db_connection->real_escape_string($_POST['username']);
 
 				//sql statement
-                $sql = "SELECT user_name,user_password_hash
-                        FROM users
-                        WHERE user_name =?";
+                $sql = "SELECT username,password,email
+                        FROM user_t
+                        WHERE username =?";
                 // Prepare select user statement
                 if (!($stmt=$this->db_connection->prepare($sql))){
                     $this->errors[]="Prepare login stmt failed:".$this->db_connection->error;
@@ -79,10 +79,14 @@ class login
                 if ($result_of_login_check->num_rows==1){
                 	$result_row=$result_of_login_check->fetch_object();
 
-                	if (password_verify($_POST['password'],$result_row->user_password_hash)){
-                		$_SESSION['user_name']=$result_row->user_name;
+                	if (password_verify($_POST['password'],$result_row->password)){
+                		
+                		$_SESSION['user_name']=$result_row->username;
                 		$_SESSION["user_login_status"]=1;
                 	}else{
+
+                		-// checking returned result_row
+                		var_dump($result_row);
                 		$this->errors[]="Wrong password. Try again";
                 	}
                 }else{

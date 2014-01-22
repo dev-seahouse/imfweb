@@ -6,7 +6,7 @@
 
 
     $login=new Login();
-    //var_dump($_SESSION);
+    var_dump($_SESSION);
     //var_dump($_POST);
     if ($login->isUserLoggedIn()==true){
         redirect_to("../user_profile.html"); 	
