@@ -15,7 +15,6 @@
  		if (isset($_POST["register"])){
  			$this->registerNewUser();
  		}
- 		
  	}
 
  	private function registerNewUser(){
