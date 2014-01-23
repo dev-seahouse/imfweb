@@ -13,9 +13,12 @@
                 echo json_encode($error);
     		}
     	}
+
+        if($registration->messages){
+            foreach ($registration->messages as $message) {
+               echo json_encode($message);
+            }
+        }
+
     }
-    
-
-
-
 ?>

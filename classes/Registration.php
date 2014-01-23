@@ -6,14 +6,15 @@
  {
  	private $db_connection=null;
 
- 	public $errors=array();
-
  	public $messages=array();
+
+ 	public $errors=array();
 
  	public function __construct(){
  	
-
+ 		if (isset($_POST["register"])){
  			$this->registerNewUser();
+ 		}
  		
  	}
 
@@ -99,7 +100,9 @@
  						// $this->errors[]="Error executing prepared statement:(".$stmt->errno.")".$stmt->error;
  						$this->errors[] = "Sorry, your registration failed. Please go back and try again.";
  					}elseif($query_new_user_insert){
- 						$this->messages[]="Your account has been created succesfully. You can login now.";
+ 						$this->messages[]="Registration succesful";
+ 						//var_dump($this->messages);
+ 						
  					}
 			
  				}

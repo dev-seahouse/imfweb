@@ -25,7 +25,7 @@ class login
 	 */
 	public function __construct()
 	{
-		session_set_cookie_params(0);
+		//session_set_cookie_params(0);
 		session_start();
 
 		if (isset($_GET["logout"])){
@@ -117,6 +117,7 @@ class login
         session_destroy();
         // return a little feeedback message
         $this->messages[] = "You have been logged out.";
+        redirect_to("../index.php");
 
     }
 

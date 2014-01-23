@@ -1,3 +1,11 @@
+<?php
+    require_once("libraries/utilities.php");
+    session_start();
+    if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"]==1){
+        redirect_to("user_profile.php");
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +30,7 @@
 
         <!-- ==================== Login Page =========================== -->
         <div class="row" id="status_banner">
-            <div class="alert alert-success" style="text-align:center;" id="status_message">
+            <div class="alert alert-info" style="text-align:center;" id="status_message">
                
             </div>
         </div>

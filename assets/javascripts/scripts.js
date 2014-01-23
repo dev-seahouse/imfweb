@@ -34,6 +34,7 @@ jQuery(document).ready(function() {
     });
 
     $('#signUpField').hide();
+    $('#status_message').hide();
 
     //registration submit function
     $('#frmSignup').submit(function(event){
@@ -67,6 +68,7 @@ jQuery(document).ready(function() {
             success    : function(response) {
                 $('#status_message').html(response);
                 $('body').scrollTop(0);
+                $('#status_message').show();
                 //console.log(response);
             },
             error      : function() {

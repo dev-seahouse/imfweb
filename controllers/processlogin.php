@@ -8,14 +8,15 @@
     //var_dump($_SESSION);
     //var_dump($_POST);
     if ($login->isUserLoggedIn()==true){
-        redirect_to("../user_profile.html"); 	
+        redirect_to("../user_profile.php"); 	
     }elseif ($login->errors) {
         //redirect_to("../index.html");
         foreach ($login->errors as $error) {
             echo $error;
         }
-    }else{
-        redirect_to("../index.html");
+    }elseif($login->messages){
+        foreach ($login->messages as $message) {
+            echo $message;
     }
-
+}
  ?>
