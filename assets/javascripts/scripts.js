@@ -39,7 +39,6 @@ jQuery(document).ready(function() {
     $('#frmSignup').submit(function(event){
         //prevent form from submitting normally
         event.preventDefault();
-        event.stopPropagation();
         //alert("hgi");
         //declare variables
         
@@ -47,7 +46,7 @@ jQuery(document).ready(function() {
             $submit=$form.find('button[type="submit"]'),
             inputUserName_value=$form.find('input[name="inputUserName"]').val(),
             inputPasswd_value=$form.find('input[name="inputPasswd"]').val(),
-            inputEmail_value=$form.find('input[name="inputEmail"]'),
+            inputEmail_value=$form.find('input[name="inputEmail"]').val(),
             inputConfirmPasswd_value=$form.find('input[name="inputConfirmPasswd"]').val()
             url2=$form.attr('action');
         //sending data via post
@@ -57,18 +56,21 @@ jQuery(document).ready(function() {
         $.ajax({
             type       : "POST",
             url        : "controllers/processregister.php",
+            crossDomain: true,
             data       : { inputUserName:inputUserName_value,
-                inputPasswd:inputPasswd_value,
-                inputConfirmPasswd:inputConfirmPasswd_value,
-                inputEmail:inputEmail_value,
-                register:1 },
-            dataType   : 'json',
+                            inputPasswd:inputPasswd_value,
+                            inputConfirmPasswd:inputConfirmPasswd_value,
+                            inputEmail:inputEmail_value,
+                            register:1 },
+            dataType   : 'text',
             timeout    : 1000,
             success    : function(response) {
-                alert("hiresponse");
+                $('#status_message').html(response);
+                $('body').scrollTop(0);
+                //console.log(response);
             },
             error      : function() {
-                alert("Connection Error. Please try again later.");                    
+                console.log("Connection Error. Please try again later.");                    
             }
         });
         /*

@@ -85,8 +85,8 @@ class login
                 		$_SESSION["user_login_status"]=1;
                 	}else{
 
-                		-// checking returned result_row
-                		var_dump($result_row);
+                		// checking returned result_row
+                	
                 		$this->errors[]="Wrong password. Try again";
                 	}
                 }else{
