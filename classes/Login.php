@@ -25,6 +25,7 @@ class login
 	 */
 	public function __construct()
 	{
+		session_set_cookie_params(0);
 		session_start();
 
 		if (isset($_GET["logout"])){
@@ -90,11 +91,11 @@ class login
                 		$this->errors[]="Wrong password. Try again";
                 	}
                 }else{
-                	$this->errors[]="Database connection problem.";
+                	$this->errors[]="This user does not exist.";
                 }
        
 			}else{
-				$this->errors[]="This user does not exit.";
+				$this->errors[]="Database connection problem.";
 			}
 			
 

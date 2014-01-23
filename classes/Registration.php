@@ -20,12 +20,12 @@
  	private function registerNewUser(){
  		if (empty($_POST['inputUserName'])){
  			$this->errors[]="Empty Username";
- 		}elseif(empty($_POST["inputPasswd"])||empty($_POST["inputConfirmPasswd"])){
+ 		} elseif(empty($_POST["inputPasswd"])||empty($_POST["inputConfirmPasswd"])){
  			$this->errors[]="Empty Password";
- 		}elseif($_POST['inputPasswd']!==$_POST['inputConfirmPasswd']){
+ 		} elseif($_POST['inputPasswd']!==$_POST['inputConfirmPasswd']){
  			$this->errors[]="Password and Password repeat are not the same";
- 		}elseif(strlen($_POST['inputPasswd'])<6){
- 			$this->erros[]="Password must have minimum length of 6 characters";
+ 		} elseif(strlen($_POST['inputPasswd'])<6){
+ 			$this->errors[]="Password must have minimum length of 6 characters";
  		}elseif(strlen($_POST['inputUserName'])>50 || strlen($_POST['inputUserName'])<2){
  			$this->errors[]="Username cannot be shorter than 2 or longer than 50 characters";
  		}elseif(!preg_match('/^[a-z\d]{2,50}$/i', $_POST['inputUserName'])){
@@ -95,28 +95,27 @@
  						$this->errors[]="Binding registration data error:(".$stmt->errno.")".$stmt->error;
  					}
  					// execute statement
- 					if (!$stmt->execute()){
- 						$this->errors[]="Error executing prepared statement:(".$stmt->errno.")".$stmt->error;
+ 					if (!$query_new_user_insert=$stmt->execute()){
+ 						// $this->errors[]="Error executing prepared statement:(".$stmt->errno.")".$stmt->error;
+ 						$this->errors[] = "Sorry, your registration failed. Please go back and try again.";
+ 					}elseif($query_new_user_insert){
+ 						$this->messages[]="Your account has been created succesfully. You can login now.";
  					}
-
- 					//automatically login after registration
- 					
-
-
- 					
+			
  				}
  				// //$query_new_user_insert=$this->db_connection->query($sql);
  				// if (!$this->db_connection->multi_query($sql)){
  				// 	echo "Call failed: (". $this->db_connection->errno.").".$this->db_connection->error;
  				// }
 
+ 			}else{
+ 				$this->errors[]="Sorry,no database connection.";
  			}
 
+ 		}else{
+ 			$this->errors[]="An unknown error occured.";
  		}
 
  	}
-
-
-
  }
 ?>
