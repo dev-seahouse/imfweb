@@ -9,13 +9,12 @@
     if (isset($registration)){
     	if ($registration->errors){
     		foreach($registration->errors as $error){
-    			echo $error;
+    			//echo $error;
+                echo json_encode($error);
     		}
     	}
-        else{
-            redirect_to("../index.html?status=RegistrationSucess");
-        }
     }
+    
 
 
 

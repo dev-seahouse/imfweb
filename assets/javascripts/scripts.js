@@ -3,7 +3,7 @@
 /* -------------- Login Page function-------------*/
 jQuery(document).ready(function() {
 
-    $('#loginpg.container form').submit(function(){
+    $('#frmLogin').submit(function(){
         var username = $(this).find('.username').val();
         var password = $(this).find('.password').val();
         if(username == '') {
@@ -34,6 +34,61 @@ jQuery(document).ready(function() {
     });
 
     $('#signUpField').hide();
+
+    //registration submit function
+    $('#frmSignup').submit(function(event){
+        //prevent form from submitting normally
+        event.preventDefault();
+        event.stopPropagation();
+        //alert("hgi");
+        //declare variables
+        
+        var $form=$(this),
+            $submit=$form.find('button[type="submit"]'),
+            inputUserName_value=$form.find('input[name="inputUserName"]').val(),
+            inputPasswd_value=$form.find('input[name="inputPasswd"]').val(),
+            inputEmail_value=$form.find('input[name="inputEmail"]'),
+            inputConfirmPasswd_value=$form.find('input[name="inputConfirmPasswd"]').val()
+            url2=$form.attr('action');
+        //sending data via post
+        //alert(inputUserName_value);
+        //window.location.href = "controllers/processregister.php";
+        
+        $.ajax({
+            type       : "POST",
+            url        : "controllers/processregister.php",
+            data       : { inputUserName:inputUserName_value,
+                inputPasswd:inputPasswd_value,
+                inputConfirmPasswd:inputConfirmPasswd_value,
+                inputEmail:inputEmail_value,
+                register:1 },
+            dataType   : 'json',
+            timeout    : 1000,
+            success    : function(response) {
+                alert("hiresponse");
+            },
+            error      : function() {
+                alert("Connection Error. Please try again later.");                    
+            }
+        });
+        /*
+        var posting=$.post(
+            url,
+            {
+                inputUserName:inputUserName_value,
+                inputPasswd:inputPasswd_value,
+                inputConfirmPasswd:inputConfirmPasswd_value,
+                inputEmail:inputEmail_value,
+                register:1
+            }
+        );
+        /*
+        alert(posting);
+        posting.done(function(data){
+            $('#status_message').html(data);
+        });
+        */
+    });
 
 });
 // utilities

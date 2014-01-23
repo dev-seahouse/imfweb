@@ -11,9 +11,10 @@
  	public $messages=array();
 
  	public function __construct(){
- 		if (isset($_POST["register"])){
+ 	
+
  			$this->registerNewUser();
- 		}
+ 		
  	}
 
  	private function registerNewUser(){
