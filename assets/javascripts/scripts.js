@@ -2,7 +2,7 @@
 jQuery(document).ready(function() {
 
     $('#frmLogin').submit(function() {
-
+        event.preventDefault();
         var username = $(this).find('.username').val();
         var password = $(this).find('.password').val();
         if (username === '') {
@@ -22,11 +22,10 @@ jQuery(document).ready(function() {
             });
             return false;
         } else {
-            event.preventDefault();
+
             var $form = $(this),
-                $submit = $form.find('button[type="submit"]'),
+            //$submit = $form.find('button[type="submit"]'),
                 username_value = $form.find('input[name="username"]').val(),
-                password_value = $form.find('input[name="password"]').val(),
                 url = $form.attr('action');
 
             $.ajax({
@@ -49,7 +48,7 @@ jQuery(document).ready(function() {
                     $('#status_message').html(response);
                     $('#status_message').show();
                     $('body').scrollTop(0);
-                    };
+                    }
                 },
                 error: function() {
                     console.log("something wrong with login");
@@ -73,11 +72,19 @@ jQuery(document).ready(function() {
         //declare variables
 
         var $form = $(this),
-            $submit = $form.find('button[type="submit"]'),
+        //$submit = $form.find('button[type="submit"]'),
             inputUserName_value = $form.find('input[name="inputUserName"]').val(),
             inputPasswd_value = $form.find('input[name="inputPasswd"]').val(),
             inputEmail_value = $form.find('input[name="inputEmail"]').val(),
-            inputConfirmPasswd_value = $form.find('input[name="inputConfirmPasswd"]').val();
+            inputConfirmPasswd_value = $form.find('input[name="inputConfirmPasswd"]').val(),
+            inputCompany_value = $form.find('input[name="inputCompany"]').val(),
+            inputAddress_value = $form.find('input[name="inputAddress"]').val(),
+            inputPhone_value = $form.find('input[name="inputPhone"]').val(),
+            inputZipcode_value = $form.find('input[name="inputZipcode"]').val();
+
+        //TODO: From here use geolocation plugin to convert zip into altitude and longitude and insert value
+        var inputLat_value = "1.234343";
+        var inputLong_value = "1.234343";
         url = $form.attr('action');
         //sending data via post
         //alert(inputUserName_value);
@@ -92,6 +99,11 @@ jQuery(document).ready(function() {
                 inputPasswd: inputPasswd_value,
                 inputConfirmPasswd: inputConfirmPasswd_value,
                 inputEmail: inputEmail_value,
+                inputCompany: inputCompany_value,
+                inputAddress: inputAddress_value,
+                inputPhone: inputPhone_value,
+                inputLat: inputLat_value,
+                inputLong: inputLong_value,
                 register: 1
             },
             dataType: 'text',

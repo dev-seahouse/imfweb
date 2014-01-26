@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1613771936">
+    <data-source source="LOCAL" name="MySQL - fyp_imf@localhost" uuid="35d056b3-000f-42ab-8df6-8e072fa0c46a">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/fyp_imf</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf9bdf9adf9bdf9bdf9a</user-password>
+      <schema-pattern>fyp_imf.*</schema-pattern>
+      <default-schemas>fyp_imf.*</default-schemas>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

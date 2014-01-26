@@ -1,11 +1,32 @@
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `regUser`(IN user_name varchar(50),IN password varchar(50),IN email varchar(50))
+-- --------------------------------------------------------------------------------
+-- Routine DDL
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `regUser`(
+IN user_name varchar(50),
+IN password varchar(255),
+IN email varchar(50),
+IN company_name varchar(50),
+IN company_address varchar(64),
+IN company_contact int(10),
+IN company_lat varchar(100),
+IN company_long varchar(100)
+
+)
 BEGIN
 
-insert into user_t (RoleID,Username,Password,Email,Firstname, Lastname, Gender, NRIC, DateOfBirth, MobileNo,IMFpin) 
+insert into user_t (RoleID,Username,Password,Email,Firstname, Lastname, Gender, NRIC, DateOfBirth, MobileNo,IMFpin)
 values (3,user_name,password,email,'-','-','-','-',curdate(),'000000',0000);
 
+IF ROW_COUNT()>0
+THEN insert into hotel_t (UserID,HotelName,HotelAddress,HotelContactNo,HotelLatitude,HotelLongitude,HotelCardinal)
+values(LAST_INSERT_ID(),company_name,company_address,company_contact,company_lat,company_long,"-");
+END IF;
 
+END
 
-END ;;
-DELIMITER ;
+/*
+call regUser("kenan","110110","xinkenan.11","total recycling","blk 313 jurong east street 32",98722321,"1234234","232q4324")
+*/

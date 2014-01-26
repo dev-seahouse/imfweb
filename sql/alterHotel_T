@@ -1,0 +1,19 @@
+/*You may have error if there are existing data.
+  SET FOREIGN_KEY_CHECKS=0
+  then set it to 1 after you`re done.
+  */
+
+
+ALTER TABLE `fyp_imf`.`hotel_t`
+ADD COLUMN `UserID` INT(10) NOT NULL AFTER `HotelCardinal`;
+
+
+
+ALTER TABLE `fyp_imf`.`hotel_t`
+DROP FOREIGN KEY `fk_hotel_t_1`;
+ALTER TABLE `fyp_imf`.`hotel_t`
+ADD CONSTRAINT `fk_hotel_t_1`
+  FOREIGN KEY (`UserID`)
+  REFERENCES `fyp_imf`.`user_t` (`UserID`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;

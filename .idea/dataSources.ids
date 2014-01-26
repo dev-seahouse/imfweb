@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - fyp_imf@localhost" uuid="35d056b3-000f-42ab-8df6-8e072fa0c46a">
+    <database-info product="MySQL" version="5.5.35-0ubuntu0.13.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="fyp_imf"/>
+    <table name="category_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="CategoryID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CategoryName" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="CategoryID"/>
+      <index name="CategoryID_UNIQUE" unique="true" columns="CategoryID"/>
+    </table>
+    <table name="hotel_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="HotelID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="HotelName" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="HotelAddress" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="HotelContactNo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="HotelLatitude" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="HotelLongitude" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="HotelCardinal" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="UserID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="HotelID"/>
+      <foreign-key name="fk_hotel_t_1" columns="UserID" ref-table="user_t" ref-schema="" ref-catalog="fyp_imf" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="HotelID_UNIQUE" unique="true" columns="HotelID"/>
+      <index name="fk_hotel_t_1_idx" unique="false" columns="UserID"/>
+    </table>
+    <table name="job_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="JobID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="HotelID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="CategoryID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="ScopeID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="JobDate" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="JobStartTime" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="JobEndTime" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="JobEstHours" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="JobSlotVacancy" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="JobSlotVacLeft" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="JobRate" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="JobMinEBRHours" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="JobEBR" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="OverRunEndDateTime" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="OverRunEstHours" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="JobStatus" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="JobID"/>
+      <index name="JobID_UNIQUE" unique="true" columns="JobID"/>
+    </table>
+    <table name="jobapplicant_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="JobAppID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="JobID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="UserID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="MarkAsPresent" sqlType="CHAR" length="1" precision="0" nullable="false" jdbcType="1"/>
+      <column name="ExpHours" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="FeedbackRating" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="FeedbackComment" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CancelReason" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="JobAppID"/>
+      <index name="JobAppID_UNIQUE" unique="true" columns="JobAppID"/>
+    </table>
+    <table name="mobilesession_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="MobileSessionID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="IMFToken" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="MobileSessionID"/>
+      <index name="MobileSessionID_UNIQUE" unique="true" columns="MobileSessionID"/>
+      <index name="UserID_UNIQUE" unique="true" columns="UserID"/>
+    </table>
+    <table name="role_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="RoleID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="RoleName" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="RoleID"/>
+      <index name="RoleID_UNIQUE" unique="true" columns="RoleID"/>
+    </table>
+    <table name="scope_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="ScopeID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ScopeName" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ScopeDesc" sqlType="VARCHAR" length="10000" precision="0" nullable="false" jdbcType="12"/>
+      <column name="CategoryID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ScopeID"/>
+      <index name="ScopeID_UNIQUE" unique="true" columns="ScopeID"/>
+    </table>
+    <table name="user_t" schema="" catalog="fyp_imf" type="TABLE">
+      <column name="UserID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="RoleID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="Username" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="Firstname" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="Lastname" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="Gender" sqlType="CHAR" length="1" precision="0" nullable="false" jdbcType="1"/>
+      <column name="NRIC" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="DateOfBirth" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="MobileNo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="Email" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="IMFPin" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="SpokenLang" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SpokenLangOther" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="UserID"/>
+      <exported-key name="fk_hotel_t_1" table="hotel_t" schema="" catalog="fyp_imf" columns="UserID"/>
+      <index name="Email_UNIQUE" unique="true" columns="Email"/>
+      <index name="UserID_UNIQUE" unique="true" columns="UserID"/>
+      <index name="Username_UNIQUE" unique="true" columns="Username"/>
+    </table>
+    <procedure name="regUser" schema="" catalog="fyp_imf" type="1">
+      <prototype>
+        <parameter name="user_name" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="password" sqlType="VARCHAR" length="255" precision="255" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="email" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="company_name" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="company_address" sqlType="VARCHAR" length="64" precision="64" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="company_contact" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="6"/>
+        <parameter name="company_lat" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="company_long" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="8"/>
+      </prototype>
+    </procedure>
+  </data-source>
+</component>
