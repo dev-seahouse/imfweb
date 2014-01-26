@@ -2,6 +2,7 @@
 jQuery(document).ready(function() {
 
     $('#frmLogin').submit(function() {
+
         var username = $(this).find('.username').val();
         var password = $(this).find('.password').val();
         if (username === '') {
@@ -22,7 +23,6 @@ jQuery(document).ready(function() {
             return false;
         } else {
             event.preventDefault();
-
             var $form = $(this),
                 $submit = $form.find('button[type="submit"]'),
                 username_value = $form.find('input[name="username"]').val(),
@@ -32,7 +32,9 @@ jQuery(document).ready(function() {
             $.ajax({
                 type: "POST",
                 url: url,
+                crossDomain: true,
                 dataType: 'text',
+                timeout: 1000,
                 crossDomain: true,
                 data: {
                     username: username_value,
@@ -40,12 +42,14 @@ jQuery(document).ready(function() {
                     btnSignin: 1
                 },
                 success: function(response) {
-                    $('status_message').show();
+                    if (response=="success"){
+                        location.reload();
+                    }
+                    else{
                     $('#status_message').html(response);
-
                     $('#status_message').show();
                     $('body').scrollTop(0);
-
+                    };
                 },
                 error: function() {
                     console.log("something wrong with login");
@@ -93,6 +97,7 @@ jQuery(document).ready(function() {
             dataType: 'text',
             timeout: 1000,
             success: function(response) {
+
                 $('#status_message').html(response);
                 $('body').scrollTop(0);
                 $('#status_message').show();

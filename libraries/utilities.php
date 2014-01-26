@@ -1,7 +1,7 @@
 <?php
 //redreict function
 function redirect_to($new_location){
-     header("Location:" . $new_location);
-     exit;
+     header("Location:".$new_location);
+
 }
 ?>

@@ -8,7 +8,8 @@
     //var_dump($_SESSION);
     //var_dump($_POST);
     if ($login->isUserLoggedIn()==true){
-        redirect_to("../user_profile.php"); 	
+        echo "success";
+        //redirect_to("../user_profile.php");
     }elseif ($login->errors) {
         //redirect_to("../index.html");
         foreach ($login->errors as $error) {
