@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/Postjob.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/processpostjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Login.php" afterPath="$PROJECT_DIR$/classes/Login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postjob.php" afterPath="$PROJECT_DIR$/postjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user_profile.php" afterPath="$PROJECT_DIR$/user_profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/utilities.php" afterPath="$PROJECT_DIR$/libraries/utilities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links" />
     <ignored path="imf.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -194,8 +186,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Unnamed" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1930" />
-    <option name="y" value="49" />
+    <option name="x" value="1996" />
+    <option name="y" value="120" />
     <option name="width" value="1906" />
     <option name="height" value="1055" />
   </component>
@@ -587,8 +579,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1930" y="49" width="1906" height="1055" extended-state="0" />
-    <editor active="true" />
+    <frame x="1996" y="120" width="1906" height="1055" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14978448" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33728448" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
