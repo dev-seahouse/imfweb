@@ -1,3 +1,7 @@
+<?php
+require_once("libraries/utilities.php");
+checkAuth("index.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -212,17 +216,17 @@
             <!-- ==================================================================               
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?= $_SESSION["company_name"]; ?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>
-                <a href='user_profile.html'>
+                <a href='user_profile.php'>
                     <i class='icon-user'></i>
                     Profile
                 </a>
             </li>
             <li>
-                <a href='user_profile.html'>
+                <a href='user_profile.php'>
                     <i class='icon-cog'></i>
                     Settings
                 </a>
