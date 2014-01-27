@@ -24,7 +24,9 @@ class Registration
     {
         if (empty($_POST['inputUserName'])) {
             $this->errors[] = "Empty Username";
-        } elseif (empty($_POST["inputPasswd"]) || empty($_POST["inputConfirmPasswd"])) {
+        } elseif(empty($_POST['inputCompany'])){
+            $this->errors[] = "Empty Company Name";
+        }elseif (empty($_POST["inputPasswd"]) || empty($_POST["inputConfirmPasswd"])) {
             $this->errors[] = "Empty Password";
         } elseif ($_POST['inputPasswd'] !== $_POST['inputConfirmPasswd']) {
             $this->errors[] = "Password and Password repeat are not the same";
@@ -41,6 +43,7 @@ class Registration
         } elseif (!filter_var($_POST["inputEmail"], FILTER_VALIDATE_EMAIL)) {
             $this->errors[] = "Email address is not valide in a valid email format.";
         } elseif (!empty($_POST["inputUserName"])
+            && (!empty($_POST['inputCompany']))
             && strlen($_POST["inputUserName"]) <= 50
             && strlen($_POST["inputUserName"]) >= 2
             && preg_match('/^[a-z\d]{2,64}$/i', $_POST["inputUserName"])
@@ -128,7 +131,7 @@ class Registration
                         // $this->errors[]="Error executing prepared statement:(".$stmt->errno.")".$stmt->error;
                         $this->errors[] = "Sorry, your registration failed. Please go back and try again.";
                     } elseif ($query_new_user_insert) {
-                        $this->messages[] = "Registration successful";
+                        $this->messages[] = "Registration successful! Please login now.";
                         //var_dump($this->messages);
 
                     }
