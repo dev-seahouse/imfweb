@@ -1,6 +1,6 @@
 <?php
 require_once("libraries/utilities.php");
-checkAuth("index.php");
+check_auth("index.php");
 ?>
 <!DOCTYPE html>
 <html>

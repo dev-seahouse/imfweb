@@ -9,7 +9,7 @@ function redirect_to($new_location)
 ;
 
 
-function checkAuth($redirect)
+function check_auth($redirect)
 {
     session_start();
     if (isset($_SESSION["user_login_status"]) AND $_SESSION["user_login_status"] == 1) {

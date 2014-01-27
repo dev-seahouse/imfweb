@@ -1,3 +1,7 @@
+<?php
+require_once("controllers/processpostjob.php");
+echo ("Sometihng is happening");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -214,7 +218,7 @@
             <!-- ==================================================================
 <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?=$_SESSION["company_name"]?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>
@@ -231,7 +235,7 @@
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -368,7 +372,7 @@
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="controllers/processlogin.php?logout">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -504,10 +508,11 @@
                                 </p>
                             </div>
                             <div class='form-group'>
+                                <!-- TODO:echo scope-->
                                 <label>Job Scope</label>
                                 <input class='form-control' id='inputJobScope'
                                        name="txtJobScope" maxlength="300"
-                                       placeholder='eg.Clean VIP guest rooms.' type='text'></div>
+                                       placeholder='ScopeID' type='text' disabled></div>
                             <div class='form-group'>
                                 <label>
                                     Additional Description
@@ -557,38 +562,37 @@
                                     &nbspPay
                                 </div>
                                 <small class='text-muted'>
-                                    Please specify skilled and unskilled pay rate
+                                    Please specify standard and bonus pay rate:
                                 </small>
                             </div>
                         </div>
                         <div class='col-sm-7 col-sm-offset-1'>
                             <div class='form-group'>
-                                <label for="txtSkilledRate">Skilled Rate</label>
-
+                                <label for="txtStandardPay">Standard Pay</label>
                                 <div class='row'>
-                                    <div class='col-sm-6 col-md-6 col-lg-4'>
+                                    <div class='col-sm-7'>
                                         <div class='input-group'>
                                     <span class='input-group-addon'>
                                       S$
                                     </span>
                                             <input class='form-control input-lg text-right' type='number' min="0"
-                                                   id="txtSkilledRate">
+                                                   id="txtStandardPay">
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class='form-group'>
-                                <label for="txtNonskilledRate">Non-Skilled Rate</label>
+                                <label for="txtBonusPay">Bonus Pay</label>
 
                                 <div class='row'>
-                                    <div class='col-sm-6 col-md-6 col-lg-4'>
+                                    <div class='col-sm-7'>
                                         <div class='input-group'>
                                     <span class='input-group-addon'>
                                       S$
                                     </span>
                                             <input class='form-control input-lg text-right' type='number' min="0"
-                                                   id="txtNonskilledRate">
+                                                   id="txtBonusPay">
 
                                         </div>
                                     </div>
@@ -603,14 +607,14 @@
                             <div class="box">
                                 <div class="lead">
                                     <i class="icon-question contrast"></i>
-                                    &nbspNumber required
+                                    &nbspJob Vacancy
                                 </div>
                                 <small class='text-muted'>How many people are needed?</small>
                             </div>
                         </div>
                         <div class='col-sm-7 col-sm-offset-1'>
                             <div class='form-group'>
-                                <label>Numbers needed</label>
+                                <label>Vacancy</label>
                                 <input class="form-control" type="number" min="1" id="txtNumRequired"
                                        name="txtNumRequired"></div>
                         </div>

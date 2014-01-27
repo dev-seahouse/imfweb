@@ -4,7 +4,7 @@
 * login class handles login and logout process
 */
 
-class login
+class Login
 {
 	/**
 	 * @var object declare database connection
