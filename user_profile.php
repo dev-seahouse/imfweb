@@ -229,7 +229,7 @@
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.html'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>

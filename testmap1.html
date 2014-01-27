@@ -231,7 +231,7 @@
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.html'>
+                <a href='index.php'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -440,243 +440,246 @@
 </div>
 <!-- ============      Wizards header ends here =============================-->
 <div class='step-content'>
-    <hr class='hr-normal'>
-    <form class="form" style="margin-bottom: 0;" method="post" action="viewjob.html" accept-charset="UTF-8">
-        <!-- For rails <input name="authenticity_token" type="hidden" /> -->
-        <!-- ==========       Step one - Enter job title starts here =============== -->
-        <div class='step-pane active' id='step1'>
-            <div class='row'>
-                <div class='col-sm-12'>
-                    <div class='box bordered-box no-mg-b'>
-                        <div class='box-content box-double-padding-sm'>
-                            <fieldset>
-                                <div class='col-sm-4'>
-                                    <div class='box'>
-                                        <div class='lead'>
-                                            <i class='icon-file text-contrast'></i> Job Definition
-                                        </div>
-                                        <small class='text-muted'>What is this job about?
-                                        </small>
-                                    </div>
+<hr class='hr-normal'>
+<form class="form" style="margin-bottom: 0;" method="post" action="viewjob.html" accept-charset="UTF-8">
+<!-- For rails <input name="authenticity_token" type="hidden" /> -->
+<!-- ==========       Step one - Enter job title starts here =============== -->
+<div class='step-pane active' id='step1'>
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box no-mg-b'>
+                <div class='box-content box-double-padding-sm'>
+                    <fieldset>
+                        <div class='col-sm-4'>
+                            <div class='box'>
+                                <div class='lead'>
+                                    <i class='icon-file text-contrast'></i> Job Definition
                                 </div>
-                                <div class='col-sm-7 col-sm-offset-1'>
-                                    <div class='form-group'>
-                                        <label>Job Title</label>
-                                        <input class='form-control' id="txtJobTitle"
-                                               name="txtJobTitle" type='text'
-                                               placeholder='eg.Hotel Room Cleaner'></div>
-                                    <div class='form-group'>
-                                        <label>Select Category</label>
-                                        <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
-                                            <option value='Administration'>Administration</option>
-                                            <option value='Bartender'>Bartender</option>
-                                            <option value='Bellhop'>Bellhop</option>
-                                            <option value='NM'>Cashier</option>
-                                            <option value='Customer Relation'>Customer Relation
-                                            </option>
-                                            <option value='Concierges'>Concierges</option>
-                                            <option value="Consultant">Consultant</option>
-                                            <option value='Driver'>Driver</option>
-                                            <option value='Event Assistant'>Event Assistant</option>
-                                            <option value='Event Planner'>Event Planner</option>
-                                            <option value='Front Desk'>Front Desk</option>
-                                            <option value='Gaming'>Game</option>
-                                            <option value='Housekeeping'>Housekeeping</option>
-                                            <option value='Hostee'>Hostee</option>
-                                            <option value='Health Care'>Health Care</option>
-                                            <option value='Room Service'>Room Service</option>
-                                            <option value='Store'>Store</option>
-                                            <option value='Kitchen Staff'>Kitchen Staff</option>
-                                            <option value='Management'>Management</option>
-                                            <option value="Marketing">Marketing</option>
-                                            <option value="Medical">Medical</option>
-                                            <option value='Purchase'>Purchase</option>
-                                            <option value='Sales'>Sales</option>
-                                            <option value="Sports">Sports</option>
-                                            <option value="Reservation">Reservation</option>
-                                            <option value='Security'>Security</option>
-                                            <option value='Technician'>Technician</option>
-                                            <option value='Valet'>Valet</option>
-                                        </select>
-
-                                        <p class='help-block'>
-                                            <small class='text-muted'>
-                                                Please choose a job category best describes the
-                                                position required
-                                            </small>
-                                        </p>
-                                    </div>
-                                    <div class='form-group'>
-                                        <label>Job Scope</label>
-                                        <input class='form-control' id='inputJobScope'
-                                               name="txtJobScope" maxlength="300"
-                                               placeholder='eg.Clean VIP guest rooms.' type='text'>
-                                    </div>
-                                    <div class='form-group'>
-                                        <label>
-                                            Additional Description
-                                            <span class="small text-muted">&nbsp(Optional)</span>
-                                        </label>
-                                        <textarea class='char-counter autosize form-control'
-                                                  rows='2' maxlength='300' data-char-allowed='300'
-                                                  data-char-warning='250'
-                                                  style='margin-bottom: 0;'></textarea>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <hr class='hr-normal'>
-                            <fieldset>
-                                <div class='col-sm-4 '>
-                                    <div class='box'>
-                                        <div class='lead'>
-                                            <i class='icon-filter contrast'></i>&nbspJob Requirements
-                                        </div>
-                                        <small class='text-muted'>Is there any special requirements
-                                            for job seekers?
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class='col-sm-7 col-sm-offset-1'>
-                                    <div class='form-group'>
-                                        <label>
-                                            Job Requirements
-                                            <span class="small text-muted">&nbsp(Optional)</span>
-                                        </label>
-                                        <textarea class='char-counter autosize form-control'
-                                                  rows='2' maxlength='300' data-char-allowed='300'
-                                                  data-char-warning='250'
-                                                  style='margin-bottom: 0;' id="txtJobRequirement" name="txtJobRequirement"></textarea>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <hr class="hr-normal"/>
-                            <fieldset>
-                                <div class="col-sm-4">
-                                    <div class="box">
-                                        <div class="lead">
-                                            <i class="icon-question contrast"></i>&nbspNumber required
-                                        </div>
-                                        <small class='text-muted'>How many people are needed?
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class='col-sm-7 col-sm-offset-1'>
-                                    <div class='form-group'>
-                                        <label>
-                                            Numbers needed
-                                        </label>
-                                        <input class="form-control" type="number" min="1" id="txtNumRequired" name="txtNumRequired">
-                                    </div>
-                                </div>
-
-                            </fieldset>
+                                <small class='text-muted'>What is this job about?
+                                </small>
+                            </div>
                         </div>
-                    </div>
-                    <!-- ======= Next Button field   ======= -->
-                    <div class='form-actions form-actions-padding text-right no-mg-t'>
-                        <div class='btn btn-primary btn-lg btnWizardNext'>
-                            <i class='icon-arrow-right'></i>
-                            Next
+                        <div class='col-sm-7 col-sm-offset-1'>
+                            <div class='form-group'>
+                                <label>Job Title</label>
+                                <input class='form-control' id="txtJobTitle"
+                                       name="txtJobTitle" type='text'
+                                       placeholder='eg.Hotel Room Cleaner'></div>
+                            <div class='form-group'>
+                                <label>Select Category</label>
+                                <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
+                                    <option value='Administration'>Administration</option>
+                                    <option value='Bartender'>Bartender</option>
+                                    <option value='Bellhop'>Bellhop</option>
+                                    <option value='NM'>Cashier</option>
+                                    <option value='Customer Relation'>Customer Relation
+                                    </option>
+                                    <option value='Concierges'>Concierges</option>
+                                    <option value="Consultant">Consultant</option>
+                                    <option value='Driver'>Driver</option>
+                                    <option value='Event Assistant'>Event Assistant</option>
+                                    <option value='Event Planner'>Event Planner</option>
+                                    <option value='Front Desk'>Front Desk</option>
+                                    <option value='Gaming'>Game</option>
+                                    <option value='Housekeeping'>Housekeeping</option>
+                                    <option value='Hostee'>Hostee</option>
+                                    <option value='Health Care'>Health Care</option>
+                                    <option value='Room Service'>Room Service</option>
+                                    <option value='Store'>Store</option>
+                                    <option value='Kitchen Staff'>Kitchen Staff</option>
+                                    <option value='Management'>Management</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Medical">Medical</option>
+                                    <option value='Purchase'>Purchase</option>
+                                    <option value='Sales'>Sales</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Reservation">Reservation</option>
+                                    <option value='Security'>Security</option>
+                                    <option value='Technician'>Technician</option>
+                                    <option value='Valet'>Valet</option>
+                                </select>
+
+                                <p class='help-block'>
+                                    <small class='text-muted'>
+                                        Please choose a job category best describes the
+                                        position required
+                                    </small>
+                                </p>
+                            </div>
+                            <div class='form-group'>
+                                <label>Job Scope</label>
+                                <input class='form-control' id='inputJobScope'
+                                       name="txtJobScope" maxlength="300"
+                                       placeholder='eg.Clean VIP guest rooms.' type='text'>
+                            </div>
+                            <div class='form-group'>
+                                <label>
+                                    Additional Description
+                                    <span class="small text-muted">&nbsp(Optional)</span>
+                                </label>
+                                <textarea class='char-counter autosize form-control'
+                                          rows='2' maxlength='300' data-char-allowed='300'
+                                          data-char-warning='250'
+                                          style='margin-bottom: 0;'></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <!-- ======End of Next Button Field ======== -->
+                    </fieldset>
+                    <hr class='hr-normal'>
+                    <fieldset>
+                        <div class='col-sm-4 '>
+                            <div class='box'>
+                                <div class='lead'>
+                                    <i class='icon-filter contrast'></i>&nbspJob Requirements
+                                </div>
+                                <small class='text-muted'>Is there any special requirements
+                                    for job seekers?
+                                </small>
+                            </div>
+                        </div>
+                        <div class='col-sm-7 col-sm-offset-1'>
+                            <div class='form-group'>
+                                <label>
+                                    Job Requirements
+                                    <span class="small text-muted">&nbsp(Optional)</span>
+                                </label>
+                                <textarea class='char-counter autosize form-control'
+                                          rows='2' maxlength='300' data-char-allowed='300'
+                                          data-char-warning='250'
+                                          style='margin-bottom: 0;' id="txtJobRequirement"
+                                          name="txtJobRequirement"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <hr class="hr-normal"/>
+                    <fieldset>
+                        <div class="col-sm-4">
+                            <div class="box">
+                                <div class="lead">
+                                    <i class="icon-question contrast"></i>&nbspNumber required
+                                </div>
+                                <small class='text-muted'>How many people are needed?
+                                </small>
+                            </div>
+                        </div>
+                        <div class='col-sm-7 col-sm-offset-1'>
+                            <div class='form-group'>
+                                <label>
+                                    Numbers needed
+                                </label>
+                                <input class="form-control" type="number" min="1" id="txtNumRequired"
+                                       name="txtNumRequired">
+                            </div>
+                        </div>
+
+                    </fieldset>
                 </div>
             </div>
-        </div>
-        <!-- ===========      Step two - Location and dates starts here ============= -->
-        <div class='step-pane' id='step2'>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="box bordered-box no-mg-b">
-                        <div class="box-content box-double-padding-sm">
-                            <fieldset>
-                                <div class="col-sm-4">
-                                    <div class="box">
-                                        <div class='lead'>
-                                            <i class='icon-location-arrow text-contrast'></i> Job Location
-                                        </div>
-                                        <small class='text-muted'>Where should job seekers report?
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class='col-sm-7 col-sm-offset-1'>
-                                    <div class='form-group'>
-                                        <label>
-                                            Type your Address here
-                                        </label>
-                                        <input class="form-control" type="text" placeholder="" id="txtAddress" name="txtAddress">
-                                    </div>
-                                    <div class='form-group'>
-                                        
-                                    </div>
-
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <!-- ======= Next Button field   ======= -->
-                    <div class='form-actions form-actions-padding text-right no-mg-t'>
-                        <div class='btn btn-primary btn-lg btnWizardNext'>
-                            <i class='icon-arrow-right'></i>
-                            Next
-                        </div>
-                    </div>
-                    <!-- ======End of Next Button Field ======== -->
+            <!-- ======= Next Button field   ======= -->
+            <div class='form-actions form-actions-padding text-right no-mg-t'>
+                <div class='btn btn-primary btn-lg btnWizardNext'>
+                    <i class='icon-arrow-right'></i>
+                    Next
                 </div>
+            </div>
+            <!-- ======End of Next Button Field ======== -->
+        </div>
+    </div>
+</div>
+<!-- ===========      Step two - Location and dates starts here ============= -->
+<div class='step-pane' id='step2'>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box bordered-box no-mg-b">
+                <div class="box-content box-double-padding-sm">
+                    <fieldset>
+                        <div class="col-sm-4">
+                            <div class="box">
+                                <div class='lead'>
+                                    <i class='icon-location-arrow text-contrast'></i> Job Location
+                                </div>
+                                <small class='text-muted'>Where should job seekers report?
+                                </small>
+                            </div>
+                        </div>
+                        <div class='col-sm-7 col-sm-offset-1'>
+                            <div class='form-group'>
+                                <label>
+                                    Type your Address here
+                                </label>
+                                <input class="form-control" type="text" placeholder="" id="txtAddress"
+                                       name="txtAddress">
+                            </div>
+                            <div class='form-group'>
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- ======= Next Button field   ======= -->
+            <div class='form-actions form-actions-padding text-right no-mg-t'>
+                <div class='btn btn-primary btn-lg btnWizardNext'>
+                    <i class='icon-arrow-right'></i>
+                    Next
+                </div>
+            </div>
+            <!-- ======End of Next Button Field ======== -->
+        </div>
+    </div>
+
+</div>
+<!-- ===========      Step two - Location and dates ends here ============= -->
+<div class='step-pane' id='step3'>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box bordered-box no-mg-b">
+                <div class="box-content box-double-padding">
+                    <fieldset>
+                        <div class="col-sm-4">
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- ======= Next Button field   ======= -->
+            <div class='form-actions form-actions-padding text-right no-mg-t'>
+                <div class='btn btn-primary btn-lg btnWizardNext'>
+                    <i class='icon-arrow-right'></i>
+                    Next
+                </div>
+            </div>
+            <!-- ======End of Next Button Field ======== -->
+        </div>
+    </div>
+</div>
+<!-- ===========      Step three ends here ============= -->
+<div class='step-pane' id='step4'>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box bordered-box no-mg-b">
+                <div class="box-content box-double-padding">
+                    <fieldset>
+                        <div class="col-sm-4">
+
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- ======= Submit Button field   ======= -->
+                <div class='form-actions form-actions-padding text-right no-mg-t'>
+                    <button class='btn btn-primary btn-lg btnWizardNext'>
+                        <i class='icon-arrow-right'></i>
+                        Confirm
+                    </button>
+                </div>
+                <!-- ======End of Submit Button Field ======== -->
             </div>
 
         </div>
-        <!-- ===========      Step two - Location and dates ends here ============= -->
-        <div class='step-pane' id='step3'>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="box bordered-box no-mg-b">
-                        <div class="box-content box-double-padding">
-                            <fieldset>
-                                <div class="col-sm-4">
-
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <!-- ======= Next Button field   ======= -->
-                    <div class='form-actions form-actions-padding text-right no-mg-t'>
-                        <div class='btn btn-primary btn-lg btnWizardNext'>
-                            <i class='icon-arrow-right'></i>
-                            Next
-                        </div>
-                    </div>
-                    <!-- ======End of Next Button Field ======== -->
-                </div>
-            </div>
-        </div>
-        <!-- ===========      Step three ends here ============= -->
-        <div class='step-pane' id='step4'>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="box bordered-box no-mg-b">
-                        <div class="box-content box-double-padding">
-                            <fieldset>
-                                <div class="col-sm-4">
-
-                                </div>
-                            </fieldset>
-                        </div>
-                        <!-- ======= Submit Button field   ======= -->
-                        <div class='form-actions form-actions-padding text-right no-mg-t'>
-                            <button class='btn btn-primary btn-lg btnWizardNext'>
-                                <i class='icon-arrow-right'></i>
-                                Confirm
-                            </button>
-                        </div>
-                        <!-- ======End of Submit Button Field ======== -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- ===========      Step four ends here ============= -->
-    </form>
+    </div>
+</div>
+<!-- ===========      Step four ends here ============= -->
+</form>
 </div>
 <!-- ======= End of step content ======= -->
 

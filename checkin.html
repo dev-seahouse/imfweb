@@ -229,7 +229,7 @@
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.html'>
+                <a href='index.php'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -360,7 +360,7 @@
             </li>
             <li class=''>
                 <a href="contact.html">
-                <i class='icon-envelope'></i>
+                    <i class='icon-envelope'></i>
                     <span>Contact Support</span>
                 </a>
             </li>
@@ -374,352 +374,352 @@
     </div>
 </nav>
 <section id='content'>
-    <div class='container'>
-        <div class='row' id='content-wrapper'>
-            <!-- Main Column -->
-            <div class='col-xs-12'>
-                <!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
-                <div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
-                    <div class="col-sm-12"><!--col-sm-12 This is for main header -->
-                        <div class='page-header'>
-                            <h1 class='pull-left'>
-                                <i class='icon-check'></i>
-                                <span>Check In</span>
+<div class='container'>
+<div class='row' id='content-wrapper'>
+<!-- Main Column -->
+<div class='col-xs-12'>
+<!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
+<div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
+    <div class="col-sm-12"><!--col-sm-12 This is for main header -->
+        <div class='page-header'>
+            <h1 class='pull-left'>
+                <i class='icon-check'></i>
+                <span>Check In</span>
 
-                            </h1>
+            </h1>
 
-                            <p class="label-contrast">Note: An Edit Button Might be added in future besides checkbox
-                                list, for correcting accidental error</p>
+            <p class="label-contrast">Note: An Edit Button Might be added in future besides checkbox
+                list, for correcting accidental error</p>
 
-                            <div class='pull-right'>
-                                <ul class='breadcrumb'>
-                                    <li>
-                                        <a href='checkin.html'>
-                                            <i class='icon-check'>
-                                            </i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- End Header -->
-                    </div>
-                    <!-- Wrapper col-sm-12 for header div -->
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class='row'>
-                            <div class='col-sm-12'>
-                                <div class='box bordered-box orange-border' style='margin-bottom:0;'>
-                                    <div class='box-header contrast-background'>
-                                    </div>
-                                    <div class='box-content box-no-padding'>
-                                        <div class='responsive-table'>
-                                            <div class='scrollable-area'>
-                                            <table class='table table-hover data-table-column-filter table table-bordered table-striped'
-                                                   style='margin-bottom:0;'
-                                                       id="tbViewJob">
-                                                    <thead>
-                                                    <!-- TODO: Add hidden Id column for database -->
-                                                    <tr>
-                                                        <th>
-                                                            Name
-                                                        </th>
-                                                        <th>
-                                                            IC
-                                                        </th>
-                                                        <th>
-                                                            Job Title
-                                                        </th>
-                                                        <th>
-                                                            Reporting Date
-                                                        </th>
-                                                        <th>
-                                                            Start Time
-                                                        </th>
-                                                        <th>
-                                                            End Time
-                                                        </th>
-                                                        <th>Contact</th>
-                                                        <th>
-                                                            Attendance
-                                                        </th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name='attendance' checked
-                                                                       disabled/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alison</td>
-                                                        <td>S2763574B</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98533221</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name='attendance'/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Balisa</td>
-                                                        <td>S8763573A</td>
-                                                        <td>Driver</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>13:00</td>
-                                                        <td>15:00</td>
-                                                        <td>8223123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance" checked
-                                                                       disabled/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance" checked
-                                                                       disabled/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance" checked/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alice Wong</td>
-                                                        <td>S2763573A</td>
-                                                        <td>Waitress</td>
-                                                        <td>12 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance" checked/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Xin Kenan</td>
-                                                        <td>S8874711I</td>
-                                                        <td>Dish Washer</td>
-                                                        <td>11 Nov 2013</td>
-                                                        <td>14:00</td>
-                                                        <td>18:00</td>
-                                                        <td>98723123</td>
-                                                        <td>
-                                                            <div class="text-right">
-                                                                <input type="checkbox" name="attendance" checked
-                                                                       value="1"/>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    </tbody>
-                                                    <tfoot>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>IC</th>
-                                                        <th>Job title</th>
-                                                        <th>Reporting Date</th>
-                                                    </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!-- Box Content -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- row -->
-                    </div>
-
-                </div>
-                <!--End Row containing the table, the body part -->
-
-                <!-- End col-xs-12 > row -->
+            <div class='pull-right'>
+                <ul class='breadcrumb'>
+                    <li>
+                        <a href='checkin.html'>
+                            <i class='icon-check'>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!--End Main Column-->
-            <!-- End container.row.col-xs-12-->
         </div>
-        <!-- End container.row -->
-        <footer id='footer'>
-            <div class='footer-wrapper'>
-                <div class='row'>
-                    <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
-                    <div class='col-sm-6 buttons'>
-                        <a class="btn btn-link" href="">Preview</a>
-                        <a class="btn btn-link"
-                           href="https://github.com/dev-seahouse">FYP Project</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--Footer -->
+        <!-- End Header -->
     </div>
-    <!-- Container -->
+    <!-- Wrapper col-sm-12 for header div -->
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class='row'>
+<div class='col-sm-12'>
+<div class='box bordered-box orange-border' style='margin-bottom:0;'>
+<div class='box-header contrast-background'>
+</div>
+<div class='box-content box-no-padding'>
+<div class='responsive-table'>
+<div class='scrollable-area'>
+<table class='table table-hover data-table-column-filter table table-bordered table-striped'
+       style='margin-bottom:0;'
+       id="tbViewJob">
+<thead>
+<!-- TODO: Add hidden Id column for database -->
+<tr>
+    <th>
+        Name
+    </th>
+    <th>
+        IC
+    </th>
+    <th>
+        Job Title
+    </th>
+    <th>
+        Reporting Date
+    </th>
+    <th>
+        Start Time
+    </th>
+    <th>
+        End Time
+    </th>
+    <th>Contact</th>
+    <th>
+        Attendance
+    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name='attendance' checked
+                   disabled/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alison</td>
+    <td>S2763574B</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98533221</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name='attendance'/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Balisa</td>
+    <td>S8763573A</td>
+    <td>Driver</td>
+    <td>12 Nov 2013</td>
+    <td>13:00</td>
+    <td>15:00</td>
+    <td>8223123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance" checked
+                   disabled/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance" checked
+                   disabled/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance"/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance" checked/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Alice Wong</td>
+    <td>S2763573A</td>
+    <td>Waitress</td>
+    <td>12 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance" checked/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Xin Kenan</td>
+    <td>S8874711I</td>
+    <td>Dish Washer</td>
+    <td>11 Nov 2013</td>
+    <td>14:00</td>
+    <td>18:00</td>
+    <td>98723123</td>
+    <td>
+        <div class="text-right">
+            <input type="checkbox" name="attendance" checked
+                   value="1"/>
+        </div>
+    </td>
+</tr>
+
+</tbody>
+<tfoot>
+<tr>
+    <th>Name</th>
+    <th>IC</th>
+    <th>Job title</th>
+    <th>Reporting Date</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Box Content -->
+</div>
+</div>
+</div>
+</div>
+<!-- row -->
+</div>
+
+</div>
+<!--End Row containing the table, the body part -->
+
+<!-- End col-xs-12 > row -->
+</div>
+<!--End Main Column-->
+<!-- End container.row.col-xs-12-->
+</div>
+<!-- End container.row -->
+<footer id='footer'>
+    <div class='footer-wrapper'>
+        <div class='row'>
+            <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
+            <div class='col-sm-6 buttons'>
+                <a class="btn btn-link" href="">Preview</a>
+                <a class="btn btn-link"
+                   href="https://github.com/dev-seahouse">FYP Project</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--Footer -->
+</div>
+<!-- Container -->
 </section>
 </div>
 <!-- Wrapper -->
