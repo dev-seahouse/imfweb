@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="* sp reg_user: do not insert into hotel_t if fails insert user_t.&#10;* fixed cannot redirect issue&#10;* updated sql scrips&#10;* modified index/scripts/registration for insert organisational data&#10;* Starts working on post job related">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Registration.php" afterPath="$PROJECT_DIR$/classes/Registration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Login.php" afterPath="$PROJECT_DIR$/classes/Login.php" />
     </list>
     <ignored path="imf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +59,7 @@
               <file leaf-file-name="Registration.php" pinned="false" current="true" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/classes/Registration.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="120" column="10" selection-start="6202" selection-end="6202" vertical-scroll-proportion="0.20501138" vertical-offset="1710" max-vertical-offset="2415">
+                    <state line="93" column="44" selection-start="4752" selection-end="4752" vertical-scroll-proportion="0.20501138" vertical-offset="1305" max-vertical-offset="2415">
                       <folding>
                         <marker date="1390800108335" expanded="true" signature="4321:4371" placeholder="SELECT Usern..user_t..." />
                       </folding>
@@ -93,7 +92,7 @@
               <file leaf-file-name="scripts.js" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/assets/javascripts/scripts.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="142" column="9" selection-start="5111" selection-end="5111" vertical-scroll-proportion="4.8519363" vertical-offset="0" max-vertical-offset="2355">
+                    <state line="142" column="9" selection-start="5111" selection-end="5111" vertical-scroll-proportion="5.0" vertical-offset="0" max-vertical-offset="2355">
                       <folding />
                     </state>
                   </provider>
@@ -120,9 +119,9 @@
           <file leaf-file-name="Login.php" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/classes/Login.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="91" column="21" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.4025157" vertical-offset="951" max-vertical-offset="1905">
+                <state line="85" column="57" selection-start="2668" selection-end="2668" vertical-scroll-proportion="0.6631243" vertical-offset="621" max-vertical-offset="1905">
                   <folding>
-                    <marker date="1390799882491" expanded="true" signature="1394:1502" placeholder="SELECT usern..user_t..." />
+                    <marker date="1390800461991" expanded="true" signature="1394:1515" placeholder="select user_..user_t..." />
                   </folding>
                 </state>
               </provider>
@@ -159,6 +158,7 @@
         <option value="$PROJECT_DIR$/sql/resetTable" />
         <option value="$PROJECT_DIR$/assets/javascripts/scripts.js" />
         <option value="$PROJECT_DIR$/classes/Registration.php" />
+        <option value="$PROJECT_DIR$/classes/Login.php" />
       </list>
     </option>
   </component>
@@ -510,7 +510,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3375932" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44770545" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12646745" sideWeight="0.88601035" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0069444445" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -868,6 +868,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/javascripts/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="9" selection-start="5111" selection-end="5111" vertical-scroll-proportion="5.0" vertical-offset="0" max-vertical-offset="2355">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sql/regUser">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -878,25 +885,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/javascripts/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="9" selection-start="5111" selection-end="5111" vertical-scroll-proportion="4.8519363" vertical-offset="0" max-vertical-offset="2355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="21" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.4025157" vertical-offset="951" max-vertical-offset="1905">
+        <state line="85" column="57" selection-start="2668" selection-end="2668" vertical-scroll-proportion="0.6631243" vertical-offset="621" max-vertical-offset="1905">
           <folding>
-            <marker date="1390799882491" expanded="true" signature="1394:1502" placeholder="SELECT usern..user_t..." />
+            <marker date="1390800461991" expanded="true" signature="1394:1515" placeholder="select user_..user_t..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Registration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="10" selection-start="6202" selection-end="6202" vertical-scroll-proportion="0.20501138" vertical-offset="1710" max-vertical-offset="2415">
+        <state line="93" column="44" selection-start="4752" selection-end="4752" vertical-scroll-proportion="0.20501138" vertical-offset="1305" max-vertical-offset="2415">
           <folding>
             <marker date="1390800108335" expanded="true" signature="4321:4371" placeholder="SELECT Usern..user_t..." />
           </folding>

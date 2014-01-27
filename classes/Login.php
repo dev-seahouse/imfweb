@@ -58,8 +58,7 @@ class login
 				$user_name=$this->db_connection->real_escape_string($_POST['username']);
 
 				//sql statement
-                $sql = "SELECT username,password,email
-                        FROM user_t
+                $sql = "select user_t.userid,username,password,email,HotelName from user_t join hotel_t
                         WHERE username =?";
                 // Prepare select user statement
                 if (!($stmt=$this->db_connection->prepare($sql))){
@@ -81,7 +80,8 @@ class login
                 	$result_row=$result_of_login_check->fetch_object();
 
                 	if (password_verify($_POST['password'],$result_row->password)){
-                		
+
+                        $_SESSION['company_name']=$result_row->HotelName;
                 		$_SESSION['user_name']=$result_row->username;
                 		$_SESSION["user_login_status"]=1;
                 	}else{
