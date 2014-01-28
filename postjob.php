@@ -2,7 +2,6 @@
 include_once("classes/Postjob.php");
 require_once("config/db.php");
 $postjob=new Postjob();
-$postjob->getJobCategory();
 ?>
 <!DOCTYPE html>
 <html>
@@ -471,37 +470,10 @@ $postjob->getJobCategory();
                         <div class='col-sm-7 col-sm-offset-1'>
                             <div class='form-group'>
                                 <label>Job Category</label>
+                                <!-- TODO:use select2 native ajax to get data-->
                                 <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
-                                    <option value='Administration'>Administration</option>
-                                    <option value='Bartender'>Bartender</option>
-                                    <option value='Bellhop'>Bellhop</option>
-                                    <option value='NM'>Cashier</option>
-                                    <option value='Customer Relation'>Customer Relation</option>
-                                    <option value='Concierges'>Concierges</option>
-                                    <option value="Consultant">Consultant</option>
-                                    <option value='Driver'>Driver</option>
-                                    <option value='Event Assistant'>Event Assistant</option>
-                                    <option value='Event Planner'>Event Planner</option>
-                                    <option value='Front Desk'>Front Desk</option>
-                                    <option value='Gaming'>Game</option>
-                                    <option value='Housekeeping'>Housekeeping</option>
-                                    <option value='Hostee'>Hostee</option>
-                                    <option value='Health Care'>Health Care</option>
-                                    <option value='Room Service'>Room Service</option>
-                                    <option value='Store'>Store</option>
-                                    <option value='Kitchen Staff'>Kitchen Staff</option>
-                                    <option value='Management'>Management</option>
-                                    <option value="Marketing">Marketing</option>
-                                    <option value="Medical">Medical</option>
-                                    <option value='Purchase'>Purchase</option>
-                                    <option value='Sales'>Sales</option>
-                                    <option value="Sports">Sports</option>
-                                    <option value="Reservation">Reservation</option>
-                                    <option value='Security'>Security</option>
-                                    <option value='Technician'>Technician</option>
-                                    <option value='Valet'>Valet</option>
+                                    <?php $postjob->getJobCategory();?>
                                 </select>
-
                                 <p class='help-block'>
                                     <small class='text-muted'>
                                         Please choose a job category best describes the
@@ -961,6 +933,7 @@ $postjob->getJobCategory();
         $('#MyWizard').wizard('previous');
     });
     $('.btnWizardNext').on('click', function () {
+        //alert($('#selJobCategory').text());
         setTimeout(function () {
             resetMap()
         }, 100);

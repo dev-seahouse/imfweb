@@ -8,7 +8,7 @@ class Postjob
     public $messages=array();
 
     public function __construct(){
-        //check_auth("index.php");
+        check_auth("index.php");
     }
 
     //TODO: validate this funciton
@@ -25,9 +25,21 @@ class Postjob
 
         if (!$this->db_connection->connect_errno){
             $result_set=$this->db_connection->query($sql);
-            while($row=mysqli_fetch_row($result_set)){
-                echo "<option value=.'".$row["CategoryID"]."'>".$row["CategoryName"]."</option>";
+            if ($result_set=$this->db_connection->query($sql)){
+                while($row=$result_set->fetch_array(MYSQLI_ASSOC)){
+                    echo "<option value='".$row["CategoryID"]."'>".$row["CategoryName"]."</option>";
+                }
             }
+            else{
+                $this->errors[]="retrieving result_set failed.";
+
+            }
+
+
+/*            while($row=mysqli_fetch_ob($result_set)){
+                echo var_dump($row);
+                //echo "<option value=.'".$row["CategoryID"]."'>".$row["CategoryName"]."</option>";
+            }*/
 
         }else{
             $this->errors[]="Database connection error.";
