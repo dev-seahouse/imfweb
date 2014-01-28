@@ -8,10 +8,10 @@ class Postjob
     public $messages=array();
 
     public function __construct(){
-        check_auth("index.php");
-
-
+        //check_auth("index.php");
     }
+
+    //TODO: validate this funciton
     public function getJobCategory(){
         $this->db_connection=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
@@ -26,18 +26,15 @@ class Postjob
         if (!$this->db_connection->connect_errno){
             $result_set=$this->db_connection->query($sql);
             while($row=mysqli_fetch_row($result_set)){
-                var_dump($row); //var_dump dump information about a variable
-                echo "<hr />";
+                echo "<option value=.'".$row["CategoryID"]."'>".$row["CategoryName"]."</option>";
             }
 
         }else{
             $this->errors[]="Database connection error.";
         }
-
-
     }
-
 }
+
 /**
  * Created by PhpStorm.
  * User: kenan
