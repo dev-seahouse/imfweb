@@ -4,13 +4,17 @@
   */
 
 
+/* if there is no userid field
 ALTER TABLE `fyp_imf`.`hotel_t`
 ADD COLUMN `UserID` INT(10) NOT NULL AFTER `HotelCardinal`;
+*/
 
-
-
+/* if there is already foreign key
 ALTER TABLE `fyp_imf`.`hotel_t`
 DROP FOREIGN KEY `fk_hotel_t_1`;
+*/
+
+
 ALTER TABLE `fyp_imf`.`hotel_t`
 ADD CONSTRAINT `fk_hotel_t_1`
   FOREIGN KEY (`UserID`)
