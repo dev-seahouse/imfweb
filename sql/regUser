@@ -11,6 +11,8 @@ IN email varchar(50),
 IN company_name varchar(50),
 IN company_address varchar(64),
 IN company_contact int(10),
+-- company_random is placeholder for nric field, to be removed after spliting company & user account table
+IN company_random varchar(10),
 IN company_lat varchar(100),
 IN company_long varchar(100)
 
@@ -18,7 +20,7 @@ IN company_long varchar(100)
 BEGIN
 
 insert into user_t (RoleID,Username,Password,Email,Firstname, Lastname, Gender, NRIC, DateOfBirth, MobileNo,IMFpin)
-values (3,user_name,password,email,'-','-','-','-',curdate(),'000000',0000);
+values (3,user_name,password,email,'-','-','-',company_random,curdate(),'000000',0000);
 
 IF ROW_COUNT()>0
 THEN insert into hotel_t (UserID,HotelName,HotelAddress,HotelContactNo,HotelLatitude,HotelLongitude,HotelCardinal)
@@ -26,7 +28,3 @@ values(LAST_INSERT_ID(),company_name,company_address,company_contact,company_lat
 END IF;
 
 END
-
-/*
-call regUser("kenan","110110","xinkenan.11","total recycling","blk 313 jurong east street 32",98722321,"1234234","232q4324")
-*/

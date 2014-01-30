@@ -58,8 +58,9 @@ class Login
 				$user_name=$this->db_connection->real_escape_string($_POST['username']);
 
 				//sql statement
-                $sql = "select user_t.userid,username,password,email,HotelName from user_t join hotel_t
-                        WHERE username =?";
+				//Todo: convert this into stored procedure
+                $sql = "select user_t.userid,username,password,email,HotelName from user_t join hotel_t on user_t.userid=hotel_t.userid
+                        WHERE user_t.username =?";
                 // Prepare select user statement
                 if (!($stmt=$this->db_connection->prepare($sql))){
                     $this->errors[]="Prepare login stmt failed:".$this->db_connection->error;
@@ -87,17 +88,17 @@ class Login
                 	}else{
 
                 		// checking returned result_row
-                	
+
                 		$this->errors[]="Wrong password. Try again";
                 	}
                 }else{
                 	$this->errors[]="This user does not exist.";
                 }
-       
+
 			}else{
 				$this->errors[]="Database connection problem.";
 			}
-			
+
 
 		}
 
