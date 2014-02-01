@@ -472,7 +472,7 @@ $postjob=new Postjob();
                                 <label>Job Category</label>
                                 <!-- TODO:use select2 native ajax to get data-->
                                 <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
-                                    <?php $postjob->getJobCategory();?>
+                                <?=$postjob->populate_jobcategory();?>
                                 </select>
                                 <p class='help-block'>
                                     <small class='text-muted'>
@@ -484,9 +484,10 @@ $postjob=new Postjob();
                             <div class='form-group'>
                                 <!-- TODO:echo scope-->
                                 <label>Job Scope</label>
-                                <input class='form-control' id='inputJobScope'
-                                       name="txtJobScope" maxlength="300"
-                                       placeholder='ScopeID' type='text' disabled></div>
+                                <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
+                                    
+                                </select>                                
+                            </div>
                             <div class='form-group'>
                                 <label>
                                     Additional Description
