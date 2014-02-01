@@ -39,7 +39,7 @@ class Login
 
 	private function dologinWithPostData(){
 		if (empty($_POST['username'])){
-			$this->erros[]="User field was empty.";
+			$this->errors[]="User field was empty.";
 		}
         elseif(empty($_POST["password"])){
 			$this->errors[]="Password field was empty";

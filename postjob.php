@@ -1,7 +1,6 @@
 <?php
-include_once("classes/Postjob.php");
+include_once("controllers/processPostJob.php");
 require_once("config/db.php");
-$postjob=new Postjob();
 ?>
 <!DOCTYPE html>
 <html>
@@ -472,7 +471,7 @@ $postjob=new Postjob();
                                 <label>Job Category</label>
                                 <!-- TODO:use select2 native ajax to get data-->
                                 <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
-                                <?=$postjob->populate_jobcategory();?>
+                                <?=populate_jobcategory();?>
                                 </select>
                                 <p class='help-block'>
                                     <small class='text-muted'>
