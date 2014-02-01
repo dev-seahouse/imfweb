@@ -1,46 +1,43 @@
 <?php
 //Object relation mapper class
 
-class JobCategory
+class JobScope
 {
-	private $db_connection;
+	private $db_connection=null;
 	/*@var array Collction of erro messages
 	*/
-	public $errors;
+	public $errors=array();	
 	/*
 	@var array Cetegory array CategoryID=>CategoryName
 	*/
-	private $categories;
+	private $scopes;
 
 	public function __construct()
 	{
-		$this->db_connection=null;
-		$this->errors=array();
-		$this->categories[]=array();
-
+		$this->scopes=array();
 	}
 
 /*======================================
-=            Categories Getter & Setter           =
+=            Job Scopes Getter & Setter           =
 ======================================*/
 
-/*==========  Get all categories  ==========*/
+/*==========  Get all jobscopes ==========*/
 
-	public function get_all_categories(){
-		if (!$this->categories=$this->db_all_categories()){
+	public function get_scopes_by_id(){
+		if (!$this->scopes=$this->db_scopes_by_id()){
 			var_dump($this->get_errors());
 		}
-		return $this->categories;
+		return $this->scopes;
 	}
 
 /*==============================================
 =            DB connection function            =
 ==============================================*/
 
-/*==========  Get all categories  ==========*/
+/*==========  Get all job scopes  ==========*/
 
-	    //TODO: validate this funciton
-    private function db_all_categories(){
+	   
+    private function db_scopes_by_id(){
         $this->db_connection=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
         //change character set and verify, output error message into errors[];
@@ -76,8 +73,6 @@ class JobCategory
             $this->errors[]="Database connection error.";
             return false;
         }
-        $result_set->close();
-        $this->db_connection->close();
     }
 
 
