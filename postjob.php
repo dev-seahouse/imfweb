@@ -470,7 +470,7 @@ require_once("config/db.php");
                             <div class='form-group'>
                                 <label>Job Category</label>
                                 <!-- TODO:use select2 native ajax to get data-->
-                                <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
+                                <select class='select2 form-control' id="selJobCategory" name="selJobCategory" onchange="get_scopes(this.value)">
                                 <?=populate_jobcategory();?>
                                 </select>
                                 <p class='help-block'>
@@ -483,7 +483,8 @@ require_once("config/db.php");
                             <div class='form-group'>
                                 <!-- TODO:echo scope-->
                                 <label>Job Scope</label>
-                                <select class='select2 form-control' id="selJobCategory" name="selJobCategory">
+                                <!-- TODO: on scope change set text -->
+                                <select class='select2 form-control' id="selJobScope" name="selJobScope" onchange="">
                                     
                                 </select>                                
                             </div>
@@ -928,6 +929,23 @@ require_once("config/db.php");
 <script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script>
 
 <!-- / END - page related files and scripts [optional] -->
+<script>
+function get_scopes(scope_id){
+
+    $.ajax({
+        type:"POST",
+        url:'controllers/processPostJob.php',
+        crossDomain: true,
+        beforeSend:function(){
+            $("#selJobScope").html("<option>Loading ...</option>");
+            
+        }
+        data:{
+
+        }
+    })
+}    
+</script>
 <script>
     $('.btnWizardPrev').on('click', function () {
         $('#MyWizard').wizard('previous');

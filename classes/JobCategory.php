@@ -8,7 +8,7 @@ class JobCategory
 	*/
 	public $errors;
 	/*
-	@var array Cetegory array CategoryID=>CategoryName
+	@var array Cetegory array CategoryID=>CategoryName contains all all category data.
 	*/
 	private $categories;
 
@@ -27,9 +27,11 @@ class JobCategory
 /*==========  Get all categories  ==========*/
 
 	public function get_all_categories(){
-		if (!$this->categories=$this->db_all_categories()){
-			var_dump($this->get_errors());
-		}
+
+    if (!$this->categories=$this->db_all_categories()){
+    	   var_dump($this->get_errors());
+    	}
+        
 		return $this->categories;
 	}
 
