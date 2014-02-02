@@ -26,6 +26,10 @@
 (function ($) {
 
 
+
+
+
+
     var asInitVals, i, label, th;
 
     var sTableId = "table";
@@ -92,6 +96,7 @@
         aiCustomSearch_Indexes.push(i);
 
 
+
         //------------start range filtering function
 
 
@@ -119,6 +124,7 @@
             }
         );
         //------------end range filtering function
+
 
 
         $('#' + sFromId + ',#' + sToId, th).keyup(function () {
@@ -213,8 +219,8 @@
         });
     }
 
-    function _fnRangeLabelPart(iPlace) {
-        switch (iPlace) {
+    function _fnRangeLabelPart(iPlace){
+        switch(iPlace){
             case 0:
                 return sRangeFormat.substring(0, sRangeFormat.indexOf("{from}"));
             case 1:
@@ -353,6 +359,8 @@
         });
 
     };
+
+
 
 
 })(jQuery);
