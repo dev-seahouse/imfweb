@@ -42,7 +42,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/imfweb/config/db.php");
         $categories=$jobCategory->get_all_categories();
     }
     foreach ($categories as $row) {
-        echo "<option value='".$row["CategoryID"]."'>".$row["CategoryName"]."</option>\n";
+        echo "<option value='".$row["CategoryID"]."'>".$row["CategoryName"]."</option>";
     }
         //var_dump($categories);
 }
