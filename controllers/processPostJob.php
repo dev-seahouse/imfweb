@@ -27,8 +27,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/imfweb/config/db.php");
         $category_id=$_POST["categoryID"];
         $jobScope=new JobScope();
         $scopes=$jobScope->get_scopes_by_id($category_id);
-        var_dump(json_encode($scopes));
-        
+        echo json_encode($scopes);     
     }
   }
 

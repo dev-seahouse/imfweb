@@ -484,19 +484,16 @@ require_once(dirname(__FILE__)."/config/db.php");
                                 <!-- TODO:echo scope-->
                                 <label>Job Scope</label>
                                 <!-- TODO: on scope change set text -->
-                                <select class='select2 form-control' id="selJobScope" name="selJobScope" onchange="">
-                                    
+                                <select class='select2 form-control' id="selJobScope" name="selJobScope" onchange="get_description(this.value)">
                                 </select>                                
                             </div>
                             <div class='form-group'>
                                 <label>
-                                    Additional Description
-                                    <span class="small text-muted">&nbsp(Optional)</span>
+                                     Description
                                 </label>
-                                <textarea class='char-counter autosize form-control'
-                                          rows='2' maxlength='300' data-char-allowed='300'
-                                          data-char-warning='250'
-                                          style='margin-bottom: 0;'></textarea>
+                                <textarea class='form-control'
+                                          rows='2' maxlength='300' id="txtScopeDesciption"
+                                          style='margin-bottom: 0;' disabled></textarea>
                             </div>
                         </div>
                     </fieldset>
@@ -930,11 +927,22 @@ require_once(dirname(__FILE__)."/config/db.php");
 
 <!-- / END - page related files and scripts [optional] -->
 <script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+  var categoryID=$("#selJobCategory").val();
+  get_scopes(categoryID);
+
+  
+});
 function get_scopes(categoryID){
+    // this is done to refresh data, otherwise value will not change 
+   // $("#selJobScope").select2("destroy");
+    //$("#selJobScope").select2();
     $.ajax({
         type:"POST",
         url:'controllers/processPostJob.php',
         crossDomain: true,
+        dataType: 'json',
         beforeSend:function(){
             $("#selJobScope").html("<option>Loading ...</option>");   
         },
@@ -943,14 +951,29 @@ function get_scopes(categoryID){
             categoryID : categoryID
         },
         success:function(msg){
-            alert(msg);
-            $("#selJobScope").html(msg);
+            var html_out="",
+                selected_scope_id="";
+            for (var k in msg){
+                html_out+="<option value='"+msg[k].ScopeID+"'>"+msg[k].ScopeName+"</option>\n";
+            }
+            $("#selJobScope").html(html_out);
+            //recreate select 2 after destroy
+           // $("#selJobScope").select2();
+            selected_scope_id=$("#selJobScope").val();
+            for (var k in msg){
+                if (msg[k].ScopeID==selected_scope_id){
+                    $("#txtScopeDesciption").text(msg[k].ScopeDesc)
+                }
+            }
+
+
         },
         error:function(){
             alert("error");
         }
     });
-}    
+}  
+ 
 </script>
 <script>
     $('.btnWizardPrev').on('click', function () {
