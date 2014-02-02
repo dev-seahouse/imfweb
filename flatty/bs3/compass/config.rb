@@ -1,3 +1,3 @@
-images_dir = 'images'
-fonts_dir = 'fonts'
+images_dir = 'assets/images'
+fonts_dir = 'assets/fonts'
 relative_assets = true

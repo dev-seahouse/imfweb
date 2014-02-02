@@ -4,6 +4,10 @@ require_once('../libraries/utilities.php');
 require_once("../config/db.php");
 require_once("../classes/Login.php");
 
+/*===============================
+=            Handle display login error /sucess etc  =
+===============================*/
+
 $login = new Login();
 //var_dump($_SESSION);
 //var_dump($_POST);
