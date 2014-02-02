@@ -9,12 +9,12 @@ require_once(dirname(__FILE__)."/config/db.php");
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <meta content='text/html;charset=utf-8' http-equiv='content-type'>
   <!-- Application icon -->
-    <!--     <link href='assets/images/meta_icons/favicon.ico' rel='shortcut icon' type='image/x-icon'>
-    <link href='assets/images/meta_icons/apple-touch-icon.png' rel='apple-touch-icon-precomposed'>
-    <link href='assets/images/meta_icons/apple-touch-icon-57x57.png' rel='apple-touch-icon-precomposed' sizes='57x57'>
-    <link href='assets/images/meta_icons/apple-touch-icon-72x72.png' rel='apple-touch-icon-precomposed' sizes='72x72'>
-    <link href='assets/images/meta_icons/apple-touch-icon-114x114.png' rel='apple-touch-icon-precomposed' sizes='114x114'>
-    <link href='assets/images/meta_icons/apple-touch-icon-144x144.png' rel='apple-touch-icon-precomposed' sizes='144x144'>
+  <!--     <link href='assets/images/meta_icons/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+  <link href='assets/images/meta_icons/apple-touch-icon.png' rel='apple-touch-icon-precomposed'>
+  <link href='assets/images/meta_icons/apple-touch-icon-57x57.png' rel='apple-touch-icon-precomposed' sizes='57x57'>
+  <link href='assets/images/meta_icons/apple-touch-icon-72x72.png' rel='apple-touch-icon-precomposed' sizes='72x72'>
+  <link href='assets/images/meta_icons/apple-touch-icon-114x114.png' rel='apple-touch-icon-precomposed' sizes='114x114'>
+  <link href='assets/images/meta_icons/apple-touch-icon-144x144.png' rel='apple-touch-icon-precomposed' sizes='144x144'>
   -->
   <!-- / START - page related stylesheets [optional] -->
   <!-- End of application icons -->
@@ -27,12 +27,10 @@ require_once(dirname(__FILE__)."/config/db.php");
   <!--- =============   Customise theme File     ================================== -->
   <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
   <link rel="stylesheet" type="text/css" href="jquery-addresspicker-master/demos/demo.css">
-    <!--[if lt IE 9]>
-    <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+  <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
-    <![endif]-->
-
-  </head>
+    <![endif]--> </head>
   <body class='contrast-blue without-footer fixed-navigation fixed-header'>
     <header>
       <nav class='navbar navbar-default navbar-fixed-top'>
@@ -53,14 +51,12 @@ require_once(dirname(__FILE__)."/config/db.php");
     <ul class='dropdown-menu color-settings'>
       <li class='color-settings-contrast-color'>
         <div class='color-title'>Select Theme</div>
-        <a data-change-to="contrast-red" href="#">
-          <i class='icon-cog text-red'></i>
+        <a data-change-to="contrast-red" href="#"> <i class='icon-cog text-red'></i>
           Red
           <small>(default)</small>
         </a>
 
-        <a data-change-to="contrast-blue" href="#">
-          <i class='icon-cog text-blue'></i>
+        <a data-change-to="contrast-blue" href="#"> <i class='icon-cog text-blue'></i>
           Blue
         </a>
 
@@ -429,7 +425,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                         <span class='step'>3</span>
                       </li>
                     </ul>
-                    <div class='actions col-sm-5 col-md-4'>
+                    <div class='actions col-sm-4 col-md-4 col-lg-3'>
                       <button class='btn btn-sm btn-prev'>
                         <i class='glyphicon glyphicon-arrow-left'></i>
                         Prev
@@ -450,7 +446,7 @@ require_once(dirname(__FILE__)."/config/db.php");
 <!-- ==========       Step one - Enter job title starts here =============== -->
 <div class='step-pane active' id='step1'>
   <div class='row'>
-    <div class='col-sm-10'>
+    <div class='col-sm-11'>
       <div class='box bordered-box no-mg-b'>
         <div class='box-content box-double-padding-sm'>
           <fieldset>
@@ -467,7 +463,7 @@ require_once(dirname(__FILE__)."/config/db.php");
               <div class='form-group'>
                 <label>Job Category</label>
                 <!-- TODO:use select2 native ajax to get data-->
-                <select class='select2 form-control' id="selJobCategory" name="selJobCategory" onchange="get_scopes(this.value)">
+                <select class='select2 form-control' id="selJobCategory" name="selJobCategory" onchange="get_scopes(this.value)" data-rule-required='true'>
                   <?=populate_jobcategory();?></select>
                   <p class='help-block'>
                     <small class='text-muted'>
@@ -595,7 +591,7 @@ require_once(dirname(__FILE__)."/config/db.php");
               </div>
               <!-- ======= Next Button field   ======= -->
               <div class='form-actions form-actions-padding text-right no-mg-t'>
-                <div class='btn btn-primary btn-lg btnWizardNext'>
+                <div class='btn contrast btn-lg btnWizardNext'>
                   <i class='icon-arrow-right'></i>
                   Next
                 </div>
@@ -659,7 +655,7 @@ require_once(dirname(__FILE__)."/config/db.php");
   <!-- ===========      Step three - dates time starts  here ============= -->
   <div class='step-pane' id='step2'>
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-11">
         <div class="box bordered-box no-mg-b">
           <div class="box-content box-double-padding-sm">
             <fieldset>
@@ -675,92 +671,94 @@ require_once(dirname(__FILE__)."/config/db.php");
               <div class="col-sm-7 col-sm-offset-1">
                 <div class="box bordered-box blue-border ">
                   <div>
-                    <label>Select Date Range</label>
-
-                    <div class='input-group'>
-                      <input class='form-control daterange' placeholder='Select daterange'
-                      type='text'>
-                      <span class='input-group-addon'
-                      id='daterange2'>
-                      <i class='icon-calendar'></i>
-                    </span>
+                    <label>Select Date</label>
+                    <div class='datepicker input-group' id='txtJobDate'>
+                      <input class='form-control' data-format='dd-MM-yyyy' placeholder='Select datepicker' type='text'>
+                      <span class='input-group-addon'>
+                        <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </fieldset>
-          <hr class='hr-normal'>
-          <fieldset>
-            <div class="col-sm-4">
-              <div class='box'>
-                <div class='lead'>
-                  <i class='icon-file text-contrast'></i>
-                  &nbsp Time
-                </div>
-                <small class='text-muted'>Choose working time for the job</small>
-              </div>
-            </div>
-            <div class="col-sm-7 col-sm-offset-1">
-              <div class="box bordered-box blue-border ">
-                <div class="form-actions">
-                  <label>Select start time</label>
-
-                  <div class='timepicker input-group' id='timepicker'>
-                    <input class='form-control' data-format='hh:mm'
-                    placeholder='Select timepicker' type='text'>
-                    <span class='input-group-addon'>
-                      <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
-                    </span>
-                  </div>
-                </div>
-                <div class="form-actions">
-                  <label>Select end time</label>
-
-                  <div class='timepicker input-group' id='timepicker'>
-                    <input class='form-control' data-format='hh:mm'
-                    placeholder='Select timepicker' type='text'>
-                    <span class='input-group-addon'>
-                      <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-      <!-- ======= Next Button field   ======= -->
-      <div class='form-actions form-actions-padding text-right no-mg-t'>
-        <div class='btn btn-primary btn-lg btnWizardNext'>
-          <i class='icon-arrow-right'></i>
-          Next
-        </div>
-      </div>
-      <!-- ======End of Next Button Field ======== --> </div>
-    </div>
-  </div>
-  <!-- ===========      Step three ends here ============= -->
-  <div class='step-pane' id='step3'>
-    <!--TODO:Add javascript dynamically consolidate date on one page, use replace text address with location map,replace layout to tab layout.-->
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="box bordered-box no-mg-b">
-          <div class="box-content box-double-padding-sm">
+            </fieldset>
+            <hr class='hr-normal'>
             <fieldset>
               <div class="col-sm-4">
                 <div class='box'>
                   <div class='lead'>
                     <i class='icon-file text-contrast'></i>
-                    &nbsp Confirmation
+                    &nbsp Time
                   </div>
-                  <small class='text-muted'>Please Review before confirming posting.</small>
+                  <small class='text-muted'>Choose working time for the job</small>
                 </div>
               </div>
               <div class="col-sm-7 col-sm-offset-1">
-               <div class="panel contrast">
-                <div class="panel-body contrast">Panel content</div>
-                <div class="panel-footer">Panel footer</div>
-              </div>                       
+                <div class="box bordered-box blue-border ">
+                  <div class="form-actions">
+                    <label>Select start time</label>
+
+                    <div class='timepicker input-group' id='txtStartTime'>
+                      <input class='form-control' data-format='hh:mm'
+                      placeholder='Select timepicker' type='text'>
+                      <span class='input-group-addon'>
+                        <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <label>Select end time</label>
+
+                    <div class='timepicker input-group' id='txtEndTime'>
+                      <input class='form-control' data-format='hh:mm'
+                      placeholder='Select timepicker' type='text'>
+                      <span class='input-group-addon'>
+                        <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <!-- ======= Next Button field   ======= -->
+        <div class='form-actions form-actions-padding text-right no-mg-t'>
+               <div class='btn contrast btn-lg btnWizardPrev'>
+            <i class='icon-arrow-left'></i>
+            Prev
+          </div>        
+          <div class='btn contrast btn-lg btnWizardNext'>
+            <i class='icon-arrow-right'></i>
+            Next
+          </div>
+
+        </div>
+        <!-- ======End of Next Button Field ======== --> </div>
+      </div>
+    </div>
+    <!-- ===========      Step three ends here ============= -->
+    <div class='step-pane' id='step3'>
+      <!--TODO:Add javascript dynamically consolidate date on one page, use replace text address with location map,replace layout to tab layout.-->
+      <div class="row">
+        <div class="col-sm-11">
+          <div class="box bordered-box no-mg-b">
+            <div class="box-content box-double-padding-sm">
+              <fieldset>
+                <div class="col-sm-4">
+                  <div class='box'>
+                    <div class='lead'>
+                      <i class='icon-file text-contrast'></i>
+                      &nbsp Confirmation
+                    </div>
+                    <small class='text-muted'>Please Review before confirming posting.</small>
+                  </div>
+                </div>
+                <div class="col-sm-7 col-sm-offset-1">
+                 <div class="panel contrast">
+                  <div class="panel-body contrast">Panel content</div>
+                  <div class="panel-footer">Panel footer</div>
+                </div>                       
                         <!-- 
                             <div class="box bordered-box blue-border ">
                                 <div class="form-group">
@@ -840,7 +838,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                       </div>
                       <!-- ======= Submit Button field   ======= -->
                       <div class='form-actions form-actions-padding text-right no-mg-t'>
-                        <button class='btn btn-primary btn-lg btnWizardNext'>
+                        <button class='btn contrast btn-lg btnWizardNext'>
                           <i class='icon-arrow-right'></i>
                           Confirm
                         </button>
@@ -907,20 +905,36 @@ type="text/javascript"></script>
 <script src="assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js"
 type="text/javascript"></script>
 <script src="assets/javascripts/plugins/typeahead/typeahead.js" type="text/javascript"></script>
+<!-- Validation -->
+<script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script> -->
+  <script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script> -->
 
-<!-- / END - page related files and scripts [optional] -->
-<script>
-  $( document ).ready(function() {
+  <!-- / END - page related files and scripts [optional] -->
+  <script>
+    $( document ).ready(function() {
   // Handler for .ready() called.
   var categoryID=$("#selJobCategory").val();
   get_scopes(categoryID);
-  $('#myWizard').wizard();
+
+  $('#MyWizard').on('change', function(e, data) {
+      console.log('change');
+      if(data.step===2 && data.direction==='next') {
+        /**
+        
+          TODO:
+          - Gather all form data and set text
+          
+        
+        **/
+        
+      }
+    });
 
 
 });
-  function get_scopes(categoryID){
+    function get_scopes(categoryID){
     // this is done to refresh data, otherwise value will not change 
     $("#selJobScope").select2("destroy");
     //$("#selJobScope").select2();
@@ -956,23 +970,27 @@ type="text/javascript"></script>
             alert("error");
           }
         });
-  }  
+  } 
+
+  function confirmResult(){
+
+  } 
 
 </script>
 <script>
-    $('.btnWizardPrev').on('click', function () {
-        $('#MyWizard').wizard('previous');
-    });
-    $('.btnWizardNext').on('click', function () {
+  $('.btnWizardPrev').on('click', function () {
+    $('#MyWizard').wizard('previous');
+  });
+  $('.btnWizardNext').on('click', function () {
         //alert($('#selJobCategory').text());
         // setTimeout(function () {
         //     resetMap()
         // }, 100);
         $('#MyWizard').wizard('next', 'foo');
 
-    });
-  </script>
-  <script>
+      });
+    </script>
+    <script>
 /*    $(function () {
         var addresspickerMap = $("#txtAddress").addresspicker({
             regionBias: "null",
@@ -1017,13 +1035,21 @@ function resetMap() {
     google.maps.event.trigger(map, 'resize');
 }
 */
-$("#daterange2").daterangepicker({
-  format: "DD/MM/YYYY"
-}, function (start, end) {
-  return $("#daterange2").parent().find("input").first().val(start.format("D MMMM, YYYY") + " - " + end.format("D MMMM, YYYY"));
-});
+// $("#daterange2").daterangepicker({
+//   format: "DD/MM/YYYY"
+// }, function (start, end) {
+//   return $("#daterange2").parent().find("input").first().val(start.format("D MMMM, YYYY") + " - " + end.format("D MMMM, YYYY"));
+// });
 
-
+$.fn.datetimepicker.defaults = {
+        maskInput: true,           // disables the text input mask
+        pickDate: true,            // disables the date picker
+        pickTime: true,            // disables de time picker
+        pick12HourFormat: true,   // enables the 12-hour format time picker
+        pickSeconds: false,         // disables seconds in the time picker
+        startDate: -Infinity,      // set a minimum date
+        endDate: Infinity          // set a maximum date
+      };
 
     </script>
   </body>
