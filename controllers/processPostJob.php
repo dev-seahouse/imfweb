@@ -1,7 +1,8 @@
 <?php
-require_once("libraries/utilities.php");
-require_once("classes/JobCategory.php");
-require_once("classes/JobScope.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/imfweb/libraries/utilities.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/imfweb/classes/JobCategory.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/imfweb/classes/JobScope.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/imfweb/config/db.php");
 /*========================================================================
   =            All postjob presentational controllers here            =
   ========================================================================*/
@@ -20,11 +21,14 @@ require_once("classes/JobScope.php");
       - This entire section to handle post actions
       should have been in another some handler class,i think.
   **/
+
   if (isset($_POST["getScopes"])){
     if (isset($_POST["categoryID"])){
         $category_id=$_POST["categoryID"];
         $jobScope=new JobScope();
         $scopes=$jobScope->get_scopes_by_id($category_id);
+        var_dump(json_encode($scopes));
+        
     }
   }
 

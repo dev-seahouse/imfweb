@@ -87,7 +87,7 @@ class JobCategory
     =            Error handling function            =
     ===============================================*/
     private function get_errors(){
-    	return $errors;
+    	return $this->errors;
     }
 }
 

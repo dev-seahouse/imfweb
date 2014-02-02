@@ -1,4 +1,5 @@
 <?php
+
 //Object relation mapper class
 
 class JobScope
@@ -24,8 +25,8 @@ class JobScope
 /*==========  Get all jobscopes ==========*/
 
 	public function get_scopes_by_id($category_id){
-        if (!$this->scopes=$this->db_scopes_by_id()){
-         var_dump($this->get_errors());
+        if (!$this->scopes=$this->db_scopes_by_id($category_id)){
+             $this->get_errors();
         }
         return $this->scopes;        
     }
@@ -38,6 +39,7 @@ class JobScope
 
 	   
     private function db_scopes_by_id($category_id){
+        //var_dump($category_id);
         $this->db_connection=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
         //change character set and verify, output error message into errors[];
@@ -49,7 +51,7 @@ class JobScope
 
         if (!$this->db_connection->connect_errno){
             //the sql statemnet
-            $sql="SELECT * FROM scope_t where CategoryID=?order by ScopeName ASC";
+            $sql="SELECT * FROM scope_t where CategoryID=? order by ScopeName ASC";
             //prepare statement
             if (!$stmt = $this->db_connection->prepare($sql)){
                 $this->errors[]="Prepare statement error." . $this->db_connection->error;
@@ -71,7 +73,14 @@ class JobScope
             **/
             
             $result_set=$stmt->get_result();
-            var_dump($result_set);
+            $rows=$result_set->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+            $result_set->close();
+            $this->db_connection->close();
+            return $rows;
+            //var_dump($this->scopes);
+            //var_dump($rows);
+            
 
 
 //             $result_set=$this->db_connection->query($sql);
@@ -104,7 +113,7 @@ class JobScope
     =            Error handling function            =
     ===============================================*/
     private function get_errors(){
-    	return $errors;
+    	return $this->errors;
     }
 }
 

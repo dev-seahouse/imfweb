@@ -1,6 +1,6 @@
 <?php
-include_once("controllers/processPostJob.php");
-require_once("config/db.php");
+include_once(dirname(__FILE__)."/controllers/processPostJob.php");
+require_once(dirname(__FILE__)."/config/db.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -930,20 +930,26 @@ require_once("config/db.php");
 
 <!-- / END - page related files and scripts [optional] -->
 <script>
-function get_scopes(scope_id){
-
+function get_scopes(categoryID){
     $.ajax({
         type:"POST",
         url:'controllers/processPostJob.php',
         crossDomain: true,
         beforeSend:function(){
-            $("#selJobScope").html("<option>Loading ...</option>");
-            
-        }
+            $("#selJobScope").html("<option>Loading ...</option>");   
+        },
         data:{
-
+            getScopes: 1,
+            categoryID : categoryID
+        },
+        success:function(msg){
+            alert(msg);
+            $("#selJobScope").html(msg);
+        },
+        error:function(){
+            alert("error");
         }
-    })
+    });
 }    
 </script>
 <script>
