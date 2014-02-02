@@ -1,3 +1,3 @@
-cd C:\wamp\www\imf\compass
+cd d:\wamp\www\imfweb\compass
 compass compile sass/main.scss
 pause
