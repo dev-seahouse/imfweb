@@ -59,7 +59,7 @@ class Login
 
 				//sql statement
 				//Todo: convert this into stored procedure
-                $sql = "select user_t.userid,username,password,email,HotelName from user_t join hotel_t on user_t.userid=hotel_t.userid
+                $sql = "select user_t.userid as userid,username,password,email,HotelName,HotelID from user_t join hotel_t on user_t.userid=hotel_t.userid
                         WHERE user_t.username =?";
                 // Prepare select user statement
                 if (!($stmt=$this->db_connection->prepare($sql))){
@@ -83,6 +83,8 @@ class Login
                 	if (password_verify($_POST['password'],$result_row->password)){
 
                         $_SESSION['company_name']=$result_row->HotelName;
+                        $_SESSION['company_id']=$result_row->HotelID;
+                        $_SESSION['user_id']=$result_row->userid;
                 		$_SESSION['user_name']=$result_row->username;
                 		$_SESSION["user_login_status"]=1;
                 	}else{

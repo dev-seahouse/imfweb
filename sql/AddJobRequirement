@@ -1,0 +1,2 @@
+ALTER TABLE `fyp_imf`.`job_t` 
+ADD COLUMN `JobRequirement` VARCHAR(300) NULL AFTER `JobStatus`;

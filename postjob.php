@@ -440,7 +440,8 @@ require_once(dirname(__FILE__) . "/config/db.php");
 <!--FIXME:header number layout break on xs device-->
 <div class='step-content'>
 <hr class='hr-normal'>
-<form class="form form-horizontal validate-form" style="margin-bottom: 0;" method="post" action="viewjob.html" accept-charset="UTF-8">
+<form class="form form-horizontal validate-form" style="margin-bottom: 0;" method="post" action="controllers/processPostJob.php"
+      accept-charset="UTF-8" id="frmPostJob" name="frmPostJob">
 <!-- For rails <input name="authenticity_token" type="hidden" />
 -->
 <!-- ==========       Step one - Enter job title starts here =============== -->
@@ -461,7 +462,7 @@ require_once(dirname(__FILE__) . "/config/db.php");
                         </div>
                         <div class='col-sm-7 col-sm-offset-1'>
                             <div class='form-group'>
-                                <label>Job Category</label>
+                                <label class="control-label" for="selJobCategory">Job Category</label>
                                 <!-- TODO:use select2 native ajax to get data-->
                                 <select class='select2 form-control' id="selJobCategory" name="selJobCategory"
                                         onchange="get_scopes(this.value)" data-rule-required='true'>
@@ -474,6 +475,12 @@ require_once(dirname(__FILE__) . "/config/db.php");
                                     </small>
                                 </p>
                             </div>
+                            <!--                            <div class='form-group'>
+                                                            <label class='control-label col-sm-3' for='validation_email'>E-mail</label>
+                                                            <div class='col-sm-4 controls'>
+                                                                <input class='form-control' data-rule-email='true' data-rule-required='true' id='validation_email' name='validation_email' placeholder='E-mail' type='text'>
+                                                            </div>
+                                                        </div>-->
                             <div class='form-group'>
                                 <!-- TODO:echo scope-->
                                 <label>Job Scope</label>
@@ -504,15 +511,18 @@ require_once(dirname(__FILE__) . "/config/db.php");
                         </div>
                         <div class='col-sm-7 col-sm-offset-1'>
                             <div class='form-group'>
-                                <label>
+                                <label class="control-label" for="">
                                     Job Requirements
                                     <span class="small text-muted">&nbsp(Optional)</span>
                                 </label>
-                                <textarea class='char-counter autosize form-control'
-                                          rows='2' maxlength='300' data-char-allowed='300'
-                                          data-char-warning='250'
-                                          style='margin-bottom: 0;' id="txtJobRequirement"
-                                          name="txtJobRequirement" placeholder="eg.minimum age"></textarea>
+
+                                <div class="controls">
+                                    <textarea class='char-counter autosize form-control'
+                                              rows='2' maxlength='300' data-char-allowed='300'
+                                              data-char-warning='250'
+                                              style='margin-bottom: 0;' id="txtJobRequirement"
+                                              name="txtJobRequirement" placeholder="eg.minimum age"></textarea>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -528,20 +538,25 @@ require_once(dirname(__FILE__) . "/config/db.php");
                             </div>
                         </div>
                         <div class='col-sm-7 col-sm-offset-1'>
-                            <div class='form-group'>
-                                <label for="txtStandardPay">Standard Pay</label>
+                            <div class='form-group controls'>
+                                <label for="txtStandardPay" class="control-label">Standard Pay Rate</label>
+                                <span class="small text-muted">&nbsp(Per Hour)</span>
 
                                 <div class='row'>
                                     <div class='col-sm-7'>
                                         <div class='input-group'>
                                             <span class='input-group-addon'>S$</span>
-                                            <input class='form-control input-lg text-right' type='number' min="0"
-                                                   id="txtStandardPay"></div>
+
+                                            <input class='form-control input-lg text-right' type='text' min="1"
+                                                   id="txtStandardPay" data-rule-required='true'
+                                                   data-rule-number="true">
+                                            <span class='input-group-addon'>/Hour</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class='form-group'>
-                                <label for="txtBonusPay">Bonus Pay</label>
+                            <div class='form-group controls'>
+                                <label for="txtBonusPay">Premium Pay Rate</label>
                                 <span class="small text-muted">&nbsp(Optional)</span>
                                 <a class="icon-question contrast has-popover"
                                    data-content='Employees can be given a special bonus pay rate based on total hours experience recorded in IMF database.'></a>
@@ -550,22 +565,25 @@ require_once(dirname(__FILE__) . "/config/db.php");
                                     <div class='col-sm-7'>
                                         <div class='input-group'>
                                             <span class='input-group-addon'>S$</span>
-                                            <input class='form-control input-lg text-right' type='number' min="0"
-                                                   id="txtBonusPay"></div>
+                                            <input class='form-control input-lg text-right' type='text' min="0"
+                                                   id="txtBonusPay" data-rule-number="true">
+                                            <span class='input-group-addon'>/Hour</span>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class='form-group'>
+                            <div class='form-group controls'>
                                 <label for="txtMinExpHours">Eligibility</label>
                                 <span class="small text-muted">&nbsp(Optional)</span>
                                 <a class="icon-question contrast has-popover"
-                                   data-content='Specify the minimum hours of working experience required to be eligible for special bonus'></a>
+                                   data-content='Specify the minimum hours of working experience required to be eligible for premium pay rate'></a>
 
                                 <div class='row'>
                                     <div class='col-sm-7'>
                                         <div class='input-group'>
 
-                                            <input class='form-control input-lg text-right' type='number' min="0"
+                                            <input class='form-control input-lg text-right' data-rule-number="true" type='text' min="0"
                                                    id="txtMinExpHours">
                                             <span class='input-group-addon'>Hours</span>
                                         </div>
@@ -587,10 +605,11 @@ require_once(dirname(__FILE__) . "/config/db.php");
                             </div>
                         </div>
                         <div class='col-sm-4 col-sm-offset-1'>
-                            <div class='form-group'>
-                                <label>Vacancy</label>
-                                <input class="form-control" type="number" min="1" id="txtNumRequired"
-                                       name="txtNumRequired"></div>
+                            <div class='form-group controls'>
+                                <label class="control-label" for="txtNumRequired">Vacancy</label>
+
+                                <input class="form-control" type="text" min="1" id="txtNumRequired"
+                                       name="txtNumRequired" data-rule-required='true'></div>
                         </div>
 
                     </fieldset>
@@ -677,12 +696,13 @@ require_once(dirname(__FILE__) . "/config/db.php");
                         </div>
                         <div class="col-sm-7 col-sm-offset-1">
                             <div class="box bordered-box blue-border ">
-                                <div>
-                                    <label>Select Date</label>
+                                <div class="form-group controls">
+                                    <label class="control-label" fo="txtJobDate">Select Date</label>
 
-                                    <div class='datepicker input-group' id='txtJobDate'>
+                                    <div class='datepicker input-group'>
                                         <input class='form-control' data-format='dd-MM-yyyy'
-                                               placeholder='Select datepicker' type='text' id="txtJobDate">
+                                               placeholder='Select datepicker' type='text' id="txtJobDate"
+                                               name="txtJobDate" data-rule-required='true'>
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -703,28 +723,28 @@ require_once(dirname(__FILE__) . "/config/db.php");
                             </div>
                         </div>
                         <div class="col-sm-7 col-sm-offset-1">
-                            <div class="box bordered-box blue-border ">
-                                <div class="form-actions">
-                                    <label>Select start time</label>
+                            <div class="form-group controls">
+                                <label class="control-label" for="txtStartTime">Select start time</label>
 
-                                    <div class='timepicker input-group'>
-                                        <input class='form-control' data-format='hh:mm'
-                                               placeholder='Select timepicker' type='text' id="txtStartTime">
+                                <div class='timepicker input-group'>
+                                    <input class='form-control' data-format='hh:mm'
+                                           placeholder='Select timepicker' type='text' id="txtStartTime"
+                                           name="txtStartTime" data-rule-required='true'>
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
-                                    </div>
                                 </div>
-                                <div class="form-actions">
-                                    <label>Select end time</label>
+                            </div>
+                            <div class="form-group controls">
+                                <label class="control-label" for="txtEndtime">Select end time</label>
 
-                                    <div class='timepicker input-group'>
-                                        <input class='form-control' data-format='hh:mm'
-                                               placeholder='Select timepicker' type='text' id='txtEndTime'>
+                                <div class='timepicker input-group'>
+                                    <input class='form-control' data-format='hh:mm'
+                                           placeholder='Select timepicker' type='text' id='txtEndTime' name="txtEndTime"
+                                           data-rule-required='true'>
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -748,116 +768,281 @@ require_once(dirname(__FILE__) . "/config/db.php");
 </div>
 <!-- ===========      Step three ends here ============= -->
 <div class='step-pane' id='step3'>
-    <!--TODO:Add javascript dynamically consolidate date on one page, use replace text address with location map,replace layout to tab layout.-->
-    <div class="row">
-        <div class="col-sm-11">
-            <div class="box bordered-box no-mg-b">
-                <div class="box-content box-double-padding-sm">
-                    <fieldset>
-                        <div class="col-sm-4">
-                            <div class='box'>
-                                <div class='lead'>
-                                    <i class='icon-file text-contrast'></i>
-                                    &nbsp Confirmation
-                                </div>
-                                <small class='text-muted'>Please Review before confirming posting.</small>
-                            </div>
-                        </div>
-                        <div class="col-sm-7 col-sm-offset-1">
-                            <div class="panel contrast">
-                                <div class="panel-body contrast">Panel content</div>
-                                <div class="panel-footer">Panel footer</div>
-                            </div>
-                            <!--
-                                <div class="box bordered-box blue-border ">
-                                    <div class="form-group">
-                                        <label>Job Title</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">Regent Hotel Waiter</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Category</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">Waiter</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Job Scope</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">Serving VIP</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Job Description</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab doloribus
-                                                    harum id iure laudantium neque voluptatibus. Asperiores autem beatae,
-                                                    cumque deleniti distinctio doloremque, harum illum odit quam recusandae
-                                                    veniam voluptatem?
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Pay</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">Skilled Rate: S$5.50</div>
-                                            <div class="box-toolbox">Non-Skilled Rate: S$7.50</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Number Needed</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">20</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Location</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">1 Cuscaden Road, Singapore 249715</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Start Date/End Date</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">1 Dec 2013 - 5 Dec 2013</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Available Time Slots</label>
-
-                                        <div class='input-group'>
-                                            <div class="box-toolbox">8:00 - 13:00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                              --></div>
-                    </fieldset>
-                </div>
-                <!-- ======= Submit Button field   ======= -->
-                <div class='form-actions form-actions-padding text-right no-mg-t'>
-                    <button class='btn contrast btn-lg btnWizardNext'>
-                        <i class='icon-arrow-right'></i>
-                        Confirm
-                    </button>
-                </div>
-                <!-- ======End of Submit Button Field ======== --> </div>
+<!--TODO:Add javascript dynamically consolidate date on one page, use replace text address with location map,replace layout to tab layout.-->
+<div class="row">
+<div class="col-sm-11">
+<div class="box bordered-box no-mg-b">
+<div class="box-content box-double-padding-sm">
+<fieldset>
+<div class="col-sm-4">
+    <div class='box'>
+        <div class='lead'>
+            <i class='icon-file text-contrast'></i>
+            &nbsp Confirmation
+        </div>
+        <small class='text-muted'>Please Review before confirming posting.</small>
+    </div>
+</div>
+<div class="col-sm-7 col-sm-offset-1">
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-book'></i>
+                Job Category
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobCat">
+            Explicabo voluptate eos ipsam et recusandae quasi laudantium est velit nihil
+            perspiciatis minima corrupti neque sint dolores dolorum consequatur voluptatem
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-search'></i>
+                Job Scope
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobScope">
 
         </div>
     </div>
 </div>
-<!-- ===========      Step four ends here ============= --> </form>
+<div class="row">
+    <div class='box box-nomargin box-no-padding box-collapsed'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-folder-close-alt'></i>
+                Job Description
+                <small class='text-muted'>
+                    (click arrow to expand)
+                </small>
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobDesc">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding box-collapsed'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-question'></i>
+                Job Requirements
+                <small class='text-muted'>
+                    (click arrow to expand)
+                </small>
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobRequirement">
+            Empty
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-dollar'></i>
+                Pay
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content box-padding'>
+            Standard Rate : $<span class="text-red" id="confirmStandardPay"></span> /Hour
+        </div>
+        <div class="box-content box-padding" id="confirmBonusPayBox">
+            Premium Rate : $<span class="text-red" id="confirmBonusPay">Not Set</span> /Hour
+        </div>
+        <div class="box-content box-padding" id="confirmMinExpHoursBox">
+            Premium Rate Eligibility : <span id="confirmMinExpHours">Not Set</span> Hours
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-book'></i>
+                Job Vacancy
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmVacancy">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-calendar'></i>
+                Job Date
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobDate">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-time'></i>
+                Job Start time
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobStartTime">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class='box box-nomargin box-no-padding'>
+        <div class='box-header box-header-small'>
+            <div class='title'>
+                <i class='icon-time'></i>
+                Job End Time
+            </div>
+            <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content' id="confirmJobEndTime">
+
+        </div>
+    </div>
+</div>
+
+
+<!--
+    <div class="box bordered-box blue-border ">
+        <div class="form-group">
+            <label>Job Title</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">Regent Hotel Waiter</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">Waiter</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Job Scope</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">Serving VIP</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Job Description</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab doloribus
+                        harum id iure laudantium neque voluptatibus. Asperiores autem beatae,
+                        cumque deleniti distinctio doloremque, harum illum odit quam recusandae
+                        veniam voluptatem?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Pay</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">Skilled Rate: S$5.50</div>
+                <div class="box-toolbox">Non-Skilled Rate: S$7.50</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Number Needed</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">20</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">1 Cuscaden Road, Singapore 249715</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Start Date/End Date</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">1 Dec 2013 - 5 Dec 2013</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Available Time Slots</label>
+
+            <div class='input-group'>
+                <div class="box-toolbox">8:00 - 13:00</div>
+            </div>
+        </div>
+    </div>
+  --></div>
+</fieldset>
+</div>
+<!-- ======= Submit Button field   ======= -->
+<div class='form-actions form-actions-padding text-right no-mg-t'>
+    <button class='btn contrast btn-lg' type="submit" value="submit" name="submitJob" id="submitJob">
+        <i class='icon-arrow-right'></i>
+        Confirm
+    </button>
+</div>
+<!-- ======End of Submit Button Field ======== --> </div>
+
+</div>
+</div>
+</div>
+<!-- ===========      Step four ends here ============= -->
+</form>
 </div>
 <!-- ======= End of step content ======= --> </div>
 </div>
@@ -923,34 +1108,110 @@ require_once(dirname(__FILE__) . "/config/db.php");
 <!-- / END - page related files and scripts [optional] -->
 <script>
     $(document).ready(function () {
-        //declare global vars
 
 
-        //initiate getJobCategories
-        get_scopes($("#selJobCategory").val());
-
-        //initiate flux ux wizard
-        $('#MyWizard').on('change', function (e, data) {
-            //console.log('change');
-            if (data.step === 2 && data.direction === 'next') {
-                var jobCategory = $("#selJobCategory").val(),
-                    jobScope = $("#selJobScope").val(),
-                    jobDescription = $("#txtScopeDesciption").val(),
-                    JobRequirement = $("#txtJobRequirement").val(),
-                    standardPay = $("#txtStandardPay").val(),
-                    bonusPay = $("#txtBonusPay").val(),
-                    minExpHours = $('#txtMinExpHours').val(),
-                    vacancy = $('#txtNumRequired').val(),
-                    jobDate = $('#txtJobDate').val(),
-                    jobStartTime = $('#txtStartTime').val(),
-                    jobEndTime = $('#txtEndTime').val()
+            //declare global vars
+            var jobCategoryName,
+                jobCategoryID,
+                jobScopeName,
+                jobScopeID,
+                jobDescription,
+                jobRequirement,
+                standardPay,
+                bonusPay,
+                minExpHours,
+                vacancy,
+                jobDate,
+                jobStartTime,
+                jobEndTime;
 
 
-            }
-        });
+            //initiate getJobCategories
+            get_scopes($("#selJobCategory").val());
+
+            //initiate flux ux wizard
+            $('#MyWizard').on('change', function (e, data) {
+                //console.log('change');
+                //TODO:Enable this later.
+                /*            if ($(".validate-form").valid()==false){
+                 e.preventDefault();
+                 }*/
+                if (data.step === 2 && data.direction === 'next') {
+                    jobCategoryName = $("#selJobCategory option:selected").text();
+                    jobCategoryID = $("#selJobCategory").val();
+                    jobScopeName = $("#selJobScope option:selected").text();
+                    jobScopeID = $("#selJobScope").val();
+                    jobDescription = $("#txtScopeDesciption").val();
+                    jobRequirement = $("#txtJobRequirement").val();
+                    standardPay = Number($("#txtStandardPay").val()).toFixed(2);
+                    bonusPay = Number($("#txtBonusPay").val()).toFixed(2);
+                    minExpHours = $('#txtMinExpHours').val();
+                    vacancy = $('#txtNumRequired').val();
+                    jobDate = $('#txtJobDate').val();
+                    jobStartTime = $('#txtStartTime').val();
+                    jobEndTime = $('#txtEndTime').val();
+                    $('#confirmJobCat').html(jobCategoryName);
+                    $('#confirmJobScope').html(jobScopeName);
+                    $('#confirmJobDesc').html(jobDescription);
+                    if (jobRequirement != "") {
+                        $('#confirmJobRequirement').html(jobRequirement);
+                    }
+                    $('#confirmStandardPay').html(standardPay);
+                    if (bonusPay >= 1) {
+                        $('#confirmBonusPay').html(bonusPay);
+                        $('#confirmMinExpHours').html(minExpHours);
+                    }
+                    else {
+                        $('#confirmBonusPayBox').html("Bonus Rate : Not Set");
+                        $('#confirmMinExpHoursBox').hide();
+                    }
+
+                    $('#confirmVacancy').html(vacancy);
+                    $('#confirmJobDate').html(jobDate);
+                    $('#confirmJobStartTime').html(jobStartTime);
+                    $('#confirmJobEndTime').html(jobEndTime);
+
+                }
+            });
+            /*==========  Form submition handler  ==========*/
+            $('#frmPostJob').submit(function(event){
+                event.preventDefault();
+                var $form = $(this),
+                    url=$form.attr('action');
+
+                $.ajax({
+                    type         :   "post",
+                    url          :    url,
+                    crossDomain  :   true,
+                    dataType     :   'text',
+                    data:{
+                        job_cat_id : jobCategoryID,
+                        job_scope_id : jobScopeID,
+                        standard_pay : standardPay,
+                        bonus_pay   :bonusPay,
+                        min_exp_hours : minExpHours,
+                        vacancy: vacancy,
+                        job_date: jobDate,
+                        job_start_time : jobStartTime,
+                        job_end_time: jobEndTime,
+                        post_new_job:1
+                    },
+                    success: function(response){
+                        alert("success ajax call:"+response);
+                        // handle response message
+                    },
+                    error: function(response){
+                        alert("call failed" + response);
+                    }
+
+                })
 
 
-    });
+            });
+        }
+    );
+
+
     function get_scopes(categoryID) {
         // this is done to refresh data, otherwise value will not change
         $("#selJobScope").select2("destroy");
