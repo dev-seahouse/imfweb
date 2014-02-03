@@ -673,7 +673,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <div>
                     <label>Select Date</label>
                     <div class='datepicker input-group' id='txtJobDate'>
-                      <input class='form-control' data-format='dd-MM-yyyy' placeholder='Select datepicker' type='text'>
+                      <input class='form-control' data-format='dd-MM-yyyy' placeholder='Select datepicker' type='text' id="txtJobDate">
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -698,9 +698,9 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <div class="form-actions">
                     <label>Select start time</label>
 
-                    <div class='timepicker input-group' id='txtStartTime'>
+                    <div class='timepicker input-group'>
                       <input class='form-control' data-format='hh:mm'
-                      placeholder='Select timepicker' type='text'>
+                      placeholder='Select timepicker' type='text' id="txtStartTime">
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -709,9 +709,9 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <div class="form-actions">
                     <label>Select end time</label>
 
-                    <div class='timepicker input-group' id='txtEndTime'>
+                    <div class='timepicker input-group'>
                       <input class='form-control' data-format='hh:mm'
-                      placeholder='Select timepicker' type='text'>
+                      placeholder='Select timepicker' type='text'  id='txtEndTime'>
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -915,23 +915,30 @@ type="text/javascript"></script>
   <script>
     $( document ).ready(function() {
   //declare global vars
-  var categoryID=$("#selJobCategory").val(),
-      jobDescription="";
 
 
 
-  get_scopes(categoryID);
 
+  //initiate getJobCategories
+  get_scopes($("#selJobCategory").val());
+
+  //initiate flux ux wizard
   $('#MyWizard').on('change', function(e, data) {
-      console.log('change');
+      //console.log('change');
       if(data.step===2 && data.direction==='next') {
-        /**
+          var jobCategory=$("#selJobCategory").val(),
+              jobScope=$("#selJobScope").val(),
+              jobDescription=$("#txtScopeDesciption").val(),
+              JobRequirement=$("#txtJobRequirement").val(),
+              standardPay=$("#txtStandardPay").val(),
+              bonusPay=$("#txtBonusPay").val(),
+              minExpHours=$('#txtMinExpHours').val(),
+              vacancy=$('#txtNumRequired').val(),
+              jobDate=$('#txtJobDate').val(),
+              jobStartTime=$('#txtStartTime').val(),
+              jobEndTime=$('#txtEndTime').val()
 
-          TODO:
-          - Gather all form data and set text
 
-
-        **/
 
       }
     });
@@ -969,7 +976,7 @@ type="text/javascript"></script>
                 for (var k in msg){
                     if (msg[k].ScopeID==selected_scope_id){
 
-                        $("#txtScopeDesciption").text(msg[k].ScopeDesc)
+                        $("#txtScopeDesciption").text(msg[k].ScopeDesc);
                     }
                 };
             })

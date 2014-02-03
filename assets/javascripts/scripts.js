@@ -80,11 +80,13 @@ jQuery(document).ready(function() {
             inputCompany_value = $form.find('input[name="inputCompany"]').val(),
             inputAddress_value = $form.find('input[name="inputAddress"]').val(),
             inputPhone_value = $form.find('input[name="inputPhone"]').val(),
-            inputZipcode_value = $form.find('input[name="inputZipcode"]').val();
+            //inputZipcode_value = $form.find('input[name="inputZipcode"]').val();
+            inputLat_value=$form.find('input[name="inputLat"]').val(),
+            inputLong_value=$form.find('input[name="inputLong"]').val()
 
         //TODO: From here use geolocation plugin to convert zip into altitude and longitude and insert value
-        var inputLat_value = "1.234343";
-        var inputLong_value = "1.234343";
+//        var inputLat_value = "1.234343";
+//        var inputLong_value = "1.234343";
         url = $form.attr('action');
         //sending data via post
         //alert(inputUserName_value);
