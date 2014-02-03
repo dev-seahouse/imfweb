@@ -476,7 +476,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <!-- TODO:echo scope-->
                   <label>Job Scope</label>
                   <!-- TODO: on scope change set text -->
-                  <select class='select2 form-control' id="selJobScope" name="selJobScope" onchange="get_description(this.value)"></select>                                
+                  <select class='select2 form-control' id="selJobScope" name="selJobScope"></select>
                 </div>
                 <div class='form-group'>
                   <label>Description</label>
@@ -564,7 +564,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                           </div>
                         </div>
                       </div>
-                    </div>                           
+                    </div>
 
                   </div>
                 </fieldset>
@@ -673,7 +673,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <div>
                     <label>Select Date</label>
                     <div class='datepicker input-group' id='txtJobDate'>
-                      <input class='form-control' data-format='dd-MM-yyyy' placeholder='Select datepicker' type='text'>
+                      <input class='form-control' data-format='dd-MM-yyyy' placeholder='Select datepicker' type='text' id="txtJobDate">
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -698,9 +698,9 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <div class="form-actions">
                     <label>Select start time</label>
 
-                    <div class='timepicker input-group' id='txtStartTime'>
+                    <div class='timepicker input-group'>
                       <input class='form-control' data-format='hh:mm'
-                      placeholder='Select timepicker' type='text'>
+                      placeholder='Select timepicker' type='text' id="txtStartTime">
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -709,9 +709,9 @@ require_once(dirname(__FILE__)."/config/db.php");
                   <div class="form-actions">
                     <label>Select end time</label>
 
-                    <div class='timepicker input-group' id='txtEndTime'>
+                    <div class='timepicker input-group'>
                       <input class='form-control' data-format='hh:mm'
-                      placeholder='Select timepicker' type='text'>
+                      placeholder='Select timepicker' type='text'  id='txtEndTime'>
                       <span class='input-group-addon'>
                         <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
                       </span>
@@ -727,7 +727,7 @@ require_once(dirname(__FILE__)."/config/db.php");
                <div class='btn contrast btn-lg btnWizardPrev'>
             <i class='icon-arrow-left'></i>
             Prev
-          </div>        
+          </div>
           <div class='btn contrast btn-lg btnWizardNext'>
             <i class='icon-arrow-right'></i>
             Next
@@ -758,8 +758,8 @@ require_once(dirname(__FILE__)."/config/db.php");
                  <div class="panel contrast">
                   <div class="panel-body contrast">Panel content</div>
                   <div class="panel-footer">Panel footer</div>
-                </div>                       
-                        <!-- 
+                </div>
+                        <!--
                             <div class="box bordered-box blue-border ">
                                 <div class="form-group">
                                     <label>Job Title</label>
@@ -896,7 +896,7 @@ type="text/javascript"></script>
 <script src="assets/javascripts/plugins/bootstrap_maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/charCount/charCount.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/autosize/jquery.autosize-min.js" type="text/javascript"></script>
-<!-- / START - page related files and scripts [optional] -->   
+<!-- / START - page related files and scripts [optional] -->
 <script src="assets/javascripts/plugins/fuelux/wizard.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/select2/select2.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
@@ -914,28 +914,39 @@ type="text/javascript"></script>
   <!-- / END - page related files and scripts [optional] -->
   <script>
     $( document ).ready(function() {
-  // Handler for .ready() called.
-  var categoryID=$("#selJobCategory").val();
-  get_scopes(categoryID);
+  //declare global vars
 
+
+
+
+  //initiate getJobCategories
+  get_scopes($("#selJobCategory").val());
+
+  //initiate flux ux wizard
   $('#MyWizard').on('change', function(e, data) {
-      console.log('change');
+      //console.log('change');
       if(data.step===2 && data.direction==='next') {
-        /**
-        
-          TODO:
-          - Gather all form data and set text
-          
-        
-        **/
-        
+          var jobCategory=$("#selJobCategory").val(),
+              jobScope=$("#selJobScope").val(),
+              jobDescription=$("#txtScopeDesciption").val(),
+              JobRequirement=$("#txtJobRequirement").val(),
+              standardPay=$("#txtStandardPay").val(),
+              bonusPay=$("#txtBonusPay").val(),
+              minExpHours=$('#txtMinExpHours').val(),
+              vacancy=$('#txtNumRequired').val(),
+              jobDate=$('#txtJobDate').val(),
+              jobStartTime=$('#txtStartTime').val(),
+              jobEndTime=$('#txtEndTime').val()
+
+
+
       }
     });
 
 
 });
     function get_scopes(categoryID){
-    // this is done to refresh data, otherwise value will not change 
+    // this is done to refresh data, otherwise value will not change
     $("#selJobScope").select2("destroy");
     //$("#selJobScope").select2();
     $.ajax({
@@ -944,7 +955,7 @@ type="text/javascript"></script>
       crossDomain: true,
       dataType: 'json',
       beforeSend:function(){
-        $("#selJobScope").html("<option>Loading ...</option>");   
+        $("#selJobScope").html("<option>Loading ...</option>");
       },
       data:{
         getScopes: 1,
@@ -960,21 +971,31 @@ type="text/javascript"></script>
             //recreate select 2 after destroy
             $("#selJobScope").select2();
             selected_scope_id=$("#selJobScope").val();
+            $("#selJobScope").change(function(){
+                selected_scope_id=$("#selJobScope").val();
+                for (var k in msg){
+                    if (msg[k].ScopeID==selected_scope_id){
+
+                        $("#txtScopeDesciption").text(msg[k].ScopeDesc);
+                    }
+                };
+            })
             for (var k in msg){
               if (msg[k].ScopeID==selected_scope_id){
+
                 $("#txtScopeDesciption").text(msg[k].ScopeDesc)
               }
-            }
+            };
           },
           error:function(){
             alert("error");
           }
         });
-  } 
+  }
 
   function confirmResult(){
 
-  } 
+  }
 
 </script>
 <script>
