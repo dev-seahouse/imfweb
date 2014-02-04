@@ -166,7 +166,11 @@
             });
         }
         if (jQuery().datetimepicker) {
-            $(".datetimepicker").datetimepicker();
+            $(".datetimepicker").datetimepicker({
+                pickSeconds: false,
+                maskInput: true,
+                pick12HourFormat: true
+            });
             $(".datepicker").datetimepicker({
                 pickTime: false
             });

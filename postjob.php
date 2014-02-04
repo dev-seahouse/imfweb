@@ -726,8 +726,8 @@ require_once(dirname(__FILE__) . "/config/db.php");
                             <div class="form-group controls">
                                 <label class="control-label" for="txtStartTime">Select start time</label>
 
-                                <div class='timepicker input-group'>
-                                    <input class='form-control' data-format='hh:mm'
+                                <div class='datetimepicker input-group'>
+                                    <input class='form-control' data-format='dd-MM-yyyy hh:mm'
                                            placeholder='Select timepicker' type='text' id="txtStartTime"
                                            name="txtStartTime" data-rule-required='true'>
                       <span class='input-group-addon'>
@@ -738,8 +738,8 @@ require_once(dirname(__FILE__) . "/config/db.php");
                             <div class="form-group controls">
                                 <label class="control-label" for="txtEndtime">Select end time</label>
 
-                                <div class='timepicker input-group'>
-                                    <input class='form-control' data-format='hh:mm'
+                                <div class='datetimepicker input-group'>
+                                    <input class='form-control' data-format='dd-MM-yyyy hh:mm'
                                            placeholder='Select timepicker' type='text' id='txtEndTime' name="txtEndTime"
                                            data-rule-required='true'>
                       <span class='input-group-addon'>
@@ -1330,16 +1330,6 @@ require_once(dirname(__FILE__) . "/config/db.php");
     // }, function (start, end) {
     //   return $("#daterange2").parent().find("input").first().val(start.format("D MMMM, YYYY") + " - " + end.format("D MMMM, YYYY"));
     // });
-
-    $.fn.datetimepicker.defaults = {
-        maskInput: true,           // disables the text input mask
-        pickDate: true,            // disables the date picker
-        pickTime: true,            // disables de time picker
-        pick12HourFormat: true,   // enables the 12-hour format time picker
-        pickSeconds: false,         // disables seconds in the time picker
-        startDate: -Infinity,      // set a minimum date
-        endDate: Infinity          // set a maximum date
-    };
 
 </script>
 </body>

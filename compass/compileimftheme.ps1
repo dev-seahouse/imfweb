@@ -1,4 +1,4 @@
-cd d:/wamp/www/imfweb/compass
+cd c:/wamp/www/imfweb/compass
 pause
 compass compile sass/imftheme.scss
 
