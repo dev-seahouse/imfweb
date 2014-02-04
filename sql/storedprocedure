@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE `createJob` (
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createJob`(
 IN company_id int(10),
 IN job_cat_id int(10),
 IN job_scope_id int(10),
@@ -19,13 +19,8 @@ IN min_exp_hours varchar (100),
 IN bonus_pay varchar(10),
 IN job_requirement varchar(300)
 )
-
 BEGIN
-
 INSERT INTO job_t (
-HotelID,CategoryID,ScopeID,JobDate,JobStartTime,JobEndTime,JobEstHours,JobSlotVacancy,JobSlotVacLeft,JobRate,JobMinEBRHours,JobEBP,JobStatus)
-VALUES (company_id, job_cat_id,STR_TO_DATE(job_date,'%d-%m-%Y'),job_start_time,job_end_time,job_est_hours,vacancy,vacancy_left,standard_pay,min_exp_hours,bonus_pay,1);
-
+HotelID,CategoryID,ScopeID,JobDate,JobStartTime,JobEndTime,JobEstHours,JobSlotVacancy,JobSlotVacLeft,JobRate,JobMinEBRHours,JobEBP,JobStatus,JobRequirement)
+VALUES (company_id, job_cat_id,STR_TO_DATE(job_date,'%d-%m-%Y'),job_start_time,job_end_time,job_est_hours,vacancy,vacancy_left,standard_pay,min_exp_hours,bonus_pay,1,job_requirement);
 END
-
--- Job status : 0=deleted/cancelled 1=pending 2=fufilled.
