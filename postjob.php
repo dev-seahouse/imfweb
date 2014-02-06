@@ -1,6 +1,5 @@
 <?php
 include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
-require_once(dirname(__FILE__) . "/config/db.php");
 ?>
 <!DOCTYPE html>
 <html>
