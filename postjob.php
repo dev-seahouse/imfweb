@@ -27,6 +27,7 @@ require_once(dirname(__FILE__) . "/config/db.php");
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
     <link rel="stylesheet" type="text/css" href="jquery-addresspicker-master/demos/demo.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/jquerydatetimepicker/jquery.datetimepicker.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -699,12 +700,12 @@ require_once(dirname(__FILE__) . "/config/db.php");
                                 <div class="form-group controls">
                                     <label class="control-label" fo="txtJobDate">Select Date</label>
 
-                                    <div class='datepicker input-group'>
-                                        <input class='form-control' data-format='dd-MM-yyyy'
+                                    <div class='input-group'>
+                                        <input class='form-control datetimepicker1'
                                                placeholder='Select datepicker' type='text' id="txtJobDate"
                                                name="txtJobDate" data-rule-required='true'>
                       <span class='input-group-addon'>
-                        <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
+                        <span class="icon-calendar" id="datetime-trigger1"></span>
                       </span>
                                     </div>
                                 </div>
@@ -726,24 +727,24 @@ require_once(dirname(__FILE__) . "/config/db.php");
                             <div class="form-group controls">
                                 <label class="control-label" for="txtStartTime">Select start time</label>
 
-                                <div class='datetimepicker input-group'>
-                                    <input class='form-control' data-format='dd-MM-yyyy hh:mm'
+                                <div class='input-group'>
+                                    <input class='form-control datetimepicker2' data-format='hh:mm'
                                            placeholder='Select timepicker' type='text' id="txtStartTime"
                                            name="txtStartTime" data-rule-required='true'>
                       <span class='input-group-addon'>
-                        <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
+                        <span class="icon-time" id="datetime-trigger2"></span>
                       </span>
                                 </div>
                             </div>
                             <div class="form-group controls">
                                 <label class="control-label" for="txtEndtime">Select end time</label>
 
-                                <div class='datetimepicker input-group'>
-                                    <input class='form-control' data-format='dd-MM-yyyy hh:mm'
+                                <div class='input-group'>
+                                    <input class='form-control datetimepicker2' data-format='hh:mm'
                                            placeholder='Select timepicker' type='text' id='txtEndTime' name="txtEndTime"
                                            data-rule-required='true'>
                       <span class='input-group-addon'>
-                        <span data-date-icon='icon-calendar' data-time-icon='icon-time'></span>
+                        <span class="icon-time" id="datetime-trigger3"></span>
                       </span>
                                 </div>
                             </div>
@@ -1096,8 +1097,9 @@ require_once(dirname(__FILE__) . "/config/db.php");
 <script src="assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js"
         type="text/javascript"></script>
-<script src="assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js"
-        type="text/javascript"></script>
+<!--<script src="assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js"
+        type="text/javascript"></script>-->
+<script type="text/javascript" src="assets/javascripts/plugins/jquerydatetimepicker/jquery.datetimepicker.js"></script>
 <script src="assets/javascripts/plugins/typeahead/typeahead.js" type="text/javascript"></script>
 <!-- Validation -->
 <script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
@@ -1125,6 +1127,42 @@ require_once(dirname(__FILE__) . "/config/db.php");
                 jobStartTime,
                 jobEndTime;
 
+            //set datetimepicker
+            $(".datetimepicker1").datetimepicker({
+                format:'Y-M-d',
+                timepicker:false
+
+
+
+            });
+
+            datepicker2=$(".datetimepicker2").datetimepicker({
+                format:'Y-M-d H:i',
+                step:5,
+                onShow:function(current_time){
+
+var d = new Date($('#txtJobDate').val());
+month=("0" + (d.getMonth() + 1)).slice(-2)
+var toDay = (d.getFullYear())+"-"+month+"-"+(d.getDate());
+
+var nextDay=(d.getFullYear())+"-"+month+"-"+(d.getDate()+1);
+
+                    this.setOptions({
+                        minDate:$('#txtJobDate').val()?toDay:false,
+                        maxDate:$('#txtJobDate').val()?nextDay:false
+                    });
+                }
+            });
+
+            $('#datetime-trigger1').click(function(){
+  $('#txtJobDate').datetimepicker('show'); //support hide,show and destroy command
+});
+                       $('#datetime-trigger2').click(function(){
+  $('#txtStartTime').datetimepicker('show'); //support hide,show and destroy command
+});
+                                             $('#datetime-trigger3').click(function(){
+  $('#txtEndTime').datetimepicker('show'); //support hide,show and destroy command
+});
 
             //initiate getJobCategories
             get_scopes($("#selJobCategory").val());
@@ -1132,7 +1170,7 @@ require_once(dirname(__FILE__) . "/config/db.php");
             //initiate flux ux wizard
             $('#MyWizard').on('change', function (e, data) {
                 //console.log('change');
-                //TODO:Enable this later.
+                //TODO:Enable this ltimepicker:false,ater.
                 /*            if ($(".validate-form").valid()==false){
                  e.preventDefault();
                  }*/
