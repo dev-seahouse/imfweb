@@ -49,9 +49,31 @@ if (isset($_POST["post_new_job"]) == 1) {
         echo "No Scope ID selected";
     } else {
         /*==========  creating new job object  ==========*/
-        $job=new Job();
-        echo "hi";
+        $company_id=$_SESSION['company_id'];
+        $job_cat_id=$_POST['job_cat_id'];
+        $job_scope_id=$_POST['job_scope_id'];
+        $job_date=$_POST['job_date'];
+        $job_start_time=$_POST['job_start_time'];
+        $job_end_time=$_POST['job_end_time'];
+        $vacancy=$_POST['standard_pay'];
+        $standard_pay=$_POST['standard_pay'];
+        $min_exp_hours=$_POST['min_exp_hours'];
+        $bonus_pay=$_POST['bonus_pay'];
+        $job_requirement=$_POST['job_requirement'];
+        //echo $job_start_time;
 
+
+        $job=new Job();
+
+        $job->create_job($company_id, $job_cat_id, $job_scope_id, $job_date, $job_start_time, $job_end_time, $vacancy, $standard_pay, $min_exp_hours, $bonus_pay, $job_requirement);
+        if (isset($job)){
+            if ($job->errors){
+                echo "errors";
+            }
+            else{
+                echo "success";
+            }
+        }
         
     }
 }

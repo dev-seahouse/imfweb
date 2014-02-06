@@ -27,7 +27,8 @@ require_once(dirname(__FILE__) . "/config/db.php");
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
     <link rel="stylesheet" type="text/css" href="jquery-addresspicker-master/demos/demo.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/jquerydatetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" type="text/css"
+          href="assets/stylesheets/plugins/jquerydatetimepicker/jquery.datetimepicker.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -441,7 +442,8 @@ require_once(dirname(__FILE__) . "/config/db.php");
 <!--FIXME:header number layout break on xs device-->
 <div class='step-content'>
 <hr class='hr-normal'>
-<form class="form form-horizontal validate-form" style="margin-bottom: 0;" method="post" action="controllers/processPostJob.php"
+<form class="form form-horizontal validate-form" style="margin-bottom: 0;" method="post"
+      action="controllers/processPostJob.php"
       accept-charset="UTF-8" id="frmPostJob" name="frmPostJob">
 <!-- For rails <input name="authenticity_token" type="hidden" />
 -->
@@ -584,7 +586,8 @@ require_once(dirname(__FILE__) . "/config/db.php");
                                     <div class='col-sm-7'>
                                         <div class='input-group'>
 
-                                            <input class='form-control input-lg text-right' data-rule-number="true" type='text' min="0"
+                                            <input class='form-control input-lg text-right' data-rule-number="true"
+                                                   type='text' min="0"
                                                    id="txtMinExpHours">
                                             <span class='input-group-addon'>Hours</span>
                                         </div>
@@ -1104,14 +1107,13 @@ require_once(dirname(__FILE__) . "/config/db.php");
 <!-- Validation -->
 <script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/bootbox/bootbox.min.js"></script>
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script> -->
 
 <!-- / END - page related files and scripts [optional] -->
 <script>
     $(document).ready(function () {
-
-
             //declare global vars
             var jobCategoryName,
                 jobCategoryID,
@@ -1129,40 +1131,62 @@ require_once(dirname(__FILE__) . "/config/db.php");
 
             //set datetimepicker
             $(".datetimepicker1").datetimepicker({
-                format:'Y-M-d',
-                timepicker:false
-
-
-
+                format: 'd-M-Y',
+                timepicker: false
             });
 
-            datepicker2=$(".datetimepicker2").datetimepicker({
-                format:'Y-M-d H:i',
-                step:5,
-                onShow:function(current_time){
+             $("#txtStartTime").datetimepicker({
+                //format: 'Y-M-d H:i',
+                format:'d-M-Y H:i',
+                step: 5,
+                onShow: function (current_time) {
 
-var d = new Date($('#txtJobDate').val());
-month=("0" + (d.getMonth() + 1)).slice(-2)
-var toDay = (d.getFullYear())+"-"+month+"-"+(d.getDate());
+                    var d = new Date($('#txtJobDate').val());
+                    month = ("0" + (d.getMonth() + 1)).slice(-2);
+                    var toDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate());
 
-var nextDay=(d.getFullYear())+"-"+month+"-"+(d.getDate()+1);
+
+                    var nextDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate());
+                    //TODO: For some reason "-"  does not work. Something to take note in future when dealing with date
 
                     this.setOptions({
-                        minDate:$('#txtJobDate').val()?toDay:false,
-                        maxDate:$('#txtJobDate').val()?nextDay:false
+
+                        minDate: $('#txtJobDate').val() ? toDay : false,
+                        maxDate: $('#txtJobDate').val() ? nextDay : false
+                    });
+                }
+            });
+            $("#txtEndTime").datetimepicker({
+                format: 'd-M-Y H:i',
+                step: 5,
+                onShow: function (current_time) {
+
+                    var d = new Date($('#txtJobDate').val());
+                    month = ("0" + (d.getMonth() + 1)).slice(-2);
+                    var toDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate());
+
+
+                    var nextDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate()+1);
+                    //TODO: For some reason "-"  does not work. Something to take note in future when dealing with date
+
+
+                    this.setOptions({
+                        minDate: $('#txtJobDate').val() ? toDay : false,
+                        maxDate: $('#txtJobDate').val() ? nextDay : false
+
                     });
                 }
             });
 
-            $('#datetime-trigger1').click(function(){
-  $('#txtJobDate').datetimepicker('show'); //support hide,show and destroy command
-});
-                       $('#datetime-trigger2').click(function(){
-  $('#txtStartTime').datetimepicker('show'); //support hide,show and destroy command
-});
-                                             $('#datetime-trigger3').click(function(){
-  $('#txtEndTime').datetimepicker('show'); //support hide,show and destroy command
-});
+            $('#datetime-trigger1').click(function () {
+                $('#txtJobDate').datetimepicker('show'); //support hide,show and destroy command
+            });
+            $('#datetime-trigger2').click(function () {
+                $('#txtStartTime').datetimepicker('show'); //support hide,show and destroy command
+            });
+            $('#datetime-trigger3').click(function () {
+                $('#txtEndTime').datetimepicker('show'); //support hide,show and destroy command
+            });
 
             //initiate getJobCategories
             get_scopes($("#selJobCategory").val());
@@ -1212,34 +1236,44 @@ var nextDay=(d.getFullYear())+"-"+month+"-"+(d.getDate()+1);
                 }
             });
             /*==========  Form submition handler  ==========*/
-            $('#frmPostJob').submit(function(event){
+            $('#frmPostJob').submit(function (event) {
                 event.preventDefault();
                 var $form = $(this),
-                    url=$form.attr('action');
+                    url = $form.attr('action');
 
                 $.ajax({
-                    type         :   "post",
-                    url          :    url,
-                    crossDomain  :   true,
-                    dataType     :   'text',
-                    data:{
-                        job_cat_id : jobCategoryID,
-                        job_scope_id : jobScopeID,
-                        standard_pay : standardPay,
-                        bonus_pay   :bonusPay,
-                        min_exp_hours : minExpHours,
+                    type: "post",
+                    url: url,
+                    crossDomain: true,
+                    dataType: 'text',
+                    data: {
+                        job_cat_id: jobCategoryID,
+                        job_scope_id: jobScopeID,
+                        standard_pay: standardPay,
+                        bonus_pay: bonusPay,
+                        min_exp_hours: minExpHours,
                         vacancy: vacancy,
                         job_date: jobDate,
-                        job_start_time : jobStartTime,
+                        job_start_time: jobStartTime,
                         job_end_time: jobEndTime,
-                        post_new_job:1
+                        post_new_job: 1,
+                        job_requirement:jobRequirement
                     },
-                    success: function(response){
-                        alert("success ajax call:"+response);
+                    success: function (response) {
+
+
+                        if ($.trim(response)=='success'){
+
+                            bootbox.alert("New "+jobCategoryName+" job have been created!",function(){
+                                window.location = "viewjob.php";
+                                //TODO:redirect to view jobs page.
+                            });
+                        }
+                        //alert("success ajax call:" + response);
                         // handle response message
                     },
-                    error: function(response){
-                        alert("call failed" + response);
+                    error: function (response) {
+                        //alert("call failed" + response);
                     }
 
                 })

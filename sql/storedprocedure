@@ -1,5 +1,5 @@
 
--- -- --------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------
 -- Routine DDL
 -- Note: comments before and after the routine body will not be stored by the server
 -- --------------------------------------------------------------------------------
@@ -10,8 +10,8 @@ IN company_id int(10),
 IN job_cat_id int(10),
 IN job_scope_id int(10),
 IN job_date varchar(100),
-IN job_start_time datetime,
-IN job_end_time datetime,
+IN job_start_time varchar(100),
+IN job_end_time varchar(100),
 IN job_est_hours int(10),
 IN vacancy int(10),
 IN vacancy_left int(10),
@@ -25,7 +25,6 @@ BEGIN
 -- Total 14 parameters , 13 are passed in, 1 is default (JobStatus)
 -- 0 pending -- 1.fufilled (all slots taken) 2.closed(applicants cannot cancell) 3.canclled. (cancelled by employee)
 INSERT INTO job_t (
-HotelID,CategoryID,ScopeID,JobDate,JobStartTime,JobEndTime,JobEstHours,JobSlotVacancy,JobSlotVacLeft,JobRate,JobMinEBRHours,JobEBP,JobStatus,JobRequirement)
-VALUES (company_id, job_cat_id,job_scope_id,STR_TO_DATE(job_date,'%d-%m-%Y'),job_start_time,job_end_time,job_est_hours,vacancy,vacancy_left,standard_pay,min_exp_hours,bonus_pay,1,job_requirement);
+HotelID,CategoryID,ScopeID,JobDate,JobStartTime,JobEndTime,JobEstHours,JobSlotVacancy,JobSlotVacLeft,JobRate,JobMinEBRHours,JobEBR,JobStatus,JobRequirement)
+VALUES (company_id, job_cat_id,job_scope_id,STR_TO_DATE(job_date,'%d-%M-%Y'),STR_TO_DATE(job_start_time,'%d-%M-%Y %k:%i'),STR_TO_DATE(job_end_time,'%d-%M-%Y %k:%i'),job_est_hours,vacancy,vacancy,standard_pay,min_exp_hours,bonus_pay,0,job_requirement);
 END
-
