@@ -531,9 +531,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <div class='modal fade' id='modalJobDetail' tabindex='-1'>
     <div class='modal-dialog'>
         <div class='modal-content'>
-            <div class='modal-header'>
-                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>X</button>
-                <h4 class='modal-title' id='myModalLabel'></h4>
+            <div class='modal-header contrast'>
+               Applicants
             </div>
             <div class='modal-body'>
 
