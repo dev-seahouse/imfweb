@@ -532,8 +532,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     <div class='modal-dialog'>
         <div class='modal-content'>
             <div class='modal-header'>
-                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>�</button>
-                <h4 class='modal-title' id='myModalLabel'>List of Applicants</h4>
+                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>X</button>
+                <h4 class='modal-title' id='myModalLabel'></h4>
             </div>
             <div class='modal-body'>
 
@@ -612,12 +612,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 function loadnames(jobid) {
 $.ajax({
 	type       : "POST",
-	url        : "viewjob.php",
+	url        : "controllers/processviewjob.php",
 	crossDomain: true,
 	data       : { jobid : jobid },
 	dataType   : 'text',
 	timeout	   : 5000,
 	success    : function(response) {
+     
 		$('#php_modal_data').empty()
 		$('#php_modal_data').append(response);
 		$('#modalJobDetail').modal('show');

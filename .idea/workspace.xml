@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/Applicants.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/processviewjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Job.php" afterPath="$PROJECT_DIR$/classes/Job.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postjob.php" afterPath="$PROJECT_DIR$/postjob.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/Applicant.php" />
+      <change type="DELETED" beforePath="D:\wamp\www\imfweb\classes\Applicants.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processviewjob.php" afterPath="$PROJECT_DIR$/controllers/processviewjob.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewjob.php" afterPath="$PROJECT_DIR$/viewjob.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="imf.iws" />
@@ -29,16 +28,20 @@
     <favorites_list name="imf" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5849398">
+    <splitter split-orientation="horizontal" split-proportion="0.49638554">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.46309403">
+        <splitter split-orientation="vertical" split-proportion="0.59959555">
           <split-first>
             <leaf>
-              <file leaf-file-name="processviewjob.php" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="processviewjob.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="20" column="61" selection-start="658" selection-end="658" vertical-scroll-proportion="-5.428571" vertical-offset="228" max-vertical-offset="817">
-                      <folding />
+                    <state line="62" column="60" selection-start="2331" selection-end="2331" vertical-scroll-proportion="0.7975952" vertical-offset="780" max-vertical-offset="1463">
+                      <folding>
+                        <marker date="1391713497123" expanded="true" signature="1010:1120" placeholder="..." />
+                        <marker date="1391713497123" expanded="true" signature="1193:1233" placeholder="..." />
+                        <marker date="1391713497123" expanded="true" signature="1787:1827" placeholder="..." />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -46,7 +49,7 @@
               <file leaf-file-name="JobCategory.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/classes/JobCategory.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="52" column="9" selection-start="1388" selection-end="1388" vertical-scroll-proportion="-0.10714286" vertical-offset="985" max-vertical-offset="1881">
+                    <state line="52" column="9" selection-start="1388" selection-end="1388" vertical-scroll-proportion="12.678572" vertical-offset="1343" max-vertical-offset="1881">
                       <folding>
                         <marker date="1391332320591" expanded="true" signature="1404:1454" placeholder="select * fro..category_t..." />
                       </folding>
@@ -57,16 +60,7 @@
               <file leaf-file-name="processPostJob.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/controllers/processPostJob.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="15" column="24" selection-start="701" selection-end="701" vertical-scroll-proportion="41.07143" vertical-offset="1435" max-vertical-offset="2090">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="viewjob.php" pinned="false" current="true" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/viewjob.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="492" column="8" selection-start="18906" selection-end="18906" vertical-scroll-proportion="0.5824176" vertical-offset="9136" max-vertical-offset="12046">
+                    <state line="61" column="51" selection-start="2173" selection-end="2173" vertical-scroll-proportion="7.107143" vertical-offset="1358" max-vertical-offset="2090">
                       <folding />
                     </state>
                   </provider>
@@ -79,7 +73,7 @@
               <file leaf-file-name="processPostJob.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/controllers/processPostJob.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="94" column="75" selection-start="3099" selection-end="3107" vertical-scroll-proportion="3.614849" vertical-offset="228" max-vertical-offset="2090">
+                    <state line="94" column="75" selection-start="3099" selection-end="3107" vertical-scroll-proportion="4.685811" vertical-offset="399" max-vertical-offset="2090">
                       <folding />
                     </state>
                   </provider>
@@ -88,7 +82,7 @@
               <file leaf-file-name="Job.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/classes/Job.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="122" column="260" selection-start="5638" selection-end="5638" vertical-scroll-proportion="-0.0" vertical-offset="2318" max-vertical-offset="3002">
+                    <state line="135" column="15" selection-start="6293" selection-end="6334" vertical-scroll-proportion="-16.964285" vertical-offset="2090" max-vertical-offset="3002">
                       <folding>
                         <marker date="1391706801651" expanded="true" signature="5398:5691" placeholder="SELECT JobDa..job_t..." />
                       </folding>
@@ -105,17 +99,39 @@
           <file leaf-file-name="processviewjob.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="37" column="0" selection-start="1350" selection-end="1350" vertical-scroll-proportion="-24.428572" vertical-offset="19" max-vertical-offset="817">
+                <state line="18" column="10" selection-start="653" selection-end="653" vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="1463">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Applicants.php" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/classes/Applicants.php">
+          <file leaf-file-name="form_components.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/flatty/bs3/html/form_components.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="1" column="14" selection-start="20" selection-end="20" vertical-scroll-proportion="0.020320855" vertical-offset="0" max-vertical-offset="935">
+                <state line="6" column="57" selection-start="343" selection-end="343" vertical-scroll-proportion="-4.071429" vertical-offset="0" max-vertical-offset="24377">
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="tables.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/flatty/bs3/html/tables.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="613" column="32" selection-start="24208" selection-end="24208" vertical-scroll-proportion="-2.574074" vertical-offset="11508" max-vertical-offset="36271">
+                  <folding>
+                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Applicant.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="28" column="45" selection-start="969" selection-end="969" vertical-scroll-proportion="-19.0" vertical-offset="0" max-vertical-offset="1235">
+                  <folding>
+                    <marker date="1391709236168" expanded="true" signature="742:857" placeholder="SELECT * FRO..jobapplicant_t..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -127,6 +143,15 @@
                   <folding>
                     <marker date="1391332320591" expanded="true" signature="1438:1501" placeholder="SELECT * FRO..scope_t..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="viewjob.php" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/viewjob.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="620" column="5" selection-start="22870" selection-end="22870" vertical-scroll-proportion="0.6742857" vertical-offset="11190" max-vertical-offset="12065">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -181,8 +206,9 @@
         <option value="$PROJECT_DIR$/sql/storedprocedure" />
         <option value="$PROJECT_DIR$/controllers/processPostJob.php" />
         <option value="$PROJECT_DIR$/postjob.php" />
-        <option value="$PROJECT_DIR$/classes/Applicants.php" />
         <option value="$PROJECT_DIR$/classes/Job.php" />
+        <option value="$PROJECT_DIR$/classes/Applicants.php" />
+        <option value="$PROJECT_DIR$/classes/Applicant.php" />
         <option value="$PROJECT_DIR$/controllers/processviewjob.php" />
         <option value="$PROJECT_DIR$/viewjob.php" />
       </list>
@@ -315,6 +341,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imfweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flatty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bs3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imfweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flatty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bs3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imfweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flatty" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -603,16 +683,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flatty/bs2/html/faq.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="23" selection-start="14370" selection-end="14370" vertical-scroll-proportion="-3.125" vertical-offset="4230" max-vertical-offset="48540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flatty/bs2/html/filetrees.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="609" column="35" selection-start="25907" selection-end="25907" vertical-scroll-proportion="-3.125" vertical-offset="9060" max-vertical-offset="14700" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flatty/bs2/html/fileupload.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="34" selection-start="4953" selection-end="4953" vertical-scroll-proportion="0.114224136" vertical-offset="922" max-vertical-offset="12915" />
@@ -853,6 +923,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Job.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="15" selection-start="6293" selection-end="6334" vertical-scroll-proportion="-16.964285" vertical-offset="2090" max-vertical-offset="3002">
+          <folding>
+            <marker date="1391706801651" expanded="true" signature="5398:5691" placeholder="SELECT JobDa..job_t..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/classes/JobScope.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="9" selection-start="3440" selection-end="3440" vertical-scroll-proportion="-72.60714" vertical-offset="0" max-vertical-offset="2375">
@@ -862,48 +941,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Applicants.php">
+    <entry file="file://$PROJECT_DIR$/flatty/bs3/html/form_components.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="14" selection-start="20" selection-end="20" vertical-scroll-proportion="0.020320855" vertical-offset="0" max-vertical-offset="935">
+        <state line="6" column="57" selection-start="343" selection-end="343" vertical-scroll-proportion="-4.071429" vertical-offset="0" max-vertical-offset="24377">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Job.php">
+    <entry file="file://$PROJECT_DIR$/flatty/bs3/html/tables.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="260" selection-start="5638" selection-end="5638" vertical-scroll-proportion="0.0" vertical-offset="2318" max-vertical-offset="3002">
+        <state line="613" column="32" selection-start="24208" selection-end="24208" vertical-scroll-proportion="-2.574074" vertical-offset="11508" max-vertical-offset="36271">
           <folding>
-            <marker date="1391706801651" expanded="true" signature="5398:5691" placeholder="SELECT JobDa..job_t..." />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/JobCategory.php">
+    <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="9" selection-start="1388" selection-end="1388" vertical-scroll-proportion="-0.10714286" vertical-offset="985" max-vertical-offset="1881">
+        <state line="28" column="45" selection-start="969" selection-end="969" vertical-scroll-proportion="-19.0" vertical-offset="0" max-vertical-offset="1235">
           <folding>
-            <marker date="1391332320591" expanded="true" signature="1404:1454" placeholder="select * fro..category_t..." />
+            <marker date="1391709236168" expanded="true" signature="742:857" placeholder="SELECT * FRO..jobapplicant_t..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processPostJob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="24" selection-start="701" selection-end="701" vertical-scroll-proportion="41.07143" vertical-offset="1435" max-vertical-offset="2090">
+        <state line="61" column="51" selection-start="2173" selection-end="2173" vertical-scroll-proportion="7.107143" vertical-offset="1358" max-vertical-offset="2090">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/JobCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="9" selection-start="1388" selection-end="1388" vertical-scroll-proportion="12.678572" vertical-offset="1343" max-vertical-offset="1881">
+          <folding>
+            <marker date="1391332320591" expanded="true" signature="1404:1454" placeholder="select * fro..category_t..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="61" selection-start="658" selection-end="658" vertical-scroll-proportion="-5.428571" vertical-offset="228" max-vertical-offset="817">
+        <state line="18" column="10" selection-start="653" selection-end="653" vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="1463">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/viewjob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="492" column="8" selection-start="18906" selection-end="18906" vertical-scroll-proportion="0.5824176" vertical-offset="9136" max-vertical-offset="12046">
+        <state line="620" column="5" selection-start="22870" selection-end="22870" vertical-scroll-proportion="0.6742857" vertical-offset="11190" max-vertical-offset="12065">
           <folding />
         </state>
       </provider>
