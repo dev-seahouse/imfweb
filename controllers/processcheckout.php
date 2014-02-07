@@ -15,7 +15,6 @@ if (isset($_POST['check_out']) && isset($_POST['app_id'])){
 
     $applicant = new Applicant();
     $applicant->update_check_out($_POST['app_id']);
-    echo "this shows it is success";
 
 }
 

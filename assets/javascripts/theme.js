@@ -315,7 +315,52 @@
                         oLanguage: {
                             sLengthMenu: "_MENU_ records per page"}
                     });
+                }else if ($(elem).hasClass("dt-sort-desc2")) {
+                    dt = $(elem).dataTable({
+                        "aaSorting": [
+                            [ 1, "desc" ]
+                        ],
+                        sDom: sdom,
+                        sPaginationType: "bootstrap",
+                        "iDisplayLength": $(elem).data("pagination-records") || 10,
+                        oLanguage: {
+                            sLengthMenu: "_MENU_ records per page"}
+                    });
+                }else if ($(elem).hasClass("dt-sort-desc3")) {
+                    dt = $(elem).dataTable({
+                        "aaSorting": [
+                            [ 2, "desc" ]
+                        ],
+                        sDom: sdom,
+                        sPaginationType: "bootstrap",
+                        "iDisplayLength": $(elem).data("pagination-records") || 10,
+                        oLanguage: {
+                            sLengthMenu: "_MENU_ records per page"}
+                    });
+                }else if ($(elem).hasClass("dt-sort-desc4")) {
+                    dt = $(elem).dataTable({
+                        "aaSorting": [
+                            [ 3, "desc" ]
+                        ],
+                        sDom: sdom,
+                        sPaginationType: "bootstrap",
+                        "iDisplayLength": $(elem).data("pagination-records") || 10,
+                        oLanguage: {
+                            sLengthMenu: "_MENU_ records per page"}
+                    });
+                }else if ($(elem).hasClass("dt-sort-desc5")) {
+                    dt = $(elem).dataTable({
+                        "aaSorting": [
+                            [ 4, "desc" ]
+                        ],
+                        sDom: sdom,
+                        sPaginationType: "bootstrap",
+                        "iDisplayLength": $(elem).data("pagination-records") || 10,
+                        oLanguage: {
+                            sLengthMenu: "_MENU_ records per page"}
+                    });
                 }
+
 
                 else {
                     dt = $(elem).dataTable({

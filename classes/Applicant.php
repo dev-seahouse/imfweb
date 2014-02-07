@@ -65,7 +65,7 @@ class Applicant
             $sql .= ' join  job_t on job_t.jobid = jobapplicant_t.jobid';
             $sql .= ' join scope_t on job_t.scopeid = scope_t.scopeid ';
             $sql .= ' where MarkAsPresent="A" AND CheckIn IS NULL AND HotelID=?';
-            $sql .= ' AND job_t.JobDate >= (NOW( ) - INTERVAL 4 DAY) AND job_t.JobDate <= (NOW( ) + INTERVAL 3 DAY)';
+            $sql .= ' AND job_t.JobDate BETWEEN DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND DATE_ADD(CURDATE(),INTERVAL 1 DAY) ';
             $sql .= ' AND job_t.JobStatus<2';
             //AND jobapplicant_t.jobid=?
 
@@ -140,8 +140,8 @@ class Applicant
             $sql .= ' join  job_t on job_t.jobid = jobapplicant_t.jobid';
             $sql .= ' join scope_t on job_t.scopeid = scope_t.scopeid ';
             $sql .= ' where MarkAsPresent="A" AND CheckIn IS NOT NULL AND HotelID=?';
-            $sql .= ' AND job_t.JobDate >= (NOW( ) - INTERVAL 4 DAY) AND job_t.JobDate <= (NOW( ) + INTERVAL 3 DAY)';
-            $sql .= ' AND job_t.JobStatus<2';
+            $sql .= ' AND job_t.JobDate BETWEEN DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND DATE_ADD(CURDATE(),INTERVAL 1 DAY)';
+            $sql .= ' AND job_t.JobStatus<2 ORDER BY JobDate,JobStartTime ASC';
             //AND jobapplicant_t.jobid=?
 
             if (!$stmt = $this->db_connection->prepare($sql)) {

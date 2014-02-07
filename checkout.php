@@ -595,7 +595,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
             dataType: 'text',
             timeout: 5000,
             success:function(response){
-                alert(response);
+                //alert(response);
             }
         });
     }

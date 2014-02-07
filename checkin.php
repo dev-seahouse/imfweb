@@ -401,7 +401,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <div class='box-content box-no-padding'>
 <div class='responsive-table'>
 <div class='scrollable-area'>
-<table class='table table-hover data-table-column-filter table table-bordered table-striped'
+<table class='table table-hover data-table-column-filter table-bordered table-striped dt-sort-desc4'
        style='margin-bottom:0;'
        id="tbViewJob">
 <thead>
