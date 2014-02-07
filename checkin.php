@@ -1,6 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . "/controllers/processCheckIn.php");
-
+include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 
 /*if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {l
 
