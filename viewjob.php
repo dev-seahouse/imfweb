@@ -378,141 +378,145 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     </div>
 </nav>
 <section id='content'>
-<div class='container'>
-<div class='row' id='content-wrapper'>
-<!-- Main Column -->
-<div class='col-xs-12'>
-<div class="row">
-    <div class="col-sm-12">
-        <div class='page-header'>
-            <h1 class='pull-left'>
-                <i class='icon-table'></i>
-                <span>View Posted Job</span>
-            </h1>
+    <div class='container'>
+        <div class='row' id='content-wrapper'>
+            <!-- Main Column -->
+            <div class='col-xs-12'>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class='page-header'>
+                            <h1 class='pull-left'>
+                                <i class='icon-table'></i>
+                                <span>View Posted Job</span>
+                            </h1>
 
-            <div class='pull-right'>
-                <ul class='breadcrumb'>
-                    <li>
-                        <a href='viewjob.html'>
-                            <i class='icon-suitcase'>
-                            </i>
-                        </a>
-                    </li>
-                </ul>
+                            <div class='pull-right'>
+                                <ul class='breadcrumb'>
+                                    <li>
+                                        <a href='viewjob.html'>
+                                            <i class='icon-suitcase'>
+                                            </i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- col-sm-12.page-header -->
+
+                    </div>
+                    <!-- col-sm-12 wrapper row for header-->
+                </div>
+                <!-- Main row 1 nested indie col-xs-12, containing the header-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class='row'>
+                            <div class='col-sm-12'>
+                                <div class='box bordered-box orange-border' style='margin-bottom:0;'>
+                                    <div class='box-header contrast-background'>
+                                    </div>
+                                    <div class='box-content box-no-padding'>
+                                        <div class='responsive-table'>
+                                            <div class='scrollable-area'>
+                                                <table
+                                                    class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped'
+                                                    style='margin-bottom:0;'
+                                                    id="tbViewJob">
+                                                    <thead>
+                                                    <!-- TODO: Add hidden Id column for database -->
+                                                    <tr>
+                                                        <th>
+                                                            Date
+                                                        </th>
+                                                        <th>
+                                                            Category
+                                                        </th>
+                                                        <th>
+                                                            Scope
+                                                        </th>
+                                                        <th>
+                                                            Status
+                                                        </th>
+                                                        <th>
+                                                            Vacancy
+                                                        </th>
+                                                        <th>
+                                                            Start
+                                                        </th>
+                                                        <th>
+                                                            End
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    <!--Todo:call job->display_job() -->
+                                                    <?php displayJobData(); ?>
+
+                                                    </tbody>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <th>Job Date</th>
+                                                        <th>Job Category</th>
+                                                        <th>Job Scope</th>
+                                                        <th>Status</th>
+                                                        <th>Vacancies</th>
+                                                        <th>Start Time</th>
+                                                        <th>End Time</th>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                            <!-- Modal -->
+                                            <!-- TODO:Add google map into modal after experimenting one google map api-->
+                                            <div class='modal fade' id='modalJobDetail' tabindex='-1'>
+                                                <div class='modal-dialog'>
+                                                    <div class='modal-content'>
+                                                        <div class='modal-header contrast'>
+                                                            Applicants
+                                                        </div>
+                                                        <div class='modal-body'>
+
+                                                            <div id="php_modal_data"></div>
+
+                                                        </div>
+                                                        <div class='modal-footer'>
+                                                            <button class='btn btn-danger' data-dismiss='modal'
+                                                                    type='button'>Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal -->
+
+                                        </div>
+                                        <!-- Box Content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!--div.row-->
+                </div>
             </div>
+            <!--div.row.col-xs-12-->
         </div>
-        <!-- col-sm-12.page-header -->
-
+        <!--div.row -->
+        <footer id='footer'>
+            <div class='footer-wrapper'>
+                <div class='row'>
+                    <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
+                    <div class='col-sm-6 buttons'>
+                        <a class="btn btn-link" href="">Preview</a>
+                        <a class="btn btn-link"
+                           href="https://github.com/dev-seahouse">FYP Project</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <!-- col-sm-12 wrapper row for header-->
-</div>
-<!-- Main row 1 nested indie col-xs-12, containing the header-->
-<div class="row">
-<div class="col-sm-12">
-<div class='row'>
-<div class='col-sm-12'>
-<div class='box bordered-box orange-border' style='margin-bottom:0;'>
-<div class='box-header contrast-background'>
-</div>
-<div class='box-content box-no-padding'>
-<div class='responsive-table'>
-<div class='scrollable-area'>
-<table class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped' style='margin-bottom:0;'
-       id="tbViewJob">
-<thead>
-<!-- TODO: Add hidden Id column for database -->
-<tr>
-    <th>
-        Job Date
-    </th>
-    <th>
-        Job Category
-    </th>
-    <th>
-        Job Scope
-    </th>
-    <th>
-        Status
-    </th>
-    <th>
-        Vacancies
-    </th>
-    <th>
-        Start Time
-    </th>
-    <th>
-        End Time
-    </th>
-</tr>
-</thead>
-<tbody>
-
-<!--Todo:call job->display_job() -->
-<?php displayJobData();?>
-
-</tbody>
-<tfoot>
-<tr>
-    <th>Job Date</th>
-    <th>Job Category</th>
-    <th>Job Scope</th>
-    <th>Status</th>
-    <th>Vacancies</th>
-    <th>Start Time</th>
-    <th>End Time</th>
-</tr>
-</tfoot>
-</table>
-</div>
-<!-- Modal -->
-<!-- TODO:Add google map into modal after experimenting one google map api-->
-<div class='modal fade' id='modalJobDetail' tabindex='-1'>
-    <div class='modal-dialog'>
-        <div class='modal-content'>
-            <div class='modal-header contrast'>
-               Applicants
-            </div>
-            <div class='modal-body'>
-
-	    <div id="php_modal_data"></div>
-
-            </div>
-            <div class='modal-footer'>
-                <button class='btn btn-danger' data-dismiss='modal' type='button'>Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-
-</div>
-<!-- Box Content -->
-</div>
-</div>
-</div>
-</div>
-<!-- row -->
-</div>
-<!--div.row-->
-</div>
-</div>
-<!--div.row.col-xs-12-->
-</div>
-<!--div.row -->
-<footer id='footer'>
-    <div class='footer-wrapper'>
-        <div class='row'>
-            <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
-            <div class='col-sm-6 buttons'>
-                <a class="btn btn-link" href="">Preview</a>
-                <a class="btn btn-link"
-                   href="https://github.com/dev-seahouse">FYP Project</a>
-            </div>
-        </div>
-    </div>
-</footer>
-</div>
-<!--div.container -->
+    <!--div.container -->
 </section>
 </div>
 <!-- body wrapper -->
@@ -546,22 +550,22 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-function loadnames(jobid) {
-$.ajax({
-	type       : "POST",
-	url        : "controllers/processviewjob.php",
-	crossDomain: true,
-	data       : { jobid : jobid },
-	dataType   : 'text',
-	timeout	   : 5000,
-	success    : function(response) {
-     
-		$('#php_modal_data').empty()
-		$('#php_modal_data').append(response);
-		$('#modalJobDetail').modal('show');
-	}
-});	
-}
+    function loadnames(jobid) {
+        $.ajax({
+            type: "POST",
+            url: "controllers/processviewjob.php",
+            crossDomain: true,
+            data: { jobid: jobid },
+            dataType: 'text',
+            timeout: 5000,
+            success: function (response) {
+
+                $('#php_modal_data').empty()
+                $('#php_modal_data').append(response);
+                $('#modalJobDetail').modal('show');
+            }
+        });
+    }
 </script>
 </body>
 </html>

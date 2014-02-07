@@ -119,7 +119,7 @@ class Job
 
         //construct sql
         if (!$this->db_connection->connect_errno) {
-            $sql = "SELECT JobDate,CategoryName,ScopeName,JobStatus,job_t.JobID as JobID,JobSlotVacLeft,JobStartTime,JobEndTime FROM job_t join scope_t on job_t.scopeid = scope_t.scopeid join category_t on job_t.CategoryID=category_t.CategoryID where HotelID=?  order by JobDate, JobStartTime";
+            $sql = "SELECT JobDate,CategoryName,ScopeName,JobStatus,job_t.JobID as JobID,JobSlotVacLeft,JobStartTime,JobEndTime FROM job_t join scope_t on job_t.scopeid = scope_t.scopeid join category_t on job_t.CategoryID=category_t.CategoryID where HotelID=? AND job_t.JobStatus<2 order by JobDate, JobStartTime";
             if (!$stmt = $this->db_connection->prepare($sql)){
                 $this->errors[]="Prepare statement error." . $this->db_connection->error;
             }

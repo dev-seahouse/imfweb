@@ -1,5 +1,71 @@
 <?php
-include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
+include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
+/*if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+
+    $phpjobappid = $_POST['phpjobappid'];
+    $phpjobid = $_POST['phpjobid'];
+
+    //--- Connection string -----
+    include('otokirusama.php');
+    $connection = mysql_connect("$host", "$username", "$password") or die("cannot connect");
+    mysql_select_db("$db_name") or die("Database Offline");
+    //---------------------------
+
+    $phpjobappid = stripslashes($phpjobappid);
+    $phpjobappid = mysql_real_escape_string($phpjobappid);
+
+    $sql = "UPDATE jobapplicant_t SET CheckOut=NOW(),MarkAsPresent='T',ExpHours=TIMESTAMPDIFF(MINUTE, CheckIn, NOW()) WHERE JobAppID='$phpjobappid'";
+    mysql_query($sql);
+
+    //--- Below is cheat code to update all absentees MarkAsPresent to F
+    $sql = "SELECT * FROM jobapplicant_t WHERE MarkAsPresent='A' AND CheckIn IS NULL AND JobID='$phpjobid'";
+    $result = mysql_query($sql);
+    while ($row = mysql_fetch_array($result)) {
+        $absentJobAppID = $row['JobAppID'];
+        $sql = "UPDATE jobapplicant_t SET MarkAsPresent='F',ExpHours=0 WHERE JobAppID='$absentJobAppID'";
+        mysql_query($sql);
+    }
+
+    mysql_close($connection);
+} else {
+    $phpjobid = $_GET['jobid'];
+    session_start();
+    $phphotelid = 1; //TO-DO: Replace '1' with SESSION_HOTELID. Example: $phphotelid = $_SESSION['hotelid'];
+
+    //--- Connection string -----
+    include('otokirusama.php');
+    $connection = mysql_connect("$host", "$username", "$password") or die("cannot connect");
+    mysql_select_db("$db_name") or die("Database Offline");
+    //---------------------------
+
+    $phpjobid = stripslashes($phpjobid);
+    $phpjobid = mysql_real_escape_string($phpjobid);
+
+    $sql = "SELECT * FROM user_t, job_t, jobapplicant_t, scope_t WHERE user_t.userid = jobapplicant_t.userid AND job_t.jobid = jobapplicant_t.jobid AND MarkAsPresent='A' AND job_t.scopeid = scope_t.scopeid AND CheckIn IS NOT NULL AND MarkAsPresent='A' AND jobapplicant_t.jobid='$phpjobid' AND job_t.hotelid='$phphotelid'";
+    $result = mysql_query($sql);
+    $count = mysql_num_rows($result);
+
+    $tbody_data = "";
+    if ($count > 0) {
+        while ($row = mysql_fetch_array($result)) {
+            $tbody_data .= '<tr>';
+            $tbody_data .= '    <td>' . $row['Firstname'] . " " . $row['Lastname'] . '</td>';
+            $tbody_data .= '    <td>' . $row['NRIC'] . '</td>';
+            $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';
+            $tbody_data .= '    <td>' . date("d M Y", strtotime($row['JobDate'])) . '</td>';
+            $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobStartTime'])) . '</td>';
+            $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobEndTime'])) . '</td>';
+            $tbody_data .= '    <td>' . date("h:i A", strtotime($row['CheckIn'])) . '</td>';
+            $tbody_data .= '    <td>';
+            $tbody_data .= '        <div class="text-center">';
+            $tbody_data .= '            <input type="checkbox" name="attendance" onClick="updateCheckIn(' . $row['JobAppID'] . ')" />';
+            $tbody_data .= '        </div>';
+            $tbody_data .= '    </td>';
+            $tbody_data .= '</tr>';
+        }
+    }
+    mysql_close($connection);
+}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -310,6 +376,22 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
                     <i class='icon-check'></i>
                     <span>Mark Attendance</span>
                 </a>
+
+                <ul class='nav nav-stacked'>
+                    <li class=''>
+                        <a href='checkin.html'>
+                            <i class='icon-caret-right'></i>
+                            <span>Check in</span>
+
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='checkout.html'>
+                            <i class='icon-caret-right'></i>
+                            <span>Checkout</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class=''>
                 <a href="#">
@@ -352,7 +434,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="index.php">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -361,109 +443,108 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
     </div>
 </nav>
 <section id='content'>
-<div class='container'>
-<div class='row' id='content-wrapper'>
-<!-- Main Column -->
-<div class='col-xs-12'>
-<!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
-<div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
-    <div class="col-sm-12"><!--col-sm-12 This is for main header -->
-        <div class='page-header'>
-            <h1 class='pull-left'>
-                <i class='icon-check'></i>
-                <span>Check In</span>
+    <div class='container'>
+        <div class='row' id='content-wrapper'>
+            <!-- Main Column -->
+            <div class='col-xs-12'>
+                <!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
+                <div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
+                    <div class="col-sm-12"><!--col-sm-12 This is for main header -->
+                        <div class='page-header'>
+                            <h1 class='pull-left'>
+                                <i class='icon-check'></i>
+                                <span>Check Out</span>
+                            </h1>
+                            <div class='pull-right'>
+                                <ul class='breadcrumb'>
+                                    <li>
+                                        <a href='checkin.html'>
+                                            <i class='icon-check'>
+                                            </i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Header -->
+                    </div>
+                    <!-- Wrapper col-sm-12 for header div -->
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class='row'>
+                            <div class='col-sm-12'>
+                                <div class='box bordered-box orange-border' style='margin-bottom:0;'>
+                                    <div class='box-header contrast-background'>
+                                    </div>
+                                    <div class='box-content box-no-padding'>
+                                        <div class='responsive-table'>
+                                            <div class='scrollable-area'>
+                                                <table
+                                                    class='table table-hover data-table-column-filter table table-bordered table-striped'
+                                                    style='margin-bottom:0;'
+                                                    id="tbViewJob">
+                                                    <thead>
+                                                    <!-- TODO: Add hidden Id column for database -->
+                                                    <tr>
+                                                        <th>Name </th>
+                                                        <th>IC</th>
+                                                        <th>Job Scope</th>
+                                                        <th>Date</th>
+                                                        <th>Start</th>
+                                                        <th>End</th>
+                                                        <th>Mobile</th>
+                                                        <th>Check-in</th>
+                                                        <th>Check-out</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php display_checkout_data(); ?>
+                                                    </tbody>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>IC</th>
+                                                        <th>Job Scope</th>
+                                                        <th>Reporting Date</th>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
 
-            </h1>
+                                        <!-- Box Content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row -->
+                    </div>
 
+                </div>
+                <!--End Row containing the table, the body part -->
 
-            <div class='pull-right'>
-                <ul class='breadcrumb'>
-                    <li>
-                        <a href='checkin.html'>
-                            <i class='icon-check'>
-                            </i>
-                        </a>
-                    </li>
-                </ul>
+                <!-- End col-xs-12 > row -->
             </div>
+            <!--End Main Column-->
+            <!-- End container.row.col-xs-12-->
         </div>
-        <!-- End Header -->
-    </div>
-    <!-- Wrapper col-sm-12 for header div -->
-</div>
-<div class="row">
-<div class="col-sm-12">
-<div class='row'>
-<div class='col-sm-12'>
-<div class='box bordered-box orange-border' style='margin-bottom:0;'>
-<div class='box-header contrast-background'>
-</div>
-<div class='box-content box-no-padding'>
-<div class='responsive-table'>
-<div class='scrollable-area'>
-<table class='table table-hover data-table-column-filter table table-bordered table-striped'
-       style='margin-bottom:0;'
-       id="tbViewJob">
-<thead>
-<!-- TODO: Add hidden Id column for database -->
-<tr>
-    <th>Name</th>
-    <th>IC</th>
-    <th>Scope</th>
-    <th>Date</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Mobile</th>
-    <th>Check-in</th>
-</tr>
-</thead>
-<tbody>
-<?php display_checkin_data()?>
-<!--Todo: call processCheckIn->ShowCheckIn -->
-</tbody>
-<tfoot>
-<tr>
-    <th>Name</th>
-    <th>IC</th>
-    <th>Job Scope</th>
-    <th>Reporting Date</th>
-</tr>
-</tfoot>
-</table>
-</div>
-</div>
-<!-- Box Content -->
-</div>
-</div>
-</div>
-</div>
-<!-- row -->
-</div>
-
-</div>
-<!--End Row containing the table, the body part -->
-
-<!-- End col-xs-12 > row -->
-</div>
-<!--End Main Column-->
-<!-- End container.row.col-xs-12-->
-</div>
-<!-- End container.row -->
-<footer id='footer'>
-    <div class='footer-wrapper'>
-        <div class='row'>
-            <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
-            <div class='col-sm-6 buttons'>
-                <a class="btn btn-link" href="">Preview</a>
-                <a class="btn btn-link"
-                   href="https://github.com/dev-seahouse">FYP Project</a>
+        <!-- End container.row -->
+        <footer id='footer'>
+            <div class='footer-wrapper'>
+                <div class='row'>
+                    <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
+                    <div class='col-sm-6 buttons'>
+                        <a class="btn btn-link" href="">Preview</a>
+                        <a class="btn btn-link"
+                           href="https://github.com/dev-seahouse">FYP Project</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </footer>
+        <!--Footer -->
     </div>
-</footer>
-<!--Footer -->
-</div>
-<!-- Container -->
+    <!-- Container -->
 </section>
 </div>
 <!-- Wrapper -->
@@ -494,40 +575,30 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
 <script type="text/javascript">
     $('input[type=checkbox]').click(function () {
-                this.disabled = true;
-            }
+            this.disabled = true;
+        }
     );
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-function updateCheckIn(app_id) {
-$.ajax({
-	type       : "POST",
-	url        : "controllers/processCheckIn.php",
-	crossDomain: true,
-	data       : {
-        app_id : app_id,
-        check_in:1
-        //pass in job id here.
-    },
-	dataType   : 'text',
-	timeout	   : 5000,
-    success: function(response) {
-       alert(response);
-    }
-});	
-}
+    function updateCheckIn(jobappid) {
 
-function GetQueryStringParams(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-            return sParameterName[1];
-        }
+        $.ajax({
+            type: "POST",
+            url: "controllers/processcheckout.php",
+            crossDomain: true,
+            data: {
+                app_id: jobappid,
+                check_out:1
+
+            },
+            dataType: 'text',
+            timeout: 5000,
+            success:function(response){
+                alert(response);
+            }
+        });
     }
-}
 </script>
 </body>
 </html>
