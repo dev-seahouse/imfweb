@@ -40,6 +40,7 @@ if (!empty($_POST) && isset($_POST['jobid'])){
 //        $modal_data.="</div>";
     }
     echo $modal_data;
+    $result_set->close();
 
 }
 
@@ -55,12 +56,22 @@ function displayJobData(){
         $tbody_data.='    <td>'.$row['CategoryName'].'</td>';
         $tbody_data.='    <td>'.$row['ScopeName'].'</td>';
         $jobstatus = $row['JobStatus'];
-        if($jobstatus==0){
-            $tbody_data.='    <td><span class="label label-warning">Pending</span></td>';
-        } else {
-            $tbody_data.='    <td><span class="label label-success">Fulfilled</span></td>';
+        switch($jobstatus){
+            case 0:
+                $tbody_data.='    <td><span class="label label-warning has-tooltip" data-placement="top" title="Job Open for application">Pending</span></td>';
+                break;
+            case 1:
+                $tbody_data.='    <td><span class="label label-success has-tooltip" data-placement="top" title="All job vacancies are filled.Changes could still be made before job application closed.">Fulfilled</span></td>';
+                break;
+            case 2:
+                $tbody_data.='    <td><span class="label label-default has-tooltip" data-placement="top" title="Job application closed,changes can no longer be made and applicants can no longer cancel job application.">Closed</span></td>';
+                break;
+            case 3:
+                $tbody_data.='    <td><span class="label label-danger has-tooltip" data-placement="top" title="Job cancelled by employer.">Cancelled</span></td>';
+                break;
         }
-        $tbody_data.='    <td><a href="#" class="has-tooltip" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].'</a></td>';
+
+        $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].'</a></td>';
         $tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
         $tbody_data.='    <td>'.date("h:i A", strtotime($row['JobEndTime'])).'</td>';
         $tbody_data.='</tr>';

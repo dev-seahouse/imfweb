@@ -1,6 +1,10 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php");
-/*if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+include_once(dirname(__FILE__) . "/controllers/processCheckIn.php");
+
+
+/*if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {l
+
+	$phpjobappid = $_POST['phpjobappid'];
 	$phpjobid = $_POST['phpjobid'];
 
 	//--- Connection string -----
@@ -9,25 +13,19 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 	mysql_select_db("$db_name")or die("Database Offline");
 	//---------------------------
 
-	$sql = "SELECT * FROM jobapplicant_t, user_t WHERE jobapplicant_t.userid=user_t.userid AND MarkAsPresent='A' AND JobID='$phpjobid'";
-	$result=mysql_query($sql);
-	$count=mysql_num_rows($result);
+	$phpjobappid = stripslashes($phpjobappid);
+	$phpjobappid = mysql_real_escape_string($phpjobappid);
 
-	$modal_data = "";
-	if($count<1){
-		$modal_data = "No Applicants Found.";
-	} else {
-		$modal_data.= '<ol style="font-size:large;">';
-		while($row = mysql_fetch_array($result))
-		{
-			$modal_data.= "<li>".$row['Firstname']." ".$row['Lastname']."</li>";
-		}
-		$modal_data.= "</ol>";
-	}
-	echo $modal_data;
+	$sql = "UPDATE jobapplicant_t SET CheckIn=NOW() WHERE JobAppID='$phpjobappid'";
+	mysql_query($sql);
+
+	//Cheat code below to change jobstatus to 2 (close), so that this jobID will not appear in "View Posted Job" page anymore.
+	$sql = "UPDATE job_t SET JobStatus=2 WHERE jobid='$phpjobid'";
+	mysql_query($sql);
+
 	mysql_close($connection);
-	exit;
 } else {
+	$phpjobid = $_GET['jobid'];
 	session_start();
 	$phphotelid = 1; //TO-DO: Replace '1' with SESSION_HOTELID. Example: $phphotelid = $_SESSION['hotelid'];
 
@@ -37,7 +35,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 	mysql_select_db("$db_name")or die("Database Offline");
 	//---------------------------
 
-	$sql = "SELECT * FROM job_t, scope_t WHERE job_t.scopeid = scope_t.scopeid AND HotelID='$phphotelid' AND job_t.JobStatus<2 order by JobDate, JobStartTime";
+	$phpjobid = stripslashes($phpjobid);
+	$phpjobid = mysql_real_escape_string($phpjobid);
+
+	$sql = "SELECT * FROM user_t, job_t, jobapplicant_t, scope_t WHERE user_t.userid = jobapplicant_t.userid AND job_t.jobid = jobapplicant_t.jobid AND MarkAsPresent='A' AND job_t.scopeid = scope_t.scopeid AND CheckIn IS NULL AND jobapplicant_t.jobid='$phpjobid' AND job_t.hotelid='$phphotelid'";
 	$result=mysql_query($sql);
 	$count=mysql_num_rows($result);
 
@@ -46,23 +47,25 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 		while($row = mysql_fetch_array($result))
 		{
 			$tbody_data.='<tr>';
-			$tbody_data.='    <td>'.date("d M Y", strtotime($row['JobDate'])).'</td>';
+			$tbody_data.='    <td>'.$row['Firstname']." ".$row['Lastname'].'</td>';
+			$tbody_data.='    <td>'.$row['NRIC'].'</td>';
 			$tbody_data.='    <td>'.$row['ScopeName'].'</td>';
-			$jobstatus = $row['JobStatus'];
-			if($jobstatus==0){
-				$tbody_data.='    <td><span class="label label-warning">Pending</span></td>';
-			} else {
-				$tbody_data.='    <td><span class="label label-success">Fulfilled</span></td>';
-			}
-			$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
+			$tbody_data.='    <td>'.date("d M Y", strtotime($row['JobDate'])).'</td>';
 			$tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
 			$tbody_data.='    <td>'.date("h:i A", strtotime($row['JobEndTime'])).'</td>';
+			$tbody_data.='    <td>'.$row['MobileNo'].'</td>';
+			$tbody_data.='    <td>';
+			$tbody_data.='        <div class="text-center">';
+			$tbody_data.='            <input type="checkbox" name="attendance" onClick="updateCheckIn('.$row['JobAppID'].')" />';
+			$tbody_data.='        </div>';
+			$tbody_data.='    </td>';
 			$tbody_data.='</tr>';
 		}
 	}
 	mysql_close($connection);
 }*/
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,15 +90,14 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
     <![endif]-->
 </head>
-<body class='contrast-blue without-footer'>
+<body class='contrast-blue without-footer fixed-header fixed-navigation'>
 <header>
-<nav class='navbar navbar-default'>
+<nav class='navbar navbar-default navbar-fixed-top'>
 <a class='navbar-brand' href='dashboard.html'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
@@ -284,7 +286,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
             <li>
                 <a href='user_profile.php'>
                     <i class='icon-user'></i>
-                    Company Profile
+                    Profile
                 </a>
             </li>
             <li>
@@ -317,7 +319,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 </header>
 <div id='wrapper'>
 <div id='main-nav-bg'></div>
-<nav id='main-nav'>
+<nav id='main-nav' class="main-nav-fixed">
     <div class='navigation'>
         <!-- ======================= Hidden search button for mobile ====================== -->
         <!--         <div class='search'>
@@ -369,26 +371,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                 </a>
             </li>
             <li class=''>
-                <a class="dropdown-collapse" href="#">
+                <a href="attendance.php">
                     <i class='icon-check'></i>
                     <span>Mark Attendance</span>
-                    <i class='icon-angle-down angle-down'></i>
                 </a>
-
-                <ul class='nav nav-stacked'>
-                    <li class=''>
-                        <a href='checkin.html'>
-                            <i class='icon-caret-right'></i>
-                            <span>Check in</span>
-                        </a>
-                    </li>
-                    <li class=''>
-                        <a href='checkout.html'>
-                            <i class='icon-caret-right'></i>
-                            <span>Checkout</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class=''>
                 <a href="#">
@@ -425,13 +411,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                 </ul>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="contact.html">
                     <i class='icon-envelope'></i>
                     <span>Contact Support</span>
                 </a>
             </li>
             <li class=''>
-                <a href="index.php">
+                <a href="#">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -444,31 +430,32 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <div class='row' id='content-wrapper'>
 <!-- Main Column -->
 <div class='col-xs-12'>
-<div class="row">
-    <div class="col-sm-12">
+<!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
+<div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
+    <div class="col-sm-12"><!--col-sm-12 This is for main header -->
         <div class='page-header'>
             <h1 class='pull-left'>
-                <i class='icon-table'></i>
-                <span>View Posted Job</span>
+                <i class='icon-check'></i>
+                <span>Check In</span>
+
             </h1>
+
 
             <div class='pull-right'>
                 <ul class='breadcrumb'>
                     <li>
-                        <a href='viewjob.html'>
-                            <i class='icon-suitcase'>
+                        <a href='checkin.html'>
+                            <i class='icon-check'>
                             </i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <!-- col-sm-12.page-header -->
-
+        <!-- End Header -->
     </div>
-    <!-- col-sm-12 wrapper row for header-->
+    <!-- Wrapper col-sm-12 for header div -->
 </div>
-<!-- Main row 1 nested indie col-xs-12, containing the header-->
 <div class="row">
 <div class="col-sm-12">
 <div class='row'>
@@ -479,25 +466,23 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <div class='box-content box-no-padding'>
 <div class='responsive-table'>
 <div class='scrollable-area'>
-<table class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped' style='margin-bottom:0;'
+<table class='table table-hover data-table-column-filter table table-bordered table-striped'
+       style='margin-bottom:0;'
        id="tbViewJob">
 <thead>
 <!-- TODO: Add hidden Id column for database -->
 <tr>
     <th>
-        Job Date
+        Name
     </th>
     <th>
-        Job Category
+        IC
     </th>
     <th>
         Job Scope
     </th>
     <th>
-        Status
-    </th>
-    <th>
-        Vacancies
+        Reporting Date
     </th>
     <th>
         Start Time
@@ -505,48 +490,26 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     <th>
         End Time
     </th>
+    <th>Contact</th>
+    <th>
+        Check-in
+    </th>
 </tr>
 </thead>
 <tbody>
 
-<!--Todo:call job->display_job() -->
-<?php displayJobData();?>
-
+<!--Todo: call processCheckIn->ShowCheckIn -->
 </tbody>
 <tfoot>
 <tr>
-    <th>Job Date</th>
-    <th>Job Category</th>
+    <th>Name</th>
+    <th>IC</th>
     <th>Job Scope</th>
-    <th>Status</th>
-    <th>Vacancies</th>
-    <th>Start Time</th>
-    <th>End Time</th>
+    <th>Reporting Date</th>
 </tr>
 </tfoot>
 </table>
 </div>
-<!-- Modal -->
-<!-- TODO:Add google map into modal after experimenting one google map api-->
-<div class='modal fade' id='modalJobDetail' tabindex='-1'>
-    <div class='modal-dialog'>
-        <div class='modal-content'>
-            <div class='modal-header contrast'>
-               Applicants
-            </div>
-            <div class='modal-body'>
-
-	    <div id="php_modal_data"></div>
-
-            </div>
-            <div class='modal-footer'>
-                <button class='btn btn-danger' data-dismiss='modal' type='button'>Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-
 </div>
 <!-- Box Content -->
 </div>
@@ -555,12 +518,16 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 </div>
 <!-- row -->
 </div>
-<!--div.row-->
+
 </div>
+<!--End Row containing the table, the body part -->
+
+<!-- End col-xs-12 > row -->
 </div>
-<!--div.row.col-xs-12-->
+<!--End Main Column-->
+<!-- End container.row.col-xs-12-->
 </div>
-<!--div.row -->
+<!-- End container.row -->
 <footer id='footer'>
     <div class='footer-wrapper'>
         <div class='row'>
@@ -573,11 +540,12 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
         </div>
     </div>
 </footer>
+<!--Footer -->
 </div>
-<!--div.container -->
+<!-- Container -->
 </section>
 </div>
-<!-- body wrapper -->
+<!-- Wrapper -->
 <!-- / jquery [required] -->
 <script src="assets/javascripts/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>
 <!-- / jquery mobile (for touch events) -->
@@ -603,26 +571,41 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
-<script>
-    //    $("#tbViewJob").dataTable().fnSort([0,'desc']);
+<script type="text/javascript">
+    $('input[type=checkbox]').click(function () {
+                this.disabled = true;
+            }
+    );
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-function loadnames(jobid) {
+function updateCheckIn(app_id) {
 $.ajax({
 	type       : "POST",
-	url        : "controllers/processviewjob.php",
+	url        : "processCheckIn.php",
 	crossDomain: true,
-	data       : { jobid : jobid },
+	data       : {
+        app_id : app_id,
+        check_in:1
+        //pass in job id here.
+    },
 	dataType   : 'text',
 	timeout	   : 5000,
-	success    : function(response) {
-     
-		$('#php_modal_data').empty()
-		$('#php_modal_data').append(response);
-		$('#modalJobDetail').modal('show');
-	}
+    success: function(response) {
+       alert(response);
+    }
 });	
+}
+
+function GetQueryStringParams(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
 }
 </script>
 </body>

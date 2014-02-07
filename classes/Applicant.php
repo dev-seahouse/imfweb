@@ -24,7 +24,7 @@ class Applicant
             //$error returns string description of last error
         }
         if (!$this->db_connection->connect_errno) {
-            $sql = "SELECT * FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=?";
+            $sql = "SELECT Firstname,Lastname,Email,MobileNo FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=?";
             if (!$stmt = $this->db_connection->prepare($sql)) {
                 $this->errors[] = "Prepare statement error." . $this->db_connection->error;
             }
