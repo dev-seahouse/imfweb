@@ -4,34 +4,43 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/config/db.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/classes/Job.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/classes/Applicant.php");
 
+
 check_auth("index.php");
 
 //display applicants who have applied jobs
 
 if (!empty($_POST) && isset($_POST['jobid'])){
     $applicant=new Applicant();
+    $job_vac=$_POST['job_vac'];
+    $job_vac_left=$_POST['job_vac_left'];
     $job_id=$_POST['jobid'];
     $result_set=$applicant->get_applicants_by_id($job_id);
     $modal_data = "";
     if(!$result_set->num_rows){
-        $modal_data = "No Applicants Found.";
+        $modal_data = "No one has applied yet.";
     }else{
 //        $modal_data.="<div class='box-content box-no-padding'>";
 //        $modal_data.="<div class='responsive-table'>";
-        $modal_data.="<table class='table'>";
+        $modal_data.="<table class='table table-bordered table-stripped'>";
         $modal_data.="<thead><tr>";
         $modal_data.="<th>Name</th>";
         $modal_data.="<th>Phone</th>";
         $modal_data.="<th>Email</th>";
+        $modal_data.="<th>Experience</th>";
         $modal_data.="</tr></thead><tbody>";
 
         while($row =$result_set->fetch_array(MYSQLI_ASSOC))
         {
+            $experience_string=$row['ExpHours'];
+            $experience_hours=convertToHoursMins($experience_string,'%02d hours %02d minutes');
+
+
            // $modal_data.= "<tr>".$row['Firstname']." ".$row['Lastname']."</tr>";
             $modal_data.="<tr>";
             $modal_data.="<td>".$row['Firstname']." ".$row['Lastname']."</td>";
             $modal_data.="<td>".$row['Email']."</td>";
             $modal_data.="<td>".$row['MobileNo']."</td>";
+            $modal_data.="<td>".$experience_hours."</td>";
             $modal_data.="</tr>";
         }
 
@@ -71,7 +80,7 @@ function displayJobData(){
                 break;
         }
 
-        $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].'</a></td>';
+        $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">'.$row['JobSlotVacLeft'].'</a></td>';
         $tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
         $tbody_data.='    <td>'.date("h:i A", strtotime($row['JobEndTime'])).'</td>';
         $tbody_data.='</tr>';

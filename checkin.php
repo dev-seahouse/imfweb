@@ -513,7 +513,7 @@ $.ajax({
 	dataType   : 'text',
 	timeout	   : 5000,
     success: function(response) {
-       //alert(response);
+        Example.show("Hello world callback");
     }
 });	
 }
@@ -527,7 +527,29 @@ function GetQueryStringParams(sParam) {
             return sParameterName[1];
         }
     }
+
 }
+
+var Example = (function() {
+    "use strict";
+
+    var elem,
+        hideHandler,
+        that = {};
+
+    that.init = function(options) {
+        elem = $(options.selector);
+    };
+
+    that.show = function(text) {
+        clearTimeout(hideHandler);
+
+        elem.find("span").html(text);
+        elem.delay(200).fadeIn().delay(4000).fadeOut();
+    };
+
+    return that;
+}());
 </script>
 </body>
 </html>

@@ -1,5 +1,215 @@
 <?php
-include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
+if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+	$phpjobid = $_POST['phpjobid'];
+	$phpmode = $_POST['phpmode'];
+	
+	//--- Connection string -----
+	include('otokirusama.php');
+	$connection=mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+	mysql_select_db("$db_name")or die("Database Offline");
+	//---------------------------
+
+	if($phpmode==1){
+		$sql = "SELECT * FROM jobapplicant_t, user_t WHERE jobapplicant_t.userid=user_t.userid AND MarkAsPresent='A' AND JobID='$phpjobid'";
+		$result=mysql_query($sql);
+		$count=mysql_num_rows($result);
+		
+		$modal_data = "";
+		if($count<1){
+			$modal_data = "No Applicants Found.";
+		} else {
+			$modal_data.= '<ol style="font-size:large;">';
+			while($row = mysql_fetch_array($result))
+			{
+				$modal_data.= "<li>".$row['Firstname']." ".$row['Lastname']."</li>";
+			}
+			$modal_data.= "</ol>";
+		}
+		echo $modal_data;
+		mysql_close($connection);
+		exit;
+	} else {	
+		//1. Set JobStatus to 3 (Cancelled).
+		$sql = "UPDATE job_t SET JobStatus=3 WHERE JobID='$phpjobid'";
+		mysql_query($sql);
+		
+		//2. Gather Company details.
+		$sql = "SELECT * FROM job_t, hotel_t, scope_t WHERE job_t.hotelid=hotel_t.hotelid AND job_t.scopeid=scope_t.scopeid AND JobID='$phpjobid'";
+		$result=mysql_query($sql);
+		$count=mysql_num_rows($result);
+		$coyname = "";
+		$scopename = "";
+		$jobdate = "";
+		$jobstarttime = "";
+		$hotelid = "";	
+		while($row = mysql_fetch_array($result))
+		{
+			$coyname = $row['HotelName'];
+			$scopename = $row['ScopeName'];
+			$jobdate = date("d M Y", strtotime($row['JobDate']));
+			$jobstarttime = date("h:i A", strtotime($row['JobStartTime']));
+			$hotelid = $row['HotelID'];
+		}
+		
+		//3. Gather all jobapplicant details (email and mobilenotificationid)
+		$sql = "SELECT * FROM jobapplicant_t, user_t, mobilesession_t WHERE jobapplicant_t.userid=user_t.userid AND mobilesession_t.userid=user_t.userid AND MarkAsPresent='A' AND JobID='$phpjobid'";
+		$result=mysql_query($sql);
+		$count=mysql_num_rows($result);
+		
+		$registrationIds = array();
+		
+		if($count>0){
+			//4. Prepare email stuff
+			$subject = "(URGENT) IMF Job Cancellation Notice";
+			$emailmsg = "Dear IMF User\n\nWe regret to inform you that the following Job that you've recently applied for\nhave been Cancelled by the Management due to unforeseen circumstances.\n*********************************\n".$coyname."\nPosition: ".$scopename."\nJob Date: ".$jobdate."\nStart Time: ".$jobstarttime."\n*********************************\nRegards.\nThis is an automated generated email.";
+			
+			require_once '../Swift-5.0.3/swift_required.php';
+			$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
+			  ->setUsername('imf@syahiran.com')
+			  ->setPassword('imf123qwe');
+			
+			$mailer = Swift_Mailer::newInstance($transport);
+			
+			$message = Swift_Message::newInstance($subject)
+			  ->setFrom(array('imf@syahiran.com' => 'IMF NO-REPLY'))
+			  ->setBody($emailmsg);
+		  
+			while($row = mysql_fetch_array($result))
+			{
+				$message->addBcc($row['Email'], $row['Firstname'].' '.$row['Lastname']);
+				if(!($row['NotificationRegID'] === NULL)) {
+					$registrationIds[] = $row['NotificationRegID'];
+				}		
+			}
+			
+			//5. Sent email
+			//$mailer->send($message);
+			$result = $mailer->send($message);
+			error_log($result);
+			
+			//6. Prepare GSM
+			$msg = array
+			(
+				'title'		=> 'Job Cancellation Notice',
+			    	'message' 	=> 'An applied job have been cancelled!',
+				'vibrate'	=> 1,
+				'sound'		=> 1,
+				'msgcnt'	=> $phpjobid
+			);
+			 
+			$fields = array
+			(
+				'registration_ids' 	=> $registrationIds,
+				'data'			=> $msg
+			);
+			 
+			$headers = array
+			(
+				'Authorization: key=AIzaSyBHQcwr3aVGVNukW50vSXHj-6pzR1mZTtc',
+				'Content-Type: application/json'
+			);
+			
+			//7. Sent GSM
+			$ch = curl_init();
+			curl_setopt( $ch,CURLOPT_URL, 'https://android.googleapis.com/gcm/send' );
+			curl_setopt( $ch,CURLOPT_POST, true );
+			curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+			curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+			curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+			$result = curl_exec($ch );
+			curl_close( $ch );
+			
+			//8. Set all jobapplicant MarkAsPresent='C' (cancel)
+			$sql = "UPDATE jobapplicant_t SET MarkAsPresent='C' WHERE JobID='$phpjobid'";
+			mysql_query($sql);
+			
+		}
+		//9. Request new tbody_data
+		$sql = "SELECT * FROM job_t, scope_t WHERE job_t.scopeid = scope_t.scopeid AND HotelID='$hotelid' AND job_t.JobStatus!=2 order by JobDate, JobStartTime";
+		$result=mysql_query($sql);
+		$count=mysql_num_rows($result);
+		
+		$tbody_data = "";
+		if($count>0){
+			while($row = mysql_fetch_array($result))
+			{
+				$temp_boolean_check = false;
+				$tbody_data.='<tr>';
+				$tbody_data.='    <td>'.date("d M Y", strtotime($row['JobDate'])).'</td>';
+				$tbody_data.='    <td>'.$row['ScopeName'].'</td>';
+				$jobstatus = $row['JobStatus'];
+				if($jobstatus==0){
+					$tbody_data.='    <td><span class="label label-warning">Pending</span></td>';
+					$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
+				} else if($jobstatus==1){
+					$tbody_data.='    <td><span class="label label-success">Fulfilled</span></td>';
+					$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
+				} else {
+					$tbody_data.='    <td><span class="label label-danger">Cancelled</span></td>';
+					$tbody_data.='    <td><span class="label label-danger">Not Applicable</span></td>';
+					$temp_boolean_check = true;
+				}	
+				$tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
+				if($temp_boolean_check){
+					$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' disabled>Cancel</button></td>";
+				} else {
+					$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' onClick='canceljob(".$row['JobID'].")'>Cancel</button></td>";
+				}				
+				$tbody_data.='</tr>';
+			}
+		}
+		mysql_close($connection);
+		
+		//10. Finally! Append table. OMFWTFBBQ...
+		echo $tbody_data;
+		exit;
+	}
+} else {
+	session_start();
+	$phphotelid = 2; //TO-DO: Replace '1' with SESSION_HOTELID. Example: $phphotelid = $_SESSION['hotelid'];
+	
+	//--- Connection string -----
+	include('otokirusama.php');
+	$connection=mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+	mysql_select_db("$db_name")or die("Database Offline");
+	//---------------------------
+	
+	$sql = "SELECT * FROM job_t, scope_t WHERE job_t.scopeid = scope_t.scopeid AND HotelID='$phphotelid' AND job_t.JobStatus!=2 order by JobDate, JobStartTime";
+	$result=mysql_query($sql);
+	$count=mysql_num_rows($result);
+	
+	$tbody_data = "";
+	if($count>0){
+		while($row = mysql_fetch_array($result))
+		{
+			$temp_boolean_check = false;
+			$tbody_data.='<tr>';
+			$tbody_data.='    <td>'.date("d M Y", strtotime($row['JobDate'])).'</td>';
+			$tbody_data.='    <td>'.$row['ScopeName'].'</td>';
+			$jobstatus = $row['JobStatus'];
+			if($jobstatus==0){
+				$tbody_data.='    <td><span class="label label-warning">Pending</span></td>';
+				$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
+			} else if($jobstatus==1){
+				$tbody_data.='    <td><span class="label label-success">Fulfilled</span></td>';
+				$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
+			} else {
+				$tbody_data.='    <td><span class="label label-danger">Cancelled</span></td>';
+				$tbody_data.='    <td><span class="label label-danger">Not Applicable</span></td>';
+				$temp_boolean_check = true;
+			}	
+			$tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
+			if($temp_boolean_check){
+				$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' disabled>Cancel</button></td>";
+			} else {
+				$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' onClick='canceljob(".$row['JobID'].")'>Cancel</button></td>";
+			}				
+			$tbody_data.='</tr>';
+		}
+	}
+	mysql_close($connection);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,14 +235,15 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
     <![endif]-->
 </head>
-<body class='contrast-blue without-footer fixed-header fixed-navigation'>
+<body class='contrast-blue without-footer'>
 <header>
-<nav class='navbar navbar-default navbar-fixed-top'>
+<nav class='navbar navbar-default'>
 <a class='navbar-brand' href='dashboard.html'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
@@ -221,7 +432,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
             <li>
                 <a href='user_profile.php'>
                     <i class='icon-user'></i>
-                    Profile
+                    Company Profile
                 </a>
             </li>
             <li>
@@ -254,7 +465,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
 </header>
 <div id='wrapper'>
 <div id='main-nav-bg'></div>
-<nav id='main-nav' class="main-nav-fixed">
+<nav id='main-nav'>
     <div class='navigation'>
         <!-- ======================= Hidden search button for mobile ====================== -->
         <!--         <div class='search'>
@@ -306,9 +517,10 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                 </a>
             </li>
             <li class=''>
-                <a href="attendance.php">
+                <a class="dropdown-collapse" href="#">
                     <i class='icon-check'></i>
                     <span>Mark Attendance</span>
+                    <i class='icon-angle-down angle-down'></i>
                 </a>
 
                 <ul class='nav nav-stacked'>
@@ -316,7 +528,6 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                         <a href='checkin.html'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
-
                         </a>
                     </li>
                     <li class=''>
@@ -362,7 +573,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                 </ul>
             </li>
             <li class=''>
-                <a href="contact.html">
+                <a href="#">
                     <i class='icon-envelope'></i>
                     <span>Contact Support</span>
                 </a>
@@ -377,111 +588,139 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
     </div>
 </nav>
 <section id='content'>
-    <div class='container'>
-        <div class='row' id='content-wrapper'>
-            <!-- Main Column -->
-            <div class='col-xs-12'>
-                <!--col-sm-12 div sitting inside main row so that all contents inside stacked when screen change-->
-                <div class="row"><!--col-xs-12 > row inside responsive column-xs-12, -->
-                    <div class="col-sm-12"><!--col-sm-12 This is for main header -->
-                        <div class='page-header'>
-                            <h1 class='pull-left'>
-                                <i class='icon-check'></i>
-                                <span>Check Out</span>
-                            </h1>
-                            <div class='pull-right'>
-                                <ul class='breadcrumb'>
-                                    <li>
-                                        <a href='checkin.html'>
-                                            <i class='icon-check'>
-                                            </i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- End Header -->
-                    </div>
-                    <!-- Wrapper col-sm-12 for header div -->
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class='row'>
-                            <div class='col-sm-12'>
-                                <div class='box bordered-box orange-border' style='margin-bottom:0;'>
-                                    <div class='box-header contrast-background'>
-                                    </div>
-                                    <div class='box-content box-no-padding'>
-                                        <div class='responsive-table'>
-                                            <div class='scrollable-area'>
-                                                <table
-                                                    class='table table-hover data-table-column-filter table table-bordered table-striped'
-                                                    style='margin-bottom:0;'
-                                                    id="tbViewJob">
-                                                    <thead>
-                                                    <!-- TODO: Add hidden Id column for database -->
-                                                    <tr>
-                                                        <th>Name </th>
-                                                        <th>IC</th>
-                                                        <th>Job Scope</th>
-                                                        <th>Date</th>
-                                                        <th>Start</th>
-                                                        <th>End</th>
-                                                        <th>Mobile</th>
-                                                        <th>Check-in</th>
-                                                        <th>Check-out</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php display_checkout_data(); ?>
-                                                    </tbody>
-                                                    <tfoot>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>IC</th>
-                                                        <th>Job Scope</th>
-                                                        <th>Reporting Date</th>
-                                                    </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                        </div>
+<div class='container'>
+<div class='row' id='content-wrapper'>
+<!-- Main Column -->
+<div class='col-xs-12'>
+<div class="row">
+    <div class="col-sm-12">
+        <div class='page-header'>
+            <h1 class='pull-left'>
+                <i class='icon-remove'></i>
+                <span>Cancel Job</span>
+            </h1>
 
-                                        <!-- Box Content -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- row -->
-                    </div>
-
-                </div>
-                <!--End Row containing the table, the body part -->
-
-                <!-- End col-xs-12 > row -->
+            <div class='pull-right'>
+                <ul class='breadcrumb'>
+                    <li>
+                        <a href='viewjob.html'>
+                            <i class='icon-suitcase'>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!--End Main Column-->
-            <!-- End container.row.col-xs-12-->
         </div>
-        <!-- End container.row -->
-        <footer id='footer'>
-            <div class='footer-wrapper'>
-                <div class='row'>
-                    <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
-                    <div class='col-sm-6 buttons'>
-                        <a class="btn btn-link" href="">Preview</a>
-                        <a class="btn btn-link"
-                           href="https://github.com/dev-seahouse">FYP Project</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--Footer -->
+        <!-- col-sm-12.page-header -->
+
     </div>
-    <!-- Container -->
+    <!-- col-sm-12 wrapper row for header-->
+</div>
+<!-- Main row 1 nested indie col-xs-12, containing the header-->
+<div class="row">
+<div class="col-sm-12">
+<div class='row'>
+<div class='col-sm-12'>
+<div class='box bordered-box orange-border' style='margin-bottom:0;'>
+<div class='box-header contrast-background'>
+</div>
+<div class='box-content box-no-padding'>
+<div class='responsive-table'>
+<div class='scrollable-area'>
+<table class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped' style='margin-bottom:0;'
+       id="tbViewJob">
+<thead>
+<!-- TODO: Add hidden Id column for database -->
+<tr>
+    <th>
+        Job Date
+    </th>
+    <th>
+        Job Scope
+    </th>
+    <th>
+        Status
+    </th>
+    <th>
+        Vacancies
+    </th>
+    <th>
+        Start Time
+    </th>
+    <th>
+        
+    </th>
+</tr>
+</thead>
+<tbody id="omgwtfbbq">
+
+<?php echo $tbody_data; ?>
+
+</tbody>
+<tfoot>
+<tr>
+    <th>Job Date/th>
+    <th>Job Scope</th>
+    <th>Status</th>
+    <th>Vacancies</th>
+    <th>Start Time</th>
+</tr>
+</tfoot>
+</table>
+</div>
+<!-- Modal -->
+<!-- TODO:Add google map into modal after experimenting one google map api-->
+<div class='modal fade' id='modalJobDetail' tabindex='-1'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
+                <h4 class='modal-title' id='myModalLabel'>List of Applicants</h4>
+            </div>
+            <div class='modal-body'>
+
+	    <div id="php_modal_data"></div>
+
+            </div>
+            <div class='modal-footer'>
+                <button class='btn btn-danger' data-dismiss='modal' type='button'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
+</div>
+<!-- Box Content -->
+</div>
+</div>
+</div>
+</div>
+<!-- row -->
+</div>
+<!--div.row-->
+</div>
+</div>
+<!--div.row.col-xs-12-->
+</div>
+<!--div.row -->
+<footer id='footer'>
+    <div class='footer-wrapper'>
+        <div class='row'>
+            <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
+            <div class='col-sm-6 buttons'>
+                <a class="btn btn-link" href="">Preview</a>
+                <a class="btn btn-link"
+                   href="https://github.com/dev-seahouse">FYP Project</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<!--div.container -->
 </section>
 </div>
-<!-- Wrapper -->
+<!-- body wrapper -->
 <!-- / jquery [required] -->
 <script src="assets/javascripts/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>
 <!-- / jquery mobile (for touch events) -->
@@ -507,32 +746,41 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $('input[type=checkbox]').click(function () {
-            this.disabled = true;
-        }
-    );
+<script>
+    //    $("#tbViewJob").dataTable().fnSort([0,'desc']);
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-    function updateCheckIn(jobappid) {
+function loadnames(jobid) {
+$.ajax({
+	type       : "POST",
+	url        : "canceljob.php",
+	crossDomain: true,
+	data       : { phpjobid : jobid, phpmode : 1 },
+	dataType   : 'text',
+	timeout	   : 5000,
+	success    : function(response) {
+		$('#php_modal_data').empty()
+		$('#php_modal_data').append(response);
+		$('#modalJobDetail').modal('show');
+	}
+});	
+}
 
-        $.ajax({
-            type: "POST",
-            url: "controllers/processcheckout.php",
-            crossDomain: true,
-            data: {
-                app_id: jobappid,
-                check_out:1
-
-            },
-            dataType: 'text',
-            timeout: 5000,
-            success:function(response){
-                //alert(response);
-            }
-        });
-    }
+function canceljob(jobid) {
+$.ajax({
+	type       : "POST",
+	url        : "canceljob.php",
+	crossDomain: true,
+	data       : { phpjobid : jobid, phpmode : 2 },
+	dataType   : 'text',
+	timeout	   : 5000,
+	success    : function(response) {
+		$('#omgwtfbbq').empty()
+		$('#omgwtfbbq').append(response);
+	}
+});	
+}
 </script>
 </body>
 </html>

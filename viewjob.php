@@ -471,14 +471,30 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                             <div class='modal fade' id='modalJobDetail' tabindex='-1'>
                                                 <div class='modal-dialog'>
                                                     <div class='modal-content'>
-                                                        <div class='modal-header contrast'>
-                                                            Applicants
+                                                        <div class='modal-header contrast' id="vacancy_header">
+                                                            Vacancies
                                                         </div>
                                                         <div class='modal-body'>
+                                                            <table class="table table-bordered table-stripped">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Total Job Vacancies Needed</th>
+                                                                    <th>Job Vacancies Left</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody  id="vacancy_data">
 
-                                                            <div id="php_modal_data"></div>
+                                                                </tbody>
+
+                                                            </table>
+                                                        </div>
+                                                        <div class='modal-header contrast'>
+                                                            Current Applicants
+                                                        </div>
+                                                        <div class='modal-body' id="php_modal_data">
 
                                                         </div>
+
                                                         <div class='modal-footer'>
                                                             <button class='btn btn-danger' data-dismiss='modal'
                                                                     type='button'>Close
@@ -550,17 +566,24 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-    function loadnames(jobid) {
+    function loadnames(jobid,job_vac,job_vac_left) {
         $.ajax({
             type: "POST",
             url: "controllers/processviewjob.php",
             crossDomain: true,
-            data: { jobid: jobid },
+            data: {
+                jobid: jobid,
+                job_vac:job_vac,
+                job_vac_left:job_vac_left
+            },
             dataType: 'text',
             timeout: 5000,
             success: function (response) {
+                $('#vacancy_data').html(
+                    '<tr><td>'+job_vac+'<td>'+job_vac_left+'</tr>'
+                )
 
-                $('#php_modal_data').empty()
+                $('#php_modal_data').empty();
                 $('#php_modal_data').append(response);
                 $('#modalJobDetail').modal('show');
             }

@@ -24,7 +24,7 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($job_id);
-            $sql = "SELECT Firstname,Lastname,Email,MobileNo FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=?";
+            $sql = "SELECT Firstname,Lastname,Email,MobileNo,ExpHours FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=?";
             if (!$stmt = $this->db_connection->prepare($sql)) {
                 $this->errors[] = "Prepare statement error." . $this->db_connection->error;
             }
@@ -141,7 +141,7 @@ class Applicant
             $sql .= ' join scope_t on job_t.scopeid = scope_t.scopeid ';
             $sql .= ' where MarkAsPresent="A" AND CheckIn IS NOT NULL AND HotelID=?';
             $sql .= ' AND job_t.JobDate BETWEEN DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND DATE_ADD(CURDATE(),INTERVAL 1 DAY)';
-            $sql .= ' AND job_t.JobStatus<2 ORDER BY JobDate,JobStartTime ASC';
+            $sql .= ' AND job_t.JobStatus<=2 ORDER BY JobDate,JobStartTime ASC';
             //AND jobapplicant_t.jobid=?
 
             if (!$stmt = $this->db_connection->prepare($sql)) {
