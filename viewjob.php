@@ -254,6 +254,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <!-- ===================== End of nav section =================================== -->
 </header>
 <div id='wrapper'>
+<div class="bb-alert alert alert-info pull-right">
+    <span>dummy</span>
+</div>
 <div id='main-nav-bg'></div>
 <nav id='main-nav'>
     <div class='navigation'>
@@ -566,6 +569,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
+
     function loadnames(jobid,job_vac,job_vac_left) {
         $.ajax({
             type: "POST",
@@ -579,6 +583,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
             dataType: 'text',
             timeout: 5000,
             success: function (response) {
+
                 $('#vacancy_data').html(
                     '<tr><td>'+job_vac+'<td>'+job_vac_left+'</tr>'
                 )

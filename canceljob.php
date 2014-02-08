@@ -806,12 +806,13 @@ $.ajax({
 	dataType   : 'text',
 	timeout	   : 5000,
 	success    : function(response) {
-        alert(response);
+        //alert(response);
 		$('#cancel_job_data').empty();
 		$('#cancel_job_data').append(response);
 	}
 });	
 }
+
 </script>
 </body>
 </html>
