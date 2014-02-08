@@ -8,7 +8,7 @@
 .colorpicker-saturation {
   width: 100px;
   height: 100px;
-  background-image: url('../images/plugins/bootstrap_colorpicker/saturation.png?1390278708');
+  background-image: url('../images/plugins/bootstrap_colorpicker/saturation.png?1379230410');
   cursor: crosshair;
   float: left;
 }
@@ -64,12 +64,12 @@
 
 /* line 7, ../../compass/sass/plugins/bootstrap_colorpicker/bootstrap-colorpicker.scss */
 .colorpicker-hue {
-  background-image: url('../images/plugins/bootstrap_colorpicker/hue.png?1390278708');
+  background-image: url('../images/plugins/bootstrap_colorpicker/hue.png?1379230410');
 }
 
 /* line 7, ../../compass/sass/plugins/bootstrap_colorpicker/bootstrap-colorpicker.scss */
 .colorpicker-alpha {
-  background-image: url('../images/plugins/bootstrap_colorpicker/alpha.png?1390278708');
+  background-image: url('../images/plugins/bootstrap_colorpicker/alpha.png?1379230410');
   display: none;
 }
 
@@ -142,7 +142,7 @@
   height: 10px;
   margin-top: 5px;
   clear: both;
-  background-image: url('../images/plugins/bootstrap_colorpicker/alpha.png?1390278708');
+  background-image: url('../images/plugins/bootstrap_colorpicker/alpha.png?1379230410');
   background-position: 0 100%;
 }
 
@@ -1380,7 +1380,7 @@ span.dynatree-drag-helper-img,
   vertical-align: top;
   background-repeat: no-repeat;
   background-position: left;
-  background-image: url('../images/plugins/dynatree/icons.gif?1390278708');
+  background-image: url('../images/plugins/dynatree/icons.gif?1379230410');
   background-position: 0 0;
 }
 
@@ -1455,7 +1455,7 @@ span.dynatree-expander:hover {
 /* line 161, ../../compass/sass/plugins/dynatree/ui.dynatree.scss */
 .dynatree-loading span.dynatree-expander {
   background-position: 0 0;
-  background-image: url('../images/plugins/dynatree/loading.gif?1390278708');
+  background-image: url('../images/plugins/dynatree/loading.gif?1379230410');
 }
 
 /*******************************************************************************
@@ -1753,7 +1753,7 @@ span.dynatree-drop-target.dynatree-drop-reject {
 .flag {
   width: 16px;
   height: 11px;
-  background: url('../images/plugins/flags/flags.png?1390278708') no-repeat;
+  background: url('../images/plugins/flags/flags.png?1379230410') no-repeat;
   display: inline-block;
 }
 
@@ -4107,7 +4107,7 @@ div.jGrowl div.jGrowl-closer {
 }
 /* line 1, ../../compass/sass/plugins/lightbox/lightbox.scss */
 body:after {
-  content: url('../images/plugins/lightbox/close.png?1390278708') url('../images/plugins/lightbox/loading.gif?1390278708') url('../images/plugins/lightbox/prev.png?1390278708') url('../images/plugins/lightbox/next.png?1390278708');
+  content: url('../images/plugins/lightbox/close.png?1379230410') url('../images/plugins/lightbox/loading.gif?1379230410') url('../images/plugins/lightbox/prev.png?1379230410') url('../images/plugins/lightbox/next.png?1379230410');
   display: none;
 }
 
@@ -4194,7 +4194,7 @@ body:after {
   width: 32px;
   height: 32px;
   margin: 0 auto;
-  background: url('../images/plugins/lightbox/loading.gif?1390278708') no-repeat;
+  background: url('../images/plugins/lightbox/loading.gif?1379230410') no-repeat;
 }
 
 /* line 81, ../../compass/sass/plugins/lightbox/lightbox.scss */
@@ -4234,7 +4234,7 @@ body:after {
 
 /* line 106, ../../compass/sass/plugins/lightbox/lightbox.scss */
 .lb-prev:hover {
-  background: url('../images/plugins/lightbox/prev.png?1390278708') left 48% no-repeat;
+  background: url('../images/plugins/lightbox/prev.png?1379230410') left 48% no-repeat;
 }
 
 /* line 109, ../../compass/sass/plugins/lightbox/lightbox.scss */
@@ -4245,7 +4245,7 @@ body:after {
 
 /* line 113, ../../compass/sass/plugins/lightbox/lightbox.scss */
 .lb-next:hover {
-  background: url('../images/plugins/lightbox/next.png?1390278708') right 48% no-repeat;
+  background: url('../images/plugins/lightbox/next.png?1379230410') right 48% no-repeat;
 }
 
 /* line 116, ../../compass/sass/plugins/lightbox/lightbox.scss */
@@ -4305,7 +4305,7 @@ body:after {
   float: right;
   width: 30px;
   height: 30px;
-  background: url('../images/plugins/lightbox/close.png?1390278708') top right no-repeat;
+  background: url('../images/plugins/lightbox/close.png?1379230410') top right no-repeat;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
@@ -4445,7 +4445,7 @@ Version: 3.4.2 Timestamp: Mon Aug 12 15:04:12 PDT 2013
   font-size: 1px;
   text-decoration: none;
   border: 0;
-  background: url('../images/plugins/select2/select2.png?1390278708') right top no-repeat;
+  background: url('../images/plugins/select2/select2.png?1379230410') right top no-repeat;
   cursor: pointer;
   outline: 0;
 }
@@ -4543,7 +4543,7 @@ Version: 3.4.2 Timestamp: Mon Aug 12 15:04:12 PDT 2013
   display: block;
   width: 100%;
   height: 100%;
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 0 1px;
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 0 1px;
 }
 
 /* line 193, ../../compass/sass/plugins/select2/select2.scss */
@@ -4572,13 +4572,13 @@ Version: 3.4.2 Timestamp: Mon Aug 12 15:04:12 PDT 2013
   border: 1px solid #aaa;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: white url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px;
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-  background: url('../images/plugins/select2/select2.png?1390278708') no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+  background: white url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px;
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+  background: url('../images/plugins/select2/select2.png?1379230410') no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
 }
 
 /* line 232, ../../compass/sass/plugins/select2/select2.scss */
@@ -4588,13 +4588,13 @@ Version: 3.4.2 Timestamp: Mon Aug 12 15:04:12 PDT 2013
 
 /* line 236, ../../compass/sass/plugins/select2/select2.scss */
 .select2-search input.select2-active {
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%;
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%;
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
 }
 
 /* line 247, ../../compass/sass/plugins/select2/select2.scss */
@@ -4784,7 +4784,7 @@ disabled look for disabled choices in the results dropdown
 
 /* line 391, ../../compass/sass/plugins/select2/select2.scss */
 .select2-more-results.select2-active {
-  background: #f4f4f4 url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100%;
+  background: #f4f4f4 url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100%;
 }
 
 /* line 395, ../../compass/sass/plugins/select2/select2.scss */
@@ -4881,7 +4881,7 @@ disabled look for disabled choices in the results dropdown
 
 /* line 481, ../../compass/sass/plugins/select2/select2.scss */
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-  background: white url('../images/plugins/select2/select2-spinner.gif?1390278708') no-repeat 100% !important;
+  background: white url('../images/plugins/select2/select2-spinner.gif?1379230410') no-repeat 100% !important;
 }
 
 /* line 485, ../../compass/sass/plugins/select2/select2.scss */
@@ -4937,7 +4937,7 @@ disabled look for disabled choices in the results dropdown
   top: 4px;
   font-size: 1px;
   outline: none;
-  background: url('../images/plugins/select2/select2.png?1390278708') right top no-repeat;
+  background: url('../images/plugins/select2/select2.png?1379230410') right top no-repeat;
 }
 
 /* line 540, ../../compass/sass/plugins/select2/select2.scss */
@@ -5019,7 +5019,7 @@ disabled look for disabled choices in the results dropdown
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
   /* line 606, ../../compass/sass/plugins/select2/select2.scss */
   .select2-search input, .select2-search-choice-close, .select2-container .select2-choice abbr, .select2-container .select2-choice .select2-arrow b {
-    background-image: url('../images/plugins/select2/select2x2.png?1390278708') !important;
+    background-image: url('../images/plugins/select2/select2x2.png?1379230410') !important;
     background-repeat: no-repeat !important;
     background-size: 60px 40px !important;
   }
@@ -5922,7 +5922,7 @@ input.ui-button::-moz-focus-inner, button.ui-button::-moz-focus-inner {
 
 /* line 6, ../../compass/sass/jquery/jquery_ui.scss */
 .ui-progressbar .ui-progressbar-overlay {
-  background: url('../images/jquery_ui/animated-overlay.gif?1390278708');
+  background: url('../images/jquery_ui/animated-overlay.gif?1379230410');
   height: 100%;
   filter: alpha(opacity=25);
   opacity: 0.25;
@@ -6230,6 +6230,17 @@ hr .fancy-line, hr .fancy-line:before {
 /* line 212, ../../compass/sass/theme/_utilities.scss */
 body, hr.fancy-line:after {
   background: #f4f4f4;
+}
+
+/* line 215, ../../compass/sass/theme/_utilities.scss */
+.bb-alert {
+  position: fixed;
+  bottom: 25%;
+  right: 0;
+  margin-bottom: 0;
+  font-size: 1.2em;
+  padding: 1em 1.3em;
+  z-index: 2000;
 }
 
 /* ------------- End of Fancy HR ------------ */
@@ -14213,6 +14224,17 @@ hr .fancy-line, hr .fancy-line:before {
 /* line 212, ../../compass/sass/theme/_utilities.scss */
 body, hr.fancy-line:after {
   background: #f4f4f4;
+}
+
+/* line 215, ../../compass/sass/theme/_utilities.scss */
+.bb-alert {
+  position: fixed;
+  bottom: 25%;
+  right: 0;
+  margin-bottom: 0;
+  font-size: 1.2em;
+  padding: 1em 1.3em;
+  z-index: 2000;
 }
 
 /* ------------- End of Fancy HR ------------ */

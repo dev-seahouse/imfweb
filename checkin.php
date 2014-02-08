@@ -253,6 +253,9 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <!-- ===================== End of nav section =================================== -->
 </header>
 <div id='wrapper'>
+<div class="bb-alert alert alert-info" style="display:none;">
+    <span id="infor_txt">Dummy text for info alert</span>
+</div>
 <div id='main-nav-bg'></div>
 <nav id='main-nav' class="main-nav-fixed">
     <div class='navigation'>
@@ -513,11 +516,12 @@ $.ajax({
 	dataType   : 'text',
 	timeout	   : 5000,
     success: function(response) {
-        Example.show("Hello world callback");
+
     }
 });	
 }
 
+/*
 function GetQueryStringParams(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
@@ -529,27 +533,8 @@ function GetQueryStringParams(sParam) {
     }
 
 }
+*/
 
-var Example = (function() {
-    "use strict";
-
-    var elem,
-        hideHandler,
-        that = {};
-
-    that.init = function(options) {
-        elem = $(options.selector);
-    };
-
-    that.show = function(text) {
-        clearTimeout(hideHandler);
-
-        elem.find("span").html(text);
-        elem.delay(200).fadeIn().delay(4000).fadeOut();
-    };
-
-    return that;
-}());
 </script>
 </body>
 </html>

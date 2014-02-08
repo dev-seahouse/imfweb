@@ -254,9 +254,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <!-- ===================== End of nav section =================================== -->
 </header>
 <div id='wrapper'>
-<div class="bb-alert alert alert-info pull-right">
-    <span>dummy</span>
-</div>
 <div id='main-nav-bg'></div>
 <nav id='main-nav'>
     <div class='navigation'>
