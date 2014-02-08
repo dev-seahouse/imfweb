@@ -224,6 +224,41 @@ class Job
         }
     }
 
+    public function get_job_by_jid($job_jd){
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return false;
+            //$error returns string description of last error
+        }
+        if (!$this->db_connection->connect_errno) {
+            $job_app_id=$this->db_connection->real_escape_string($job_jd);
+            $sql="SELECT ScopeName,JobDate,JobStartTime FROM job_t join scope_t on job_t.scopeid=scope_t.scopeid WHERE JobID=?";
+
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+            }
+            if (!$stmt->bind_param("i",$job_app_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            if (!$result_set = $stmt->get_result()) {
+                $this->errors[] = "Error getting results:";
+            }
+            $this->db_connection->close();
+            return $result_set;
+
+        }else{
+            $this->errors[] = "Database connection error.";
+        }
+
+
+    }
+
 }
 
 ?>
