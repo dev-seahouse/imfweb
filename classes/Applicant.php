@@ -177,7 +177,7 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno){
             $job_app_id=$this->db_connection->real_escape_string($job_app_id);
-            $sql="UPDATE jobapplicant_t SET CheckOut=NOW(),MarkAsPresent='T',ExpHours=TIMESTAMPDIFF(MINUTE, CheckIn, NOW()) WHERE JobAppID=?";
+            $sql="call checkout(?)";
 
             if (!$stmt = $this->db_connection->prepare($sql)) {
                 $this->errors[] = "Prepare statement error:(" . $this->db_connection->error . ")";
