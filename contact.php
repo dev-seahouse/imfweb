@@ -325,7 +325,7 @@
                     </ul>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="managePay.php">
                         <i class='icon-usd'></i>
                         <span>Manage Pay</span>
                     </a>

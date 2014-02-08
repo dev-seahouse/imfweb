@@ -4,7 +4,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IMF Management Application - Dashboard</title>
+    <title>IMF Management Application - View Job</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta content='text/html;charset=utf-8' http-equiv='content-type'>
     <!-- Application icon -->
@@ -329,7 +329,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                 </ul>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="managePay.php">
                     <i class='icon-usd'></i>
                     <span>Manage Pay</span>
                 </a>

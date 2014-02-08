@@ -4,7 +4,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IMF Management Application - Dashboard</title>
+    <title>IMF Management Application - Check Out</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta content='text/html;charset=utf-8' http-equiv='content-type'>
     <!-- Application icon -->
@@ -306,9 +306,10 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                 </a>
             </li>
             <li class=''>
-                <a href="attendance.php">
+                <a class="dropdown-collapse" href="#">
                     <i class='icon-check'></i>
                     <span>Mark Attendance</span>
+                    <i class='icon-angle-down angle-down'></i>
                 </a>
 
                 <ul class='nav nav-stacked'>
@@ -316,7 +317,6 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                         <a href='checkin.php'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
-
                         </a>
                     </li>
                     <li class=''>
@@ -328,7 +328,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                 </ul>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="managePay.php">
                     <i class='icon-usd'></i>
                     <span>Manage Pay</span>
                 </a>
