@@ -289,7 +289,7 @@ check_auth("index.php");
                 </a>
             </li>
             <li class=''>
-                <a href='viewjob.html'>
+                <a href='viewjob.php'>
                     <i class='icon-suitcase'></i>
                     <span>View Posted Job</span>
                 </a>
@@ -315,13 +315,13 @@ check_auth("index.php");
 
                 <ul class='nav nav-stacked'>
                     <li class=''>
-                        <a href='checkin.html'>
+                        <a href='checkin.php'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
                         </a>
                     </li>
                     <li class=''>
-                        <a href='checkout.html'>
+                        <a href='checkout.php'>
                             <i class='icon-caret-right'></i>
                             <span>Checkout</span>
                         </a>

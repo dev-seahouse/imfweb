@@ -233,7 +233,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -283,13 +283,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="canceljob.php">
                     <i class='icon-remove'></i>
                     <span>Cancel Job</span>
                 </a>
             </li>
             <li class=''>
-                <a href='viewjob.html'>
+                <a href='viewjob.php'>
                     <i class='icon-suitcase'></i>
                     <span>View Posted Job</span>
                 </a>
@@ -315,13 +315,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 
                 <ul class='nav nav-stacked'>
                     <li class=''>
-                        <a href='checkin.html'>
+                        <a href='checkin.php'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
                         </a>
                     </li>
                     <li class=''>
-                        <a href='checkout.html'>
+                        <a href='checkout.php'>
                             <i class='icon-caret-right'></i>
                             <span>Checkout</span>
                         </a>
@@ -369,7 +369,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                 </a>
             </li>
             <li class=''>
-                <a href="index.php">
+                <a href="controllers/processlogin.php?logout">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>

@@ -1,217 +1,5 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.php");
-/*if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
-	$phpjobid = $_POST['phpjobid'];
-	$phpmode = $_POST['phpmode'];
-	
-	//--- Connection string -----
-	include('otokirusama.php');
-	$connection=mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-	mysql_select_db("$db_name")or die("Database Offline");
-	//---------------------------
-
-	if($phpmode==1){
-		$sql = "SELECT * FROM jobapplicant_t, user_t WHERE jobapplicant_t.userid=user_t.userid AND MarkAsPresent='A' AND JobID='$phpjobid'";
-		$result=mysql_query($sql);
-		$count=mysql_num_rows($result);
-		
-		$modal_data = "";
-		if($count<1){
-			$modal_data = "No Applicants Found.";
-		} else {
-			$modal_data.= '<ol style="font-size:large;">';
-			while($row = mysql_fetch_array($result))
-			{
-				$modal_data.= "<li>".$row['Firstname']." ".$row['Lastname']."</li>";
-			}
-			$modal_data.= "</ol>";
-		}
-		echo $modal_data;
-		mysql_close($connection);
-		exit;
-	} else {	
-		//1. Set JobStatus to 3 (Cancelled).
-		$sql = "UPDATE job_t SET JobStatus=3 WHERE JobID='$phpjobid'";
-		mysql_query($sql);
-		
-		//2. Gather Company details.
-		$sql = "SELECT * FROM job_t, hotel_t, scope_t WHERE job_t.hotelid=hotel_t.hotelid AND job_t.scopeid=scope_t.scopeid AND JobID='$phpjobid'";
-		$result=mysql_query($sql);
-		$count=mysql_num_rows($result);
-		$coyname = "";
-		$scopename = "";
-		$jobdate = "";
-		$jobstarttime = "";
-		$hotelid = "";	
-		while($row = mysql_fetch_array($result))
-		{
-			$coyname = $row['HotelName'];
-			$scopename = $row['ScopeName'];
-			$jobdate = date("d M Y", strtotime($row['JobDate']));
-			$jobstarttime = date("h:i A", strtotime($row['JobStartTime']));
-			$hotelid = $row['HotelID'];
-		}
-		
-		//3. Gather all jobapplicant details (email and mobilenotificationid)
-		$sql = "SELECT * FROM jobapplicant_t, user_t, mobilesession_t WHERE jobapplicant_t.userid=user_t.userid AND mobilesession_t.userid=user_t.userid AND MarkAsPresent='A' AND JobID='$phpjobid'";
-		$result=mysql_query($sql);
-		$count=mysql_num_rows($result);
-		
-		$registrationIds = array();
-		
-		if($count>0){
-			//4. Prepare email stuff
-			$subject = "(URGENT) IMF Job Cancellation Notice";
-			$emailmsg = "Dear IMF User\n\nWe regret to inform you that the following Job that you've recently applied for\nhave been Cancelled by the Management due to unforeseen circumstances.\n*********************************\n".$coyname."\nPosition: ".$scopename."\nJob Date: ".$jobdate."\nStart Time: ".$jobstarttime."\n*********************************\nRegards.\nThis is an automated generated email.";
-			
-			require_once '../Swift-5.0.3/swift_required.php';
-			$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-			  ->setUsername('imf@syahiran.com')
-			  ->setPassword('imf123qwe');
-			
-			$mailer = Swift_Mailer::newInstance($transport);
-			
-			$message = Swift_Message::newInstance($subject)
-			  ->setFrom(array('imf@syahiran.com' => 'IMF NO-REPLY'))
-			  ->setBody($emailmsg);
-		  
-			while($row = mysql_fetch_array($result))
-			{
-				$message->addBcc($row['Email'], $row['Firstname'].' '.$row['Lastname']);
-				if(!($row['NotificationRegID'] === NULL)) {
-					$registrationIds[] = $row['NotificationRegID'];
-				}		
-			}
-			
-			//5. Sent email
-			//$mailer->send($message);
-			$result = $mailer->send($message);
-			error_log($result);
-			
-			//6. Prepare GSM
-			$msg = array
-			(
-				'title'		=> 'Job Cancellation Notice',
-			    	'message' 	=> 'An applied job have been cancelled!',
-				'vibrate'	=> 1,
-				'sound'		=> 1,
-				'msgcnt'	=> $phpjobid
-			);
-			 
-			$fields = array
-			(
-				'registration_ids' 	=> $registrationIds,
-				'data'			=> $msg
-			);
-			 
-			$headers = array
-			(
-				'Authorization: key=AIzaSyBHQcwr3aVGVNukW50vSXHj-6pzR1mZTtc',
-				'Content-Type: application/json'
-			);
-			
-			//7. Sent GSM
-			$ch = curl_init();
-			curl_setopt( $ch,CURLOPT_URL, 'https://android.googleapis.com/gcm/send' );
-			curl_setopt( $ch,CURLOPT_POST, true );
-			curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
-			curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
-			curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
-			$result = curl_exec($ch );
-			curl_close( $ch );
-			
-			//8. Set all jobapplicant MarkAsPresent='C' (cancel)
-			$sql = "UPDATE jobapplicant_t SET MarkAsPresent='C' WHERE JobID='$phpjobid'";
-			mysql_query($sql);
-			
-		}
-		//9. Request new tbody_data
-		$sql = "SELECT * FROM job_t, scope_t WHERE job_t.scopeid = scope_t.scopeid AND HotelID='$hotelid' AND job_t.JobStatus!=2 order by JobDate, JobStartTime";
-		$result=mysql_query($sql);
-		$count=mysql_num_rows($result);
-		
-		$tbody_data = "";
-		if($count>0){
-			while($row = mysql_fetch_array($result))
-			{
-				$temp_boolean_check = false;
-				$tbody_data.='<tr>';
-				$tbody_data.='    <td>'.date("d M Y", strtotime($row['JobDate'])).'</td>';
-				$tbody_data.='    <td>'.$row['ScopeName'].'</td>';
-				$jobstatus = $row['JobStatus'];
-				if($jobstatus==0){
-					$tbody_data.='    <td><span class="label label-warning">Pending</span></td>';
-					$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
-				} else if($jobstatus==1){
-					$tbody_data.='    <td><span class="label label-success">Fulfilled</span></td>';
-					$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
-				} else {
-					$tbody_data.='    <td><span class="label label-danger">Cancelled</span></td>';
-					$tbody_data.='    <td><span class="label label-danger">Not Applicable</span></td>';
-					$temp_boolean_check = true;
-				}	
-				$tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
-				if($temp_boolean_check){
-					$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' disabled>Cancel</button></td>";
-				} else {
-					$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' onClick='canceljob(".$row['JobID'].")'>Cancel</button></td>";
-				}				
-				$tbody_data.='</tr>';
-			}
-		}
-		mysql_close($connection);
-		
-		//10. Finally! Append table. OMFWTFBBQ...
-		echo $tbody_data;
-		exit;
-	}
-} else {
-	session_start();
-	$phphotelid = 2; //TO-DO: Replace '1' with SESSION_HOTELID. Example: $phphotelid = $_SESSION['hotelid'];
-	
-	//--- Connection string -----
-	include('otokirusama.php');
-	$connection=mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-	mysql_select_db("$db_name")or die("Database Offline");
-	//---------------------------
-	
-	$sql = "SELECT * FROM job_t, scope_t WHERE job_t.scopeid = scope_t.scopeid AND HotelID='$phphotelid' AND job_t.JobStatus!=2 order by JobDate, JobStartTime";
-	$result=mysql_query($sql);
-	$count=mysql_num_rows($result);
-	
-	$tbody_data = "";
-	if($count>0){
-		while($row = mysql_fetch_array($result))
-		{
-			$temp_boolean_check = false;
-			$tbody_data.='<tr>';
-			$tbody_data.='    <td>'.date("d M Y", strtotime($row['JobDate'])).'</td>';
-			$tbody_data.='    <td>'.$row['ScopeName'].'</td>';
-			$jobstatus = $row['JobStatus'];
-			if($jobstatus==0){
-				$tbody_data.='    <td><span class="label label-warning">Pending</span></td>';
-				$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
-			} else if($jobstatus==1){
-				$tbody_data.='    <td><span class="label label-success">Fulfilled</span></td>';
-				$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
-			} else {
-				$tbody_data.='    <td><span class="label label-danger">Cancelled</span></td>';
-				$tbody_data.='    <td><span class="label label-danger">Not Applicable</span></td>';
-				$temp_boolean_check = true;
-			}	
-			$tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
-			if($temp_boolean_check){
-				$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' disabled>Cancel</button></td>";
-			} else {
-				$tbody_data.="    <td><button id='cancelJob' class='btn btn-danger' type='button' onClick='canceljob(".$row['JobID'].")'>Cancel</button></td>";
-			}				
-			$tbody_data.='</tr>';
-		}
-	}
-	mysql_close($connection);
-}
-*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -445,7 +233,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -486,7 +274,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
         <!-- ====================  Left side navigation starts here ======================= -->
         <ul class='nav nav-stacked'>
             <li class=''>
-                <a href='dashboard.html'>
+                <a href='dashboard.php'>
                     <i class='icon-dashboard'></i>
                     <span>Dashboard</span>
                 </a>
@@ -498,13 +286,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="canceljob.php">
                     <i class='icon-remove'></i>
                     <span>Cancel Job</span>
                 </a>
             </li>
             <li class=''>
-                <a href='viewjob.html'>
+                <a href='viewjob.php'>
                     <i class='icon-suitcase'></i>
                     <span>View Posted Job</span>
                 </a>
@@ -530,13 +318,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
 
                 <ul class='nav nav-stacked'>
                     <li class=''>
-                        <a href='checkin.html'>
+                        <a href='checkin.php'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
                         </a>
                     </li>
                     <li class=''>
-                        <a href='checkout.html'>
+                        <a href='checkout.php'>
                             <i class='icon-caret-right'></i>
                             <span>Checkout</span>
                         </a>
@@ -584,7 +372,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                 </a>
             </li>
             <li class=''>
-                <a href="index.php">
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -608,7 +396,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                             <div class='pull-right'>
                                 <ul class='breadcrumb'>
                                     <li>
-                                        <a href='viewjob.html'>
+                                        <a href='viewjob.php'>
                                             <i class='icon-suitcase'>
                                             </i>
                                         </a>

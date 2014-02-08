@@ -294,7 +294,7 @@ $postjob->getJobCategory();
                 </a>
             </li>
             <li class=''>
-                <a href="viewjob.html">
+                <a href="viewjob.php">
                     <i class='icon-suitcase'></i>
                     <span>View Posted Job</span>
                 </a>
@@ -320,13 +320,13 @@ $postjob->getJobCategory();
 
                 <ul class='nav nav-stacked'>
                     <li class=''>
-                        <a href='checkin.html'>
+                        <a href='checkin.php'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
                         </a>
                     </li>
                     <li class=''>
-                        <a href='checkout.html'>
+                        <a href='checkout.php'>
                             <i class='icon-caret-right'></i>
                             <span>Checkout</span>
                         </a>
@@ -368,7 +368,7 @@ $postjob->getJobCategory();
                 </ul>
             </li>
             <li class=''>
-                <a href="contact.html">
+                <a href="contact.php">
                     <i class='icon-envelope'></i>
                     <span>Contact Support</span>
                 </a>
@@ -449,7 +449,7 @@ $postjob->getJobCategory();
 <!--FIXME:header number layout break on xs device-->
 <div class='step-content'>
 <hr class='hr-normal'>
-<form class="form" style="margin-bottom: 0;" method="post" action="viewjob.html" accept-charset="UTF-8">
+<form class="form" style="margin-bottom: 0;" method="post" action="viewjob.php" accept-charset="UTF-8">
 <!-- For rails <input name="authenticity_token" type="hidden" />
 -->
 <!-- ==========       Step one - Enter job title starts here =============== -->

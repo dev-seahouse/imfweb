@@ -232,7 +232,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -285,13 +285,13 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="canceljob.php">
                     <i class='icon-remove'></i>
                     <span>Cancel Job</span>
                 </a>
             </li>
             <li class=''>
-                <a href='viewjob.html'>
+                <a href='viewjob.php'>
                     <i class='icon-suitcase'></i>
                     <span>View Posted Job</span>
                 </a>
@@ -349,13 +349,13 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
                 </ul>
             </li>
             <li class=''>
-                <a href="contact.html">
+                <a href="contact.php">
                     <i class='icon-envelope'></i>
                     <span>Contact Support</span>
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="controllers/processlogin.php?logout">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -382,7 +382,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
             <div class='pull-right'>
                 <ul class='breadcrumb'>
                     <li>
-                        <a href='checkin.html'>
+                        <a href='checkin.php'>
                             <i class='icon-check'>
                             </i>
                         </a>

@@ -283,13 +283,13 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="canceljob.php">
                     <i class='icon-remove'></i>
                     <span>Cancel Job</span>
                 </a>
             </li>
             <li class=''>
-                <a href="viewjob.html">
+                <a href="viewjob.php">
                     <i class='icon-suitcase'></i>
                     <span>View Posted Job</span>
                 </a>
@@ -315,13 +315,13 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 
                 <ul class='nav nav-stacked'>
                     <li class=''>
-                        <a href='checkin.html'>
+                        <a href='checkin.php'>
                             <i class='icon-caret-right'></i>
                             <span>Check in</span>
                         </a>
                     </li>
                     <li class=''>
-                        <a href='checkout.html'>
+                        <a href='checkout.php'>
                             <i class='icon-caret-right'></i>
                             <span>Checkout</span>
                         </a>
@@ -363,7 +363,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                 </ul>
             </li>
             <li class=''>
-                <a href="contact.html">
+                <a href="contact.php">
                     <i class='icon-envelope'></i>
                     <span>Contact Support</span>
                 </a>
