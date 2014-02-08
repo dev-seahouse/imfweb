@@ -144,6 +144,85 @@ class Job
             return false;
         }
     }
+    // get data from cancel job page
+    public function get_cancel_job_data($company_id)
+    {
+        //pass in parameters
+
+        //connect to db and retrieve job data array (arrays are faster than objects in php5)
+
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return false;
+            //$error returns string description of last error
+        }
+
+        //construct sql
+        if (!$this->db_connection->connect_errno) {
+            $sql = "SELECT JobDate,CategoryName,ScopeName,JobStatus,job_t.JobID as JobID,JobSlotVacancy,JobSlotVacLeft,JobStartTime,JobEndTime FROM job_t join scope_t on job_t.scopeid = scope_t.scopeid join category_t on job_t.CategoryID=category_t.CategoryID where HotelID=?  AND job_t.JobStatus!=2 order by JobDate, JobStartTime";
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+            }
+            if (!$stmt->bind_param("i",$company_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            if ($result_set=$stmt->get_result()){
+                $rows=$result_set->fetch_all(MYSQLI_ASSOC);
+            }else{
+                $this->errors[]="Error getting results:";
+            }
+            $stmt->close();
+            $result_set->close();
+            $this->db_connection->close();
+            return $rows;
+
+        }else{
+            $this->errors[]="Database connection error.";
+            return false;
+        }
+    }
+
+    // Update job status function
+    public function update_job_status($job_id){
+        //pass in parameters
+
+        //connect to db and retrieve job data array (arrays are faster than objects in php5)
+
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return false;
+            //$error returns string description of last error
+        }
+
+        //construct sql
+        if (!$this->db_connection->connect_errno) {
+            $sql = "UPDATE job_t SET JobStatus=3 WHERE JobID=?";
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+            }
+            if (!$stmt->bind_param("i",$job_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            $stmt->close();
+            $this->db_connection->close();
+
+        }else{
+            $this->errors[]="Database connection error.";
+            return false;
+        }
+    }
 
 }
 

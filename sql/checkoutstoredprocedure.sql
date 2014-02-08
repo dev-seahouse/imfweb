@@ -7,10 +7,11 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `checkout`(
 in app_id int)
 BEGIN
-SET SQL_SAFE_UPDATES=0;
 UPDATE jobapplicant_t SET CheckOut=NOW(),MarkAsPresent='T',ExpHours=TIMESTAMPDIFF(MINUTE, CheckIn, NOW()) WHERE JobAppID=app_id;
 
--- Remember to go to preference, set safe update off before it can be ran
+-- set safe update off before it can be ran
+-- This function is called during checkout, it checks job ids where job date<today and mark all absentees as absent.
+SET SQL_SAFE_UPDATES=0;
 UPDATE jobapplicant_t join job_t ON jobapplicant_t.JobID = job_t.JobID SET
     MarkAsPresent = 'F',
     ExpHours = 0

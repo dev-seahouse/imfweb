@@ -1,5 +1,6 @@
 <?php
-if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.php");
+/*if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 	$phpjobid = $_POST['phpjobid'];
 	$phpmode = $_POST['phpmode'];
 	
@@ -210,7 +211,7 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 	}
 	mysql_close($connection);
 }
-?>
+*/?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -652,9 +653,9 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     </th>
 </tr>
 </thead>
-<tbody id="omgwtfbbq">
+<tbody id="cancel_job_data">
 
-<?php echo $tbody_data; ?>
+<?php display_cancel_job() ?>
 
 </tbody>
 <tfoot>
@@ -673,17 +674,34 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 <div class='modal fade' id='modalJobDetail' tabindex='-1'>
     <div class='modal-dialog'>
         <div class='modal-content'>
-            <div class='modal-header'>
-                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
-                <h4 class='modal-title' id='myModalLabel'>List of Applicants</h4>
+            <div class='modal-header contrast' id="vacancy_header">
+                Vacancies
             </div>
             <div class='modal-body'>
+                <table class="table table-bordered table-stripped">
+                    <thead>
+                    <tr>
+                        <th>Total Job Vacancies Needed</th>
+                        <th>Job Vacancies Left</th>
+                    </tr>
+                    </thead>
+                    <tbody  id="vacancy_data">
 
-	    <div id="php_modal_data"></div>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class='modal-header contrast'>
+                Current Applicants
+            </div>
+            <div class='modal-body' id="php_modal_data">
 
             </div>
+
             <div class='modal-footer'>
-                <button class='btn btn-danger' data-dismiss='modal' type='button'>Close</button>
+                <button class='btn btn-danger' data-dismiss='modal'
+                        type='button'>Close
+                </button>
             </div>
         </div>
     </div>
@@ -751,15 +769,24 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-function loadnames(jobid) {
+function loadnames(jobid,job_vac,job_vac_left) {
 $.ajax({
 	type       : "POST",
-	url        : "canceljob.php",
+	url        : "controllers/processcanceljob.php",
 	crossDomain: true,
-	data       : { phpjobid : jobid, phpmode : 1 },
+	data       : {
+        job_id : jobid,
+        job_vac:job_vac,
+        job_vac_left:job_vac_left,
+        show_vacancy : 1
+    },
 	dataType   : 'text',
 	timeout	   : 5000,
 	success    : function(response) {
+
+        $('#vacancy_data').html(
+            '<tr><td>'+job_vac+'<td>'+job_vac_left+'</tr>'
+        )
 		$('#php_modal_data').empty()
 		$('#php_modal_data').append(response);
 		$('#modalJobDetail').modal('show');
@@ -767,17 +794,21 @@ $.ajax({
 });	
 }
 
-function canceljob(jobid) {
+function cancel_job(jobid) {
 $.ajax({
 	type       : "POST",
-	url        : "canceljob.php",
+	url        : "controllers/processcanceljob.php",
 	crossDomain: true,
-	data       : { phpjobid : jobid, phpmode : 2 },
+	data       : {
+        job_id : jobid,
+        cancel_job :1
+    },
 	dataType   : 'text',
 	timeout	   : 5000,
 	success    : function(response) {
-		$('#omgwtfbbq').empty()
-		$('#omgwtfbbq').append(response);
+        alert(response);
+		$('#cancel_job_data').empty();
+		$('#cancel_job_data').append(response);
 	}
 });	
 }
