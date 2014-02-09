@@ -393,7 +393,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                             <div class='pull-right'>
                                 <ul class='breadcrumb'>
                                     <li>
-                                        <a href='viewjob.html'>
+                                        <a href='viewjob.php'>
                                             <i class='icon-suitcase'>
                                             </i>
                                         </a>
@@ -411,7 +411,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                     <div class="col-sm-12">
                         <div class='row'>
                             <div class='col-sm-12'>
-                                <div class='box bordered-box orange-border' style='margin-bottom:0;'>
+                                <div class='box bordered-box' style='margin-bottom:0;'>
                                     <div class='box-header contrast-background'>
                                     </div>
                                     <div class='box-content box-no-padding'>
@@ -431,7 +431,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                             Category
                                                         </th>
                                                         <th>
-                                                            Scope
+                                                            Job Scope
                                                         </th>
                                                         <th>
                                                             Status
@@ -482,7 +482,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                                     <th>Job Vacancies Left</th>
                                                                 </tr>
                                                                 </thead>
-                                                                <tbody  id="vacancy_data">
+                                                                <tbody id="vacancy_data">
 
                                                                 </tbody>
 
@@ -567,22 +567,22 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
 
-    function loadnames(jobid,job_vac,job_vac_left) {
+    function loadnames(jobid, job_vac, job_vac_left) {
         $.ajax({
             type: "POST",
             url: "controllers/processviewjob.php",
             crossDomain: true,
             data: {
                 jobid: jobid,
-                job_vac:job_vac,
-                job_vac_left:job_vac_left
+                job_vac: job_vac,
+                job_vac_left: job_vac_left
             },
             dataType: 'text',
             timeout: 5000,
             success: function (response) {
 
                 $('#vacancy_data').html(
-                    '<tr><td>'+job_vac+'<td>'+job_vac_left+'</tr>'
+                    '<tr><td>' + job_vac + '<td>' + job_vac_left + '</tr>'
                 )
 
                 $('#php_modal_data').empty();

@@ -16,7 +16,7 @@ UPDATE jobapplicant_t join job_t ON jobapplicant_t.JobID = job_t.JobID SET
     MarkAsPresent = 'F',
     ExpHours = 0
 where
-    JobDate < curdate()
+    JobDate <  DATE_SUB(CURDATE(),INTERVAL 1 DAY)
         AND MarkAsPresent = 'A'
         AND CheckIn IS NULL;
 END

@@ -428,7 +428,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                                     <!-- TODO: Add hidden Id column for database -->
                                                     <tr>
                                                         <th>
-                                                            Job Date
+                                                            Date
                                                         </th>
                                                         <th>
                                                             Job Scope

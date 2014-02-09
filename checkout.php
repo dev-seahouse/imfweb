@@ -515,21 +515,21 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-    function updateCheckIn(jobappid) {
-
+    function updateCheckOut(jobappid,total_exp) {
         $.ajax({
             type: "POST",
             url: "controllers/processcheckout.php",
             crossDomain: true,
             data: {
                 app_id: jobappid,
-                check_out:1
+                check_out:1,
+                total_exp:total_exp
 
             },
             dataType: 'text',
             timeout: 5000,
             success:function(response){
-                //alert(response);
+
             }
         });
     }

@@ -170,13 +170,14 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno) {
             $company_id=$this->db_connection->real_escape_string($company_id);
-            $sql = 'SELECT CONCAT(Firstname," ",Lastname) as Name,ScopeName,CheckIn,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC';
+            $sql = 'SELECT CONCAT(Firstname," ",Lastname) as Name,ScopeName,CheckIn,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC,';
+            $sql .=' (select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp';
             $sql .= ' FROM user_t join jobapplicant_t on user_t.userid = jobapplicant_t.userid ';
             $sql .= ' join  job_t on job_t.jobid = jobapplicant_t.jobid';
             $sql .= ' join scope_t on job_t.scopeid = scope_t.scopeid ';
             $sql .= ' where MarkAsPresent="A" AND CheckIn IS NOT NULL AND HotelID=?';
             $sql .= ' AND job_t.JobDate BETWEEN DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND DATE_ADD(CURDATE(),INTERVAL 1 DAY)';
-            $sql .= ' AND job_t.JobStatus<=2 ORDER BY JobDate,JobStartTime ASC';
+            $sql .= ' AND job_t.JobStatus<=2';
             //AND jobapplicant_t.jobid=?
 
             if (!$stmt = $this->db_connection->prepare($sql)) {
@@ -203,6 +204,8 @@ class Applicant
         }
 
     }
+
+
 
     public function update_check_out($job_app_id){
         $this->db_connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);

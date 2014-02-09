@@ -428,7 +428,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <tr>
     <th>Name</th>
     <th>IC</th>
-    <th>Scope</th>
+    <th>Job Scope</th>
     <th>Date</th>
     <th>Start</th>
     <th>End</th>

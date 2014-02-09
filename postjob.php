@@ -559,7 +559,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                             </div>
                             <div class='form-group controls'>
                                 <label for="txtBonusPay">Premium Pay Rate</label>
-                                <span class="small text-muted">&nbsp(Optional)</span>
+                                <span class="small text-muted">&nbsp(Optional) </span>
                                 <a class="icon-question contrast has-popover"
                                    data-content='Employees can be given a special bonus pay rate based on total hours experience recorded in IMF database.'></a>
 
@@ -1112,230 +1112,230 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 
 <!-- / END - page related files and scripts [optional] -->
 <script>
-    $(document).ready(function () {
-            //declare global vars
-            var jobCategoryName,
-                jobCategoryID,
-                jobScopeName,
-                jobScopeID,
-                jobDescription,
-                jobRequirement,
-                standardPay,
-                bonusPay,
-                minExpHours,
-                vacancy,
-                jobDate,
-                jobStartTime,
-                jobEndTime;
+$(document).ready(function () {
+        //declare global vars
+        var jobCategoryName,
+            jobCategoryID,
+            jobScopeName,
+            jobScopeID,
+            jobDescription,
+            jobRequirement,
+            standardPay,
+            bonusPay,
+            minExpHours,
+            vacancy,
+            jobDate,
+            jobStartTime,
+            jobEndTime;
 
-            //set datetimepicker
-            $(".datetimepicker1").datetimepicker({
-                format: 'd-M-Y',
-                timepicker: false
-            });
+        //set datetimepicker
+        $(".datetimepicker1").datetimepicker({
+            format: 'd-M-Y',
+            timepicker: false
+        });
 
-             $("#txtStartTime").datetimepicker({
-                //format: 'Y-M-d H:i',
-                format:'d-M-Y H:i',
-                step: 5,
-                onShow: function (current_time) {
+        $("#txtStartTime").datetimepicker({
+            //format: 'Y-M-d H:i',
+            format: 'd-M-Y H:i',
+            step: 5,
+            onShow: function (current_time) {
 
-                    var d = new Date($('#txtJobDate').val());
-                    month = ("0" + (d.getMonth() + 1)).slice(-2);
-                    var toDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate());
+                var d = new Date($('#txtJobDate').val());
+                month = ("0" + (d.getMonth() + 1)).slice(-2);
+                var toDay = d.getFullYear() + "/" + month + "/" + (d.getDate());
 
 
-                    var nextDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate());
-                    //TODO: For some reason "-"  does not work. Something to take note in future when dealing with date
+                var nextDay = d.getFullYear() + "/" + month + "/" + (d.getDate());
+                //TODO: For some reason "-"  does not work. Something to take note in future when dealing with date
 
-                    this.setOptions({
+                this.setOptions({
 
-                        minDate: $('#txtJobDate').val() ? toDay : false,
-                        maxDate: $('#txtJobDate').val() ? nextDay : false
-                    });
+                    minDate: $('#txtJobDate').val() ? toDay : false,
+                    maxDate: $('#txtJobDate').val() ? nextDay : false
+                });
+            }
+        });
+        $("#txtEndTime").datetimepicker({
+            format: 'd-M-Y H:i',
+            step: 5,
+            onShow: function (current_time) {
+
+                var d = new Date($('#txtJobDate').val());
+                month = ("0" + (d.getMonth() + 1)).slice(-2);
+                var toDay = d.getFullYear() + "/" + month + "/" + (d.getDate());
+
+
+                var nextDay = d.getFullYear() + "/" + month + "/" + (d.getDate() + 1);
+                //TODO: For some reason "-"  does not work. Something to take note in future when dealing with date
+
+
+                this.setOptions({
+                    minDate: $('#txtJobDate').val() ? toDay : false,
+                    maxDate: $('#txtJobDate').val() ? nextDay : false
+
+                });
+            }
+        });
+
+        $('#datetime-trigger1').click(function () {
+            $('#txtJobDate').datetimepicker('show'); //support hide,show and destroy command
+        });
+        $('#datetime-trigger2').click(function () {
+            $('#txtStartTime').datetimepicker('show'); //support hide,show and destroy command
+        });
+        $('#datetime-trigger3').click(function () {
+            $('#txtEndTime').datetimepicker('show'); //support hide,show and destroy command
+        });
+
+        //initiate getJobCategories
+        get_scopes($("#selJobCategory").val());
+
+        //initiate flux ux wizard
+        $('#MyWizard').on('change', function (e, data) {
+            //console.log('change');
+            //TODO:Enable this ltimepicker:false,ater.
+            if ($(".validate-form").valid() == false) {
+                e.preventDefault();
+            }
+            if (data.step === 2 && data.direction === 'next') {
+                jobCategoryName = $("#selJobCategory option:selected").text();
+                jobCategoryID = $("#selJobCategory").val();
+                jobScopeName = $("#selJobScope option:selected").text();
+                jobScopeID = $("#selJobScope").val();
+                jobDescription = $("#txtScopeDesciption").val();
+                jobRequirement = $("#txtJobRequirement").val();
+                standardPay = Number($("#txtStandardPay").val()).toFixed(2);
+                bonusPay = Number($("#txtBonusPay").val()).toFixed(2);
+                minExpHours = $('#txtMinExpHours').val();
+                vacancy = $('#txtNumRequired').val();
+                jobDate = $('#txtJobDate').val();
+                jobStartTime = $('#txtStartTime').val();
+                jobEndTime = $('#txtEndTime').val();
+                $('#confirmJobCat').html(jobCategoryName);
+                $('#confirmJobScope').html(jobScopeName);
+                $('#confirmJobDesc').html(jobDescription);
+                if (jobRequirement != "") {
+                    $('#confirmJobRequirement').html(jobRequirement);
                 }
-            });
-            $("#txtEndTime").datetimepicker({
-                format: 'd-M-Y H:i',
-                step: 5,
-                onShow: function (current_time) {
-
-                    var d = new Date($('#txtJobDate').val());
-                    month = ("0" + (d.getMonth() + 1)).slice(-2);
-                    var toDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate());
-
-
-                    var nextDay = d.getFullYear()+"/"+ month+"/"+ (d.getDate()+1);
-                    //TODO: For some reason "-"  does not work. Something to take note in future when dealing with date
-
-
-                    this.setOptions({
-                        minDate: $('#txtJobDate').val() ? toDay : false,
-                        maxDate: $('#txtJobDate').val() ? nextDay : false
-
-                    });
+                $('#confirmStandardPay').html(standardPay);
+                if (bonusPay >= 1) {
+                    $('#confirmBonusPay').html(bonusPay);
+                    $('#confirmMinExpHours').html(minExpHours);
                 }
-            });
-
-            $('#datetime-trigger1').click(function () {
-                $('#txtJobDate').datetimepicker('show'); //support hide,show and destroy command
-            });
-            $('#datetime-trigger2').click(function () {
-                $('#txtStartTime').datetimepicker('show'); //support hide,show and destroy command
-            });
-            $('#datetime-trigger3').click(function () {
-                $('#txtEndTime').datetimepicker('show'); //support hide,show and destroy command
-            });
-
-            //initiate getJobCategories
-            get_scopes($("#selJobCategory").val());
-
-            //initiate flux ux wizard
-            $('#MyWizard').on('change', function (e, data) {
-                //console.log('change');
-                //TODO:Enable this ltimepicker:false,ater.
-                /*            if ($(".validate-form").valid()==false){
-                 e.preventDefault();
-                 }*/
-                if (data.step === 2 && data.direction === 'next') {
-                    jobCategoryName = $("#selJobCategory option:selected").text();
-                    jobCategoryID = $("#selJobCategory").val();
-                    jobScopeName = $("#selJobScope option:selected").text();
-                    jobScopeID = $("#selJobScope").val();
-                    jobDescription = $("#txtScopeDesciption").val();
-                    jobRequirement = $("#txtJobRequirement").val();
-                    standardPay = Number($("#txtStandardPay").val()).toFixed(2);
-                    bonusPay = Number($("#txtBonusPay").val()).toFixed(2);
-                    minExpHours = $('#txtMinExpHours').val();
-                    vacancy = $('#txtNumRequired').val();
-                    jobDate = $('#txtJobDate').val();
-                    jobStartTime = $('#txtStartTime').val();
-                    jobEndTime = $('#txtEndTime').val();
-                    $('#confirmJobCat').html(jobCategoryName);
-                    $('#confirmJobScope').html(jobScopeName);
-                    $('#confirmJobDesc').html(jobDescription);
-                    if (jobRequirement != "") {
-                        $('#confirmJobRequirement').html(jobRequirement);
-                    }
-                    $('#confirmStandardPay').html(standardPay);
-                    if (bonusPay >= 1) {
-                        $('#confirmBonusPay').html(bonusPay);
-                        $('#confirmMinExpHours').html(minExpHours);
-                    }
-                    else {
-                        $('#confirmBonusPayBox').html("Bonus Rate : Not Set");
-                        $('#confirmMinExpHoursBox').hide();
-                    }
-
-                    $('#confirmVacancy').html(vacancy);
-                    $('#confirmJobDate').html(jobDate);
-                    $('#confirmJobStartTime').html(jobStartTime);
-                    $('#confirmJobEndTime').html(jobEndTime);
-
+                else {
+                    $('#confirmBonusPayBox').html("Bonus Rate : Not Set");
+                    $('#confirmMinExpHoursBox').hide();
                 }
-            });
-            /*==========  Form submition handler  ==========*/
-            $('#frmPostJob').submit(function (event) {
-                event.preventDefault();
-                var $form = $(this),
-                    url = $form.attr('action');
 
-                $.ajax({
-                    type: "post",
-                    url: url,
-                    crossDomain: true,
-                    dataType: 'text',
-                    data: {
-                        job_cat_id: jobCategoryID,
-                        job_scope_id: jobScopeID,
-                        standard_pay: standardPay,
-                        bonus_pay: bonusPay,
-                        min_exp_hours: minExpHours,
-                        vacancy: vacancy,
-                        job_date: jobDate,
-                        job_start_time: jobStartTime,
-                        job_end_time: jobEndTime,
-                        post_new_job: 1,
-                        job_requirement:jobRequirement
-                    },
-                    success: function (response) {
+                $('#confirmVacancy').html(vacancy);
+                $('#confirmJobDate').html(jobDate);
+                $('#confirmJobStartTime').html(jobStartTime);
+                $('#confirmJobEndTime').html(jobEndTime);
+
+            }
+        });
+        /*==========  Form submition handler  ==========*/
+        $('#frmPostJob').submit(function (event) {
+            event.preventDefault();
+            var $form = $(this),
+                url = $form.attr('action');
+
+            $.ajax({
+                type: "post",
+                url: url,
+                crossDomain: true,
+                dataType: 'text',
+                data: {
+                    job_cat_id: jobCategoryID,
+                    job_scope_id: jobScopeID,
+                    standard_pay: standardPay,
+                    bonus_pay: bonusPay,
+                    min_exp_hours: minExpHours,
+                    vacancy: vacancy,
+                    job_date: jobDate,
+                    job_start_time: jobStartTime,
+                    job_end_time: jobEndTime,
+                    post_new_job: 1,
+                    job_requirement: jobRequirement
+                },
+                success: function (response) {
 
 
-                        if ($.trim(response)=='success'){
+                    if ($.trim(response) == 'success') {
 
-                            bootbox.alert("New "+jobCategoryName+" job have been created!",function(){
-                                window.location = "viewjob.php";
-                                //TODO:redirect to view jobs page.
-                            });
-                        }
-                        //alert("success ajax call:" + response);
-                        // handle response message
-                    },
-                    error: function (response) {
-                        //alert("call failed" + response);
+                        bootbox.alert("New " + jobCategoryName + " job have been created!", function () {
+                            window.location = "viewjob.php";
+                            //TODO:redirect to view jobs page.
+                        });
                     }
-
-                })
-
-
-            });
-        }
-    );
-
-
-    function get_scopes(categoryID) {
-        // this is done to refresh data, otherwise value will not change
-        $("#selJobScope").select2("destroy");
-        //$("#selJobScope").select2();
-        $.ajax({
-            type: "POST",
-            url: 'controllers/processPostJob.php',
-            crossDomain: true,
-            dataType: 'json',
-            beforeSend: function () {
-                $("#selJobScope").html("<option>Loading ...</option>");
-            },
-            data: {
-                getScopes: 1,
-                categoryID: categoryID
-            },
-            success: function (msg) {
-                var html_out = "",
-                    selected_scope_id = "";
-                for (var k in msg) {
-                    html_out += "<option value='" + msg[k].ScopeID + "'>" + msg[k].ScopeName + "</option>\n";
+                    //alert("success ajax call:" + response);
+                    // handle response message
+                },
+                error: function (response) {
+                    //alert("call failed" + response);
                 }
-                $("#selJobScope").html(html_out);
-                //recreate select 2 after destroy
-                $("#selJobScope").select2();
+
+            })
+
+
+        });
+    }
+);
+
+
+function get_scopes(categoryID) {
+    // this is done to refresh data, otherwise value will not change
+    $("#selJobScope").select2("destroy");
+    //$("#selJobScope").select2();
+    $.ajax({
+        type: "POST",
+        url: 'controllers/processPostJob.php',
+        crossDomain: true,
+        dataType: 'json',
+        beforeSend: function () {
+            $("#selJobScope").html("<option>Loading ...</option>");
+        },
+        data: {
+            getScopes: 1,
+            categoryID: categoryID
+        },
+        success: function (msg) {
+            var html_out = "",
+                selected_scope_id = "";
+            for (var k in msg) {
+                html_out += "<option value='" + msg[k].ScopeID + "'>" + msg[k].ScopeName + "</option>\n";
+            }
+            $("#selJobScope").html(html_out);
+            //recreate select 2 after destroy
+            $("#selJobScope").select2();
+            selected_scope_id = $("#selJobScope").val();
+            $("#selJobScope").change(function () {
                 selected_scope_id = $("#selJobScope").val();
-                $("#selJobScope").change(function () {
-                    selected_scope_id = $("#selJobScope").val();
-                    for (var k in msg) {
-                        if (msg[k].ScopeID == selected_scope_id) {
-
-                            $("#txtScopeDesciption").text(msg[k].ScopeDesc);
-                        }
-                    }
-                    ;
-                })
                 for (var k in msg) {
                     if (msg[k].ScopeID == selected_scope_id) {
 
-                        $("#txtScopeDesciption").text(msg[k].ScopeDesc)
+                        $("#txtScopeDesciption").text(msg[k].ScopeDesc);
                     }
                 }
                 ;
-            },
-            error: function () {
-                alert("error");
+            })
+            for (var k in msg) {
+                if (msg[k].ScopeID == selected_scope_id) {
+
+                    $("#txtScopeDesciption").text(msg[k].ScopeDesc)
+                }
             }
-        });
-    }
+            ;
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
 
-    function confirmResult() {
+function confirmResult() {
 
-    }
+}
 
 </script>
 <script>
