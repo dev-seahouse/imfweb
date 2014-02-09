@@ -232,7 +232,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -282,7 +282,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="canceljob.php">
                     <i class='icon-remove'></i>
                     <span>Cancel Job</span>
                 </a>
@@ -322,7 +322,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                     <li class=''>
                         <a href='checkout.php'>
                             <i class='icon-caret-right'></i>
-                            <span>Checkout</span>
+                            <span>Check out</span>
                         </a>
                     </li>
                 </ul>
@@ -368,7 +368,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                 </a>
             </li>
             <li class=''>
-                <a href="index.php">
+                <a href="controllers/processlogin.php?logout">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -417,7 +417,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                                         <div class="table-responsive">
                                             <div class='scrollable-area'>
                                                 <table
-                                                    class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped'
+                                                    class='data-table-column-filter table-hover dt-sort-desc1 table table-bordered table-striped'
                                                     style='margin-bottom:0;'
                                                     id="tbManagePay">
                                                     <thead>
@@ -425,13 +425,15 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                                                         <th>Date</th>
                                                         <th>Name</th>
                                                         <th>NIRC</th>
+                                                        <th>Mobile</th>
                                                         <th>Job Scope</th>
                                                         <th>Planned</th>
                                                         <th>Actual</th>
-                                                        <th>Pay</th>
+                                                        <th>Pay <small class="text-muted t">(S$)</small> </th>
                                                      </tr>
                                                     </thead>
                                                     <tbody>
+                                                    <?php display_pay_data();?>
 
                                                     </tbody>
                                                     <tfoot>
@@ -439,6 +441,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                                                         <th>Date</th>
                                                         <th>Name</th>
                                                         <th>NIRC</th>
+                                                        <th>Mobile</th>
                                                         <th>Job Scope</th>
                                                     </tr>
                                                     </tfoot>

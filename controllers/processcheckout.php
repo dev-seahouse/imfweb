@@ -37,22 +37,12 @@ if (isset($_POST['check_out']) && isset($_POST['app_id'])){
         $eligibility=$row['JobMinEBRHours'];//varchar in hours
     }
 
-    $pay_result=$pay->calculate_pay($check_in,$check_out,$std_rate,$prem_rate,$eligibility,$prev_total_exp,$_POST['app_id']);
-
-
-
-
-
-
-
-
+    $pay_result=$pay->calculate_pay($check_in,$check_out,$std_rate,$prem_rate,$eligibility,$prev_total_exp);
+    $pay_result=strval($pay_result);
+    $applicant->update_pay($_POST['app_id'],$pay_result);
 
 
     //To get the checkout-time in database, we have to update it first.
-
-
-
-
 
 }
 
@@ -67,11 +57,11 @@ function display_checkout_data()
         $tbody_data .= '<tr>';
         $tbody_data .= '    <td>' . $row['Name'] . '</td>';
         $tbody_data .= '    <td>' . $row['NRIC'] . '</td>';
+        $tbody_data .= '    <td>' . $row['MobileNo'] . '</td>';
         $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';
         $tbody_data .= '    <td>' . date("d M Y", strtotime($row['JobDate'])) . '</td>';
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobStartTime'])) . '</td>';
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobEndTime'])) . '</td>';
-        $tbody_data .= '    <td>' . $row['MobileNo'] . '</td>';
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['CheckIn'])) . '</td>';
         $tbody_data .= '    <td>';
         $tbody_data .= '        <div class="text-center">';

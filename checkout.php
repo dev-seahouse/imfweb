@@ -423,11 +423,11 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                                                     <tr>
                                                         <th>Name </th>
                                                         <th>IC</th>
+                                                        <th>Mobile</th>
                                                         <th>Job Scope</th>
                                                         <th>Date</th>
                                                         <th>Start</th>
                                                         <th>End</th>
-                                                        <th>Mobile</th>
                                                         <th>Check-in</th>
                                                         <th>Check-out</th>
                                                     </tr>
@@ -439,8 +439,9 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>IC</th>
+                                                        <th>Mobile</th>
                                                         <th>Job Scope</th>
-                                                        <th>Reporting Date</th>
+                                                        <th>Date</th>
                                                     </tr>
                                                     </tfoot>
                                                 </table>
@@ -524,12 +525,11 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                 app_id: jobappid,
                 check_out:1,
                 total_exp:total_exp
-
             },
             dataType: 'text',
             timeout: 5000,
             success:function(response){
-
+                alert(response);
             }
         });
     }

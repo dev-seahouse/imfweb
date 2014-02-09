@@ -26,7 +26,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-
+    <!-- ============= Plugin css file ====================== -->
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal-bs3patch.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -419,7 +421,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                         <div class='responsive-table'>
                                             <div class='scrollable-area'>
                                                 <table
-                                                    class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped'
+                                                    class=' table data-table-column-filter dt-sort-desc1 table-bordered table-hover table-striped'
                                                     style='margin-bottom:0;'
                                                     id="tbViewJob">
                                                     <thead>
@@ -456,13 +458,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                     </tbody>
                                                     <tfoot>
                                                     <tr>
-                                                        <th>Job Date</th>
-                                                        <th>Job Category</th>
-                                                        <th>Job Scope</th>
+                                                        <th>Date</th>
+                                                        <th>Category</th>
+                                                        <th>Scope</th>
                                                         <th>Status</th>
-                                                        <th>Vacancies</th>
-                                                        <th>Start Time</th>
-                                                        <th>End Time</th>
+                                                        <th>Vacancy</th>
+                                                        <th>Start</th>
+                                                        <th>End</th>
                                                     </tr>
                                                     </tfoot>
                                                 </table>

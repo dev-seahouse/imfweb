@@ -25,7 +25,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-
+    <!-- ============= Plugin css file ====================== -->
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -421,7 +421,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                         <div class='responsive-table'>
                                             <div class='scrollable-area'>
                                                 <table
-                                                    class='data-table-column-filter dt-sort-desc1 table table-bordered table-striped'
+                                                    class='data-table-column-filter dt-sort-desc1 table-hover table table-bordered table-striped'
                                                     style='margin-bottom:0;'
                                                     id="tbViewJob">
                                                     <thead>
@@ -466,7 +466,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                             <!-- Modal -->
                                             <!-- TODO:Add google map into modal after experimenting one google map api-->
                                             <div class='modal fade' id='modalJobDetail' tabindex='-1'>
-                                                <div class='modal-dialog'>
+
                                                     <div class='modal-content'>
                                                         <div class='modal-header contrast' id="vacancy_header">
                                                             Vacancies
@@ -498,7 +498,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                                             </button>
                                                         </div>
                                                     </div>
-                                                </div>
+
                                             </div>
                                             <!-- Modal -->
 

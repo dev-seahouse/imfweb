@@ -32,11 +32,11 @@ function display_checkin_data()
         $tbody_data .= '<tr>';
         $tbody_data .= '    <td>' . $row['Name'] . '</td>';
         $tbody_data .= '    <td>' . $row['NRIC'] . '</td>';
+        $tbody_data .= '    <td>' . $row['MobileNo'] . '</td>';
         $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';
         $tbody_data .= '    <td>' . date("d M Y", strtotime($row['JobDate'])) . '</td>';
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobStartTime'])) . '</td>';
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobEndTime'])) . '</td>';
-        $tbody_data .= '    <td>' . $row['MobileNo'] . '</td>';
         $tbody_data .= '    <td>';
         $tbody_data .= '        <div class="text-center">';
         $tbody_data .= '<input type="checkbox" class="checkbox-inline" name="attendance" onClick="updateCheckIn(' . $row['JobAppID'] . ')" />';

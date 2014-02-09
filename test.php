@@ -7,14 +7,11 @@ $differenceInMinutes = $differenceInSeconds / 60;
 echo $differenceInMinutes.PHP_EOL;*/
 
 $datetime1 = new DateTime('2013-08-07 12:00');
-$datetime2 = new DateTime('2013-08-07 18:30');
+$datetime2 = new DateTime('2013-08-07 18:35');
 $interval = $datetime1->diff($datetime2);
 $hours=$interval->days*24;
 $hours+=$interval->h;
 $hours+=$interval->i/60;
-$hours=number_format($hours, 2,'.','');
-
-
-
+echo $hours;
 ?>
 

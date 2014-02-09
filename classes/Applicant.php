@@ -24,7 +24,10 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($job_id);
-            $sql = "SELECT Firstname,Lastname,Email,MobileNo,ExpHours FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=?";
+            $sql = "SELECT Firstname,Lastname,Email,MobileNo,";
+            $sql.="(select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp";
+            $sql.=" FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid";
+            $sql.=" WHERE JobID=?";
             if (!$stmt = $this->db_connection->prepare($sql)) {
                 $this->errors[] = "Prepare statement error." . $this->db_connection->error;
             }
@@ -223,6 +226,38 @@ class Applicant
             }
 
             if (!$stmt->bind_param("i", $job_app_id)) {
+                $this->errors[] = "Error binding data(" . $stmt->errno . ")" . $stmt->error;
+                return false;
+            }
+            if (!$stmt->execute()) {
+                $this->errors[] = "Execution error:(" . $stmt->errno . ")" . $stmt->error;
+
+                return false;
+            }
+
+        }else{
+            $this->errors[] = "Database connection error.";
+            return false;
+        }
+    }
+
+    public function update_pay($job_app_id,$pay){
+        $this->db_connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        if(!$this->db_connection->set_charset('utf8')){
+            $this->errors[] = "Error setting charset:(" . $this->db_connection->error . ")";
+            return false;
+        }
+        if (!$this->db_connection->connect_errno){
+            $job_app_id=$this->db_connection->real_escape_string($job_app_id);
+            $sql="UPDATE jobapplicant_t join job_t ON jobapplicant_t.JobID = job_t.JobID SET
+            Pay=? where JobAppID=?";
+
+            if (!$stmt = $this->db_connection->prepare($sql)) {
+                $this->errors[] = "Prepare statement error:(" . $this->db_connection->error . ")";
+                return false;
+            }
+
+            if (!$stmt->bind_param("si",$pay,$job_app_id)) {
                 $this->errors[] = "Error binding data(" . $stmt->errno . ")" . $stmt->error;
                 return false;
             }

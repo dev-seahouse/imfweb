@@ -26,13 +26,13 @@ if (!empty($_POST) && isset($_POST['jobid'])){
         $modal_data.="<th>Name</th>";
         $modal_data.="<th>Phone</th>";
         $modal_data.="<th>Email</th>";
-        $modal_data.="<th>Experience</th>";
+        $modal_data.="<th>Past Experience</th>";
         $modal_data.="</tr></thead><tbody>";
 
         while($row =$result_set->fetch_array(MYSQLI_ASSOC))
         {
-            $experience_string=$row['ExpHours'];
-            $experience_hours=convertToHoursMins($experience_string,'%02d hours %02d minutes');
+            $experience_string=$row['TotalExp'];
+            $experience_hours=convertToHoursMins($experience_string,'%d hours %02d minutes');
 
 
            // $modal_data.= "<tr>".$row['Firstname']." ".$row['Lastname']."</tr>";
@@ -68,19 +68,23 @@ function displayJobData(){
         switch($jobstatus){
             case 0:
                 $tbody_data.='    <td><span class="label label-warning has-tooltip" data-placement="top" title="Job Open for application">Pending</span></td>';
+                $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">'.$row['JobSlotVacLeft'].'</a></td>';
                 break;
             case 1:
                 $tbody_data.='    <td><span class="label label-success has-tooltip" data-placement="top" title="All job vacancies are filled.Changes could still be made before job application closed.">Fulfilled</span></td>';
+                $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">'.$row['JobSlotVacLeft'].'</a></td>';
                 break;
             case 2:
                 $tbody_data.='    <td><span class="label label-default has-tooltip" data-placement="top" title="Job application closed,changes can no longer be made and applicants can no longer cancel job application.">Closed</span></td>';
+                $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">-</a></td>';
                 break;
             case 3:
                 $tbody_data.='    <td><span class="label label-danger has-tooltip" data-placement="top" title="Job cancelled by employer.">Cancelled</span></td>';
+                $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="Job Cancelled." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">-</a></td>';
                 break;
         }
 
-        $tbody_data.='    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">'.$row['JobSlotVacLeft'].'</a></td>';
+
         $tbody_data.='    <td>'.date("h:i A", strtotime($row['JobStartTime'])).'</td>';
         $tbody_data.='    <td>'.date("h:i A", strtotime($row['JobEndTime'])).'</td>';
         $tbody_data.='</tr>';

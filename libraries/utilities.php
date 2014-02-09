@@ -22,14 +22,41 @@ function check_auth($redirect)
     return false;
 }
 
-function convertToHoursMins($time, $format = '%d:%d') {
+function convertToHoursMins($time, $format = '%d hours %02d minutes') {
+
     settype($time, 'integer');
     if ($time < 1) {
-        return;
+        return 0;
     }
     $hours = floor($time / 60);
     $minutes = ($time % 60);
-    return sprintf($format, $hours, $minutes);
+    if (!empty($hours)){
+        return sprintf($format, $hours, $minutes);
+    }else{
+        $format="%02d minutes";
+        return sprintf($format,$minutes);
+    }
+
+}
+
+function get_time_interval_decimal($in,$out){
+    $datetime1 = new DateTime($in);
+    $datetime2 = new DateTime($out);
+    $interval = $datetime1->diff($datetime2);
+    $hours=$interval->days*24;
+    $hours+=$interval->h;
+    $hours+=$interval->i/60;
+    return $hours;
+}
+function get_time_interval_hours_minutes($in,$out){
+    $datetime1 = new DateTime($in);
+    $datetime2 = new DateTime($out);
+    $interval = $datetime1->diff($datetime2);
+    $minutes=$interval->days*24*60;
+    $minutes+=$interval->h*60;
+    $minutes+=$interval->i;
+    return convertToHoursMins($minutes,"%dh %02dm");
+
 }
 
 ?>

@@ -28,6 +28,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
     <link rel="stylesheet" type="text/css" href="jquery-addresspicker-master/demos/demo.css">
     <link rel="stylesheet" type="text/css"
           href="assets/stylesheets/plugins/jquerydatetimepicker/jquery.datetimepicker.css">
+
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -1081,7 +1082,8 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <script src="assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js"
         type="text/javascript"></script>
 <!-- / bootstrap [required] -->
-<script src="assets/javascripts/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/bootbox/bootbox.min.js"></script>
+<script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modal.js"></script>
 <!-- / modernizr -->
 <script src="assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
 <!-- / retina -->
@@ -1106,7 +1108,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <!-- Validation -->
 <script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
-<script src="assets/javascripts/plugins/bootbox/bootbox.min.js"></script>
+
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script> -->
 

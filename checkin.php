@@ -25,6 +25,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -420,7 +421,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <div class='box-content box-no-padding'>
 <div class='responsive-table'>
 <div class='scrollable-area'>
-<table class='table table-hover data-table-column-filter table-bordered table-striped dt-sort-desc4'
+<table class='table table-hover data-table-column-filter table-hover table-bordered table-striped dt-sort-desc4'
        style='margin-bottom:0;'
        id="tbViewJob">
 <thead>
@@ -428,11 +429,11 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <tr>
     <th>Name</th>
     <th>IC</th>
+    <th>Mobile</th>
     <th>Job Scope</th>
     <th>Date</th>
     <th>Start</th>
     <th>End</th>
-    <th>Mobile</th>
     <th>Check-in</th>
 </tr>
 </thead>
@@ -444,8 +445,9 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <tr>
     <th>Name</th>
     <th>IC</th>
-    <th>Job Scope</th>
-    <th>Reporting Date</th>
+    <th>Mobile</th>
+    <th>Scope</th>
+    <th>Date</th>
 </tr>
 </tfoot>
 </table>

@@ -50,9 +50,8 @@ if (!empty($_POST) && isset($_POST['show_vacancy'])) {
         $modal_data .= "</tr></thead><tbody>";
 
         while ($row = $result_set->fetch_array(MYSQLI_ASSOC)) {
-            $experience_string = $row['ExpHours'];
-            $experience_hours = convertToHoursMins($experience_string, '%02d hours %02d minutes');
-
+            $experience_string = $row['TotalExp'];
+            $experience_hours = convertToHoursMins($experience_string, '%d hours %02d minutes');
 
             // $modal_data.= "<tr>".$row['Firstname']." ".$row['Lastname']."</tr>";
             $modal_data .= "<tr>";
