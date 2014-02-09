@@ -306,7 +306,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
             <li class=''>
                 <a href="#">
                     <i class='icon-user'></i>
-                    <span>Manage Job Applications</span>
+                    <span>View Job Applications</span>
                 </a>
             </li>
             <li class=''>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IMF Management Application - Dashboard</title>
+    <title>IMF Management Application - Contact</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta content='text/html;charset=utf-8' http-equiv='content-type'>
     <!-- Application icon -->
@@ -299,7 +299,7 @@
                 <li class=''>
                     <a href="#">
                         <i class='icon-user'></i>
-                        <span>Manage Job Applications</span>
+                        <span>View Job Applications</span>
                     </a>
                 </li>
                 <li class=''>
