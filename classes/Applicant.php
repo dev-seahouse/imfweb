@@ -87,6 +87,7 @@ class Applicant
 
     }
 
+    // This function gets result set of applicants who have applied for jobs,
     public function get_check_in_data($company_id)
     {
         // Error handling : when there is error , it will return false.so if (!get_check_in_data){handle error}
@@ -96,6 +97,7 @@ class Applicant
             $this->errors[] = "Error setting charset:(" . $this->db_connection->error . ")";
             return false;
         }
+
         if (!$this->db_connection->connect_errno) {
             $company_id=$this->db_connection->real_escape_string($company_id);
             $sql = 'SELECT CONCAT(Firstname," ",Lastname) as Name,ScopeName,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC';

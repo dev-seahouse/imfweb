@@ -294,13 +294,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                 </a>
             </li>
             <li class=''>
-                <a href="#">
-                    <i class='icon-calendar'></i>
-                    <span>Plan Future Job</span>
-                </a>
-            </li>
-            <li class=''>
-                <a href="#">
+                <a href="viewapplicants.php">
                     <i class='icon-user'></i>
                     <span>View Job Applications</span>
                 </a>

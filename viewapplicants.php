@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,7 +210,7 @@
     <!-- ====================== Top Right Profile menu Dropdown ===================== -->
     <li class='dropdown dark user-menu'>
         <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-            <!-- ==================================================================               
+            <!-- ==================================================================
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
             <span class='user-name'>Regent Hotel</span> <b class='caret'></b>

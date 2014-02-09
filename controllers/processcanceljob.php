@@ -92,7 +92,7 @@ function display_cancel_job()
             $tbody_data .= '    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames(' . $row['JobID'] . ',' . $row['JobSlotVacancy'] . ',' . $row['JobSlotVacLeft'] . ')">' . $row['JobSlotVacLeft'] . '</a></td>';
         } else if ($jobstatus == 3) {
             $tbody_data .= '    <td><span class="label label-danger has-tooltip" data-placement="top" title="Job cancelled by employer.">Cancelled</span></td>';
-            $tbody_data .= '    <td><span class="label label-default has-tooltip" data-placement="top" title="Job cancelled by employer.">Not Applicable</span></td>';
+            $tbody_data .= '    <td><span class="label label-default has-tooltip" data-placement="top" title="Job cancelled by employer.">-</span></td>';
             $is_cancelled = true;
         }
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobStartTime'])) . '</td>';

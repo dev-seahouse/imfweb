@@ -294,13 +294,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                 </a>
             </li>
             <li class=''>
-                <a href="#">
-                    <i class='icon-calendar'></i>
-                    <span>Plan Future Job</span>
-                </a>
-            </li>
-            <li class=''>
-                <a href="#">
+                <a href="viewapplicants.php">
                     <i class='icon-user'></i>
                     <span>View Job Applications</span>
                 </a>
@@ -529,7 +523,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
             dataType: 'text',
             timeout: 5000,
             success:function(response){
-                alert(response);
+                //alert(response);
             }
         });
     }

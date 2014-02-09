@@ -298,15 +298,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                 </a>
             </li>
             <li class=''>
-                <a href="#">
-                    <i class='icon-calendar'></i>
-                    <span>Plan Future Job</span>
-                </a>
-            </li>
-            <li class=''>
-                <a href="#">
+                <a href="viewapplicants.php">
                     <i class='icon-user'></i>
-                    <span>Manage Job Applications</span>
+                    <span>View Job Applications</span>
                 </a>
             </li>
             <li class=''>
