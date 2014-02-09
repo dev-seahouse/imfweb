@@ -20,6 +20,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     <!-- ===========================================  =============================== -->
     <!-- / bootstrap-->
     <link href="assets/stylesheets/bootstrap/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+
     <!-- / theme file -->
     <link href="assets/stylesheets/demo.css" media="all" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
@@ -468,8 +469,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                             </div>
                                             <!-- Modal -->
                                             <!-- TODO:Add google map into modal after experimenting one google map api-->
-                                            <div class='modal fade' id='modalJobDetail' tabindex='-1'>
-                                                <div class='modal-dialog'>
+                                            <div class='modal fade' id='modalJobDetail' tabindex='-1' style="display: none;">
+
                                                     <div class='modal-content'>
                                                         <div class='modal-header contrast' id="vacancy_header">
                                                             Vacancies
@@ -501,7 +502,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                             </button>
                                                         </div>
                                                     </div>
-                                                </div>
+
                                             </div>
                                             <!-- Modal -->
 
@@ -549,6 +550,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
         type="text/javascript"></script>
 <!-- / bootstrap [required] -->
 <script src="assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modal.js"></script>
+<script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modalmanager.js"></script>
 <!-- / modernizr -->
 <script src="assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
 <!-- / retina -->
