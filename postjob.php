@@ -36,7 +36,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <body class='contrast-blue without-footer fixed-navigation fixed-header'>
 <header>
 <nav class='navbar navbar-default navbar-fixed-top'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -272,7 +272,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
         <!-- ====================  Left side navigation starts here ======================= -->
         <ul class='nav nav-stacked'>
             <li class=''>
-                <a href='dashboard.html'>
+                <a href='dashboard.php'>
                     <i class='icon-dashboard'></i>
                     <span>Dashboard</span>
                 </a>
@@ -555,10 +555,13 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                             <div class='form-group controls'>
                                 <label for="txtBonusPay">Premium Pay Rate</label>
                                 <span class="small text-muted">&nbsp(Optional) </span>
+
                                 <a class="icon-question contrast has-popover"
                                    data-content='Employees can be given a special bonus pay rate based on total hours experience recorded in IMF database.'></a>
-
-                                <div class='row'>
+                                <input data-target='.set_premium' data-toggle='collapse'
+                                       id='#' type='checkbox'
+                                       value='option1'>
+                                <div class='row collapse set_premium' id="">
                                     <div class='col-sm-7'>
                                         <div class='input-group'>
                                             <span class='input-group-addon'>S$</span>
@@ -570,9 +573,9 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                                     </div>
                                 </div>
                             </div>
-                            <div class='form-group controls'>
+                            <div class='form-group controls set_premium collapse'>
                                 <label for="txtMinExpHours">Eligibility</label>
-                                <span class="small text-muted">&nbsp(Optional)</span>
+
                                 <a class="icon-question contrast has-popover"
                                    data-content='Specify the minimum hours of working experience required to be eligible for premium pay rate'></a>
 
@@ -623,60 +626,6 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
             <!-- ======End of Next Button Field ======== --> </div>
     </div>
 </div>
-<!-- ===========      Step two - Location and dates starts here =============
-<div class='step-pane' id='step2'>
-    <div class="row">
-        <div class="col-sm-10">
-            <div class="box bordered-box no-mg-b">
-                <div class="box-content box-double-padding-sm">
-                    <fieldset>
-                        <div class="col-sm-4">
-                            <div class="box">
-                                <div class='lead'>
-                                    <i class='icon-location-arrow text-contrast'></i>
-                                    Job Location
-                                </div>
-                                <small class='text-muted'>Where should job seekers report to?</small>
-                            </div>
-                        </div>
-                        <div class='col-sm-7 col-sm-offset-1'>
-                            <div class='form-group'>
-                                <label>Type your Address here</label>
-                                <input class="form-control" type="text" autocomplete='off'
-                                       placeholder="Zip code/Street Address"
-                                       id="txtAddress" name="txtAddress"></div>
-                            <div class="form-group">
-                                <div class="box box-bordered">
-                                    <div class="box box-content">
-                                        <div id="map"></div>
-                                        <div id="legend">You can drag and drop the marker to the correct location</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='form-group'>
-                                <label>Instructions</label>
-                                <span class="small text-muted">&nbsp(Optional)</span>
-                                <textarea class='char-max-length autosize form-control'
-                                          rows='2' maxlength='50' data-char-allowed='50'
-                                          data-char-warning='30'
-                                          style='margin-bottom: 0;' id="txtInstruction" name="txtInstruction"
-                                          placeholder="eg.Report at front gate"></textarea>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
-            ======= Next Button field   =======
-            <div class='form-actions form-actions-padding text-right no-mg-t'>
-                <div class='btn btn-primary btn-lg btnWizardNext'>
-                    <i class='icon-arrow-right'></i>
-                    Next
-                </div>
-            </div>
-            ======End of Next Button Field ======== </div>
-    </div>
-  </div> -->
-<!-- ===========      Step three - dates time starts  here ============= -->
 <div class='step-pane' id='step2'>
     <div class="row">
         <div class="col-sm-11">
@@ -1076,6 +1025,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <script src="assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js"
         type="text/javascript"></script>
 <!-- / bootstrap [required] -->
+<script src="assets/javascripts/bootstrap/bootstrap.min.js"></script>
 <script src="assets/javascripts/plugins/bootbox/bootbox.min.js"></script>
 <script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modal.js"></script>
 <!-- / modernizr -->

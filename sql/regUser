@@ -14,7 +14,8 @@ IN company_contact int(10),
 -- company_random is placeholder for nric field, to be removed after spliting company & user account table
 IN company_random varchar(10),
 IN company_lat varchar(100),
-IN company_long varchar(100)
+IN company_long varchar(100),
+In cardinal varchar(10)
 
 )
 BEGIN
@@ -24,7 +25,7 @@ values (3,user_name,password,email,'-','-','-',company_random,curdate(),'000000'
 
 IF ROW_COUNT()>0
 THEN insert into hotel_t (UserID,HotelName,HotelAddress,HotelContactNo,HotelLatitude,HotelLongitude,HotelCardinal)
-values(LAST_INSERT_ID(),company_name,company_address,company_contact,company_lat,company_long,"-");
+values(LAST_INSERT_ID(),company_name,company_address,company_contact,company_lat,company_long,cardinal);
 END IF;
 
 END

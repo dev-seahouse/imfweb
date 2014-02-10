@@ -26,6 +26,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
     <!-- ============= Plugin css file ====================== -->
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/datatables/dataTables.tableTools.min.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -34,7 +35,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
 <body class='contrast-blue without-footer'>
 <header>
 <nav class='navbar navbar-default'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -216,7 +217,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
             <!-- ==================================================================               
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>
@@ -552,6 +553,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/datatables/dataTables.tableTools.min.js"></script>
 <script src="assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 <script>
     //    $("#tbViewJob").dataTable().fnSort([0,'desc']);

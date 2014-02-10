@@ -75,6 +75,7 @@ class Registration
                 $company_contact = $this->db_connection->real_escape_string(strip_tags($_POST["inputPhone"], ENT_QUOTES));
                 $company_lat = $this->db_connection->real_escape_string(strip_tags($_POST["inputLat"], ENT_QUOTES));
                 $company_long = $this->db_connection->real_escape_string(strip_tags($_POST["inputLong"], ENT_QUOTES));
+                $cardinal=$this->db_connection->real_escape_string(strip_tags($_POST["cardinal"], ENT_QUOTES));
                 $user_random=md5(microtime().rand());
 
                 /** @var $user_password_hash String */
@@ -106,14 +107,14 @@ class Registration
                     /*define sql statement user_name,password_hash,user_email,company_name,
                    company_address,user_random,company_contact(int),
                    company_lat,company_long 9 parameters*/
-                    $sql = "call regUser(?,?,?,?,?,?,?,?,?)";
+                    $sql = "call regUser(?,?,?,?,?,?,?,?,?,?)";
                     //prepare statement
                     if (!$stmt = $this->db_connection->prepare($sql)) {
                         $this->errors[] = "Prepare register statement failed" . $this->db_connection->error;
                     }
                     // bind parameter
                     if (!$stmt->bind_param(
-                        "ssssssiss",
+                        "ssssssisss",
                         $user_name,
                         $user_password_hash,
                         $user_email,
@@ -123,7 +124,8 @@ class Registration
                         $user_random,
                         $company_contact,
                         $company_lat,
-                        $company_long
+                        $company_long,
+                        $cardinal
                     )
                     ) {
                         $this->errors[] = "Binding registration data error:(" . $stmt->errno . ")" . $stmt->error;

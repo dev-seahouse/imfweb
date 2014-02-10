@@ -1,3 +1,7 @@
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/libraries/utilities.php");
+check_auth("index.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,7 @@
 <body class='contrast-blue without-footer fixed-header fixed-navigation'>
 <header>
 <nav class='navbar navbar-default navbar-fixed-top'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -212,7 +216,7 @@
             <!-- ==================================================================               
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>

@@ -82,7 +82,9 @@ jQuery(document).ready(function() {
             inputPhone_value = $form.find('input[name="inputPhone"]').val(),
             //inputZipcode_value = $form.find('input[name="inputZipcode"]').val();
             inputLat_value=$form.find('input[name="inputLat"]').val(),
-            inputLong_value=$form.find('input[name="inputLong"]').val()
+            inputLong_value=$form.find('input[name="inputLong"]').val(),
+            inputCardinal=$form.find('#cardinal').val()
+
 
         //TODO: From here use geolocation plugin to convert zip into altitude and longitude and insert value
 //        var inputLat_value = "1.234343";
@@ -106,6 +108,7 @@ jQuery(document).ready(function() {
                 inputPhone: inputPhone_value,
                 inputLat: inputLat_value,
                 inputLong: inputLong_value,
+                cardinal:inputCardinal,
                 register: 1
             },
             dataType: 'text',

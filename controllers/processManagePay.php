@@ -17,7 +17,7 @@ function display_pay_data(){
     date_default_timezone_set("Asia/Singapore");
     $tbody_data = "";
     foreach($result_set as $row){
-        $planned_hours=convertToHoursMins($row['JobEstHours'],"%dh %02dm");
+        $planned_hours=convertToHoursMins($row['JobEstHours'],"%dh %2dm");
         $actual_hours=get_time_interval_hours_minutes( $row['CheckIn'],$row['CheckOut']);
         $tbody_data.='<tr>';
         $tbody_data .= '    <td>' . date("d M Y", strtotime($row['JobDate'])) . '</td>';
@@ -27,7 +27,7 @@ function display_pay_data(){
         $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';
         $tbody_data .= '    <td>' . $planned_hours . '</td>';
         $tbody_data .= '    <td>' . $actual_hours . '</td>';
-        $tbody_data .= '    <td>' . $row['Pay'] . '</td>';
+        $tbody_data .= '    <td><span class="text-error">' . $row['Pay'] . '</span></td>';
         $tbody_data.='</tr>';
     };
     echo $tbody_data;

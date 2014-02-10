@@ -38,7 +38,7 @@ $postjob->getJobCategory();
 <body class='contrast-blue without-footer fixed-navigation fixed-header'>
 <header>
 <nav class='navbar navbar-default navbar-fixed-top'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -276,7 +276,7 @@ $postjob->getJobCategory();
         <!-- ====================  Left side navigation starts here ======================= -->
         <ul class='nav nav-stacked'>
             <li class=''>
-                <a href='dashboard.html'>
+                <a href='dashboard.php'>
                     <i class='icon-dashboard'></i>
                     <span>Dashboard</span>
                 </a>

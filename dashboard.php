@@ -1,3 +1,8 @@
+
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processDashBoard.php");
+get_pay_summary();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -212,7 +217,7 @@
             <!-- ==================================================================               
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>
@@ -297,7 +302,7 @@
                     </a>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="viewapplicants.php">
                         <i class='icon-user'></i>
                         <span>View Job Applications</span>
                     </a>
@@ -325,7 +330,7 @@
                     </ul>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="managePay.php">
                         <i class='icon-usd'></i>
                         <span>Manage Pay</span>
                     </a>
@@ -376,7 +381,171 @@
     <section id='content'>
         <div class='container'>
             <div class='row' id='content-wrapper'>
-                <div class='col-xs-12'></div>
+                <div class='col-xs-12'>
+                    <div class='page-header page-header-with-buttons'>
+                        <h1 class='pull-left'>
+                            <i class='icon-dashboard'></i>
+                            <span>Dashboard</span>
+                        </h1>
+                    </div>
+                    <!-- Main content starts -->
+                    <div class='row'>
+                        <div class='col-sm-6 col-md-3'>
+                            <div class='box'>
+                                <div class='box-header'>
+                                    <div class='title'>
+                                        <i class='icon-file'></i>
+                                        Jobs<small class="text-muted" style="font-size: 0.6em">(Past 30 days)</small>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-sm-12' id="job_data">
+
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-muted'><?=$job_summary[0]?></h3>
+                                            <small>Pending</small>
+                                            <div class='text-muted icon-time align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-success'><?=$job_summary[1]?></h3>
+                                            <small>Fulfilled</small>
+                                            <div class='text-success icon-inbox align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-warning'><?=$job_summary[2]?></h3>
+                                            <small>Closed</small>
+                                            <div class='text-warning icon-lock align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-error'><?=$job_summary[3]?></h3>
+                                            <small>Cancelled</small>
+                                            <div class='text-error icon-remove align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-info'><?=$job_summary[4]?></h3>
+                                            <small>Total Jobs Created</small>
+                                            <div class='text-info icon-file align-right'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-md-3'>
+                            <div class='box'>
+                                <div class='box-header'>
+                                    <div class='title'>
+                                        <i class='icon-user'></i>
+                                        Applicants<small class="text-muted" style="font-size: 0.6em">(Past 30 days)</small>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-sm-12'>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-muted'><?=$applicant_summary[0]?></h3>
+                                            <small>Applied</small>
+                                            <div class='text-muted icon-time align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-success'><?=$applicant_summary[1]?></h3>
+                                            <small>Completed</small>
+                                            <div class='text-success icon-check align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-warning'><?=$applicant_summary[2]?></h3>
+                                            <small>Absent</small>
+                                            <div class='text-warning icon-frown align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-error'><?=$applicant_summary[3]?></h3>
+                                            <small>Cancelled</small>
+                                            <div class='text-error icon-remove align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-info'><?=$applicant_summary[4]?></h3>
+                                            <small>Total Applicants</small>
+                                            <div class='text-info icon-file align-right'></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-md-3'>
+                            <div class='box'>
+                                <div class='box-header'>
+                                    <div class='title'>
+                                        <i class='icon-dollar'></i>
+                                        Salary Cost<small class="text-muted" style="font-size: 0.6em"> (Sum)</small>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-sm-12'>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-muted'><?=$pay_summary[0]?></h3>
+                                            <small>Weekly Total</small>
+                                            <div class='text-muted icon-bar-chart align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-success'><?=$pay_summary[1]?></h3>
+                                            <small>Monthly Total</small>
+                                            <div class='text-success icon-bar-chart align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-warning'><?=$pay_summary[2]?></h3>
+                                            <small>Quarter Total</small>
+                                            <div class='text-warning icon-bar-chart align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-error'><?=$pay_summary[3]?></h3>
+                                            <small>Annual Total</small>
+                                            <div class='text-error icon-bar-chart align-right'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-md-3'>
+                            <div class='box'>
+                                <div class='box-header'>
+                                    <div class='title'>
+                                        <i class='icon-dollar'></i>
+                                        Salary Cost<small class="text-muted" style="font-size: 0.6em"> (Average)</small>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-sm-12'>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-muted'><?=$pay_avg[0]?></h3>
+                                            <small>Weekly Average</small>
+                                            <div class='text-muted icon-bar-chart align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-success'><?=$pay_avg[1]?></h3>
+                                            <small>Monthly Average</small>
+                                            <div class='text-success icon-bar-chart align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-warning'><?=$pay_avg[2]?></h3>
+                                            <small>Quarter Average</small>
+                                            <div class='text-warning icon-bar-chart align-right'></div>
+                                        </div>
+                                        <div class='box-content box-statistic'>
+                                            <h3 class='title text-error'><?=$pay_avg[3]?></h3>
+                                            <small>Annual Average</small>
+                                            <div class='text-error icon-bar-chart align-right'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <!-- Main content here -->
+
+                </div>
             </div>
             <footer id='footer'>
                 <div class='footer-wrapper'>

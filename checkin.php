@@ -25,6 +25,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/datatables/dataTables.tableTools.min.css">
 
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
@@ -34,7 +35,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <body class='contrast-blue without-footer fixed-header fixed-navigation'>
 <header>
 <nav class='navbar navbar-default navbar-fixed-top'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -216,7 +217,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
             <!-- ==================================================================               
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>
@@ -274,7 +275,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
         <!-- ====================  Left side navigation starts here ======================= -->
         <ul class='nav nav-stacked'>
             <li class=''>
-                <a href='dashboard.html'>
+                <a href='dashboard.php'>
                     <i class='icon-dashboard'></i>
                     <span>Dashboard</span>
                 </a>
@@ -507,6 +508,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/datatables/dataTables.tableTools.min.js"></script>
 <script type="text/javascript">
     $('input[type=checkbox]').click(function () {
                 this.disabled = true;

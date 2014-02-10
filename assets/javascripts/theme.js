@@ -301,7 +301,7 @@
                 } else if ($(elem).data("pagination-top") === true) {
                     sdom = "<'row datatables-top'<'col-sm-6'l><'col-sm-6 text-right'pf>r>t<'row datatables-bottom'<'col-sm-6'i><'col-sm-6 text-right'>>";
                 } else {
-                    sdom = "<'row datatables-top'<'col-sm-6'l><'col-sm-6 text-right'f>r>t<'row datatables-bottom'<'col-sm-6'i><'col-sm-6 text-right'p>>";
+                    sdom = "<'row'<'col-sm-12'T>><'row datatables-top'<'col-sm-6'l><'col-sm-6 text-right'f>r>t<'row datatables-bottom'<'col-sm-6'i><'col-sm-6 text-right'p>>";
                 }
 
                 if ($(elem).hasClass("dt-sort-desc1")) {
@@ -310,6 +310,15 @@
                             [ 0, "desc" ]
                         ],
                         sDom: sdom,
+                        "oTableTools":{
+                            "aButtons":["copy",
+                                "print",{
+                                    "sExtends":    "collection",
+                                    "sButtonText": 'Save <span class="caret" />',
+                                    "aButtons":    [ "csv", "xls", "pdf" ]
+                                }],
+                            "sSwfPath": "libraries/swf/copy_csv_xls_pdf.swf"
+                        },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {
@@ -321,6 +330,14 @@
                             [ 1, "desc" ]
                         ],
                         sDom: sdom,
+                        "oTableTools":{
+                            "aButtons":["copy",
+                                "print",{
+                                    "sExtends":    "collection",
+                                    "sButtonText": 'Save <span class="caret" />',
+                                    "aButtons":    [ "csv", "xls", "pdf" ]
+                                }]
+                        },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {
@@ -332,6 +349,14 @@
                             [ 2, "desc" ]
                         ],
                         sDom: sdom,
+                        "oTableTools":{
+                            "aButtons":["copy",
+                                "print",{
+                                    "sExtends":    "collection",
+                                    "sButtonText": 'Save <span class="caret" />',
+                                    "aButtons":    [ "csv", "xls", "pdf" ]
+                                }]
+                        },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {
@@ -343,6 +368,14 @@
                             [ 3, "desc" ]
                         ],
                         sDom: sdom,
+                        "oTableTools":{
+                            "aButtons":["copy",
+                                "print",{
+                                    "sExtends":    "collection",
+                                    "sButtonText": 'Save <span class="caret" />',
+                                    "aButtons":    [ "csv", "xls", "pdf" ]
+                                }]
+                        },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {
@@ -354,6 +387,14 @@
                             [ 4, "desc" ]
                         ],
                         sDom: sdom,
+                        "oTableTools":{
+                            "aButtons":["copy",
+                                "print",{
+                                    "sExtends":    "collection",
+                                    "sButtonText": 'Save <span class="caret" />',
+                                    "aButtons":    [ "csv", "xls", "pdf" ]
+                                }]
+                        },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {
@@ -365,6 +406,14 @@
                 else {
                     dt = $(elem).dataTable({
                         sDom: sdom,
+                        "oTableTools":{
+                            "aButtons":["copy",
+                                "print",{
+                                    "sExtends":    "collection",
+                                    "sButtonText": 'Save <span class="caret" />',
+                                    "aButtons":    [ "csv", "xls", "pdf" ]
+                                }]
+                        },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {

@@ -254,9 +254,83 @@ class Job
 
         }else{
             $this->errors[] = "Database connection error.";
+            return false;
+        }
+    }
+
+    public function get_job_status_count($company_id){
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return false;
+            //$error returns string description of last error
         }
 
+        if (!$this->db_connection->connect_errno) {
+            $this->db_connection->real_escape_string($company_id);
+            $sql="select JobStatus,count(job_t.JobStatus) as count from job_t where job_t.hotelID=? AND ";
+            $sql.="job_t.JobDate >= DATE_SUB( CURDATE(), INTERVAL 1 MONTH ) group by JobStatus;";
 
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+            }
+            if (!$stmt->bind_param("i",$company_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            if (!$result_set = $stmt->get_result()) {
+                $this->errors[] = "Error getting results:";
+            }
+
+            $this->db_connection->close();
+            return $result_set;
+
+        }else{
+            $this->errors[] = "Database connection error.";
+            return false;
+        }
+
+    }
+
+    public function get_total_job_count($company_id){
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return false;
+            //$error returns string description of last error
+        }
+
+        if (!$this->db_connection->connect_errno) {
+            $this->db_connection->real_escape_string($company_id);
+            $sql="select count(job_t.JobID) as count from job_t where job_t.hotelID=? AND ";
+            $sql.="job_t.JobDate >= DATE_SUB( CURDATE(), INTERVAL 1 MONTH ) ";
+
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+            }
+            if (!$stmt->bind_param("i",$company_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            if (!$result_set = $stmt->get_result()) {
+                $this->errors[] = "Error getting results:";
+            }
+
+            $this->db_connection->close();
+            return $result_set;
+
+        }else{
+            $this->errors[] = "Database connection error.";
+            return false;
+        }
     }
 
 }

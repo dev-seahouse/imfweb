@@ -22,7 +22,7 @@ function check_auth($redirect)
     return false;
 }
 
-function convertToHoursMins($time, $format = '%d hours %02d minutes') {
+function convertToHoursMins($time, $format = '%d hours %2d minutes') {
 
     settype($time, 'integer');
     if ($time < 1) {
@@ -33,7 +33,7 @@ function convertToHoursMins($time, $format = '%d hours %02d minutes') {
     if (!empty($hours)){
         return sprintf($format, $hours, $minutes);
     }else{
-        $format="%02d minutes";
+        $format="%2d minutes";
         return sprintf($format,$minutes);
     }
 
@@ -55,7 +55,7 @@ function get_time_interval_hours_minutes($in,$out){
     $minutes=$interval->days*24*60;
     $minutes+=$interval->h*60;
     $minutes+=$interval->i;
-    return convertToHoursMins($minutes,"%dh %02dm");
+    return convertToHoursMins($minutes,"%dh %2dm");
 
 }
 

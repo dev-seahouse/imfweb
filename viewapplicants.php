@@ -1,8 +1,10 @@
-
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processViewApplicants.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IMF Management Application - Dashboard</title>
+    <title>IMF Management Application - View Applicants</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta content='text/html;charset=utf-8' http-equiv='content-type'>
     <!-- Application icon -->
@@ -23,6 +25,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/datatables/dataTables.tableTools.min.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -31,7 +34,7 @@
 <body class='contrast-blue without-footer fixed-header fixed-navigation'>
 <header>
 <nav class='navbar navbar-default navbar-fixed-top'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -213,7 +216,7 @@
             <!-- ==================================================================
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
-            <span class='user-name'>Regent Hotel</span> <b class='caret'></b>
+            <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
         </a>
         <ul class='dropdown-menu'>
             <li>
@@ -268,7 +271,7 @@
             <!-- ====================  Left side navigation starts here ======================= -->
             <ul class='nav nav-stacked'>
                 <li class=''>
-                    <a href='dashboard.html'>
+                    <a href='dashboard.php'>
                         <i class='icon-dashboard'></i>
                         <span>Dashboard</span>
                     </a>
@@ -280,7 +283,7 @@
                     </a>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="canceljob.php">
                         <i class='icon-remove'></i>
                         <span>Cancel Job</span>
                     </a>
@@ -320,7 +323,7 @@
                     </ul>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="managePay.php">
                         <i class='icon-usd'></i>
                         <span>Manage Pay</span>
                     </a>
@@ -379,7 +382,7 @@
                             <div class='page-header'>
                                 <h1 class='pull-left'>
                                     <i class='icon-table'></i>
-                                    <span>View Posted Job</span>
+                                    <span>View Job Applicants</span>
                                 </h1>
 
                                 <div class='pull-right'>
@@ -397,6 +400,65 @@
                         </div>
                         <!-- Wrapper col-sm-12 for header div -->
                     </div>
+                    <!--Content two columns layout-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class='row'>
+                                <div class='col-sm-12'>
+                                    <div class='box bordered-box orange-border' style='margin-bottom:0;'>
+                                        <div class='box-header contrast-background'>
+                                        </div>
+                                        <div class='box-content box-no-padding'>
+                                            <div class='responsive-table'>
+                                                <div class='scrollable-area'>
+                                                    <table
+                                                        class='table table-hover data-table-column-filter table table-bordered table-striped'
+                                                        style='margin-bottom:0;'
+                                                        id="tbViewJob">
+                                                        <thead>
+                                                        <!-- TODO: Add hidden Id column for database -->
+                                                        <tr>
+                                                            <th>Name </th>
+                                                            <th>IC</th>
+                                                            <th>Mobile</th>
+                                                            <th>Experience</th>
+                                                            <th>Application Status</th>
+                                                            <th>Job Applied</th>
+                                                            <th>Job Date</th>
+                                                            <th>Job Start Time</th>
+                                                            <th>Job End Time</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <?php display_applicants() ?>
+                                                        </tbody>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>IC</th>
+                                                            <th>Mobile</th>
+                                                            <th>Status</th>
+                                                            <th>Job Applied</th>
+                                                            <th>Job Date</th>
+                                                            <th>Job Start Time</th>
+                                                            <th>Job End Time</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Box Content -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row -->
+                        </div>
+
+                    </div>
+
+                    <!-- Content two columns layout -->
                     <!-- End col-xs-12 > row -->
                 </div>
                 <!--End Main Column-->
@@ -446,6 +508,7 @@
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/datatables/dataTables.tableTools.min.js"></script>
 <!-- / END - page related files and scripts [optional] -->
 </body>
 </html>

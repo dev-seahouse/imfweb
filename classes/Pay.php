@@ -118,4 +118,82 @@ class Pay
         }
 
     }
+
+    public function get_total_pay_summary($company_id){
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+        }
+        if (!$this->db_connection->connect_errno) {
+            $this->db_connection->real_escape_string($company_id);
+            $sql="call get_pay_sum(?,@weekly,@monthly,@quarterly,@yearly)";
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+                return false;
+            }
+            if (!$stmt->bind_param("i",$company_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            $sql="select @weekly,@monthly,@quarterly,@yearly";
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+                return false;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            if (!$result_set = $stmt->get_result()) {
+                $this->errors[] = "Error getting results:";
+            }
+            $this->db_connection->close();
+            return $result_set;
+        }else{
+            $this->errors[] = "Database connection error.";
+            return false;
+        }
+    }
+
+    public function get_avg_pay_summary($company_id){
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+        }
+        if (!$this->db_connection->connect_errno) {
+            $this->db_connection->real_escape_string($company_id);
+            $sql="call get_pay_average(?,@weekly,@monthly,@quarterly,@yearly)";
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+                return false;
+            }
+            if (!$stmt->bind_param("i",$company_id)){
+                $this->errors[]="Error binding data :( ".$stmt->errno.")" . $stmt->error;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            $sql="select @weekly,@monthly,@quarterly,@yearly";
+            if (!$stmt = $this->db_connection->prepare($sql)){
+                $this->errors[]="Prepare statement error." . $this->db_connection->error;
+                return false;
+            }
+            if (!$stmt->execute()){
+                $this->errors[]="Execution error:(".$stmt->errno.")".$stmt->error;
+            }
+            if (!$result_set = $stmt->get_result()) {
+                $this->errors[] = "Error getting results:";
+            }
+            $this->db_connection->close();
+            return $result_set;
+        }else{
+            $this->errors[] = "Database connection error.";
+            return false;
+        }
+    }
+
+
 }

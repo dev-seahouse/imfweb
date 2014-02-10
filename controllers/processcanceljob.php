@@ -84,15 +84,15 @@ function display_cancel_job()
         $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';
         $jobstatus = $row['JobStatus'];
         if ($jobstatus == 0) {
-            $tbody_data .= '    <td><span class="label label-warning has-tooltip" data-placement="top" title="Job Open for application.">Pending</span></td>';
-            $tbody_data .= '    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames(' . $row['JobID'] . ',' . $row['JobSlotVacancy'] . ',' . $row['JobSlotVacLeft'] . ')">' . $row['JobSlotVacLeft'] . '</a></td>';
+            $tbody_data .= '    <td><span class="label label-default center-block has-tooltip" data-placement="top" title="Job Open for application.">Pending</span></td>';
+            $tbody_data .= '    <td><a href="#" class="has-tooltip center-block badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames(' . $row['JobID'] . ',' . $row['JobSlotVacancy'] . ',' . $row['JobSlotVacLeft'] . ')">' . $row['JobSlotVacLeft'] . '</a></td>';
         } else if ($jobstatus == 1) {
-            $tbody_data .= '    <td><span class="label label-success has-tooltip" data-placement="top" title="All job vacancies are filled.Changes could still be made before job application closed.">Fulfilled</span></td>';
+            $tbody_data .= '    <td><span class="label label-success center-block has-tooltip" data-placement="top" title="All job vacancies are filled.Changes could still be made before job application closed.">Fulfilled</span></td>';
             //$tbody_data.='    <td><a href="#" onClick="loadnames('.$row['JobID'].')">'.$row['JobSlotVacLeft'].' remaining</a></td>';
-            $tbody_data .= '    <td><a href="#" class="has-tooltip badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames(' . $row['JobID'] . ',' . $row['JobSlotVacancy'] . ',' . $row['JobSlotVacLeft'] . ')">' . $row['JobSlotVacLeft'] . '</a></td>';
+            $tbody_data .= '    <td><a href="#" class="has-tooltip center-block badge" data-toggle="tooltip" data-placement="top" title="View Current applicants." onClick="loadnames(' . $row['JobID'] . ',' . $row['JobSlotVacancy'] . ',' . $row['JobSlotVacLeft'] . ')">' . $row['JobSlotVacLeft'] . '</a></td>';
         } else if ($jobstatus == 3) {
-            $tbody_data .= '    <td><span class="label label-danger has-tooltip" data-placement="top" title="Job cancelled by employer.">Cancelled</span></td>';
-            $tbody_data .= '    <td><span class="label label-default has-tooltip" data-placement="top" title="Job cancelled by employer.">-</span></td>';
+            $tbody_data .= '    <td><span class="label label-danger center-block has-tooltip" data-placement="top" title="Job cancelled by employer.">Cancelled</span></td>';
+            $tbody_data .= '    <td><span class="label label-default center-block has-tooltip" data-placement="top" title="Job cancelled by employer.">-</span></td>';
             $is_cancelled = true;
         }
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobStartTime'])) . '</td>';

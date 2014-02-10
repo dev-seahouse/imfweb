@@ -34,7 +34,7 @@ check_auth("index.php");
 <body class='contrast-blue without-footer'>
 <header>
 <nav class='navbar navbar-default'>
-<a class='navbar-brand' href='dashboard.html'>
+<a class='navbar-brand' href='dashboard.php'>
 
     <!--<img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
     <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
@@ -271,7 +271,7 @@ check_auth("index.php");
         <!-- ====================  Left side navigation starts here ======================= -->
         <ul class='nav nav-stacked'>
             <li class=''>
-                <a href='dashboard.html'>
+                <a href='dashboard.php'>
                     <i class='icon-dashboard'></i>
                     <span>Dashboard</span>
                 </a>
@@ -386,7 +386,7 @@ check_auth("index.php");
                             <div class='pull-right'>
                                 <ul class='breadcrumb'>
                                     <li>
-                                        <a href='dashboard.html'>
+                                        <a href='dashboard.php'>
                                             <i class='icon-dashboard'></i>
                                         </a>
                                     </li>
@@ -532,7 +532,7 @@ check_auth("index.php");
 <script src="assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js"
         type="text/javascript"></script>
 <!-- / bootstrap [required] -->
-<script src="assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+<script src="assets/javascripts/bootstrap/bootstrap.min.js" type="text/javascript"></script>
 <!-- / modernizr -->
 <script src="assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
 <!-- / retina -->

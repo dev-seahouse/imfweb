@@ -21,11 +21,12 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
     <link rel="stylesheet" href="assets/stylesheets/flat-ui/flat-ui.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/supersized/supersized.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+
     <!--         <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css"> -->
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="javascripts/compatibility/html5shive.js"></script>
-    <script type="text/javascript" src="javascripts/compatibility/response.min.js"></script>
+    <script type="text/javascript" src="assets/javascripts/compatibility/html5shiv-printshiv.js"></script>
+    <script type="text/javascript" src="assets/javascripts/compatibility/response.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -66,7 +67,7 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
                 <hr>
             </form>
             <div class="clearfix">
-                <form action="" role="form" method="post"></form>
+
                 <button id="btnShowSignUp" type="submit" class="btn btn-info col-xs-5 col-sm-5 col-md-8">Sign Up
                 </button>
             </div>
@@ -80,6 +81,7 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
             </div>
             <form action="controllers/processregister.php" class="form-horizontal" method="post" name="frmSignup"
                   id="frmSignup" role="form">
+
                 <fieldset>
                     <legend>Basic information</legend>
                     <div class="form-group">
@@ -133,6 +135,7 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
                                    name="inputAddress" placeholder="Enter Company Address" tabindex="50">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="inputZipcode" class="col-md-2 control-label" >Zipcode</label>
 
@@ -143,18 +146,37 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
                             <input name="inputLong" id="inputLong" type="hidden"/>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="inputPhone" class="col-md-2 control-label">Phone</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control input-sm" id="inputPhone" name="inputPhone"
                                    placeholder="Enter Phone Number" tabindex="70">
+
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardinal" class="col-md-2 control-label" >Region</label>
+
+                        <div class="col-md-6">
+                            <select class="form-control" name="cardinal" id="cardinal">
+                                <option value="Central">Central</option>
+                                <option value="East">East</option>
+                                <option value="North">North</option>
+                                <option value="North-East">North-East</option>
+                                <option value="West">West</option>
+                            </select>
                             <hr>
                             <button type="submit" class="col-md-8 btn btn-primary pull-right" tabindex="90"
                                     name="register">Submit
                             </button>
+
                         </div>
                     </div>
+
+
                 </fieldset>
                 <!--                         <fieldset>
                                             <legend>Contact Information</legend>
@@ -174,6 +196,7 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
                                             </div>
                                         </fieldset> -->
             </form>
+
         </div>
     </div>
 </div>
@@ -193,7 +216,11 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
 <script src="assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
 <script>
+    $( document ).ready(function() {
+
+    });
     $('input[name="inputZipcode"]' ).addresspicker(
         {
             appendAddressString: "",
