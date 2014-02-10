@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/processDashBoard.php" />
-      <change type="DELETED" beforePath="D:\wamp\www\imfweb\checkin.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Applicant.php" afterPath="$PROJECT_DIR$/classes/Applicant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Job.php" afterPath="$PROJECT_DIR$/classes/Job.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Pay.php" afterPath="$PROJECT_DIR$/classes/Pay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Registration.php" afterPath="$PROJECT_DIR$/classes/Registration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canceljob.php" afterPath="$PROJECT_DIR$/canceljob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkin.php" afterPath="$PROJECT_DIR$/checkin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkout.html" afterPath="$PROJECT_DIR$/checkout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkout.php" afterPath="$PROJECT_DIR$/checkout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contact.php" afterPath="$PROJECT_DIR$/contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/managePay.php" afterPath="$PROJECT_DIR$/managePay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postjob -bak.php" afterPath="$PROJECT_DIR$/postjob -bak.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postjob.php" afterPath="$PROJECT_DIR$/postjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processManagePay.php" afterPath="$PROJECT_DIR$/controllers/processManagePay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processViewApplicants.php" afterPath="$PROJECT_DIR$/controllers/processViewApplicants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processcanceljob.php" afterPath="$PROJECT_DIR$/controllers/processcanceljob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processviewjob.php" afterPath="$PROJECT_DIR$/controllers/processviewjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/regUser" afterPath="$PROJECT_DIR$/sql/regUser" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/javascripts/scripts.js" afterPath="$PROJECT_DIR$/assets/javascripts/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template-v1.html" afterPath="$PROJECT_DIR$/template-v1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testmap1.html" afterPath="$PROJECT_DIR$/testmap1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/javascripts/theme.js" afterPath="$PROJECT_DIR$/assets/javascripts/theme.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user_profile.php" afterPath="$PROJECT_DIR$/user_profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/utilities.php" afterPath="$PROJECT_DIR$/libraries/utilities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewapplicants.php" afterPath="$PROJECT_DIR$/viewapplicants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewjob.php" afterPath="$PROJECT_DIR$/viewjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\wamp\www\imfweb\dashboard.html" afterPath="$PROJECT_DIR$/dashboard.php" />
-    </list>
+    <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links" />
     <ignored path="imf.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
