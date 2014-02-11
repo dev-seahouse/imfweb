@@ -314,7 +314,7 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno){
             $this->db_connection->real_escape_string($company_id);
-            $sql="select concat(Firstname,' ',Lastname) as Name,NRIC,MobileNo,MarkAsPresent,ScopeName,JobDate,";
+            $sql="select concat(Firstname,' ',Lastname) as Name,User_t.UserID,NRIC,MobileNo,MarkAsPresent,ScopeName,JobDate,";
             $sql.=" (select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp,";
             $sql.=" JobStartTime,JobEndTime";
             $sql.=" from jobapplicant_t join job_t on jobapplicant_t.JobID=job_t.JobID";
@@ -430,4 +430,4 @@ class Applicant
  * User: kenan
  * Date: 2/7/14
  * Time: 12:32 AM
- */ 
+ */

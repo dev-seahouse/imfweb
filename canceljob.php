@@ -214,7 +214,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
     <!-- ====================== Top Right Profile menu Dropdown ===================== -->
     <li class='dropdown dark user-menu'>
         <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-            <!-- ==================================================================               
+            <!-- ==================================================================
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
             <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
@@ -449,7 +449,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                                     </tbody>
                                                     <tfoot>
                                                     <tr>
-                                                        <th>Job Date/th>
+                                                        <th>Job Date</th>
                                                         <th>Job Scope</th>
                                                         <th>Status</th>
                                                         <th>Vacancies</th>

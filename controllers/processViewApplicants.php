@@ -19,7 +19,7 @@ function display_applicants(){
 
     foreach($result_set as $row){
         $tbody_data.='<tr>';
-        $tbody_data.='    <td>'.$row['Name'].'</td>';
+        $tbody_data.='    <td><a class="has-tooltip badge" href="viewuser.php?uid='.$row['UserID'].'"">'.$row['Name'].'</a></td>';
         $tbody_data.='    <td>'.$row['NRIC'].'</td>';
         $tbody_data.='    <td>'.$row['MobileNo'].'</td>';
         $tbody_data.='    <td>'.$row['TotalExp'].'</td>';
