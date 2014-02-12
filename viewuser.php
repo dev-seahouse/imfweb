@@ -477,30 +477,9 @@ require_once("controllers/processviewuser.php");
                                     </div>
                                     <div class="col-sm-8 box-bordered" id="comment_list">
                                         <!-- =========  One comment div========  -->
-                                        <div class="bubble clearfix box-content">
-                                            <div class="text-fb box-header-small">Regent Hotel
-                                                <div class='time pull-right'>
-                                                    <small class='date pull-right text-muted'>
-                                                        <span class='timeago fade has-tooltip' data-placement='top'
-                                                              title='2013-09-15 17:33:35 +0200'></span>
-                                                        <i class='icon-time'></i>
-                                                    </small>
-                                                </div>
-                                                <div class="raty" data-score="4"></div>
-                                            </div>
-                                            <div class="bubble-content box-content clearfix">
-                                                <div class="point"></div>
-                                                <div>
-                                                    <p>This is a very long soemthin dfd test test setes ests et ste tse
-                                                        tset set set set set set set set set set set set set set set set
-                                                        set set est set est est es tse tse t tes t set t es </p>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <hr class="fancy-line">
 
-                                        <!-- ========= One comment div =========  -->
+    <!-- ========= One comment div =========  -->
                                     </div>
 
                                 </div>
@@ -561,6 +540,36 @@ require_once("controllers/processviewuser.php");
             }
         });
     });
+    function loadData(pageLimit){
+        $(".flash").show();
+        $(".flash").fadeIn(400).html('Loading <img src="assets/images/ajax-loaders/4.gif" />');
+        $.ajax({
+            type: "POST",
+            url: "controllers/get_comments.php?uid=<?php echo $_GET['uid']?>",
+            data: {
+                get_comments:1,
+                pageLimit:pageLimit
+            },
+            crossDomain: true,
+            success: function(result){
+                $(".flash").hide();
+                $(".load_more_link").addClass('hide');
+                $("#comment_list").append(result);
+                $('.raty').raty({
+                    half: true,
+                    readOnly:true,
+                    path: 'assets/images/plugins/rating',
+                    score: function () {
+                        return $(this).attr('data-score');
+                    }
+                });
+                $('.timeago').timeago();
+
+            }
+
+        });
+    }
+    loadData('0');
 </script>
 
 </body>

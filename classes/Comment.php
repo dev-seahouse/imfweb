@@ -17,10 +17,10 @@ class Comment
 
     }
 
-    public function get_comments_by_user($uid,$page_limit)
+    public function get_comments_by_user($uid,$page_limit,$per_page)
     {
-        $per_page=8;
-        $page_limit=$page_limit;
+
+
 
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
@@ -47,7 +47,7 @@ class Comment
                 $this->errors[] = "Error getting results:";
             }
 
-            $this->db_connection->close();
+
             return $result_set;
 
 
