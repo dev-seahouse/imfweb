@@ -117,4 +117,16 @@ header .navbar .toggle-nav {
 
 /* =============== End of index.php ============= */
 
-/* =============== Dashboard.html ================ */
+/* =============== viewuser.php ================ */
+.bubble{
+  margin-top:20px;
+  .bubble-content {
+    float: left;
+    margin-top: 15px;
+    padding: 20px 30px;
+    border-radius: 2px;
+    background-color:#eff0f2;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, .2);
+  }
+}
+

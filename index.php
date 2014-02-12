@@ -154,7 +154,6 @@ if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 
                             <input type="text" class="form-control input-sm" id="inputPhone" name="inputPhone"
                                    placeholder="Enter Phone Number" tabindex="70">
 
-
                         </div>
                     </div>
                     <div class="form-group">

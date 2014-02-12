@@ -25,8 +25,9 @@ class User
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($uid);
             $sql="SELECT UserID, firstname,lastname, gender, nric, dateofbirth, mobileno,";
-            $sql.="email,spokenlang,spokenlangOther from user_t where userid=?";
-
+            $sql.="email,spokenlang,spokenlangOther,";
+            $sql.="(select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp";
+            $sql.=" from user_t where userid=? and roleid!=3";
 
             if (!$stmt = $this->db_connection->prepare($sql)){
                 $this->errors[]="Prepare statement error." . $this->db_connection->error;
@@ -44,9 +45,9 @@ class User
             if (!$result_set = $stmt->get_result()) {
                 $this->errors[] = "Error getting results:";
             }
-            $this->db_connection->close();
-            return $result_set;
 
+            return $result_set->fetch_assoc();
+            $this->db_connection->close();
         }
         else{
             $this->errors[] = "Database connection error.";

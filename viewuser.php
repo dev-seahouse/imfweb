@@ -29,6 +29,12 @@ require_once("controllers/processviewuser.php");
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
     <![endif]-->
+
+    <style type="text/css">
+
+
+    </style>
+
 </head>
 <body class='contrast-blue without-footer'>
 <header>
@@ -253,228 +259,271 @@ require_once("controllers/processviewuser.php");
 <!-- ===================== End of nav section =================================== -->
 </header>
 <div id='wrapper'>
-    <div id='main-nav-bg'></div>
-    <nav id='main-nav'>
-        <div class='navigation'>
-            <!-- ======================= Hidden search button for mobile ====================== -->
-            <!--         <div class='search'>
-            <form action='search_results.html' method='get'>
-              <div class='search-wrapper'>
-                <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text" />
-                <button class='btn btn-link icon-search' name='button' type='submit'></button>
-              </div>
-            </form>
+<div id='main-nav-bg'></div>
+<nav id='main-nav'>
+    <div class='navigation'>
+        <!-- ======================= Hidden search button for mobile ====================== -->
+        <!--         <div class='search'>
+        <form action='search_results.html' method='get'>
+          <div class='search-wrapper'>
+            <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text" />
+            <button class='btn btn-link icon-search' name='button' type='submit'></button>
           </div>
-          -->
-            <!-- ====================  End of serach button for mobile ======================== -->
-            <!-- ====================  Left side navigation starts here ======================= -->
-            <ul class='nav nav-stacked'>
-                <li class=''>
-                    <a href='dashboard.php'>
-                        <i class='icon-dashboard'></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a href="postjob.php">
-                        <i class='icon-plus'></i>
-                        <span>Post New Job</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a href="canceljob.php">
-                        <i class='icon-remove'></i>
-                        <span>Cancel Job</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a href='viewjob.php'>
-                        <i class='icon-suitcase'></i>
-                        <span>View Posted Job</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a href="viewapplicants.php">
-                        <i class='icon-user'></i>
-                        <span>View Job Applications</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a class="dropdown-collapse" href="#">
-                        <i class='icon-check'></i>
-                        <span>Mark Attendance</span>
-                        <i class='icon-angle-down angle-down'></i>
-                    </a>
+        </form>
+      </div>
+      -->
+        <!-- ====================  End of serach button for mobile ======================== -->
+        <!-- ====================  Left side navigation starts here ======================= -->
+        <ul class='nav nav-stacked'>
+            <li class=''>
+                <a href='dashboard.php'>
+                    <i class='icon-dashboard'></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class=''>
+                <a href="postjob.php">
+                    <i class='icon-plus'></i>
+                    <span>Post New Job</span>
+                </a>
+            </li>
+            <li class=''>
+                <a href="canceljob.php">
+                    <i class='icon-remove'></i>
+                    <span>Cancel Job</span>
+                </a>
+            </li>
+            <li class=''>
+                <a href='viewjob.php'>
+                    <i class='icon-suitcase'></i>
+                    <span>View Posted Job</span>
+                </a>
+            </li>
+            <li class=''>
+                <a href="viewapplicants.php">
+                    <i class='icon-user'></i>
+                    <span>View Job Applications</span>
+                </a>
+            </li>
+            <li class=''>
+                <a class="dropdown-collapse" href="#">
+                    <i class='icon-check'></i>
+                    <span>Mark Attendance</span>
+                    <i class='icon-angle-down angle-down'></i>
+                </a>
 
-                    <ul class='nav nav-stacked'>
-                        <li class=''>
-                            <a href='checkin.php'>
-                                <i class='icon-caret-right'></i>
-                                <span>Check in</span>
-                            </a>
-                        </li>
-                        <li class=''>
-                            <a href='checkout.php'>
-                                <i class='icon-caret-right'></i>
-                                <span>Checkout</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=''>
-                    <a href="managePay.php">
-                        <i class='icon-usd'></i>
-                        <span>Manage Pay</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a class="dropdown-collapse" href="#">
-                        <i class='icon-star-half-empty'></i>
-                        <span>Manage Feedback</span>
-                        <i class='icon-angle-down angle-down'></i>
-                    </a>
+                <ul class='nav nav-stacked'>
+                    <li class=''>
+                        <a href='checkin.php'>
+                            <i class='icon-caret-right'></i>
+                            <span>Check in</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='checkout.php'>
+                            <i class='icon-caret-right'></i>
+                            <span>Checkout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class=''>
+                <a href="managePay.php">
+                    <i class='icon-usd'></i>
+                    <span>Manage Pay</span>
+                </a>
+            </li>
+            <li class=''>
+                <a class="dropdown-collapse" href="#">
+                    <i class='icon-star-half-empty'></i>
+                    <span>Manage Feedback</span>
+                    <i class='icon-angle-down angle-down'></i>
+                </a>
 
-                    <ul class='nav nav-stacked'>
-                        <li class=''>
-                            <a href='#'>
-                                <i class='icon-edit'></i>
-                                <span>Review Rating</span>
-                            </a>
-                        </li>
-                        <li class=''>
-                            <a href='#'>
-                                <i class='icon-plus'></i>
-                                <span>Add Testimonial</span>
-                            </a>
-                        </li>
-                        <li class=''>
-                            <a href='#'>
-                                <i class='icon-edit'></i>
-                                <span>Review Testimonial</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=''>
-                    <a href="contact.php">
-                        <i class='icon-envelope'></i>
-                        <span>Contact Support</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a href="controllers/processlogin.php?logout">
-                        <i class='icon-signout'></i>
-                        <span>Sign Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <section id='content'>
-        <div class='container'>
-            <div class='row' id='content-wrapper'>
-                <div class='col-xs-12'>
-                    <div class='row'>
-                        <div class='col-sm-12'>
-                            <div class='page-header'>
-                                <h1 class='pull-left'>
-                                    <i class='icon-user'></i>
-                                    <span>Profile</span>
-                                </h1>
+                <ul class='nav nav-stacked'>
+                    <li class=''>
+                        <a href='#'>
+                            <i class='icon-edit'></i>
+                            <span>Review Rating</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='#'>
+                            <i class='icon-plus'></i>
+                            <span>Add Testimonial</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='#'>
+                            <i class='icon-edit'></i>
+                            <span>Review Testimonial</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class=''>
+                <a href="contact.php">
+                    <i class='icon-envelope'></i>
+                    <span>Contact Support</span>
+                </a>
+            </li>
+            <li class=''>
+                <a href="controllers/processlogin.php?logout">
+                    <i class='icon-signout'></i>
+                    <span>Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section id='content'>
+    <div class='container'>
+        <div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <div class='page-header'>
+                            <h1 class='pull-left'>
+                                <i class='icon-user'></i>
+                                <span>Profile</span>
+                            </h1>
 
-                                <div class='pull-right'>
-                                    <ul class='breadcrumb'>
-                                        <li>
-                                            <a href='dashboard.php'>
-                                                <i class='icon-dashboard'></i>
-                                            </a>
-                                        </li>
-                                        <li class='separator'>
-                                            <i class='icon-angle-right'></i>
-                                        </li>
-                                        <li class='active'>Profile</li>
-                                    </ul>
-                                </div>
+                            <div class='pull-right'>
+                                <ul class='breadcrumb'>
+                                    <li>
+                                        <a href='dashboard.php'>
+                                            <i class='icon-dashboard'></i>
+                                        </a>
+                                    </li>
+                                    <li class='separator'>
+                                        <i class='icon-angle-right'></i>
+                                    </li>
+                                    <li class='active'>Profile</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class='row'>
-                        <div class='col-sm-3 col-lg-2'>
-                            <div class='box'>
-                                <div class='box-content'>
-                                    <img class="img-responsive" src="../avatar/default.jpg"/>
-                                </div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm-3 col-lg-2'>
+                        <div class='box'>
+                            <div class='box-content'>
+                                <img class="img-responsive" src="../avatar/default.jpg"/>
                             </div>
                         </div>
-                        <div class='col-sm-9 col-lg-10'>
-                            <div class='box'>
-                                <div class='box-content box-double-padding'>
-                                    <div class="row">
-                                        <div class='col-sm-4'>
-                                            <div class='lead'>
-                                                <i class='icon-github text-contrast'></i>
-                                                Personal Details:
-                                            </div>
-                                        </div>
-                                        <div class='col-sm-8'>
-                                            <ul class="list-group">
-                                                <li class="list-group-item">First Name:
-                                                    <span class="text-sea-blue pull-right">Xin</span>
-                                                </li>
-                                                <li class="list-group-item">Last Name:
-                                                    <span class="text-sea-blue pull-right">Kenan</span>
-                                                </li>
-                                                <li class="list-group-item">Gender:
-                                                    <span class="text-sea-blue pull-right">Kenan</span>
-                                                </li>
-                                                <li class="list-group-item">Phone:
-                                                    <span class="text-sea-blue pull-right">98211983</span>
-                                                </li>
-                                                <li class="list-group-item">Email:
-                                                    <span class="text-sea-blue pull-right">Email</span>
-                                                </li>
-                                                <li class="list-group-item">Spoken Language:
-                                                    <span class="text-sea-blue pull-right">Language</span>
-                                                </li>
-                                                <li class="list-group-item">Other Languages:
-                                                    <span class="text-sea-blue pull-right"></span>
-                                                </li>
-                                                <li class="list-group-item">Past Experiences:
-                                                    <span class="text-sea-blue pull-right"></span>
-                                                </li>
-                                            </ul>
+                    </div>
+                    <div class='col-sm-9 col-lg-10'>
+                        <div class='box'>
+                            <div class='box-content box-double-padding'>
+                                <div class="row">
+                                    <div class='col-sm-4'>
+                                        <div class="h4">
+                                            <i class='icon-user text-contrast'></i>
+                                            Personal Details:
                                         </div>
                                     </div>
-                                    <hr class='hr-normal'>
-                                    <div class="row">
-                                        <div class='col-sm-4'>
-                                            <div class='lead'>
-                                                <i class='icon-user text-contrast'></i>
-                                                Employer Feedbacks
-                                            </div>
+                                    <div class='col-sm-8'>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">First Name:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= ucfirst($userdetails['firstname']) ?></span>
+                                            </li>
+                                            <li class="list-group-item">Last Name:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= ucfirst($userdetails['lastname']) ?></span>
+                                            </li>
+                                            <li class="list-group-item">NRIC:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= $userdetails['nric'] ?></span>
+                                            </li>
+                                            <li class="list-group-item">Gender:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= ucfirst($userdetails['gender']) ?></span>
+                                            </li>
+                                            <li class="list-group-item">Date Of Birth:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= ucfirst($userdetails['dateofbirth']) ?></span>
+                                            </li>
+                                            <li class="list-group-item">Phone:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= $userdetails['mobileno'] ?></span>
+                                            </li>
+                                            <li class="list-group-item">Email:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= $userdetails['email'] ?></span>
+                                            </li>
+                                            <li class="list-group-item">Spoken Language:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?= ucfirst($userdetails['spokenlang']) ?></span>
+                                            </li>
+                                            <li class="list-group-item">Other Languages:
+                                                <span
+                                                    class="text-sea-blue pull-right"><?php echo empty($userdetails['spokenlangOther']) ? "-" : $userdetails['spokenlangOther'] ?></span>
+                                            </li>
+                                            <li class="list-group-item">Past Experiences:
+                                                <span class="text-sea-blue pull-right"><?= $totalExp ?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <hr class='hr-normal'>
+                                <div class="row">
+                                    <div class='col-sm-4'>
+                                        <div class='h4'>
+                                            <i class='icon-user text-contrast'></i>
+                                            Feedbacks
                                         </div>
                                     </div>
+                                    <div class="col-sm-8 box-bordered" id="comment_list">
+                                        <!-- =========  One comment div========  -->
+                                        <div class="bubble clearfix box-content">
+                                            <div class="text-fb box-header-small">Regent Hotel
+                                                <div class='time pull-right'>
+                                                    <small class='date pull-right text-muted'>
+                                                        <span class='timeago fade has-tooltip' data-placement='top'
+                                                              title='2013-09-15 17:33:35 +0200'></span>
+                                                        <i class='icon-time'></i>
+                                                    </small>
+                                                </div>
+                                                <div class="raty" data-score="4"></div>
+                                            </div>
+                                            <div class="bubble-content box-content clearfix">
+                                                <div class="point"></div>
+                                                <div>
+                                                    <p>This is a very long soemthin dfd test test setes ests et ste tse
+                                                        tset set set set set set set set set set set set set set set set
+                                                        set set est set est est es tse tse t tes t set t es </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <hr class="fancy-line">
+
+                                        <!-- ========= One comment div =========  -->
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <footer id='footer'>
+                    <div class='footer-wrapper'>
+                        <div class='row'>
+                            <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
+                            <div class='col-sm-6 buttons'>
+                                <a class="btn btn-link" href="">Preview</a>
+                                <a class="btn btn-link"
+                                   href="https://github.com/dev-seahouse">FYP Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
-            <footer id='footer'>
-                <div class='footer-wrapper'>
-                    <div class='row'>
-                        <div class='col-sm-6 text'>Copyright ? 2013 Dev Seahouse</div>
-                        <div class='col-sm-6 buttons'>
-                            <a class="btn btn-link" href="">Preview</a>
-                            <a class="btn btn-link"
-                               href="https://github.com/dev-seahouse">FYP Project</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </section>
+</section>
 </div>
+
 <!-- / jquery [required] -->
 <script src="assets/javascripts/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>
 <!-- / jquery mobile (for touch events) -->
@@ -497,7 +546,22 @@ require_once("controllers/processviewuser.php");
 <!-- / demo file [not required!] -->
 <script src="assets/javascripts/demo.js" type="text/javascript"></script>
 <!-- / START - page related files and scripts [optional] -->
-
+<script src="assets/javascripts/plugins/rating/jquery.raty.js"></script>
+<script src="assets/javascripts/plugins/timeago/jquery.timeago.js" type="text/javascript"></script>
 <!-- / END - page related files and scripts [optional] -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.raty').raty({
+            half: true,
+            readOnly:true,
+            path: 'assets/images/plugins/rating',
+            score: function () {
+                return $(this).attr('data-score');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

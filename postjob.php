@@ -25,7 +25,6 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/imftheme.css">
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-    <link rel="stylesheet" type="text/css" href="jquery-addresspicker-master/demos/demo.css">
     <link rel="stylesheet" type="text/css"
           href="assets/stylesheets/plugins/jquerydatetimepicker/jquery.datetimepicker.css">
 
@@ -644,7 +643,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                         <div class="col-sm-7 col-sm-offset-1">
                             <div class="box bordered-box blue-border ">
                                 <div class="form-group controls">
-                                    <label class="control-label" fo="txtJobDate">Select Date</label>
+                                    <label class="control-label" for="txtJobDate">Select Date</label>
 
                                     <div class='input-group'>
                                         <input class='form-control datetimepicker1'
@@ -1027,7 +1026,6 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <!-- / bootstrap [required] -->
 <script src="assets/javascripts/bootstrap/bootstrap.min.js"></script>
 <script src="assets/javascripts/plugins/bootbox/bootbox.min.js"></script>
-<script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modal.js"></script>
 <!-- / modernizr -->
 <script src="assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
 <!-- / retina -->

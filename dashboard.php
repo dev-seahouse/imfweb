@@ -1,7 +1,6 @@
 
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processDashBoard.php");
-get_pay_summary();
 ?>
 <!DOCTYPE html>
 <html>
@@ -234,7 +233,7 @@ get_pay_summary();
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -370,7 +369,7 @@ get_pay_summary();
                     </a>
                 </li>
                 <li class=''>
-                    <a href="index.php">
+                    <a href="controllers/processlogin.php?logout">
                         <i class='icon-signout'></i>
                         <span>Sign Out</span>
                     </a>

@@ -77,6 +77,7 @@ class Registration
                 $company_long = $this->db_connection->real_escape_string(strip_tags($_POST["inputLong"], ENT_QUOTES));
                 $cardinal=$this->db_connection->real_escape_string(strip_tags($_POST["cardinal"], ENT_QUOTES));
                 $user_random=md5(microtime().rand());
+                $user_random=substr($user_random,0,10);
 
                 /** @var $user_password_hash String */
                 $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
@@ -85,13 +86,13 @@ class Registration
                 /* TODO: A proper check for duplicate accounts .A company can have multiple accounts using same email
                  but different username.eg.Regent_Admin,Regent_User
                 */
-                $sql = "SELECT Username,Email FROM user_t where username=?";
+                $sql = "SELECT Username,Email FROM user_t where username=? or Email=?";
                 //prepare statement
                 if (!$stmt = $this->db_connection->prepare($sql)) {
                     $this->errors[] = "Prepare checking user exist statement sql failed" . $this->db_connection->error;
                 }
                 //bind statement
-                if (!$stmt->bind_param("s", $user_name)) {
+                if (!$stmt->bind_param("ss", $user_name,$user_email)) {
                     $this->errors[] = "Error binding parameter for prepared statement :(" . $stmt->errno . ")" . $stmt->error;
                 }
                 //execute statement errno =error code, error=error descritpion
@@ -102,7 +103,7 @@ class Registration
                 $query_check_user_name = $stmt->get_result();
                 //var_dump($query_check_user_name);
                 if ($query_check_user_name->num_rows == 1) {
-                    $this->errors[] = "User name already taken.";
+                    $this->errors[] = "User name or Email already taken.";
                 } else {
                     /*define sql statement user_name,password_hash,user_email,company_name,
                    company_address,user_random,company_contact(int),
