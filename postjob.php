@@ -483,11 +483,13 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
                                 <!-- TODO: on scope change set text -->
                                 <select class='select2 form-control' id="selJobScope" name="selJobScope"></select>
                             </div>
-                            <div class='form-group'>
+                            <div class='form-group no-mg-b'>
                                 <label>Description</label>
-                                <textarea class='form-control'
-                                          rows='2' maxlength='300' id="txtScopeDesciption"
-                                          style='margin-bottom: 0;' disabled></textarea>
+                                <div class='box box-no-padding box-transparent no-mg-b text-muted'>
+                                    <div class='scrollable' data-scrollable-height='110' data-scrollable-start='top' id="txtScopeDesciption" style="margin-bottom: -20;padding-bottom: 0">
+
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </fieldset>
@@ -1037,6 +1039,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <script src="assets/javascripts/plugins/bootstrap_maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/charCount/charCount.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/autosize/jquery.autosize-min.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 <!-- / START - page related files and scripts [optional] -->
 <script src="assets/javascripts/plugins/fuelux/wizard.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/select2/select2.js" type="text/javascript"></script>
@@ -1050,6 +1053,7 @@ include_once(dirname(__FILE__) . "/controllers/processPostJob.php");
 <!-- Validation -->
 <script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
+
 
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="assets/javascripts/plugins/addresspicker/jquery.ui.addresspicker.js" type="text/javascript"></script> -->
@@ -1226,7 +1230,6 @@ $(document).ready(function () {
     }
 );
 
-
 function get_scopes(categoryID) {
     // this is done to refresh data, otherwise value will not change
     $("#selJobScope").select2("destroy");
@@ -1257,16 +1260,26 @@ function get_scopes(categoryID) {
                 selected_scope_id = $("#selJobScope").val();
                 for (var k in msg) {
                     if (msg[k].ScopeID == selected_scope_id) {
-
-                        $("#txtScopeDesciption").text(msg[k].ScopeDesc);
+                        var a=msg[k].ScopeDesc;
+                        var decoded = $('<div/>').html(a).text();
+                        var splited=decoded.split("</p>");
+                        var oneparagraph=splited[0];
+                        var result=oneparagraph.replace("<p>"," ");
+                        var result=result.trim();
+                       $("#txtScopeDesciption").text(result);
                     }
                 }
                 ;
             })
             for (var k in msg) {
                 if (msg[k].ScopeID == selected_scope_id) {
-
-                    $("#txtScopeDesciption").text(msg[k].ScopeDesc)
+                    var a=msg[k].ScopeDesc;
+                    var decoded = $('<div/>').html(a).text();
+                    var splited=decoded.split("</p>");
+                    var oneparagraph=splited[0];
+                    var result=oneparagraph.replace("<p>"," ");
+                    var result=result.trim();
+                    $("#txtScopeDesciption").text(result);
                 }
             }
             ;
