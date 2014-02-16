@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Comment.php" afterPath="$PROJECT_DIR$/classes/Comment.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/managecomment.php" afterPath="$PROJECT_DIR$/managecomment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processManagementComment.php" afterPath="$PROJECT_DIR$/controllers/processManagementComment.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="imf.iws" />
@@ -30,7 +28,7 @@
     <favorites_list name="imf" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42167878">
+    <splitter split-orientation="horizontal" split-proportion="0.6972901">
       <split-first>
         <leaf>
           <file leaf-file-name="viewuser.php" pinned="false" current="false" current-in-tab="false">
@@ -197,7 +195,7 @@
           <file leaf-file-name="Applicant.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="316" column="48" selection-start="13340" selection-end="13371" vertical-scroll-proportion="-32.892857" vertical-offset="5083" max-vertical-offset="8626">
+                <state line="116" column="33" selection-start="5175" selection-end="5177" vertical-scroll-proportion="85.59259" vertical-offset="6826" max-vertical-offset="8341">
                   <folding>
                     <marker date="1392465593501" expanded="true" signature="2515:2691" placeholder="SELECT * FRO..jobapplicant_t..." />
                     <marker date="1392465593501" expanded="true" signature="6283:6339" placeholder="UPDATE jobap..." />
@@ -252,13 +250,12 @@
           <file leaf-file-name="managecomment.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/managecomment.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="601" column="2" selection-start="27798" selection-end="29603" vertical-scroll-proportion="0.050285716" vertical-offset="12363" max-vertical-offset="15086">
+                <state line="604" column="25" selection-start="27993" selection-end="27993" vertical-scroll-proportion="0.27364865" vertical-offset="11233" max-vertical-offset="14098">
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <marker date="1392563017443" expanded="true" signature="27798:29603" placeholder="/*...*/" />
                   </folding>
                 </state>
               </provider>
@@ -298,37 +295,8 @@
           <file leaf-file-name="managecomment.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/managecomment.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="486" column="91" selection-start="22355" selection-end="22355" vertical-scroll-proportion="-114.0" vertical-offset="0" max-vertical-offset="14022">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <marker date="1392563017443" expanded="true" signature="26910:27059" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="27067:27292" placeholder="//..." />
-                    <marker date="1392563017443" expanded="true" signature="27320:29609" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="27612:27795" placeholder="{&quot;half&quot;: true...}" />
-                    <marker date="1392563017443" expanded="true" signature="27719:27785" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="27868:29599" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="28038:28329" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="28364:28662" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="28696:29559" placeholder="/*...*/" />
-                    <marker date="1392563017443" expanded="true" signature="29640:30312" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="29657:30304" placeholder="{&quot;type&quot;: &quot;POST&quot;...}" />
-                    <marker date="1392563017443" expanded="true" signature="29764:29816" placeholder="{&quot;display_comment&quot;: 1...}" />
-                    <marker date="1392563017443" expanded="true" signature="29888:30293" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="29975:30242" placeholder="{&quot;half&quot;: true...}" />
-                    <marker date="1392563017443" expanded="true" signature="30142:30224" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="30343:31754" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="30673:31492" placeholder="{&quot;sPaginationType&quot;: &quot;bootstrap&quot;...}" />
-                    <marker date="1392563017443" expanded="true" signature="30704:30757" placeholder="[...]" />
-                    <marker date="1392563017443" expanded="true" signature="30818:31202" placeholder="{&quot;sSwfPath&quot;: &quot;libraries/swf/copy_csv_xls_pdf.swf&quot;...}" />
-                    <marker date="1392563017443" expanded="true" signature="30852:31114" placeholder="[...]" />
-                    <marker date="1392563017443" expanded="true" signature="30894:31113" placeholder="{&quot;sExtends&quot;: &quot;collection&quot;...}" />
-                    <marker date="1392563017443" expanded="true" signature="31417:31478" placeholder="{&quot;sLengthMenu&quot;: &quot;_MENU_ records per page&quot;...}" />
-                    <marker date="1392563017443" expanded="true" signature="31782:31833" placeholder="{...}" />
-                    <marker date="1392563017443" expanded="true" signature="31862:31904" placeholder="{...}" />
-                  </folding>
+                <state line="486" column="91" selection-start="22355" selection-end="22355" vertical-scroll-proportion="-114.0" vertical-offset="0" max-vertical-offset="14079">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -405,7 +373,7 @@
           <file leaf-file-name="processManagementComment.php" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="53" column="124" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.74835885" vertical-offset="361" max-vertical-offset="1425">
+                <state line="50" column="127" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.8715596" vertical-offset="418" max-vertical-offset="1672">
                   <folding />
                 </state>
               </provider>
@@ -641,24 +609,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imfweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -898,6 +848,11 @@
           <properties name="UnexpectedValueException" />
           <option name="timeStamp" value="10" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/controllers/processManagementComment.php</url>
+          <line>36</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -907,7 +862,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1118,20 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="83" selection-start="0" selection-end="22694" vertical-scroll-proportion="-11.4" vertical-offset="0" max-vertical-offset="11153">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="48" selection-start="13340" selection-end="13371" vertical-scroll-proportion="-32.892857" vertical-offset="5083" max-vertical-offset="8626">
-          <folding>
-            <marker date="1392465593501" expanded="true" signature="2515:2691" placeholder="SELECT * FRO..jobapplicant_t..." />
-            <marker date="1392465593501" expanded="true" signature="6283:6339" placeholder="UPDATE jobap..." />
-            <marker date="1392465593501" expanded="true" signature="10815:10924" placeholder="UPDATE jobap..." />
-            <marker date="1392465593501" expanded="true" signature="12086:12143" placeholder="UPDATE jobap..." />
-            <marker date="1392465593501" expanded="true" signature="15331:15416" placeholder="select MarkA..." />
-            <marker date="1392465593501" expanded="true" signature="17008:17106" placeholder="select count..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,20 +1346,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="124" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.74835885" vertical-offset="361" max-vertical-offset="1425">
+        <state line="50" column="127" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.8715596" vertical-offset="418" max-vertical-offset="1672">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="33" selection-start="5175" selection-end="5177" vertical-scroll-proportion="85.59259" vertical-offset="6826" max-vertical-offset="8341">
+          <folding>
+            <marker date="1392465593501" expanded="true" signature="2515:2691" placeholder="SELECT * FRO..jobapplicant_t..." />
+            <marker date="1392465593501" expanded="true" signature="6283:6339" placeholder="UPDATE jobap..." />
+            <marker date="1392465593501" expanded="true" signature="10815:10924" placeholder="UPDATE jobap..." />
+            <marker date="1392465593501" expanded="true" signature="12086:12143" placeholder="UPDATE jobap..." />
+            <marker date="1392465593501" expanded="true" signature="15331:15416" placeholder="select MarkA..." />
+            <marker date="1392465593501" expanded="true" signature="17008:17106" placeholder="select count..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/managecomment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="601" column="2" selection-start="27798" selection-end="29603" vertical-scroll-proportion="0.050285716" vertical-offset="12363" max-vertical-offset="15086">
+        <state line="604" column="25" selection-start="27993" selection-end="27993" vertical-scroll-proportion="0.27364865" vertical-offset="11233" max-vertical-offset="14098">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1392563017443" expanded="true" signature="27798:29603" placeholder="/*...*/" />
           </folding>
         </state>
       </provider>

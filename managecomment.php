@@ -576,6 +576,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         setAutoSize();
         loadComments();
         $('#tbViewComment').on('click', '.btn-add-comment', addComment);
+
+
     });
 
     //    function addComments(myButton){
@@ -589,7 +591,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         var currentRow = ($(this).closest('tr'));
         var user_name = $(currentRow).children(".td_user_name").text();
         var user_id = ($(this).data("user_id"));
-
+        var $modal = $("#modalEditComment");
         $('#name_text').html(user_name);
         $('#modalEditComment').modal('show');
         $('.edit_rating').raty({
@@ -599,9 +601,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 return $(this).attr('data-score');
             }
         });
-/*
-        $("#modalEditComment").on('click', '.update', function (e) {
-
+        // the one method is something important to take note and look into in detail in future.It is related to javascript
+        // even handling.
+        $modal.one('click', '.update', function () {
             var rating = $(".edit_rating").find("input[name='score']").val();
             var comment_content = $('.comment-content').val();
 
@@ -620,8 +622,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 return false;
             }
 
-
-
             // Ajax call here
             $.ajax({
                 type: "POST",
@@ -638,7 +638,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                     if (result.trim() == "success") {
                         alertify.success("New comment added!");
                         $modal.modal("hide");
+
                         loadComments();
+                        //clear comment textarea for new input
+                        comment_content.html("");
 
                     }else{
                         alertify.error("An error has occurred, please try again.");
@@ -649,7 +652,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             });
 
             // ajax call ends
-        });*/
+        });
     }
 
 
@@ -685,7 +688,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     function loadDataTable() {
 
         var sdom = "<'row'<'col-sm-12'T>><'row datatables-top'<'col-sm-6'l><'col-sm-6 text-right'f>r>t<'row datatables-bottom'<'col-sm-6'i><'col-sm-6 text-right'p>>";
-        $("#tbViewComment").addClass("table dt-sort-desc2  table-hover data-table-column-filter ");
+        $("#tbViewComment").addClass("table table-hover data-table-column-filter ");
         var dt = $("#tbViewComment").dataTable(
             {
                 "aaSorting": [
