@@ -271,7 +271,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processDashBoard.p
             <!-- ====================  Left side navigation starts here ======================= -->
             <ul class='nav nav-stacked'>
                 <li class=''>
-                    <a href='#'>
+                    <a href='dashboard.php'>
                         <i class='icon-dashboard'></i>
                         <span>Dashboard</span>
                     </a>
@@ -283,7 +283,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processDashBoard.p
                     </a>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="canceljob.php">
                         <i class='icon-remove'></i>
                         <span>Cancel Job</span>
                     </a>
@@ -292,12 +292,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processDashBoard.p
                     <a href="viewjob.php">
                         <i class='icon-suitcase'></i>
                         <span>View Posted Job</span>
-                    </a>
-                </li>
-                <li class=''>
-                    <a href="#">
-                        <i class='icon-calendar'></i>
-                        <span>Plan Future Job</span>
                     </a>
                 </li>
                 <li class=''>

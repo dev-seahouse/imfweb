@@ -31,7 +31,4 @@ function display_pay_data(){
         $tbody_data.='</tr>';
     };
     echo $tbody_data;
-
-
-
 }
