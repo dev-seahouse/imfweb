@@ -233,7 +233,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processViewApplica
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -329,7 +329,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processViewApplica
                     </a>
                 </li>
                 <li class=''>
-                    <a class="dropdown-collapse" href="#">
+                    <a  href="managecomment.php">
                         <i class='icon-star-half-empty'></i>
                         <span>Manage Feedback</span>
 
@@ -343,7 +343,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processViewApplica
                     </a>
                 </li>
                 <li class=''>
-                    <a href="index.php">
+                    <a href="controllers/processlogin.php?logout">
                         <i class='icon-signout'></i>
                         <span>Sign Out</span>
                     </a>

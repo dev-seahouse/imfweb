@@ -333,7 +333,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
                 </a>
             </li>
             <li class=''>
-                <a class="dropdown-collapse" href="managecomment.php">
+                <a href="managecomment.php">
                     <i class='icon-star-half-empty'></i>
                     <span>Manage Feedback</span>
                     <i class='icon-angle-down angle-down'></i>

@@ -323,13 +323,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                 </ul>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="managePay.php">
                     <i class='icon-usd'></i>
                     <span>Manage Pay</span>
                 </a>
             </li>
             <li class=''>
-                <a class="dropdown-collapse" href="managecomment.php">
+                <a href="managecomment.php">
                     <i class='icon-star-half-empty'></i>
                     <span>Manage Feedback</span>
 

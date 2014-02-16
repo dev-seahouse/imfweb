@@ -337,7 +337,7 @@ require_once("controllers/processviewuser.php");
                 <a class="dropdown-collapse" href="managecomment.php">
                     <i class='icon-star-half-empty'></i>
                     <span>Manage Feedback</span>
-                    
+
                 </a>
 
             </li>
