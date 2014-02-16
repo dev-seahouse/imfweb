@@ -143,5 +143,41 @@ class Comment
 
     }
 
+    public function update_comment($company_id,$rating,$comment,$user_id){
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);    //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return  $this->errors;
+            //$error returns string description of last error
+        }
+        if (!$this->db_connection->connect_errno) {
+            $this->db_connection->real_escape_string($company_id);
+            $this->db_connection->real_escape_string(strip_tags($rating, ENT_QUOTES));
+            $this->db_connection->real_escape_string(strip_tags($comment, ENT_QUOTES));
+            $this->db_connection->real_escape_string(strip_tags($user_id, ENT_QUOTES));
+
+            $sql = 'update comment_t set rating=?,comment=?,comment_date=now()';
+            $sql.=' where user_id=? and company_id=?';
+            if (!$stmt = $this->db_connection->prepare($sql)) {
+                $this->errors[] = "Prepare statement error." . $this->db_connection->error;
+                return  $this->errors;
+            }
+            if (!$stmt->bind_param("ssii", $rating, $comment, $user_id, $company_id)) {
+                $this->errors[] = "Error binding data :( " . $stmt->errno . ")" . $stmt->error;
+                return  $this->errors;
+            }
+            if (!$stmt->execute()) {
+                $this->errors[] = "Execution error:(" . $stmt->errno . ")" . $stmt->error;
+                return  $this->errors;
+            }
+            return "success";
+
+        } else {
+            $this->errors[] = "Database connection error.";
+            return  $this->errors;
+        }
+
+    }
+
 
 } 

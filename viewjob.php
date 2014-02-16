@@ -333,32 +333,12 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                 </a>
             </li>
             <li class=''>
-                <a class="dropdown-collapse" href="#">
+                <a class="dropdown-collapse" href="managecomment.php">
                     <i class='icon-star-half-empty'></i>
                     <span>Manage Feedback</span>
-                    <i class='icon-angle-down angle-down'></i>
+
                 </a>
 
-                <ul class='nav nav-stacked'>
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-edit'></i>
-                            <span>Review Rating</span>
-                        </a>
-                    </li>
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-plus'></i>
-                            <span>Add Testimonial</span>
-                        </a>
-                    </li>
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-edit'></i>
-                            <span>Review Testimonial</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class=''>
                 <a href="#">

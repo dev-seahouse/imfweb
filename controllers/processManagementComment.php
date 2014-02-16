@@ -25,6 +25,15 @@ if (!empty($_POST) && isset($_POST['add_comment'])) {
     echo $comment->add_comment($company_id,$company_name,$rating,$comment_content,$user_id);
 
 }
+if (!empty($_POST) && isset($_POST['update_comment'])) {
+    $user_id=$_POST["user_id"];
+    $comment_content=$_POST["comment_content"];
+    $rating=$_POST["rating"];
+    $comment = new Comment();
+    echo $comment->update_comment($company_id,$rating,$comment_content,$user_id);
+
+
+}
 
 
 function display_comments($company_id)

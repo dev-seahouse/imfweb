@@ -239,7 +239,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             </li>
             <li class='divider'></li>
             <li>
-                <a href='index.php'>
+                <a href='controllers/processlogin.php?logout'>
                     <i class='icon-signout'></i>
                     Sign out
                 </a>
@@ -335,32 +335,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 </a>
             </li>
             <li class=''>
-                <a class="dropdown-collapse" href="#">
+                <a class="dropdown-collapse" href="managecomment.php">
                     <i class='icon-star-half-empty'></i>
                     <span>Manage Feedback</span>
-                    <i class='icon-angle-down angle-down'></i>
                 </a>
 
-                <ul class='nav nav-stacked'>
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-edit'></i>
-                            <span>Review Rating</span>
-                        </a>
-                    </li>
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-plus'></i>
-                            <span>Add Testimonial</span>
-                        </a>
-                    </li>
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-edit'></i>
-                            <span>Review Testimonial</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class=''>
                 <a href="contact.php">
@@ -369,7 +348,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 </a>
             </li>
             <li class=''>
-                <a href="index.php">
+                <a href="controllers/processlogin.php?logout">
                     <i class='icon-signout'></i>
                     <span>Sign Out</span>
                 </a>
@@ -576,6 +555,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         setAutoSize();
         loadComments();
         $('#tbViewComment').on('click', '.btn-add-comment', addComment);
+        $('#tbViewComment').on('click', '.btn-edit-comment', editComment);
+
+
 
 
     });
@@ -586,6 +568,86 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     //        var username=($(tr).children(".user_name").text());
     //
     //    }
+
+    function editComment(){
+        var currentRow = ($(this).closest('tr'));
+        var user_name = $(currentRow).children(".td_user_name").text();
+        var user_id = ($(this).data("user_id"));
+        var raty_div= $(currentRow).children("td").find(".raty");
+        //get existing rating score
+        var rating=$(raty_div).data("score");
+        //set existing rating score
+        var $modal = $("#modalEditComment");
+        $('#name_text').html(user_name);
+        $('#modalEditComment').modal('show');
+        $('.edit_rating').raty({
+
+            half: true,
+            path: 'assets/images/plugins/rating',
+            score:rating
+        });
+        //get existing comments
+        var comment_original= $(currentRow).children(".td_comment").text();
+        //set new comment box value;
+        var comment_content = $('.comment-content').val(comment_original);
+
+        $modal.one('click', '.update', function () {
+            //get new rating
+            rating = $(".edit_rating").find("input[name='score']").val();
+            //get new comment
+            comment_content = $('.comment-content').val();
+            //error handling
+            if (!rating) {
+                var error_container = $(".edit_rating").siblings(".error");
+                error_container.html(" Rating cannot be empty!");
+                error_container.addClass('icon-remove');
+                error_container.fadeOut(2000);
+                return false;
+            }
+            if (!comment_content) {
+                var error_container = $(".comment-content").siblings(".error1");
+                error_container.html(" Comment cannot be empty!!");
+                error_container.addClass('icon-remove');
+                error_container.fadeOut(2000);
+                return false;
+            }
+
+            // Ajax call here
+            $.ajax({
+                type: "POST",
+                url: "controllers/processManagementComment.php",
+                data: {
+                    update_comment: 1,
+                    user_id: user_id,
+                    comment_content: comment_content,
+                    rating: rating
+                },
+                crossDomain: true,
+                success: function (result) {
+
+                    if (result.trim() == "success") {
+
+                        alertify.success("Comment updated!");
+                        $modal.modal("hide");
+
+                        loadComments();
+                        //clear comment textarea for new input
+
+
+                    }else{
+                        alertify.error("An error has occurred, please try again.");
+                        $modal.modal("hide");
+                    }
+                }
+
+            });
+
+            // ajax call ends
+        });
+
+
+
+    }
 
     function addComment() {
         var currentRow = ($(this).closest('tr'));
@@ -641,7 +703,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
 
                         loadComments();
                         //clear comment textarea for new input
-                        comment_content.html("");
+                        $('.comment-content').val("");
 
                     }else{
                         alertify.error("An error has occurred, please try again.");
