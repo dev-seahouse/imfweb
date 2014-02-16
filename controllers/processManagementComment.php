@@ -22,7 +22,7 @@ if (!empty($_POST) && isset($_POST['add_comment'])) {
     $comment_content=$_POST["comment_content"];
     $rating=$_POST["rating"];
     $comment = new Comment();
-    $comment->add_comment($company_id,$company_name,$rating,$comment_content,$user_id);
+    echo $comment->add_comment($company_id,$company_name,$rating,$comment_content,$user_id);
 
 }
 
@@ -48,7 +48,7 @@ function display_comments($company_id)
         }
         if (!$comment_null) {
             $tbody_data .= '  <td class="td_comment">' . $row['comment'] . '</td>';
-            $tbody_data .= '  <td><button class="btn btn-sm contrast btn-edit-comment"  data-user_id="' . $row["user_id"] . '">Edit</button></td>';
+            $tbody_data .= '  <td><button class="btn btn-sm contrast btn-edit-comment"  data-user_id="' . $row["user_id"] . '" >Edit</button></td>';
         } else {
             $tbody_data .= '  <td class="text-red">No comment</td>';
             $tbody_data .= '  <td><button class="btn btn-sm contrast btn-add-comment" data-user_id="' . $row["user_id"] . '">Add</button></td>';

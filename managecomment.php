@@ -29,6 +29,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     <link rel="stylesheet" type="text/css"
           href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal-bs3patch.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/alertify/alertify.core.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/alertify/alertify.default.css">
+
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
     <script src="assets/javascripts/compatibility/response.min.js" type="text/javascript"></script>
@@ -298,7 +301,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 </a>
             </li>
             <li class=''>
-                <a href="#">
+                <a href="viewapplicants.php">
                     <i class='icon-user'></i>
                     <span>View Job Applications</span>
                 </a>
@@ -465,7 +468,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                                         </div>
                                                         <div class='box-content box-transparent'>
                                                             <div class="edit_rating">
-                                                            </div><small class="error text-red"></small>
+                                                            </div>
+                                                            <small class="error text-red"></small>
                                                         </div>
                                                     </div>
 
@@ -475,10 +479,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                                             <div class='title'>Comment</div>
                                                         </div>
                                                         <div class='box-content'>
-                                                            <textarea class='comment-content form-control char-max-length autosize '
-                                                                      maxlength='400'
-                                                                      placeholder='This field has limit of 400 chars'
-                                                                      rows='2' style='margin-bottom: 0;'></textarea>
+                                                            <textarea
+                                                                class='comment-content form-control char-max-length autosize '
+                                                                maxlength='400'
+                                                                placeholder='This field has limit of 400 chars'
+                                                                rows='2' style='margin-bottom: 0;'></textarea>
                                                             <small class="text-red error1"></small>
 
                                                         </div>
@@ -562,6 +567,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
 <script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modal.js"></script>
 <script src="assets/javascripts/plugins/bootstrap_modal/bootstrap-modalmanager.js"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/alertify/alertify.min.js"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.tableTools.min.js"></script>
 <script src="assets/javascripts/plugins/rating/jquery.raty.js"></script>
 <script type="text/javascript">
@@ -569,9 +575,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         setMaxSize();
         setAutoSize();
         loadComments();
-        $('#tbViewComment').on('click', '.btn-add-comment',addComment);
-
-
+        $('#tbViewComment').on('click', '.btn-add-comment', addComment);
     });
 
     //    function addComments(myButton){
@@ -581,11 +585,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     //
     //    }
 
-    function addComment(){
+    function addComment() {
         var currentRow = ($(this).closest('tr'));
         var user_name = $(currentRow).children(".td_user_name").text();
         var user_id = ($(this).data("user_id"));
-        var $modal = $("#modalEditComment");
+
         $('#name_text').html(user_name);
         $('#modalEditComment').modal('show');
         $('.edit_rating').raty({
@@ -595,45 +599,57 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 return $(this).attr('data-score');
             }
         });
-        $modal.on('click', '.update', function () {
-            var rating=$(".edit_rating").find("input[name='score']").val();
-            var comment_content=$('.comment-content').val();
+/*
+        $("#modalEditComment").on('click', '.update', function (e) {
 
-            if (!rating){
-                var error_container=$(".edit_rating").siblings(".error");
+            var rating = $(".edit_rating").find("input[name='score']").val();
+            var comment_content = $('.comment-content').val();
+
+            if (!rating) {
+                var error_container = $(".edit_rating").siblings(".error");
                 error_container.html(" Rating cannot be empty!");
                 error_container.addClass('icon-remove');
                 error_container.fadeOut(2000);
                 return false;
             }
-            if (!comment_content){
-                var error_container=$(".comment-content").siblings(".error1");
+            if (!comment_content) {
+                var error_container = $(".comment-content").siblings(".error1");
                 error_container.html(" Comment cannot be empty!!");
                 error_container.addClass('icon-remove');
                 error_container.fadeOut(2000);
                 return false;
             }
 
-    // Ajax call here
+
+
+            // Ajax call here
             $.ajax({
                 type: "POST",
                 url: "controllers/processManagementComment.php",
                 data: {
                     add_comment: 1,
-                    user_id:user_id,
-                    user_name:user_name,
+                    user_id: user_id,
+                    user_name: user_name,
                     comment_content: comment_content,
-                    rating:rating
+                    rating: rating
                 },
                 crossDomain: true,
                 success: function (result) {
-                    
+                    if (result.trim() == "success") {
+                        alertify.success("New comment added!");
+                        $modal.modal("hide");
+                        loadComments();
+
+                    }else{
+                        alertify.error("An error has occurred, please try again.");
+                        $modal.modal("hide");
+                    }
                 }
 
             });
 
-        // ajax call ends
-        });
+            // ajax call ends
+        });*/
     }
 
 
@@ -648,6 +664,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             },
             crossDomain: true,
             success: function (result) {
+
                 $("#display_comment").html(result);
                 $('.raty').raty({
                     half: true,
@@ -666,6 +683,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     }
 
     function loadDataTable() {
+
         var sdom = "<'row'<'col-sm-12'T>><'row datatables-top'<'col-sm-6'l><'col-sm-6 text-right'f>r>t<'row datatables-bottom'<'col-sm-6'i><'col-sm-6 text-right'p>>";
         $("#tbViewComment").addClass("table dt-sort-desc2  table-hover data-table-column-filter ");
         var dt = $("#tbViewComment").dataTable(
@@ -685,6 +703,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 },
 
                 sPaginationType: "bootstrap",
+                bRetrieve:true,
+                bDestroy:true,
                 "iDisplayLength": $(this).data("pagination-records") || 10,
                 oLanguage: {
                     sLengthMenu: "_MENU_ records per page"}
