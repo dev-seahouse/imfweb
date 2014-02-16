@@ -336,8 +336,10 @@
                                     "sExtends":    "collection",
                                     "sButtonText": 'Save <span class="caret" />',
                                     "aButtons":    [ "csv", "xls", "pdf" ]
-                                }]
+                                }],
+                            "sSwfPath": "libraries/swf/copy_csv_xls_pdf.swf"
                         },
+
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
                         oLanguage: {
@@ -355,7 +357,8 @@
                                     "sExtends":    "collection",
                                     "sButtonText": 'Save <span class="caret" />',
                                     "aButtons":    [ "csv", "xls", "pdf" ]
-                                }]
+                                }],
+                            "sSwfPath": "libraries/swf/copy_csv_xls_pdf.swf"
                         },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
@@ -374,7 +377,8 @@
                                     "sExtends":    "collection",
                                     "sButtonText": 'Save <span class="caret" />',
                                     "aButtons":    [ "csv", "xls", "pdf" ]
-                                }]
+                                }],
+                            "sSwfPath": "libraries/swf/copy_csv_xls_pdf.swf"
                         },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
@@ -393,7 +397,8 @@
                                     "sExtends":    "collection",
                                     "sButtonText": 'Save <span class="caret" />',
                                     "aButtons":    [ "csv", "xls", "pdf" ]
-                                }]
+                                }],
+                            "sSwfPath": "libraries/swf/copy_csv_xls_pdf.swf"
                         },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,
@@ -412,7 +417,8 @@
                                     "sExtends":    "collection",
                                     "sButtonText": 'Save <span class="caret" />',
                                     "aButtons":    [ "csv", "xls", "pdf" ]
-                                }]
+                                }],
+                            "sSwfPath": "libraries/swf/copy_csv_xls_pdf.swf"
                         },
                         sPaginationType: "bootstrap",
                         "iDisplayLength": $(elem).data("pagination-records") || 10,

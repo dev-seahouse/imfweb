@@ -63,7 +63,7 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($job_id);
-            $sql = "SELECT * FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid join mobilesession_t on mobilesession_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=?";
+            $sql = "SELECT * FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid join mobilesession_t on mobilesession_t.userid=user_t.userid where MarkAsPresent='A' AND JobID=? ";
             if (!$stmt = $this->db_connection->prepare($sql)) {
                 $this->errors[] = "Prepare statement error." . $this->db_connection->error;
             }

@@ -50,7 +50,6 @@ if (!empty($_POST) && isset($_POST['jobid'])){
     }
     echo $modal_data;
     $result_set->close();
-
 }
 
 
