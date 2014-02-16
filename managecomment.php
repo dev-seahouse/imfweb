@@ -26,7 +26,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/datatables/dataTables.tableTools.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal-bs3patch.css">
+    <link rel="stylesheet" type="text/css"
+          href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal-bs3patch.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/bootstrap_modal/bootstrap-modal.css">
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
@@ -375,7 +376,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
 </nav>
 <section id='content'>
 
-
     <div class='container'>
         <div class='row' id='content-wrapper'>
 
@@ -451,22 +451,47 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                             </div>
                                         </div>
                                         <!-- Comment modal -->
-                                        <div class='modal fade' id='modalEditComment' tabindex='-1' style="display: none;">
+                                        <div class='modal fade' id='modalEditComment' tabindex='-1'
+                                             style="display: none;">
 
                                             <div class='modal-content'>
                                                 <div class='modal-header contrast' id="vacancy_header">
-                                                    Add new Comment -<span class="text-muted" id="name_text"></span>
+                                                    Edit Comment -<span class="text-muted" id="name_text"></span>
                                                 </div>
                                                 <div class='modal-body'>
+                                                    <div class='box box-bordered contrast-border  box-nomargin'>
+                                                        <div class='box-header box-header-small contrast-background'>
+                                                            <div class='title'>Rating</div>
+                                                        </div>
+                                                        <div class='box-content box-transparent'>
+                                                            <div class="edit_rating">
+                                                            </div><small class="error text-red"></small>
+                                                        </div>
+                                                    </div>
 
+
+                                                    <div class='box box-bordered contrast-border box-nomargin'>
+                                                        <div class='box-header box-header-small contrast-background'>
+                                                            <div class='title'>Comment</div>
+                                                        </div>
+                                                        <div class='box-content'>
+                                                            <textarea class='comment-content form-control char-max-length autosize '
+                                                                      maxlength='400'
+                                                                      placeholder='This field has limit of 400 chars'
+                                                                      rows='2' style='margin-bottom: 0;'></textarea>
+                                                            <small class="text-red error1"></small>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
+
                                                 <!-- button field -->
                                                 <div class='modal-footer'>
                                                     <button class='btn btn-danger' data-dismiss='modal'
                                                             type='button'>Close
                                                     </button>
                                                     <button class='btn btn-success update'
-                                                            type='button'>Add
+                                                            type='button'>Update
                                                     </button>
                                                 </div>
                                                 <!-- button field -->
@@ -490,6 +515,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             <!--End Main Column-->
             <!-- End container.row.col-xs-12-->
         </div>
+
         <!-- End container.row -->
         <footer id='footer'>
             <div class='footer-wrapper'>
@@ -526,8 +552,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
 <script src="assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
 <!-- / retina -->
 <script src="assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
-<!-- / theme file [required] -->
-
+<script src="assets/javascripts/plugins/autosize/jquery.autosize-min.js" type="text/javascript"></script>
+<script src="assets/javascripts/plugins/bootstrap_maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <!-- / demo file [not required!] -->
 <script src="assets/javascripts/demo.js" type="text/javascript"></script>
 <!-- / START - page related files and scripts [optional] -->
@@ -540,22 +566,76 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
 <script src="assets/javascripts/plugins/rating/jquery.raty.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-
+        setMaxSize();
+        setAutoSize();
         loadComments();
-
-
-
-
+        $('#tbViewComment').on('click', '.btn-add-comment',addComment);
 
 
     });
 
-    function addComments(myButton){
-        var user_id=$(myButton).data("user_id");
-        var tr=$(myButton).closest('tr');
-        var username=($(tr).children(".user_name").text());
+    //    function addComments(myButton){
+    //        var user_id=$(myButton).data("user_id");
+    //        var tr=$(myButton).closest('tr');
+    //        var username=($(tr).children(".user_name").text());
+    //
+    //    }
 
+    function addComment(){
+        var currentRow = ($(this).closest('tr'));
+        var user_name = $(currentRow).children(".td_user_name").text();
+        var user_id = ($(this).data("user_id"));
+        var $modal = $("#modalEditComment");
+        $('#name_text').html(user_name);
+        $('#modalEditComment').modal('show');
+        $('.edit_rating').raty({
+            half: true,
+            path: 'assets/images/plugins/rating',
+            score: function () {
+                return $(this).attr('data-score');
+            }
+        });
+        $modal.on('click', '.update', function () {
+            var rating=$(".edit_rating").find("input[name='score']").val();
+            var comment_content=$('.comment-content').val();
+
+            if (!rating){
+                var error_container=$(".edit_rating").siblings(".error");
+                error_container.html(" Rating cannot be empty!");
+                error_container.addClass('icon-remove');
+                error_container.fadeOut(2000);
+                return false;
+            }
+            if (!comment_content){
+                var error_container=$(".comment-content").siblings(".error1");
+                error_container.html(" Comment cannot be empty!!");
+                error_container.addClass('icon-remove');
+                error_container.fadeOut(2000);
+                return false;
+            }
+
+    // Ajax call here
+            $.ajax({
+                type: "POST",
+                url: "controllers/processManagementComment.php",
+                data: {
+                    add_comment: 1,
+                    user_id:user_id,
+                    user_name:user_name,
+                    comment_content: comment_content,
+                    rating:rating
+                },
+                crossDomain: true,
+                success: function (result) {
+                    
+                }
+
+            });
+
+        // ajax call ends
+        });
     }
+
 
     function loadComments() {
         $.ajax({
@@ -615,6 +695,16 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         dt.closest('.dataTables_wrapper').find('input').addClass("form-control input-sm").attr('placeholder', 'Search');
 
     }
+
+    function setMaxSize() {
+        $(".char-max-length").maxlength();
+
+    }
+
+    function setAutoSize() {
+        $(".autosize").autosize();
+    }
+
 
 </script>
 
