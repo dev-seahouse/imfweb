@@ -55,7 +55,7 @@ if (isset($_POST["post_new_job"]) == 1) {
         $job_date = $_POST['job_date'];
         $job_start_time = $_POST['job_start_time'];
         $job_end_time = $_POST['job_end_time'];
-        $vacancy = $_POST['standard_pay'];
+        $vacancy = $_POST['vacancy'];
         $standard_pay = $_POST['standard_pay'];
         $min_exp_hours = $_POST['min_exp_hours'];
         $bonus_pay = $_POST['bonus_pay'];

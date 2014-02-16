@@ -397,7 +397,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                                                     id="tbManagePay">
                                                     <thead>
                                                     <tr>
-                                                        <th>Date</th>
+                                                        <th>Job Date</th>
                                                         <th>Name</th>
                                                         <th>NIRC</th>
                                                         <th>Mobile</th>

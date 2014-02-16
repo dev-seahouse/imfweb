@@ -90,6 +90,7 @@ jQuery(document).ready(function() {
 //        var inputLat_value = "1.234343";
 //        var inputLong_value = "1.234343";
         url = $form.attr('action');
+        inputPhone_value=inputPhone_value.trim();
         //sending data via post
         //alert(inputUserName_value);
         //window.location.href = "controllers/processregister.php";
