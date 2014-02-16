@@ -26,6 +26,8 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
     <!--- =============   Customise theme File     ================================== -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/datatables/dataTables.tableTools.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/alertify/alertify.core.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/plugins/alertify/alertify.default.css">
 
     <!--[if lt IE 9]>
     <script src="assets/javascripts/compatibility/html5shiv.js" type="text/javascript"></script>
@@ -489,6 +491,8 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 <script src="assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
 <script src="assets/javascripts/plugins/datatables/dataTables.tableTools.min.js"></script>
+<script src="assets/javascripts/plugins/alertify/alertify.min.js"></script>
+
 <script type="text/javascript">
     $('input[type=checkbox]').click(function () {
                 this.disabled = true;
@@ -497,7 +501,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckin.php");
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
-function updateCheckIn(app_id) {
+function updateCheckIn(app_id,app_name) {
 $.ajax({
 	type       : "POST",
 	url        : "controllers/processCheckIn.php",
@@ -510,7 +514,12 @@ $.ajax({
 	dataType   : 'text',
 	timeout	   : 5000,
     success: function(response) {
-
+        alertify.set({ delay:1500 });
+        alertify.success(app_name +" checked in.");
+    },
+    error:function(response){
+        alertify.set({ delay: 3000 });
+        alertify.error(app_name +"error checking in.Please refresh page and try again.");
     }
 });	
 }

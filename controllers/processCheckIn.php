@@ -39,7 +39,7 @@ function display_checkin_data()
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['JobEndTime'])) . '</td>';
         $tbody_data .= '    <td>';
         $tbody_data .= '        <div class="text-center">';
-        $tbody_data .= '<input type="checkbox" class="checkbox-inline" name="attendance" onClick="updateCheckIn(' . $row['JobAppID'] . ')" />';
+        $tbody_data .= '<input type="checkbox" class="checkbox-inline" name="attendance" onClick="updateCheckIn(' . $row['JobAppID'] . ',\''.$row['Name'].'\')" />';
         $tbody_data .= '        </div>';
         $tbody_data .= '    </td>';
         $tbody_data .= '</tr>';

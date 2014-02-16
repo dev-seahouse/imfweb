@@ -65,7 +65,7 @@ function display_checkout_data()
         $tbody_data .= '    <td>' . date("h:i A", strtotime($row['CheckIn'])) . '</td>';
         $tbody_data .= '    <td>';
         $tbody_data .= '        <div class="text-center">';
-        $tbody_data .= '            <input type="checkbox" name="attendance" onClick="updateCheckOut(' . $row['JobAppID'] .','.$row['TotalExp'] .')" />';
+        $tbody_data .= '            <input type="checkbox" name="attendance" onClick="updateCheckOut(' . $row['JobAppID'] .','.$row['TotalExp'] .',\''. $row['Name']   .'\')" >';
         $tbody_data .= '        </div>';
         $tbody_data .= '    </td>';
         $tbody_data .= '</tr>';
