@@ -70,7 +70,7 @@ function displayJobData(){
                 $tbody_data.='    <td><a href="#" class="has-tooltip badge center-block" data-toggle="tooltip" data-placement="top" title="View applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">'.$row['JobSlotVacLeft'].'</a></td>';
                 break;
             case 1:
-                $tbody_data.='    <td><span class="label label-success center-block has-tooltip" data-placement="top" title="All job vacancies are filled.Changes could still be made before job application closed.">vi</span></td>';
+                $tbody_data.='    <td><span class="label label-success center-block has-tooltip" data-placement="top" title="All job vacancies are filled.Changes could still be made before job application closed.">Fulfilled</span></td>';
                 $tbody_data.='    <td><a href="#" class="has-tooltip badge center-block" data-toggle="tooltip" data-placement="top" title="View applicants." onClick="loadnames('.$row['JobID'].','.$row['JobSlotVacancy'].','.$row['JobSlotVacLeft'].')">'.$row['JobSlotVacLeft'].'</a></td>';
                 break;
             case 2:

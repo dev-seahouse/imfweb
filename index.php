@@ -3,7 +3,7 @@
 require_once("libraries/utilities.php");
 session_start();
 if (isset($_SESSION['user_login_status']) AND $_SESSION["user_login_status"] == 1) {
-    redirect_to("viewjob.php");
+    redirect_to("dashboard.php");
 }
 ?>
 <!DOCTYPE html>
