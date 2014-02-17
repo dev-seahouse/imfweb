@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Applicant.php" afterPath="$PROJECT_DIR$/classes/Applicant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Pay.php" afterPath="$PROJECT_DIR$/classes/Pay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/managePay.php" afterPath="$PROJECT_DIR$/managePay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js" afterPath="$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/managecomment.php" afterPath="$PROJECT_DIR$/managecomment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processCheckIn.php" afterPath="$PROJECT_DIR$/controllers/processCheckIn.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processManagePay.php" afterPath="$PROJECT_DIR$/controllers/processManagePay.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processManagementComment.php" afterPath="$PROJECT_DIR$/controllers/processManagementComment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processViewApplicants.php" afterPath="$PROJECT_DIR$/controllers/processViewApplicants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processcanceljob.php" afterPath="$PROJECT_DIR$/controllers/processcanceljob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processcheckout.php" afterPath="$PROJECT_DIR$/controllers/processcheckout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processviewjob.php" afterPath="$PROJECT_DIR$/controllers/processviewjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewapplicants.php" afterPath="$PROJECT_DIR$/viewapplicants.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="imf.iws" />
@@ -39,7 +30,7 @@
     <favorites_list name="imf" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46199605">
+    <splitter split-orientation="horizontal" split-proportion="0.4990086">
       <split-first>
         <leaf>
           <file leaf-file-name="processviewuser.php" pinned="false" current="false" current-in-tab="false">
@@ -47,17 +38,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state line="24" column="0" selection-start="607" selection-end="608" vertical-scroll-proportion="-15.0" vertical-offset="36" max-vertical-offset="950">
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processviewjob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="39" column="70" selection-start="1546" selection-end="1569" vertical-scroll-proportion="-16.285715" vertical-offset="285" max-vertical-offset="2147">
-                  <folding>
-                    <marker date="1392627543389" expanded="true" signature="2253:2293" placeholder="..." />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -91,10 +71,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="viewjob.php" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="viewjob.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/viewjob.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="363" column="43" selection-start="14897" selection-end="14897" vertical-scroll-proportion="-0.85106385" vertical-offset="7866" max-vertical-offset="11457">
+                <state line="551" column="54" selection-start="25529" selection-end="25529" vertical-scroll-proportion="-23.142857" vertical-offset="9821" max-vertical-offset="11305">
                   <folding />
                 </state>
               </provider>
@@ -103,7 +83,7 @@
           <file leaf-file-name="viewapplicants.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/viewapplicants.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="424" column="81" selection-start="19503" selection-end="19503" vertical-scroll-proportion="-8.592592" vertical-offset="7592" max-vertical-offset="9785">
+                <state line="415" column="60" selection-start="18787" selection-end="18787" vertical-scroll-proportion="-3.3148148" vertical-offset="7706" max-vertical-offset="9690">
                   <folding />
                 </state>
               </provider>
@@ -136,6 +116,17 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="managecomment.php" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/managecomment.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="628" column="64" selection-start="29127" selection-end="29127" vertical-scroll-proportion="9.064189" vertical-offset="4130" max-vertical-offset="17328">
+                  <folding>
+                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -143,7 +134,7 @@
           <file leaf-file-name="processDashBoard.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controllers/processDashBoard.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="20" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="-12.964286" vertical-offset="17" max-vertical-offset="2584">
+                <state line="17" column="23" selection-start="603" selection-end="603" vertical-scroll-proportion="-10.928572" vertical-offset="17" max-vertical-offset="2584">
                   <folding />
                 </state>
               </provider>
@@ -152,7 +143,7 @@
           <file leaf-file-name="Comment.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/classes/Comment.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="-13.821428" vertical-offset="981" max-vertical-offset="3591">
+                <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="-13.821428" vertical-offset="981" max-vertical-offset="3572">
                   <folding>
                     <marker date="1392567925533" expanded="true" signature="779:837" placeholder="SELECT * FRO..comment_t..." />
                     <marker date="1392567925533" expanded="true" signature="4422:4526" placeholder="insert into ..." />
@@ -165,42 +156,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="postjob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/postjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1176" column="46" selection-start="49879" selection-end="49879" vertical-scroll-proportion="0.0" vertical-offset="22344" max-vertical-offset="25631">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Pay.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/classes/Pay.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="-9.5" vertical-offset="228" max-vertical-offset="3933">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="managecomment.php" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/managecomment.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="412" column="65" selection-start="17818" selection-end="17818" vertical-scroll-proportion="0.32882884" vertical-offset="7593" max-vertical-offset="16568">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="theme.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="150" column="0" selection-start="5226" selection-end="5369" vertical-scroll-proportion="-0.7307692" vertical-offset="2831" max-vertical-offset="9006">
+                <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="43.42857" vertical-offset="1710" max-vertical-offset="3876">
                   <folding />
                 </state>
               </provider>
@@ -224,11 +183,32 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="processManagementComment.php" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="processManagementComment.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="47" selection-start="1320" selection-end="1320" vertical-scroll-proportion="-8.821428" vertical-offset="570" max-vertical-offset="1615">
+                <state line="61" column="99" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.6115427" vertical-offset="627" max-vertical-offset="1691">
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="theme.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="117" column="9" selection-start="3993" selection-end="4680" vertical-scroll-proportion="-41.423077" vertical-offset="1146" max-vertical-offset="10184">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="jquery.autosize-min.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="252" column="36" selection-start="10256" selection-end="10256" vertical-scroll-proportion="0.0" vertical-offset="4036" max-vertical-offset="5263">
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <marker date="1392635696775" expanded="true" signature="537:856" placeholder="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -269,7 +249,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql" />
         <option value="$PROJECT_DIR$/compass/sass/theme/_utilities.scss" />
         <option value="$PROJECT_DIR$/checkin.html" />
         <option value="$PROJECT_DIR$/contact.html" />
@@ -293,7 +272,6 @@
         <option value="$PROJECT_DIR$/config/db.php" />
         <option value="$PROJECT_DIR$/controllers/processviewuser.php" />
         <option value="$PROJECT_DIR$/controllers/managecomment.php" />
-        <option value="$PROJECT_DIR$/assets/javascripts/theme.js" />
         <option value="$PROJECT_DIR$/classes/Comment.php" />
         <option value="$PROJECT_DIR$/canceljob.php" />
         <option value="$PROJECT_DIR$/contact.php" />
@@ -303,7 +281,6 @@
         <option value="$PROJECT_DIR$/checkout.php" />
         <option value="$PROJECT_DIR$/checkin.php" />
         <option value="$PROJECT_DIR$/viewuser.php" />
-        <option value="$PROJECT_DIR$/controllers/get_comments.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/assets/javascripts/scripts.js" />
         <option value="$PROJECT_DIR$/controllers/processPostJob.php" />
@@ -311,15 +288,18 @@
         <option value="$PROJECT_DIR$/controllers/processviewjob.php" />
         <option value="$PROJECT_DIR$/controllers/processcanceljob.php" />
         <option value="$PROJECT_DIR$/controllers/processViewApplicants.php" />
-        <option value="$PROJECT_DIR$/controllers/processManagementComment.php" />
         <option value="$PROJECT_DIR$/controllers/processCheckIn.php" />
-        <option value="$PROJECT_DIR$/managecomment.php" />
         <option value="$PROJECT_DIR$/classes/Applicant.php" />
         <option value="$PROJECT_DIR$/controllers/processcheckout.php" />
         <option value="$PROJECT_DIR$/classes/Pay.php" />
         <option value="$PROJECT_DIR$/controllers/processManagePay.php" />
         <option value="$PROJECT_DIR$/viewapplicants.php" />
         <option value="$PROJECT_DIR$/managePay.php" />
+        <option value="$PROJECT_DIR$/controllers/get_comments.php" />
+        <option value="$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js" />
+        <option value="$PROJECT_DIR$/assets/javascripts/theme.js" />
+        <option value="$PROJECT_DIR$/managecomment.php" />
+        <option value="$PROJECT_DIR$/controllers/processManagementComment.php" />
       </list>
     </option>
   </component>
@@ -748,14 +728,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sql/regUser">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="102" selection-start="1170" selection-end="1170" vertical-scroll-proportion="-20.52" vertical-offset="0" max-vertical-offset="684" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flatty/bs3/html/charts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="816" column="17" selection-start="35324" selection-end="35324" vertical-scroll-proportion="2.9589345" vertical-offset="12838" max-vertical-offset="19608" />
@@ -904,18 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/get_comments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="722" selection-end="722" vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="1387">
-          <folding>
-            <marker date="1392571608437" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392571608437" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392571608437" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392571608437" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="240" column="30" selection-start="12030" selection-end="12030" vertical-scroll-proportion="0.0" vertical-offset="4560" max-vertical-offset="5282">
@@ -933,13 +893,6 @@
     <entry file="file://$PROJECT_DIR$/postjob.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1176" column="46" selection-start="49879" selection-end="49879" vertical-scroll-proportion="0.0" vertical-offset="22344" max-vertical-offset="25631">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/processDashBoard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="-12.964286" vertical-offset="17" max-vertical-offset="2584">
           <folding />
         </state>
       </provider>
@@ -965,25 +918,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="-13.821428" vertical-offset="981" max-vertical-offset="3591">
-          <folding>
-            <marker date="1392567925533" expanded="true" signature="779:837" placeholder="SELECT * FRO..comment_t..." />
-            <marker date="1392567925533" expanded="true" signature="4422:4526" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="4422:4499" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="4422:4534" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="4422:4499" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="6151:6209" placeholder="update comme..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="70" selection-start="1546" selection-end="1569" vertical-scroll-proportion="-16.285715" vertical-offset="285" max-vertical-offset="2109">
           <folding>
-            <marker date="1392627543389" expanded="true" signature="2253:2293" placeholder="..." />
+            <marker date="1392627543389" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -991,20 +930,6 @@
     <entry file="file://$PROJECT_DIR$/controllers/processCheckIn.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="-5.5" vertical-offset="207" max-vertical-offset="1121">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="47" selection-start="1320" selection-end="1320" vertical-scroll-proportion="-8.821428" vertical-offset="570" max-vertical-offset="1615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="5226" selection-end="5369" vertical-scroll-proportion="-0.7307692" vertical-offset="2831" max-vertical-offset="9006">
           <folding />
         </state>
       </provider>
@@ -1046,23 +971,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Pay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="-9.5" vertical-offset="228" max-vertical-offset="3933">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processViewApplicants.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="45" selection-start="1040" selection-end="1040" vertical-scroll-proportion="-19.0" vertical-offset="0" max-vertical-offset="1121">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/viewapplicants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="424" column="81" selection-start="19503" selection-end="19503" vertical-scroll-proportion="-8.592592" vertical-offset="7592" max-vertical-offset="9785">
           <folding />
         </state>
       </provider>
@@ -1081,18 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managecomment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="412" column="65" selection-start="17818" selection-end="17818" vertical-scroll-proportion="0.32882884" vertical-offset="7593" max-vertical-offset="16568">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/managePay.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="412" column="60" selection-start="17843" selection-end="17843" vertical-scroll-proportion="-5.428571" vertical-offset="7676" max-vertical-offset="9633">
@@ -1107,9 +1006,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/get_comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="41" selection-start="964" selection-end="964" vertical-scroll-proportion="0.22308546" vertical-offset="426" max-vertical-offset="1387">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="-13.821428" vertical-offset="981" max-vertical-offset="3591">
+          <folding>
+            <marker date="1392567925533" expanded="true" signature="779:837" placeholder="SELECT * FRO..comment_t..." />
+            <marker date="1392567925533" expanded="true" signature="4422:4526" placeholder="insert into ..." />
+            <marker date="1392567925533" expanded="true" signature="4422:4499" placeholder="insert into ..." />
+            <marker date="1392567925533" expanded="true" signature="4422:4534" placeholder="insert into ..." />
+            <marker date="1392567925533" expanded="true" signature="4422:4499" placeholder="insert into ..." />
+            <marker date="1392567925533" expanded="true" signature="6151:6209" placeholder="update comme..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/viewjob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="363" column="43" selection-start="14897" selection-end="14897" vertical-scroll-proportion="-0.85106385" vertical-offset="7866" max-vertical-offset="11457">
+        <state line="551" column="54" selection-start="25529" selection-end="25529" vertical-scroll-proportion="-23.142857" vertical-offset="9821" max-vertical-offset="11305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/processDashBoard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="603" selection-end="603" vertical-scroll-proportion="-10.928572" vertical-offset="17" max-vertical-offset="2584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewapplicants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="415" column="60" selection-start="18787" selection-end="18787" vertical-scroll-proportion="-3.3148148" vertical-offset="7706" max-vertical-offset="9690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="252" column="36" selection-start="10256" selection-end="10256" vertical-scroll-proportion="0.0" vertical-offset="4036" max-vertical-offset="5263">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1392635696775" expanded="true" signature="537:856" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="43.42857" vertical-offset="1710" max-vertical-offset="3876">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="9" selection-start="3993" selection-end="4680" vertical-scroll-proportion="-41.423077" vertical-offset="1146" max-vertical-offset="10184">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/managecomment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="628" column="64" selection-start="29127" selection-end="29127" vertical-scroll-proportion="9.064189" vertical-offset="4130" max-vertical-offset="17328">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="99" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.6115427" vertical-offset="627" max-vertical-offset="1691">
           <folding />
         </state>
       </provider>

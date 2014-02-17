@@ -461,8 +461,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                                             <textarea
                                                                 class='comment-content form-control char-max-length autosize '
                                                                 maxlength='400'
+
                                                                 placeholder='This field has limit of 400 chars'
-                                                                rows='2' style='margin-bottom: 0;'></textarea>
+                                                                rows='4' style='margin-bottom: 0;'></textarea>
                                                             <small class="text-red error1"></small>
 
                                                         </div>
@@ -614,6 +615,28 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         this.nav_open = function () {
             return $("body").hasClass("main-nav-opened") || $("#main-nav").width() > 50;
         };
+
+        touch = false;
+        if (window.Modernizr) {
+            touch = Modernizr.touch;
+        }
+        if (!touch) {
+            $("body").on("mouseenter", ".has-popover", function () {
+                var el;
+                el = $(this);
+                if (el.data("popover") === undefined) {
+                    el.popover({
+                        placement: el.data("placement") || "top",
+                        container: "body"
+                    });
+                }
+                return el.popover("show");
+            });
+            $("body").on("mouseleave", ".has-popover", function () {
+                return $(this).popover("hide");
+            });
+        }
+
         setMaxSize();
         setAutoSize();
         loadComments();
@@ -650,9 +673,14 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             score:rating
         });
         //get existing comments
-        var comment_original= $(currentRow).children(".td_comment").text();
+        var comment_original= $(currentRow).children(".td_comment").data("comment");
         //set new comment box value;
         var comment_content = $('.comment-content').val(comment_original);
+        //trigger autosize
+        $(".comment-content").fadeIn(function(){
+            $(this).autosize();
+        });
+
 
         $modal.one('click', '.update', function () {
             //get new rating
@@ -852,6 +880,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     function setAutoSize() {
         $(".autosize").autosize();
     }
+
+
 
 
 </script>

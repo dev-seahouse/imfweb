@@ -56,7 +56,10 @@ function display_comments($company_id)
             $tbody_data .= '  <td class="text-red">No Rating</td>';
         }
         if (!$comment_null) {
-            $tbody_data .= '  <td class="td_comment">' . $row['comment'] . '</td>';
+            $comment_content=$row['comment'];
+            $comment_cutoff=substr($comment_content,0,15);
+            $comment_cutoff.="...";
+            $tbody_data .= '  <td class="has-popover td_comment"  data-content="'. $comment_content .'" data-comment="'. $comment_content. '">' .$comment_cutoff. '</td>';
             $tbody_data .= '  <td><button class="btn btn-sm contrast btn-edit-comment"  data-user_id="' . $row["user_id"] . '" >Edit</button></td>';
         } else {
             $tbody_data .= '  <td class="text-red">No comment</td>';
