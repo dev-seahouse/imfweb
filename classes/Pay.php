@@ -24,7 +24,7 @@ class Pay
             $this->errors[] = $this->db_connection->error;
         }
         if (!$this->db_connection->connect_errno) {
-            $sql="select concat(Firstname,' ',LastName) as Name,";
+            $sql="select jobapplicant_t.UserID,concat(Firstname,' ',LastName) as Name,";
             $sql.=" ScopeName,user_t.NRIC,JobDate,CheckIn,CheckOut,JobRate,JobEBR,JobMinEBRHours,ExpHours,JobApplicant_t.UserID,jobapplicant_t.Pay,";
             $sql.="  JobEstHours,MobileNo,";
             $sql.=" (select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp from user_t";

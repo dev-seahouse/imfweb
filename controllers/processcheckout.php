@@ -55,7 +55,7 @@ function display_checkout_data()
     $tbody_data = "";
     while ($row = $result_set->fetch_array(MYSQL_ASSOC)) {
         $tbody_data .= '<tr>';
-        $tbody_data .= '    <td>' . $row['Name'] . '</td>';
+        $tbody_data .= '    <td><a class="badge" href="viewuser.php?uid='.$row['user_id']. '"target="_blank" >' . $row['Name'] . '</a></td>';
         $tbody_data .= '    <td>' . $row['NRIC'] . '</td>';
         $tbody_data .= '    <td>' . $row['MobileNo'] . '</td>';
         $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';

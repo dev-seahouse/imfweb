@@ -24,7 +24,7 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($job_id);
-            $sql = "SELECT Firstname,Lastname,Email,MobileNo,";
+            $sql = "SELECT jobapplicant_t.UserID,Firstname,Lastname,Email,MobileNo,";
             $sql.="(select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp";
             $sql.=" FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid";
             $sql.=" WHERE JobID=?";
@@ -100,7 +100,7 @@ class Applicant
 
         if (!$this->db_connection->connect_errno) {
             $company_id=$this->db_connection->real_escape_string($company_id);
-            $sql = 'SELECT CONCAT(Firstname," ",Lastname) as Name,ScopeName,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC';
+            $sql = 'SELECT jobapplicant_t.userid as user_id, CONCAT(Firstname," ",Lastname) as Name,ScopeName,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC';
             $sql .= ' FROM user_t join jobapplicant_t on user_t.userid = jobapplicant_t.userid ';
             $sql .= ' join  job_t on job_t.jobid = jobapplicant_t.jobid';
             $sql .= ' join scope_t on job_t.scopeid = scope_t.scopeid ';
@@ -175,7 +175,7 @@ class Applicant
         }
         if (!$this->db_connection->connect_errno) {
             $company_id=$this->db_connection->real_escape_string($company_id);
-            $sql = 'SELECT CONCAT(Firstname," ",Lastname) as Name,ScopeName,CheckIn,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC,';
+            $sql = 'SELECT jobapplicant_t.UserID as user_id, CONCAT(Firstname," ",Lastname) as Name,ScopeName,CheckIn,JobDate,JobStartTime,JobEndTime,MobileNo,JobAppID,NRIC,';
             $sql .=' (select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp';
             $sql .= ' FROM user_t join jobapplicant_t on user_t.userid = jobapplicant_t.userid ';
             $sql .= ' join  job_t on job_t.jobid = jobapplicant_t.jobid';

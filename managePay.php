@@ -418,6 +418,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                                                         <th>NIRC</th>
                                                         <th>Mobile</th>
                                                         <th>Job Scope</th>
+                                                        <th>Planned</th>
+                                                        <th>Actual</th>
                                                     </tr>
                                                     </tfoot>
                                                 </table>

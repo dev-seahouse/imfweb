@@ -295,7 +295,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processViewApplica
                     </a>
                 </li>
                 <li class=''>
-                    <a href="#">
+                    <a href="viewapplicants.php">
                         <i class='icon-user'></i>
                         <span>View Job Applications</span>
                     </a>
@@ -414,10 +414,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processViewApplica
                                                         </tbody>
                                                         <tfoot>
                                                         <tr>
-                                                            <th>Name</th>
+                                                            <th>Name </th>
                                                             <th>IC</th>
                                                             <th>Mobile</th>
-                                                            <th>Status</th>
+                                                            <th>Experience</th>
+                                                            <th>Application Status</th>
                                                             <th>Job Applied</th>
                                                             <th>Job Date</th>
                                                             <th>Job Start Time</th>

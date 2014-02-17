@@ -37,7 +37,7 @@ if (!empty($_POST) && isset($_POST['jobid'])){
 
            // $modal_data.= "<tr>".$row['Firstname']." ".$row['Lastname']."</tr>";
             $modal_data.="<tr>";
-            $modal_data.="<td>".$row['Firstname']." ".$row['Lastname']."</td>";
+            $modal_data.="<td><a class='badge' href='viewuser.php?uid=".$row['UserID'] ."'target='_blank'>".$row['Firstname']." ".$row['Lastname']."</a></td>";
             $modal_data.="<td>".$row['Email']."</td>";
             $modal_data.="<td>".$row['MobileNo']."</td>";
             $modal_data.="<td>".$experience_hours."</td>";

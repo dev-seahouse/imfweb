@@ -21,7 +21,7 @@ function display_pay_data(){
         $actual_hours=get_time_interval_hours_minutes( $row['CheckIn'],$row['CheckOut']);
         $tbody_data.='<tr>';
         $tbody_data .= '    <td>' . date("d M Y", strtotime($row['JobDate'])) . '</td>';
-        $tbody_data .= '    <td>' . $row['Name'] . '</td>';
+        $tbody_data .= '    <td><a class="badge" href="viewuser.php?uid='.$row['UserID'] .'" target="_blank">' . $row['Name'] . '</a></td>';
         $tbody_data .= '    <td>' . $row['NRIC'] . '</td>';
         $tbody_data .= '    <td>' . $row['MobileNo'] . '</td>';
         $tbody_data .= '    <td>' . $row['ScopeName'] . '</td>';
