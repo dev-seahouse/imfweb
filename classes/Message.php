@@ -51,12 +51,10 @@ class Message
             while ($row = $result_set->fetch_array(MYSQLI_ASSOC)) {
                 $message->addBcc($row['Email'], $row['Firstname'] . ' ' . $row['Lastname']);
                 if (!($row['NotificationRegID'] === NULL)) {
-                    $registrationIds[] = $row['NotificationRegID'];
+                    $registration_ids[] = $row['NotificationRegID'];
                 }
             }
-            $mailer->send($message);
             $result = $mailer->send($message);
-            error_log($result);
 
             // Prepare GSM
             $msg = array
@@ -69,7 +67,7 @@ class Message
             );
             $fields = array
             (
-                'registration_ids' => $registrationIds,
+                'registration_ids' => $registration_ids,
                 'data' => $msg
             );
             $headers = array
@@ -78,6 +76,7 @@ class Message
                 'Content-Type: application/json'
             );
 
+            $result .= " [GSM Log:]";
             // Sent GSM
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://android.googleapis.com/gcm/send');
@@ -86,9 +85,10 @@ class Message
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-            $result = curl_exec($ch);
+            $result .= curl_exec($ch);
             curl_close($ch);
 
+            return $result;
         }
 
 

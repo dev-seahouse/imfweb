@@ -476,6 +476,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                                 </div>
                                             </div>
                                             <!-- Modal -->
+                                            <!-- loading indicator -->
+                                            
+                                            <!-- -->
 
                                         </div>
                                         <!-- Box Content -->
@@ -592,13 +595,19 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                 cancel_job: 1
                             },
                             dataType: 'text',
-                            timeout: 5000,
+
                             success: function (response) {
-                                //alert(response);
-                                $('#cancel_job_data').empty();
-                                $('#cancel_job_data').append(response);
+
+                                $('#cancel_job_data').html(response);
                                 $('.bb-alert').show(function () {
                                     $(this).find("span").html("Job Cancelled!");
+                                    $(this).delay(400).fadeIn().delay(2500).fadeOut();
+                                });
+                            },
+                            error: function(response){
+
+                                $('.bb-alert').show(function () {
+                                    $(this).find("span").html("Something went wrong, please refresh page and try later.");
                                     $(this).delay(400).fadeIn().delay(2500).fadeOut();
                                 });
                             }
