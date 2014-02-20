@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/classes/Job.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/classes/Applicant.php");
-//require_once($_SERVER["DOCUMENT_ROOT"] . '/imfweb/Swift-5.0.3/swift_required.php');
+require_once($_SERVER["DOCUMENT_ROOT"] . '/imfweb/Swift-5.0.3/swift_required.php');
 
 /**
  * Created by PhpStorm.

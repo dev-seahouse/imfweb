@@ -51,6 +51,45 @@ class Applicant
 
 
     }
+    public function get_applicants_by_id_postjob($job_id)
+    {
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        //set utf character set.
+        if (!$this->db_connection->set_charset("utf8")) {
+            $this->errors[] = $this->db_connection->error;
+            return false;
+            //$error returns string description of last error
+        }
+        if (!$this->db_connection->connect_errno) {
+            $this->db_connection->real_escape_string($job_id);
+            $sql = "SELECT jobapplicant_t.UserID,Firstname,Lastname,Email,MobileNo,";
+            $sql.="(select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp";
+            $sql.=" FROM jobapplicant_t join user_t on jobapplicant_t.userid=user_t.userid";
+            $sql.=" WHERE JobID=? and jobapplicant_t.MarkAsPresent='A'";
+            if (!$stmt = $this->db_connection->prepare($sql)) {
+                $this->errors[] = "Prepare statement error." . $this->db_connection->error;
+            }
+            if (!$stmt->bind_param("i", $job_id)) {
+                $this->errors[] = "Error binding data :( " . $stmt->errno . ")" . $stmt->error;
+            }
+            if (!$stmt->execute()) {
+                $this->errors[] = "Execution error:(" . $stmt->errno . ")" . $stmt->error;
+            }
+            if (!$result_set = $stmt->get_result()) {
+                $this->errors[] = "Error getting results:";
+            }
+            $this->db_connection->close();
+            return $result_set;
+
+        } else {
+            $this->errors[] = "Database connection error.";
+            return false;
+        }
+        // in this page try return result set instead of an array and retrieve data from result set in presentation page.
+
+
+    }
 
     public function get_applicants_detail_for_msg($job_id){
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);

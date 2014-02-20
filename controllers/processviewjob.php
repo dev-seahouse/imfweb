@@ -14,7 +14,7 @@ if (!empty($_POST) && isset($_POST['jobid'])){
     $job_vac=$_POST['job_vac'];
     $job_vac_left=$_POST['job_vac_left'];
     $job_id=$_POST['jobid'];
-    $result_set=$applicant->get_applicants_by_id($job_id);
+    $result_set=$applicant->get_applicants_by_id_postjob($job_id);
     $modal_data = "";
     if(!$result_set->num_rows){
         $modal_data = "No one has applied yet.";

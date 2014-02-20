@@ -26,17 +26,38 @@ if (isset($_GET['uid']) && !empty($_GET['uid'])) {
 
 function get_details(&$uid, &$imgurl, &$userdetails, &$totalExp)
 {
-    $imageurl = "avatar/" . $uid . "x.jpg";
+    $imgurl = "http://dl.e-clubmalaysia.com/imfweb/avatar/" . $uid . "x.jpg";
+    $file_headers = @get_headers($imgurl);
+if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+    $exists = false;
+}
+else {
+    $exists = true;
+}
+if ($exists){
+    $imgurl = "http://dl.e-clubmalaysia.com/imfweb/avatar/" . $uid . "x.jpg";
+}
 
-    if (!file_exists($imageurl)) {
-        $imageurl = "../avatar/default.jpg";
+
+
+/*    $size = getimagesize($imgurl);
+    if($size !== false){
+    $imgurl = "http://dl.e-clubmalaysia.com/imfweb/avatar/" . $uid . "x.jpg";
+    }else{
+    // Image doesn't exist
+    $imgurl = "http://dl.e-clubmalaysia.com/imfweb/avatar/default.jpg";
+    }*/
+
+ /*   if (!url_exists($imgurl)) {
+        $imgurl = "http://dl.e-clubmalaysia.com/imfweb/avatar/default.jpg";
     }
-
+*/
     $user = new User();
     $userdetails = $user->get_user_by_id($uid);
 
     $experience_string = $userdetails['TotalExp'];
     $totalExp = convertToHoursMins($experience_string, '%d hours %02d minutes');
+
 }
 
 

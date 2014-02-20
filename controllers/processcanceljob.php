@@ -23,7 +23,7 @@ if (!empty($_POST) && isset($_POST['cancel_job'])) {
     $company_name=$_SESSION['company_name'];
     $job->update_job_status($job_id);
     $message=new Message();
-    //$message->sent_message($job_id,$company_id,$company_name);
+    $message->sent_message($job_id,$company_id,$company_name);
     $applicant->update_applicant_status($job_id);
     display_cancel_job();
 

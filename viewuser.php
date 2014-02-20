@@ -388,7 +388,8 @@ require_once("controllers/processviewuser.php");
                     <div class='col-sm-3 col-lg-2'>
                         <div class='box'>
                             <div class='box-content'>
-                                <img class="img-responsive" src="../avatar/default.jpg"/>
+
+                                <img class="img-responsive" src="<?php echo $imgurl; ?>"/>
                             </div>
                         </div>
                     </div>
@@ -400,6 +401,7 @@ require_once("controllers/processviewuser.php");
                                         <div class="h4">
                                             <i class='icon-user text-contrast'></i>
                                             Personal Details:
+                                            
                                         </div>
                                     </div>
                                     <div class='col-sm-8'>
