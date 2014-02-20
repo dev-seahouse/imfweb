@@ -41,11 +41,11 @@ if (!empty($_POST) && isset($_POST['show_vacancy'])) {
     } else {
 //        $modal_data.="<div class='box-content box-no-padding'>";
 //        $modal_data.="<div class='responsive-table'>";
-        $modal_data .= "<table class='table table-bordered table-stripped'>";
+        $modal_data .= "<table class='table responsive table-bordered table-stripped'>";
         $modal_data .= "<thead><tr>";
         $modal_data .= "<th>Name</th>";
-        $modal_data .= "<th>Phone</th>";
         $modal_data .= "<th>Email</th>";
+        $modal_data .= "<th>Phone</th>";
         $modal_data .= "<th>Experience</th>";
         $modal_data .= "</tr></thead><tbody>";
 

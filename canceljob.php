@@ -477,8 +477,17 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                             </div>
                                             <!-- Modal -->
                                             <!-- loading indicator -->
-                                            
-                                            <!-- -->
+                                            <div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
+                                                <div class="modal-header">
+                                                    <h1>Processing...</h1>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="progress progress-striped active">
+                                                        <div class="bar" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End loading indicator-->
 
                                         </div>
                                         <!-- Box Content -->
@@ -543,6 +552,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
 </script>
 <!-- / END - page related files and scripts [optional] -->
 <script type="text/javascript">
+
     function loadnames(jobid, job_vac, job_vac_left) {
 
         $.ajax({
@@ -595,6 +605,12 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                                 cancel_job: 1
                             },
                             dataType: 'text',
+                            beforeSend:function(){
+                                myApp.showPleaseWait();
+                            },
+                            complete:function(){
+                                myApp.hidePleaseWait();
+                            },
 
                             success: function (response) {
 
@@ -618,6 +634,22 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
         });
 
     }
+
+    var myApp;
+    myApp = myApp || (function () {
+        var pleaseWaitDiv = $('<div class="modal fade" id="pleaseWaitDialog" aria-hidden="true" role="dialog" data-backdrop="static" data-keyboard="false" tabindex="-1" style="position:fixed;top:40% !important;"><div class="modal-dialog center-block"><div class="modal-content"><div class="modal-header"><span class="text-sea-blue"><i class="icon-2x icon-spinner icon-spin"></i> Processing, please wait just a moment..</span></div><div class="modal-body"></div></div></div></div>');
+        return {
+            showPleaseWait: function() {
+                pleaseWaitDiv.modal();
+            },
+            hidePleaseWait: function () {
+                pleaseWaitDiv.modal('hide');
+            }
+
+        };
+    })();
+
+
 
 </script>
 </body>

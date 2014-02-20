@@ -453,7 +453,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                             Vacancies
                                                         </div>
                                                         <div class='modal-body'>
-                                                            <table class="table table-bordered table-stripped">
+                                                            <table class="table responsive-table table-stripped">
                                                                 <thead>
                                                                 <tr>
                                                                     <th>Total Job Vacancies Needed</th>
@@ -469,9 +469,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                         <div class='modal-header contrast'>
                                                             Current Applicants
                                                         </div>
-                                                        <div class='modal-body' id="php_modal_data">
+
+                                                        <div class='modal-content' id="php_modal_data">
 
                                                         </div>
+
 
                                                         <div class='modal-footer'>
                                                             <button class='btn btn-danger' data-dismiss='modal'
