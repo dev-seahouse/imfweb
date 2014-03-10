@@ -19,9 +19,9 @@ if (!empty($_POST) && isset($_POST['jobid'])){
     if(!$result_set->num_rows){
         $modal_data = "No one has applied yet.";
     }else{
-//        $modal_data.="<div class='box-content box-no-padding'>";
-//        $modal_data.="<div class='responsive-table'>";
-        $modal_data.="<table class='table responsive-table table-bordered table-stripped'>";
+
+        $modal_data.="<div class='table table-responsive'>";
+        $modal_data.="<table class='table'>";
         $modal_data.="<thead><tr>";
         $modal_data.="<th>Name</th>";
         $modal_data.="<th>Email</th>";
@@ -45,8 +45,8 @@ if (!empty($_POST) && isset($_POST['jobid'])){
         }
 
         $modal_data.="</tbody></table>";
-//        $modal_data.="</div>";
-//        $modal_data.="</div>";
+        $modal_data.="</div>";
+
     }
     echo $modal_data;
     $result_set->close();

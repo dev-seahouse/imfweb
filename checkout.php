@@ -389,7 +389,7 @@ include_once(dirname(__FILE__) . "/controllers/processcheckout.php");
                                     <div class='box-header contrast-background'>
                                     </div>
                                     <div class='box-content box-no-padding'>
-                                        <div class='responsive-table'>
+                                        <div class='table table-responsive'>
                                             <div class='scrollable-area'>
                                                 <table
                                                     class='table table-hover data-table-column-filter table table-bordered table-striped'

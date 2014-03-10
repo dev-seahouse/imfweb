@@ -572,8 +572,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processcanceljob.p
                 $('#vacancy_data').html(
                     '<tr><td>' + job_vac + '<td>' + job_vac_left + '</tr>'
                 )
-                $('#php_modal_data').empty()
-                $('#php_modal_data').append(response);
+
+                $('#php_modal_data').html(response);
                 $('#modalJobDetail').modal('show');
             }
         });

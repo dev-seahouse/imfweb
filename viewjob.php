@@ -393,10 +393,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                     <div class='box-header contrast-background'>
                                     </div>
                                     <div class='box-content box-no-padding'>
-                                        <div class='responsive-table'>
-                                            <div class='scrollable-area'>
+                                        <div class='table table-responsive'>
+
                                                 <table
-                                                    class=' table data-table-column-filter dt-sort-desc1 table-bordered table-hover table-striped'
+                                                    class='table data-table-column-filter dt-sort-desc1 table-bordered table-hover table-striped'
                                                     style='margin-bottom:0;'
                                                     id="tbViewJob">
                                                     <thead>
@@ -443,17 +443,44 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                     </tr>
                                                     </tfoot>
                                                 </table>
-                                            </div>
+
                                             <!-- Modal -->
                                             <!-- TODO:Add google map into modal after experimenting one google map api-->
-                                            <div class='modal fade' id='modalJobDetail' tabindex='-1' style="display: none;">
+                                            <div class='modal fade' data-width="auto" id='modalJobDetail' tabindex='-1' style="display: none;">
 
-                                                    <div class='modal-content'>
+
                                                         <div class='modal-header contrast' id="vacancy_header">
                                                             Vacancies
                                                         </div>
                                                         <div class='modal-body'>
-                                                            <table class="table responsive-table table-stripped">
+                                                            <div class="row">
+
+                                                                     <div class="col-md-6">
+                                                                         <div class='box box-bordered contrast-border  box-nomargin'>
+                                                                             <div class='box-header box-header-small contrast-background'>
+                                                                                 <div class='title'>Total Job Vacancies Needed</div>
+                                                                             </div>
+                                                                             <div class='box-content box-transparent'>
+                                                                                 <div id="vacancy_needed">
+                                                                                 </div>
+
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                     <div class="col-md-6">
+                                                                         <div class='box box-bordered contrast-border  box-nomargin'>
+                                                                             <div class='box-header box-header-small contrast-background'>
+                                                                                 <div class='title'>Job Vacancies Left</div>
+                                                                             </div>
+                                                                             <div class='box-content box-transparent'>
+                                                                                 <div id="vacancy_left">
+                                                                                 </div>
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                            </div>
+
+<!--                                                            <table class="table responsive-table table-stripped">
                                                                 <thead>
                                                                 <tr>
                                                                     <th>Total Job Vacancies Needed</th>
@@ -464,23 +491,21 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
 
                                                                 </tbody>
 
-                                                            </table>
+                                                            </table>-->
                                                         </div>
                                                         <div class='modal-header contrast'>
                                                             Current Applicants
                                                         </div>
 
-                                                        <div class='modal-content' id="php_modal_data">
+                                                       <div class='modal-body' id="php_modal_data">
 
-                                                        </div>
-
+                                                       </div>
 
                                                         <div class='modal-footer'>
                                                             <button class='btn btn-danger' data-dismiss='modal'
                                                                     type='button'>Close
                                                             </button>
                                                         </div>
-                                                    </div>
 
                                             </div>
                                             <!-- Modal -->
@@ -564,12 +589,12 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
             dataType: 'text',
             timeout: 5000,
             success: function (response) {
-
-                $('#vacancy_data').html(
-                    '<tr><td>' + job_vac + '<td>' + job_vac_left + '</tr>'
-                )
-
-
+//
+//                $('#vacancy_needed').html(
+//                    '<tr><td>' + job_vac + '<td>' + job_vac_left + '</tr>'
+//                )
+                $('#vacancy_needed').html(job_vac);
+                $('#vacancy_left').html(job_vac_left);
                 $('#php_modal_data').html(response);
                 $('#modalJobDetail').modal('show');
             }

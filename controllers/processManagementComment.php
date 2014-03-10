@@ -45,6 +45,7 @@ function display_comments($company_id)
         $tbody_data .= '<tr>';
         $tbody_data .= '  <td class="td_user_name"><a class="badge" href="viewuser.php?uid='.$row["user_id"].'" target="_blank">' . $row["username"] . '</a></td>';
         $tbody_data .= '  <td>' . $row["NRIC"] . '</td>';
+        $tbody_data .= '  <td>' . $row["CategoryName"].'</td>';
         if (!$comment_null) {
             $tbody_data .= '  <td>' . $row["comment_date"] . '</td>';
             $tbody_data .= '  <td>' . $row["comment_time"] . '</td>';

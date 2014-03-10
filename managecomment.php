@@ -397,7 +397,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                     <div class='box-header contrast-background'>
                                     </div>
                                     <div class='box-content box-no-padding'>
-                                        <div class='responsive-table'>
+                                        <div class='table table-responsive'>
                                             <div class='scrollable-area'>
                                                 <table
                                                     class='table-bordered table-striped'
@@ -408,6 +408,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>IC</th>
+                                                        <th>Job</th>
                                                         <th>Comment Date</th>
                                                         <th>Comment Time</th>
                                                         <th>Rating</th>
@@ -424,6 +425,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>IC</th>
+                                                        <th>Job</th>
                                                         <th>Comment Date</th>
                                                         <th>Comment Time</th>
                                                         <th>Rating</th>
@@ -839,7 +841,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         var dt = $("#tbViewComment").dataTable(
             {
                 "aaSorting": [
-                    [ 2, "desc" ]
+                    [ 3, "desc" ]
                 ],
                 sDom: sdom,
                 "oTableTools": {

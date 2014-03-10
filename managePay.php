@@ -389,7 +389,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagePay.p
                                     <div class="box-header contrast-background">
                                     </div>
                                     <div class="box-content box-no-padding">
-                                        <div class="table-responsive">
+                                        <div class="table table-responsive">
                                             <div class='scrollable-area'>
                                                 <table
                                                     class='data-table-column-filter table-hover dt-sort-desc1 table table-bordered table-striped'
