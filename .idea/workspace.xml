@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql" afterPath="$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canceljob.php" afterPath="$PROJECT_DIR$/canceljob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processcanceljob.php" afterPath="$PROJECT_DIR$/controllers/processcanceljob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/processviewjob.php" afterPath="$PROJECT_DIR$/controllers/processviewjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewjob.php" afterPath="$PROJECT_DIR$/viewjob.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/db.php" afterPath="$PROJECT_DIR$/config/db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/managecomment.php" afterPath="$PROJECT_DIR$/managecomment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="imf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,219 +29,35 @@
     <favorites_list name="imf" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48116326">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="viewjob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/viewjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="489" column="0" selection-start="22389" selection-end="22432" vertical-scroll-proportion="-31.285715" vertical-offset="8415" max-vertical-offset="11115">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processcanceljob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processcanceljob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="55" selection-start="1489" selection-end="1489" vertical-scroll-proportion="-14.321428" vertical-offset="416" max-vertical-offset="2356">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="canceljob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/canceljob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="631" column="17" selection-start="28926" selection-end="28926" vertical-scroll-proportion="-7.5" vertical-offset="11584" max-vertical-offset="12635">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <marker date="1392911379990" expanded="true" signature="29188:29222" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processPostJob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processPostJob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="73" column="13" selection-start="2589" selection-end="2589" vertical-scroll-proportion="-15.892858" vertical-offset="942" max-vertical-offset="2071">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="postjob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/postjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1030" column="37" selection-start="43951" selection-end="43951" vertical-scroll-proportion="7.185185" vertical-offset="19958" max-vertical-offset="25707">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Message.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/Message.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="87" column="38" selection-start="3530" selection-end="3530" vertical-scroll-proportion="-21.321428" vertical-offset="1056" max-vertical-offset="2071">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="addscheduleupdatejobstatus.sql" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="95" selection-start="254" selection-end="320" vertical-scroll-proportion="0.100849256" vertical-offset="0" max-vertical-offset="942">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="checkout.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/checkout.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="496" column="58" selection-start="22132" selection-end="22132" vertical-scroll-proportion="-11.25" vertical-offset="9109" max-vertical-offset="10051">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/index.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="-12.892858" vertical-offset="76" max-vertical-offset="5339">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processviewjob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="51" selection-start="904" selection-end="904" vertical-scroll-proportion="-3.1666667" vertical-offset="266" max-vertical-offset="2071">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="viewjob.php" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/viewjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="450" column="57" selection-start="20045" selection-end="20045" vertical-scroll-proportion="0.18355855" vertical-offset="8596" max-vertical-offset="11343">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processDashBoard.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processDashBoard.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="23" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="2584">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Pay.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/Pay.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="3876">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processCheckIn.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processCheckIn.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="19" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="-4.964286" vertical-offset="222" max-vertical-offset="1140">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processManagementComment.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="61" column="99" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.0" vertical-offset="1159" max-vertical-offset="1615">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processviewjob.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="57" column="40" selection-start="2148" selection-end="2148" vertical-scroll-proportion="-16.964285" vertical-offset="608" max-vertical-offset="1900">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="processlogin.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controllers/processlogin.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="24" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="608">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="theme.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="117" column="9" selection-start="3993" selection-end="4680" vertical-scroll-proportion="0.0" vertical-offset="2223" max-vertical-offset="8949">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jquery.autosize-min.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="252" column="36" selection-start="10256" selection-end="10256" vertical-scroll-proportion="0.0" vertical-offset="4788" max-vertical-offset="5111">
-                  <folding>
-                    <marker date="1392635696775" expanded="true" signature="537:856" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Applicant.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="311" column="59" selection-start="13470" selection-end="13470" vertical-scroll-proportion="-7.214286" vertical-offset="5707" max-vertical-offset="9139">
-                  <folding>
-                    <marker date="1392895736273" expanded="true" signature="4335:4511" placeholder="SELECT * FRO..jobapplicant_t..." />
-                    <marker date="1392895736273" expanded="true" signature="8137:8193" placeholder="UPDATE jobap..." />
-                    <marker date="1392895736273" expanded="true" signature="12703:12812" placeholder="UPDATE jobap..." />
-                    <marker date="1392895736273" expanded="true" signature="13974:14031" placeholder="UPDATE jobap..." />
-                    <marker date="1392895736273" expanded="true" signature="17219:17304" placeholder="select MarkA..." />
-                    <marker date="1392895736273" expanded="true" signature="18896:18994" placeholder="select count..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="db.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="260" selection-end="260" vertical-scroll-proportion="-6.785714" vertical-offset="0" max-vertical-offset="304">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="managecomment.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/managecomment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="455" column="44" selection-start="20540" selection-end="20540" vertical-scroll-proportion="0.14521453" vertical-offset="8513" max-vertical-offset="16986">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="theme.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="31" selection-start="82" selection-end="82" vertical-scroll-proportion="-0.7169811" vertical-offset="0" max-vertical-offset="8949">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -279,7 +93,6 @@
         <option value="$PROJECT_DIR$/assets/javascripts/plugins/rating/jquery.raty.js" />
         <option value="$PROJECT_DIR$/classes/Registration.php" />
         <option value="$PROJECT_DIR$/controllers/processDashBoard.php" />
-        <option value="$PROJECT_DIR$/config/db.php" />
         <option value="$PROJECT_DIR$/controllers/processviewuser.php" />
         <option value="$PROJECT_DIR$/controllers/managecomment.php" />
         <option value="$PROJECT_DIR$/classes/Comment.php" />
@@ -302,7 +115,6 @@
         <option value="$PROJECT_DIR$/controllers/get_comments.php" />
         <option value="$PROJECT_DIR$/assets/javascripts/plugins/autosize/jquery.autosize-min.js" />
         <option value="$PROJECT_DIR$/assets/javascripts/theme.js" />
-        <option value="$PROJECT_DIR$/managecomment.php" />
         <option value="$PROJECT_DIR$/controllers/processManagementComment.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/classes/Applicant.php" />
@@ -312,6 +124,8 @@
         <option value="$PROJECT_DIR$/controllers/processviewjob.php" />
         <option value="$PROJECT_DIR$/viewjob.php" />
         <option value="$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql" />
+        <option value="$PROJECT_DIR$/config/db.php" />
+        <option value="$PROJECT_DIR$/managecomment.php" />
       </list>
     </option>
   </component>
@@ -401,7 +215,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -416,7 +230,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -432,34 +245,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="imfweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imfweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imfweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,6 +278,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -565,10 +351,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed" start_url="/imfweb">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -673,13 +459,13 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3313492" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3043478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3043478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14978448" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DatabaseBrowser" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11398964" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11398964" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -777,13 +563,6 @@
         <state line="9" column="31" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="2375" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="27" selection-start="119" selection-end="119" vertical-scroll-proportion="-2.7142856" vertical-offset="0" max-vertical-offset="228">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql/11feb2014full.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="83" selection-start="0" selection-end="22694" vertical-scroll-proportion="-11.4" vertical-offset="0" max-vertical-offset="11153" />
@@ -846,9 +625,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processManagePay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="52" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="741">
-          <folding />
-        </state>
+        <state line="15" column="52" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="741" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/managePay.php">
@@ -870,20 +647,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="0.0" vertical-offset="981" max-vertical-offset="3572">
-          <folding>
-            <marker date="1392567925533" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..comment_t..." />
-            <marker date="1392567925533" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1392567925533" expanded="true" signature="-1:-1" placeholder="update comme..." />
-          </folding>
-        </state>
+        <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="0.0" vertical-offset="981" max-vertical-offset="3572" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processDashBoard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="2584">
+        <state line="17" column="23" selection-start="603" selection-end="603" vertical-scroll-proportion="-10.928572" vertical-offset="17" max-vertical-offset="2584">
           <folding />
         </state>
       </provider>
@@ -899,44 +668,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="252" column="36" selection-start="10256" selection-end="10256" vertical-scroll-proportion="0.0" vertical-offset="4036" max-vertical-offset="5263">
           <folding>
-            <marker date="1392635696775" expanded="true" signature="537:856" placeholder="..." />
+            <marker date="1392916448060" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Pay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="3876">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="9" selection-start="3993" selection-end="4680" vertical-scroll-proportion="0.0" vertical-offset="2223" max-vertical-offset="8949">
+        <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="-0.6785714" vertical-offset="475" max-vertical-offset="3952">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="99" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.0" vertical-offset="1159" max-vertical-offset="1615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managecomment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="639" column="21" selection-start="29437" selection-end="29437" vertical-scroll-proportion="0.0" vertical-offset="12141" max-vertical-offset="17024">
+        <state line="61" column="99" selection-start="2383" selection-end="2383" vertical-scroll-proportion="-13.642858" vertical-offset="777" max-vertical-offset="1691">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/regUser">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="721" selection-end="790" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="684">
-          <folding />
-        </state>
+        <state line="18" column="0" selection-start="721" selection-end="790" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="684" />
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -944,9 +697,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/storedprocedure">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="25" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="665">
-          <folding />
-        </state>
+        <state line="14" column="25" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="665" />
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -954,143 +705,141 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processlogin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="24" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="608">
+        <state line="13" column="24" selection-start="401" selection-end="401" vertical-scroll-proportion="-8.821428" vertical-offset="0" max-vertical-offset="608">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processViewApplicants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="45" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="1026">
-          <folding />
-        </state>
+        <state line="21" column="45" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="1026" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/checkoutstoredprocedure.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="3" selection-start="911" selection-end="911" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="513">
-          <folding />
-        </state>
+        <state line="21" column="3" selection-start="911" selection-end="911" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="513" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="3" selection-start="111" selection-end="152" vertical-scroll-proportion="-0.22186837" vertical-offset="285" max-vertical-offset="4769">
-          <folding />
-        </state>
+        <state line="4" column="3" selection-start="111" selection-end="152" vertical-scroll-proportion="-0.22186837" vertical-offset="285" max-vertical-offset="4769" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processCheckIn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="-4.964286" vertical-offset="222" max-vertical-offset="1140">
+        <state line="19" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="-6.464286" vertical-offset="180" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Job.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="23" selection-start="8968" selection-end="8968" vertical-scroll-proportion="-7.814815" vertical-offset="3473" max-vertical-offset="6650">
-          <folding>
-            <marker date="1392057459245" expanded="true" signature="-1:-1" placeholder="SELECT JobDa..job_t..." />
-            <marker date="1392057459245" expanded="true" signature="-1:-1" placeholder="SELECT JobDa..job_t..." />
-            <marker date="1392057459245" expanded="true" signature="-1:-1" placeholder="UPDATE job_t..." />
-            <marker date="1392057459245" expanded="true" signature="-1:-1" placeholder="SELECT Scope..job_t..." />
-            <marker date="1392057459245" expanded="true" signature="-1:-1" placeholder="select JobSt..." />
-            <marker date="1392057459245" expanded="true" signature="-1:-1" placeholder="select count..." />
-          </folding>
-        </state>
+        <state line="205" column="23" selection-start="8968" selection-end="8968" vertical-scroll-proportion="-7.814815" vertical-offset="3473" max-vertical-offset="6650" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/postjob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1030" column="37" selection-start="43951" selection-end="43951" vertical-scroll-proportion="7.185185" vertical-offset="19958" max-vertical-offset="25707">
+        <state line="1030" column="37" selection-start="43951" selection-end="43951" vertical-scroll-proportion="0.13676149" vertical-offset="19882" max-vertical-offset="26163">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processPostJob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="13" selection-start="2589" selection-end="2589" vertical-scroll-proportion="-15.892858" vertical-offset="942" max-vertical-offset="2071">
+        <state line="73" column="13" selection-start="2589" selection-end="2589" vertical-scroll-proportion="0.5284464" vertical-offset="923" max-vertical-offset="2071">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="-12.892858" vertical-offset="76" max-vertical-offset="5358">
+        <state line="23" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="0.4064171" vertical-offset="76" max-vertical-offset="5700">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Message.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="38" selection-start="3530" selection-end="3530" vertical-scroll-proportion="-21.321428" vertical-offset="1056" max-vertical-offset="2071">
+        <state line="87" column="38" selection-start="3530" selection-end="3530" vertical-scroll-proportion="0.78074867" vertical-offset="999" max-vertical-offset="2090">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="311" column="59" selection-start="13470" selection-end="13470" vertical-scroll-proportion="-7.214286" vertical-offset="5707" max-vertical-offset="9139">
-          <folding>
-            <marker date="1392895736273" expanded="true" signature="4335:4511" placeholder="SELECT * FRO..jobapplicant_t..." />
-            <marker date="1392895736273" expanded="true" signature="8137:8193" placeholder="UPDATE jobap..." />
-            <marker date="1392895736273" expanded="true" signature="12703:12812" placeholder="UPDATE jobap..." />
-            <marker date="1392895736273" expanded="true" signature="13974:14031" placeholder="UPDATE jobap..." />
-            <marker date="1392895736273" expanded="true" signature="17219:17304" placeholder="select MarkA..." />
-            <marker date="1392895736273" expanded="true" signature="18896:18994" placeholder="select count..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/canceljob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="631" column="17" selection-start="28926" selection-end="28926" vertical-scroll-proportion="-7.5" vertical-offset="11584" max-vertical-offset="12635">
+        <state line="631" column="17" selection-start="28926" selection-end="28926" vertical-scroll-proportion="0.85886216" vertical-offset="11565" max-vertical-offset="12996">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1392911379990" expanded="true" signature="29188:29222" placeholder="..." />
+            <marker date="1392916448136" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processcanceljob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="55" selection-start="1489" selection-end="1489" vertical-scroll-proportion="-14.321428" vertical-offset="416" max-vertical-offset="2356">
+        <state line="43" column="55" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.020787746" vertical-offset="798" max-vertical-offset="2451">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/viewjob.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="489" column="0" selection-start="22389" selection-end="22432" vertical-scroll-proportion="-31.285715" vertical-offset="8415" max-vertical-offset="11115">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/checkout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="496" column="58" selection-start="22132" selection-end="22132" vertical-scroll-proportion="-11.25" vertical-offset="9109" max-vertical-offset="10051">
+        <state line="496" column="58" selection-start="22132" selection-end="22132" vertical-scroll-proportion="0.5807487" vertical-offset="9109" max-vertical-offset="10279">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processviewjob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="51" selection-start="904" selection-end="904" vertical-scroll-proportion="-3.1666667" vertical-offset="266" max-vertical-offset="2071">
+        <state line="57" column="40" selection-start="2148" selection-end="2148" vertical-scroll-proportion="-16.964285" vertical-offset="608" max-vertical-offset="2185">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="95" selection-start="254" selection-end="320" vertical-scroll-proportion="0.100849256" vertical-offset="0" max-vertical-offset="942">
+        <state line="4" column="95" selection-start="254" selection-end="320" vertical-scroll-proportion="0.1" vertical-offset="0" max-vertical-offset="950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewjob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="450" column="57" selection-start="20045" selection-end="20045" vertical-scroll-proportion="6.107143" vertical-offset="8721" max-vertical-offset="11324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Applicant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="311" column="59" selection-start="13470" selection-end="13470" vertical-scroll-proportion="0.5208556" vertical-offset="5422" max-vertical-offset="9063">
+          <folding>
+            <marker date="1392916448151" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..jobapplicant_t..." />
+            <marker date="1392916448151" expanded="true" signature="-1:-1" placeholder="UPDATE jobap..." />
+            <marker date="1392916448151" expanded="true" signature="-1:-1" placeholder="UPDATE jobap..." />
+            <marker date="1392916448151" expanded="true" signature="-1:-1" placeholder="UPDATE jobap..." />
+            <marker date="1392916448151" expanded="true" signature="-1:-1" placeholder="select MarkA..." />
+            <marker date="1392916448151" expanded="true" signature="-1:-1" placeholder="select count..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="260" selection-end="260" vertical-scroll-proportion="-6.785714" vertical-offset="0" max-vertical-offset="304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="31" selection-start="82" selection-end="82" vertical-scroll-proportion="-0.7169811" vertical-offset="0" max-vertical-offset="8949">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/managecomment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="455" column="44" selection-start="20540" selection-end="20540" vertical-scroll-proportion="0.14521453" vertical-offset="8513" max-vertical-offset="16986">
           <folding />
         </state>
       </provider>

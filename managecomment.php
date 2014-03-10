@@ -612,9 +612,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             });
         });
 
-        this.nav_open = function () {
+        nav_open = function () {
             return $("body").hasClass("main-nav-opened") || $("#main-nav").width() > 50;
         };
+
 
         touch = false;
         if (window.Modernizr) {
@@ -642,9 +643,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         loadComments();
         $('#tbViewComment').on('click', '.btn-add-comment', addComment);
         $('#tbViewComment').on('click', '.btn-edit-comment', editComment);
-
-
-
 
     });
 
