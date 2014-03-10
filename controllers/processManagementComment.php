@@ -17,22 +17,21 @@ if (!empty($_POST) && isset($_POST['display_comment'])) {
     display_comments($company_id);
 }
 if (!empty($_POST) && isset($_POST['add_comment'])) {
+    $jobapp_id=$_POST["jobapp_id"];
     $user_id=$_POST["user_id"];
     $user_name=$_POST["user_name"];
     $comment_content=$_POST["comment_content"];
     $rating=$_POST["rating"];
     $comment = new Comment();
-    echo $comment->add_comment($company_id,$company_name,$rating,$comment_content,$user_id);
+    echo $comment->add_comment($company_id,$company_name,$rating,$comment_content,$jobapp_id,$user_id);
 
 }
 if (!empty($_POST) && isset($_POST['update_comment'])) {
-    $user_id=$_POST["user_id"];
+    $jobapp_id=$_POST["jobapp_id"];
     $comment_content=$_POST["comment_content"];
     $rating=$_POST["rating"];
     $comment = new Comment();
-    echo $comment->update_comment($company_id,$rating,$comment_content,$user_id);
-
-
+    echo $comment->update_comment($company_id,$rating,$comment_content,$jobapp_id);
 }
 
 
@@ -60,10 +59,10 @@ function display_comments($company_id)
             $comment_cutoff=substr($comment_content,0,15);
             $comment_cutoff.="...";
             $tbody_data .= '  <td class="has-popover td_comment"  data-content="'. $comment_content .'" data-comment="'. $comment_content. '">' .$comment_cutoff. '</td>';
-            $tbody_data .= '  <td><button class="btn btn-sm contrast btn-edit-comment"  data-user_id="' . $row["user_id"] . '" >Edit</button></td>';
+            $tbody_data .= '  <td><button class="btn btn-sm contrast btn-edit-comment"  data-jobapp_id="' . $row["jobapp_id"] . '" >Edit</button></td>';
         } else {
             $tbody_data .= '  <td class="text-red">No comment</td>';
-            $tbody_data .= '  <td><button class="btn btn-sm contrast btn-add-comment" data-user_id="' . $row["user_id"] . '">Add</button></td>';
+            $tbody_data .= '  <td><button class="btn btn-sm contrast btn-add-comment" data-jobapp_id="' . $row["jobapp_id"] . '" data-userid="'.$row["user_id"] .'">Add</button></td>';
         }
 
         $tbody_data .= '</tr>';

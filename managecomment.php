@@ -651,7 +651,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     function editComment(){
         var currentRow = ($(this).closest('tr'));
         var user_name = $(currentRow).children(".td_user_name").text();
-        var user_id = ($(this).data("user_id"));
+        var jobapp_id = ($(this).data("jobapp_id"));
         var raty_div= $(currentRow).children("td").find(".raty");
         //get existing rating score
         var rating=$(raty_div).data("score");
@@ -702,7 +702,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 url: "controllers/processManagementComment.php",
                 data: {
                     update_comment: 1,
-                    user_id: user_id,
+                    jobapp_id: jobapp_id,
                     comment_content: comment_content,
                     rating: rating
                 },
@@ -725,18 +725,16 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 }
 
             });
-
             // ajax call ends
         });
-
-
-
     }
 
     function addComment() {
         var currentRow = ($(this).closest('tr'));
         var user_name = $(currentRow).children(".td_user_name").text();
-        var user_id = ($(this).data("user_id"));
+        var jobapp_id = ($(this).data("jobapp_id"));
+        var user_id=($(this).data("userid"));
+
         var $modal = $("#modalEditComment");
         $('#name_text').html(user_name);
         $('#modalEditComment').modal('show');
@@ -774,7 +772,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                 url: "controllers/processManagementComment.php",
                 data: {
                     add_comment: 1,
-                    user_id: user_id,
+                    user_id:user_id,
+                    jobapp_id: jobapp_id,
                     user_name: user_name,
                     comment_content: comment_content,
                     rating: rating
@@ -790,8 +789,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
                         $('.comment-content').val("");
 
                     }else{
+
                         alertify.error("An error has occurred, please try again.");
                         $modal.modal("hide");
+
                     }
                 }
 
@@ -873,10 +874,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
     function setAutoSize() {
         $(".autosize").autosize();
     }
-
-
-
-
 </script>
 
 <!-- / END - page related files and scripts [optional] -->
