@@ -70,13 +70,20 @@ class Comment
 
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($company_id);
-            $sql = "SELECT concat(Firstname,' ',Lastname) as username,user_t.userid as user_id,company_id,NRIC,rating,";
+/*            $sql = "SELECT concat(Firstname,' ',Lastname) as username,user_t.userid as user_id,company_id,NRIC,rating,";
             $sql .= " comment,DATE_FORMAT(comment_date,'%d-%b-%Y') as comment_date,";
             $sql .= " DATE_FORMAT(comment_date,'%H:%i') as comment_time";
             $sql .= " FROM comment_t right join user_t on comment_t.user_id=user_t.UserID";
             $sql .= " where user_t.UserID in";
             $sql .= " (SELECT UserID FROM fyp_imf.jobapplicant_t join job_t on job_t.JobID=jobapplicant_t.JobID";
-            $sql .= " WHERE job_t.HotelID=? AND job_t.JobStatus!=3)";
+            $sql .= " WHERE job_t.HotelID=? AND job_t.JobStatus!=3)";*/
+    $sql="SELECT concat(Firstname,' ',Lastname) as username,user_t.userid as user_id,company_id,NRIC,rating,";
+    $sql.=" comment,DATE_FORMAT(comment_date,'%d-%b-%Y') as comment_date,";
+    $sql.=" DATE_FORMAT(comment_date,'%H:%i') as comment_time";
+    $sql.=" FROM comment_t right join jobapplicant_t on comment_t.jobapplicant_id=jobapplicant_t.JobAppID ";
+    $sql.=" join user_t on user_t.UserID=jobapplicant_t.UserID join job_t on job_t.JobID=jobapplicant_t.JobID";
+    $sql.=" where job_t.HotelID=? AND job_t.JobStatus!=3";
+            
 
 
             if (!$stmt = $this->db_connection->prepare($sql)) {

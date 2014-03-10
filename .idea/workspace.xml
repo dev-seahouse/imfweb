@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7106a973-a3d8-4de6-a01c-f37bf62bfc74" name="Default" comment="Updated links">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/db.php" afterPath="$PROJECT_DIR$/config/db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Comment.php" afterPath="$PROJECT_DIR$/classes/Comment.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/managecomment.php" afterPath="$PROJECT_DIR$/managecomment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="imf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,19 +38,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="managecomment.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="managecomment.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/managecomment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="455" column="44" selection-start="20540" selection-end="20540" vertical-scroll-proportion="0.14521453" vertical-offset="8513" max-vertical-offset="16986">
+            <state line="481" column="69" selection-start="22493" selection-end="22493" vertical-scroll-proportion="39.796295" vertical-offset="11288" max-vertical-offset="16891">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="theme.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
+      <file leaf-file-name="Comment.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="31" selection-start="82" selection-end="82" vertical-scroll-proportion="-0.7169811" vertical-offset="0" max-vertical-offset="8949">
+            <state line="84" column="33" selection-start="3239" selection-end="3239" vertical-scroll-proportion="0.65652955" vertical-offset="1229" max-vertical-offset="3705">
+              <folding>
+                <marker date="1394467133109" expanded="true" signature="779:837" placeholder="SELECT * FRO..comment_t..." />
+                <marker date="1394467133109" expanded="true" signature="4970:5047" placeholder="insert into ..." />
+                <marker date="1394467133109" expanded="true" signature="6699:6757" placeholder="update comme..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="processManagementComment.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="62" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-18.785715" vertical-offset="481" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
@@ -95,7 +107,6 @@
         <option value="$PROJECT_DIR$/controllers/processDashBoard.php" />
         <option value="$PROJECT_DIR$/controllers/processviewuser.php" />
         <option value="$PROJECT_DIR$/controllers/managecomment.php" />
-        <option value="$PROJECT_DIR$/classes/Comment.php" />
         <option value="$PROJECT_DIR$/contact.php" />
         <option value="$PROJECT_DIR$/user_profile.php" />
         <option value="$PROJECT_DIR$/postjob.php" />
@@ -126,6 +137,7 @@
         <option value="$PROJECT_DIR$/sql/addscheduleupdatejobstatus.sql" />
         <option value="$PROJECT_DIR$/config/db.php" />
         <option value="$PROJECT_DIR$/managecomment.php" />
+        <option value="$PROJECT_DIR$/classes/Comment.php" />
       </list>
     </option>
   </component>
@@ -141,10 +153,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Unnamed" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="234" />
+    <option name="y" value="278" />
+    <option name="width" value="1600" />
+    <option name="height" value="720" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -245,6 +257,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="imfweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imfweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Swift-5.0.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imfweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,7 +482,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="234" y="278" width="1600" height="720" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33728448" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -450,7 +490,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497309" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21197917" sideWeight="0.88601035" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25694445" sideWeight="0.88601035" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42564654" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -645,11 +685,6 @@
         <state line="33" column="41" selection-start="964" selection-end="964" vertical-scroll-proportion="0.22308546" vertical-offset="426" max-vertical-offset="1387" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="94" selection-start="2213" selection-end="2220" vertical-scroll-proportion="0.0" vertical-offset="981" max-vertical-offset="3572" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/processDashBoard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="23" selection-start="603" selection-end="603" vertical-scroll-proportion="-10.928572" vertical-offset="17" max-vertical-offset="2584">
@@ -676,13 +711,6 @@
     <entry file="file://$PROJECT_DIR$/classes/Pay.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="46" selection-start="598" selection-end="598" vertical-scroll-proportion="-0.6785714" vertical-offset="475" max-vertical-offset="3952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="99" selection-start="2383" selection-end="2383" vertical-scroll-proportion="-13.642858" vertical-offset="777" max-vertical-offset="1691">
           <folding />
         </state>
       </provider>
@@ -832,15 +860,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/javascripts/theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="82" selection-end="82" vertical-scroll-proportion="-0.7169811" vertical-offset="0" max-vertical-offset="8949">
+        <state line="2" column="31" selection-start="82" selection-end="82" vertical-scroll-proportion="0.041758243" vertical-offset="0" max-vertical-offset="8949">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/managecomment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="455" column="44" selection-start="20540" selection-end="20540" vertical-scroll-proportion="0.14521453" vertical-offset="8513" max-vertical-offset="16986">
+        <state line="481" column="69" selection-start="22493" selection-end="22493" vertical-scroll-proportion="39.796295" vertical-offset="11288" max-vertical-offset="16891">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/processManagementComment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="62" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-18.785715" vertical-offset="481" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="33" selection-start="3239" selection-end="3239" vertical-scroll-proportion="0.65652955" vertical-offset="1229" max-vertical-offset="3705">
+          <folding>
+            <marker date="1394467133109" expanded="true" signature="779:837" placeholder="SELECT * FRO..comment_t..." />
+            <marker date="1394467133109" expanded="true" signature="4970:5047" placeholder="insert into ..." />
+            <marker date="1394467133109" expanded="true" signature="6699:6757" placeholder="update comme..." />
+          </folding>
         </state>
       </provider>
     </entry>

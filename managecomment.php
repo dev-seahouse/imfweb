@@ -617,11 +617,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
         };
 
 
-        touch = false;
-        if (window.Modernizr) {
-            touch = Modernizr.touch;
-        }
-        if (!touch) {
             $("body").on("mouseenter", ".has-popover", function () {
                 var el;
                 el = $(this);
@@ -636,7 +631,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processManagementC
             $("body").on("mouseleave", ".has-popover", function () {
                 return $(this).popover("hide");
             });
-        }
+
 
         setMaxSize();
         setAutoSize();
