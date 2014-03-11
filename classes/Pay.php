@@ -65,7 +65,7 @@ class Pay
         }
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($job_app_id);
-            $sql="select JobDate,CheckIn,CheckOut,JobRate,JobEBR,JobMinEBRHours,ExpHours,JobApplicant_t.UserID,";
+            $sql="select JobDate,JobStartTime,CheckIn,CheckOut,JobRate,JobEBR,JobMinEBRHours,ExpHours,JobApplicant_t.UserID,";
             $sql.=" (select sum(expHours) from jobapplicant_t where jobapplicant_t.UserID=User_t.UserID) as TotalExp from user_t";
             $sql.=" join jobapplicant_t on user_t.UserID=jobapplicant_t.UserID ";
             $sql.=" join job_t on job_t.JobID=jobapplicant_t.JobID ";
@@ -95,14 +95,16 @@ class Pay
 
 
 
-    public function calculate_pay($checkin,$checkout,$std_rate,$prem_rate,$eligibility,$total_exp){
+    public function calculate_pay($job_start,$checkin,$checkout,$std_rate,$prem_rate,$eligibility,$total_exp){
 
         $has_premium_rate=(!empty($prem_rate)&&!empty($eligibility));
         $is_eligible=$total_exp>=$eligibility;
 
         date_default_timezone_set("Asia/Singapore");
+        $start_time=new DateTime($job_start);
         $datetime1 = new DateTime($checkin);
         $datetime2 = new DateTime($checkout);
+
         $interval = $datetime1->diff($datetime2);
         $hours=$interval->days*24;
         $hours+=$interval->h;

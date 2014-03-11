@@ -29,11 +29,12 @@ $html = '';
 if ($count > 0) {
     while ($row = $result->fetch_assoc()) {
         $company_name = $row['company_name'];
+        $job_type=$row['scopename'];
         $comment_datetime=$row['comment_date'];
         $rating=$row['rating'];
         $comment_content=$row['comment'];
         $html .= '<div class="bubble clearfix box-content">';
-        $html .= '     <div class="text-fb box-header-small">'.$company_name;
+        $html .= '     <div class="text-fb box-header-small">'.$company_name.' - ('.$job_type.')';
         $html .= '         <div class="time pull-right">';
         $html .= '             <small class="date pull-right text-muted">';
         $html .= '<span class="timeago fade has-tooltip text-fb in" data-placement="top" title="'.$comment_datetime.'"></span>';

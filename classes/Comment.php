@@ -32,7 +32,13 @@ class Comment
 
         if (!$this->db_connection->connect_errno) {
             $this->db_connection->real_escape_string($uid);
-            $sql = "SELECT * FROM fyp_imf.comment_t  where user_id=? limit ?,?";
+            $sql = "SELECT scopename,categoryname,comment_id,company_id,company_name,rating,comment,comment_date,";
+            $sql.= " comment_t.jobapplicant_id as jobapplicant_id,comment_t.user_id as user_id";
+            $sql.= " FROM fyp_imf.comment_t join jobapplicant_t on jobapplicant_t.JobAppID=comment_t.jobapplicant_id";
+            $sql.=" join job_t on jobapplicant_t.JobID=job_t.JobID ";
+            $sql.=" join category_t on category_t.CategoryID=job_t.CategoryID ";
+            $sql.=" join scope_t on job_t.ScopeID=scope_t.ScopeID";
+            $sql.= " where comment_t.user_id=? limit ?,?";
             if (!$stmt = $this->db_connection->prepare($sql)) {
                 $this->errors[] = "Prepare statement error." . $this->db_connection->error;
             }

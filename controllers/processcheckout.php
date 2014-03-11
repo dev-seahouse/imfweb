@@ -30,6 +30,7 @@ if (isset($_POST['check_out']) && isset($_POST['app_id'])){
 
     $result_set=$pay->get_pay_data_by_appid($_POST['app_id']);
     while($row=$result_set->fetch_assoc()){
+        $job_start=$row['JobStartTime'];
         $check_in=$row['CheckIn'];
         $check_out=$row['CheckOut'];
         $std_rate=$row['JobRate'];//varchar rate/hour
@@ -37,7 +38,7 @@ if (isset($_POST['check_out']) && isset($_POST['app_id'])){
         $eligibility=$row['JobMinEBRHours'];//varchar in hours
     }
 
-    $pay_result=$pay->calculate_pay($check_in,$check_out,$std_rate,$prem_rate,$eligibility,$prev_total_exp);
+    $pay_result=$pay->calculate_pay($job_start,$check_in,$check_out,$std_rate,$prem_rate,$eligibility,$prev_total_exp);
     $pay_result=strval($pay_result);
     $applicant->update_pay($_POST['app_id'],$pay_result);
 
