@@ -217,7 +217,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
     <!-- ====================== Top Right Profile menu Dropdown ===================== -->
     <li class='dropdown dark user-menu'>
         <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-            <!-- ==================================================================               
+            <!-- ==================================================================
             <img width="23" height="23" alt="company" src="assets/images/avatar.jpg" />
             -->
             <span class='user-name'><?= $_SESSION["company_name"] ?></span> <b class='caret'></b>
@@ -458,7 +458,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                                      <div class="col-md-6">
                                                                          <div class='box box-bordered contrast-border  box-nomargin'>
                                                                              <div class='box-header box-header-small contrast-background'>
-                                                                                 <div class='title'>Total Job Vacancies Needed</div>
+                                                                                 <div class='title'>Vacancies Needed</div>
                                                                              </div>
                                                                              <div class='box-content box-transparent'>
                                                                                  <div id="vacancy_needed">
@@ -470,7 +470,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/imfweb/controllers/processviewjob.php
                                                                      <div class="col-md-6">
                                                                          <div class='box box-bordered contrast-border  box-nomargin'>
                                                                              <div class='box-header box-header-small contrast-background'>
-                                                                                 <div class='title'>Job Vacancies Left</div>
+                                                                                 <div class='title'>Vacancies Left</div>
                                                                              </div>
                                                                              <div class='box-content box-transparent'>
                                                                                  <div id="vacancy_left">
